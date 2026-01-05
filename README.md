@@ -1,1 +1,1 @@
-# BlackICE EastAsia Expansion 开发代码
+# BlackICE EastAsia Expansion
