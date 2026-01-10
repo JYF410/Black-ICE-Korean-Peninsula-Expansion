@@ -5,10 +5,11 @@ oob = "KOR_1936"
 set_war_support = 0.85
 
 set_research_slots = 2
-#set_country_flag = SOV_armor
 
+#set_country_flag = SOV_armor
 #set_country_flag = SOV_air
-set_country_flag = ai_country_logic
+
+set_country_flag = ai_country_logic #启用AI调度，加载d_ai_logic/KOR
 
 set_convoys = 20
 if = {
@@ -206,7 +207,7 @@ create_equipment_variant = {
 #############################################################
 # Destroyers #
 create_equipment_variant = {
-	name = "崔贤级驱逐舰"
+	name = "1936型驱逐舰"
 	type = nrm_ship_hull_destroyer_1
 	parent_version = 0
 	show_position = no
@@ -230,10 +231,35 @@ create_equipment_variant = {
 		custom_slot_6 = empty #附加设备
 	}
 }
+create_equipment_variant = {
+	name = "1940型驱逐舰"
+	type = nrm_ship_hull_destroyer_2
+	parent_version = 0
+	show_position = no
+	role_icon_index = 39 #驱逐舰图标
+	modules = {
+		fixed_ship_hullform_slot = nrm_ship_hullform_destroyer_2 #船体外形
+		fixed_ship_engine_slot = nrm_destroyer_engine_S2_020 #发动机
+		fixed_ship_sonar_slot = nrm_sonar_1 #声纳
+		fixed_ship_battery_slot = nrm_destroyer_battery_4_2_x6 #主炮
+		fixed_ship_subdivision_slot = nrm_subdivision_2 #水密隔舱
+		fixed_ship_damagecontrol_slot = nrm_damagecontrol_2 #损害管制
+		fixed_ship_range_slot = nrm_range_destroyer_3 #巡航距离
+		fixed_ship_radar_slot = empty #雷达
+		fixed_ship_fire_control_system_slot = nrm_fire_control_3 #火控系统
+		fixed_ship_fire_control_system_aa_slot = nrm_fire_control_aa_1 #防空火控系统
+		custom_slot_1 = empty #附加设备
+		custom_slot_2 = empty #附加设备
+		custom_slot_3 = nrm_support_destroyer_TRP_21_C_2_x3 #附加设备
+		custom_slot_4 = nrm_support_destroyer_TRP_21_C_2_x3 #附加设备
+		custom_slot_5 = nrm_support_capital_AA_1 #附加设备
+		custom_slot_6 = nrm_support_capital_AA_1 #附加设备
+	}
+}
 #############################################################
 # submarine #
 create_equipment_variant = {
-	name = "633型潜艇"
+	name = "1936型潜艇"
 	type = nrm_ship_hull_submarine_1
 	parent_version = 0
 	show_position = no
@@ -252,6 +278,52 @@ create_equipment_variant = {
 		fixed_ship_torpedo_slot = nrm_submarine_TRP_18_1_x2 #鱼雷槽位1
 		fixed_ship_torpedo_2_slot = nrm_submarine_TRP_18_1_x2 #鱼雷槽位2
 		custom_slot_1 = empty #附加槽位1
+		custom_slot_2 = empty #附加槽位2
+	}
+}
+create_equipment_variant = {
+	name = "1940型潜艇"
+	type = nrm_ship_hull_submarine_2
+	parent_version = 0
+	show_position = no
+	role_icon_index = 122 #潜艇图标
+	modules = {
+		fixed_ship_sub_hull_slot = nrm_submarine_hull_2 #船体设计
+		fixed_ship_engine_slot = nrm_submarine_engine_D1_025 #引擎
+		fixed_ship_sonar_slot = nrm_submarine_sonar_1 #声纳
+		fixed_ship_noise_slot = nrm_submarine_noise_1 #隐蔽性
+		fixed_ship_subdivision_slot = nrm_subdivision_2 #分舱
+		fixed_ship_damagecontrol_slot = nrm_damagecontrol_2 #灭火
+		fixed_ship_range_slot = nrm_range_submarine_2 #航程
+		fixed_ship_radar_slot = empty #雷达
+		fixed_ship_battery_slot = nrm_submarine_deckgun_3 #甲板炮
+		fixed_ship_anti_air_slot = empty #防空炮
+		fixed_ship_torpedo_slot = nrm_submarine_TRP_18_2_x4 #鱼雷槽位1
+		fixed_ship_torpedo_2_slot = nrm_submarine_TRP_18_2_x4 #鱼雷槽位2
+		custom_slot_1 = empty #附加槽位1
+		custom_slot_2 = empty #附加槽位2
+	}
+}
+create_equipment_variant = {
+	name = "1942型潜艇"
+	type = nrm_ship_hull_submarine_3
+	parent_version = 0
+	show_position = no
+	role_icon_index = 122 #潜艇图标
+	modules = {
+		fixed_ship_sub_hull_slot = nrm_submarine_hull_3 #船体设计
+		fixed_ship_engine_slot = nrm_submarine_engine_D1_050 #引擎
+		fixed_ship_sonar_slot = nrm_submarine_sonar_2 #声纳
+		fixed_ship_noise_slot = nrm_submarine_noise_2 #隐蔽性
+		fixed_ship_subdivision_slot = nrm_subdivision_3 #分舱
+		fixed_ship_damagecontrol_slot = nrm_damagecontrol_3 #灭火
+		fixed_ship_range_slot = nrm_range_submarine_3 #航程
+		fixed_ship_radar_slot = empty #雷达
+		fixed_ship_battery_slot = nrm_submarine_deckgun_4 #甲板炮
+		fixed_ship_anti_air_slot = empty #防空炮
+		fixed_ship_torpedo_slot = nrm_submarine_TRP_18_3_x6 #鱼雷槽位1
+		fixed_ship_torpedo_2_slot = nrm_submarine_TRP_18_3_x6 #鱼雷槽位2
+		custom_slot_1 = nrm_submarine_SNK_1 #附加槽位1
 		custom_slot_2 = empty #附加槽位2
 	}
 }
