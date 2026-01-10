@@ -7,7 +7,7 @@ set_war_support = 0.85
 set_research_slots = 2
 
 #set_country_flag = SOV_armor
-#set_country_flag = SOV_air
+set_country_flag = SOV_air
 
 set_country_flag = ai_country_logic #启用AI调度，加载d_ai_logic/KOR
 
