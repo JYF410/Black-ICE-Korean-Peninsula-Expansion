@@ -1,0 +1,45 @@
+focus_tree = {
+	id = KOR_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = KOR
+		}
+	}
+	continuous_focus_position = { x = 80 y = 1200 }
+	default = no
+	reset_on_civilwar = no
+	#大韩民国临时政府驻华代表团
+	focus = {
+		id = KOR_political_reform
+		icon = GFX_focus_ARG_strengthening_the_concordancia
+		x = 18
+		y = 0
+		cost = 7
+		available = {
+			#
+		}
+		completion_reward = {
+			add_political_power = 100
+			add_ideas = KOR_political_reform
+		}
+	}
+	#韩国光复军
+	focus = {
+		id = Korean_Liberation_Army
+		icon = GFX_focus_ARG_strengthening_the_concordancia
+		prerequisite = { focus = KOR_political_reform }
+		x = 24
+		y = 1
+		cost = 7
+		available = {
+			#
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_ideas = Korean_Liberation_Army
+		}
+	}
+	#其他国策...
+}

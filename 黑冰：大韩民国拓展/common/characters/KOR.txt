@@ -13,7 +13,6 @@ characters = {
 			id = -1
 			traits = {
 				ideological_crusader
-				anti_communist
 			}
 		}
 		advisor = {
@@ -48,6 +47,24 @@ characters = {
 				communist_revolutionary
 			}
 		}
+		advisor = {
+			idea_token = KOR_Kim_Il_sung_supreme_commander
+			slot = supreme_commander
+			on_add = {
+				set_temp_variable = { character = token:KOR_Kim_Il_sung}
+				set_temp_variable = { slot = token:supreme_commander}
+				supreme_commander_on_add_effect = yes
+			}
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Kim_Il_sung}
+				set_temp_variable = { slot = token:supreme_commander}
+				supreme_commander_on_remove_effect = yes
+			}
+			available = {
+				has_government = communism
+			}
+			traits = { supreme_com_aggressive }
+		}
 		field_marshal = {
 			traits = { war_hero }
 			skill = 1
@@ -73,6 +90,24 @@ characters = {
 			traits = {
 				fascist
 			}
+		}
+		advisor = {
+			idea_token = KOR_Abe_Nobuyuki_supreme_commander
+			slot = supreme_commander
+			on_add = {
+				set_temp_variable = { character = token:KOR_Abe_Nobuyuki}
+				set_temp_variable = { slot = token:supreme_commander}
+				supreme_commander_on_add_effect = yes
+			}
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Abe_Nobuyuki}
+				set_temp_variable = { slot = token:supreme_commander}
+				supreme_commander_on_remove_effect = yes
+			}
+			available = {
+				has_government = fascism
+			}
+			traits = { supreme_com_favors_army }
 		}
 	}
 	KOR_Park_Heon_young={  #朴宪永
