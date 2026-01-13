@@ -11,9 +11,7 @@ characters = {
 			ideology = despotism
 			expire = "1956.12.5"
 			id = -1
-			traits = {
-				ideological_crusader
-			}
+			traits = { ideological_crusader }
 		}
 		advisor = {
 			idea_token = KOR_Syngman_Rhee_supreme_commander
@@ -27,6 +25,9 @@ characters = {
 				set_temp_variable = { character = token:KOR_Syngman_Rhee}
 				set_temp_variable = { slot = token:supreme_commander}
 				supreme_commander_on_remove_effect = yes
+			}
+			available = {
+				has_government = neutrality
 			}
 			traits = { supreme_com_organizer }
 		}
@@ -43,9 +44,7 @@ characters = {
 			ideology = stalinism
 			expire = "1994.7.8"
 			id = -1
-			traits = {
-				communist_revolutionary
-			}
+			traits = { communist_revolutionary }
 		}
 		advisor = {
 			idea_token = KOR_Kim_Il_sung_supreme_commander
@@ -60,16 +59,14 @@ characters = {
 				set_temp_variable = { slot = token:supreme_commander}
 				supreme_commander_on_remove_effect = yes
 			}
-			available = {
-				has_government = communism
-			}
+			available = { has_government = communism }
 			traits = { supreme_com_aggressive }
 		}
 		field_marshal = {
 			traits = { war_hero }
-			skill = 1
-			attack_skill = 1
-			defense_skill = 1
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
 			planning_skill = 1
 			logistics_skill = 1
 			legacy_id = -1
@@ -80,16 +77,14 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Abe_Nobuyuki.dds"
-			}	
+			}
 		}
 		country_leader={
 			desc = "POLITICS_Abe_Nobuyuki_DESC"
 			ideology = fascism_ideology
 			expire = "1953.9.7"
 			id = -1
-			traits = {
-				fascist
-			}
+			traits = { fascist_demagogue }
 		}
 		advisor = {
 			idea_token = KOR_Abe_Nobuyuki_supreme_commander
