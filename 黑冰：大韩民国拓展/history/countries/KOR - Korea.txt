@@ -10,9 +10,11 @@ set_research_slots = 2
 #set_country_flag = SOV_air
 
 set_country_flag = ai_country_logic #启用AI调度，加载d_ai_logic/KOR
+set_country_flag = ai_has_air_production #启用AI飞机生产，加载位置common\ai_strategy\_ai_AIR_PRODUCTION_strategies.txt
 
 set_country_flag = JAP_armor
 set_country_flag = JAP_air
+
 JAP = {
 	puppet = KOR
 }
@@ -40,7 +42,7 @@ if = {
 		early_engine = 1
 	}
 }
-set_technology = {  #初始科技
+set_technology = {
     ############# infantry ###############
 	tech_infantry_uniforms = 1
 	infantry_weapons = 1
@@ -56,11 +58,12 @@ set_technology = {  #初始科技
 	handheld_at_equipment_special_forces_group_tech = 1
 	semi_motorised_infantry = 1
 	motorised_infantry = 1
-	################## aircraft ##############
-	generic_fighter = 1
-	generic_bomber = 1
-	generic_strategic_bomber = 1
-	early_CAS = 1
+	################## artillery ##############
+	gw_artillery = 1 #一战火炮
+	interwar_artillery = 1 #驮马牵引车
+	############### aircraft ##############
+	tech_kawasaki_t92_equipment_1 = 1 #川崎 九二式战斗机
+	tech_nakajima_ki_4_equipment_1 = 1 #中岛 Ki-4 九四式侦察机(CAS)
 	################# ships ################
 	generic_naval_tech = 1
 	generic_naval = 1
@@ -75,7 +78,7 @@ set_technology = {  #初始科技
 	cavalry_dismounting = 1
 	ww1_battlefield_support = 1
 	############### WW2 doctrines ############
-	mass_assault = 1
+	mass_assault = 1 #人海突击学说
 }
 add_ideas = { 	#初始民族精神
 	export_focus

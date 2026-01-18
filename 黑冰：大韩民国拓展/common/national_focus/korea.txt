@@ -85,7 +85,7 @@ focus_tree = {
 			factor = 90
 		}
 	}
-	#扩编韩国光复军
+	#韩国光复军
 	focus = {
 		id = Korean_Liberation_Army
 		icon = GFX_focus_POL_beck_ribbentrop

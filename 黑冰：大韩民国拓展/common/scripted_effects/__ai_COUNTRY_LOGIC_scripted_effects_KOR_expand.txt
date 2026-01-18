@@ -1,5 +1,5 @@
 ##韩国##
-d_ai_logic/KOR = {  
+d_ai_logic/KOR = {
 	#set_temp_variable = { ai_template_skip = 1 }
 	if = {
 		limit = {
@@ -9,18 +9,19 @@ d_ai_logic/KOR = {
 		ai_infantry_templates/KOR = yes
 		ai_light_armor_templates/KOR = yes
 	}
+	########################################### 建立部队策略 ###########################################
+	### 只有当AI拥有角色模板或模板变量时（_ai_TEMPLATES_scripted_effects.txt），策略功能才会在游戏内生效 ###
+	##################################################################################################
 	if = {
 		limit = {
 			check_variable = { ai_ignore_deployment = 0 }
 		}
-		############################## 建立部队策略 #############################
-		### 只有当AI拥有角色模板或模板变量时（_ai_TEMPLATES_scripted_effects.txt），策略功能才会在游戏内生效 ###
 		# disable_build  #禁用建立
 		# production_ratio  #生产权重
-		set_temp_variable = { BASE@role_infantry 				= 5  } 
+		set_temp_variable = { BASE@role_infantry 				= 2  }
 		set_temp_variable = { BASE@role_light_infantry 			= 0  }
 		set_temp_variable = { BASE@role_heavy_infantry 			= 0  }
-		set_temp_variable = { BASE@role_militia		 			= 10 }
+		set_temp_variable = { BASE@role_militia		 			= 5  }
 		set_temp_variable = { BASE@role_garrison 				= 0  }
 		set_temp_variable = { BASE@role_cavalry 				= 0  }
 		set_temp_variable = { BASE@role_motorized 				= 0  }
@@ -35,19 +36,35 @@ d_ai_logic/KOR = {
 		if = {
 			limit = {
 				is_in_faction_with = CHI
-				is_in_faction_with = JAP
+				is_in_faction_with = PRC
 			}
 			add_to_temp_variable = {
 				BASE@role_infantry = 20
-				BASE@role_light_armor = 5
+				BASE@role_heavy_infantry = 10
+				BASE@role_motorized = 5
+				BASE@role_light_armor = 2
+				BASE@role_medium_armor = 1
+			}
+		}
+		if = {
+			limit = {
+				is_in_faction_with = JAP
+			}
+			add_to_temp_variable = {
+				BASE@role_infantry = 10
+				BASE@role_militia = 5
+				BASE@role_mountaineers = 2
+				BASE@role_light_armor = 1
 			}
 		}
 	}
+	########################################### 生产军舰策略 ###########################################
+	### 只有当AI拥有角色模板或模板变量时（_ai_TEMPLATES_scripted_effects.txt），策略功能才会在游戏内生效 ###
+	##################################################################################################
 	if = {
 		limit = {
-			#check_variable = { ai_ignore_naval_production = 0 }
+			check_variable = { ai_ignore_naval_production = 0 }
 		}
-		### SHIPS ###########################
 		ai_naval_BC/KOR = yes
 		ai_naval_CA/KOR = yes
 		ai_naval_CL/KOR = yes
@@ -92,5 +109,63 @@ d_ai_logic/KOR = {
 		}
 		ai_update_ship_production = yes
 	}
+	########################################### 生产飞机策略 ###########################################
+	### 只有当AI拥有角色模板或模板变量时（_ai_TEMPLATES_scripted_effects.txt），策略功能才会在游戏内生效 ###
+	##################################################################################################
+	if = {
+		limit = {
+			check_variable = { ai_ignore_air_production = 0 }
+		}
+		############################## BUILD PLANE STRATEGIES #############################
+		################# 只有当AI拥有航空装备和必要的标志时，这些才会被应用 ##################
+		set_temp_variable = { RATIO@fighter_equipment 				=  50 } #战斗机
+		set_temp_variable = { RATIO@fighter_alt_equipment 			= 100 } #轻型战斗机
+		set_temp_variable = { RATIO@interceptor_equipment 			=   0 } #截击机
+		set_temp_variable = { RATIO@mr_fighter_equipment 			=   0 } #多用途战斗机
+		set_temp_variable = { RATIO@heavy_fighter_equipment 		=   0 } #重型战斗机
+		set_temp_variable = { RATIO@CAS_equipment 					=  50 } #近距支援机
+		set_temp_variable = { RATIO@twin_cas_equipment 				=   0 } #重型近距支援机
+		set_temp_variable = { RATIO@nav_bomber_equipment 			=   0 } #海军轰炸机
+		set_temp_variable = { RATIO@tac_bomber_equipment 			=   0 } #战术轰炸机
+		set_temp_variable = { RATIO@light_bomber_equipment 			=   0 } #轻型轰炸机
+		set_temp_variable = { RATIO@fast_bomber_equipment 			=   0 } #快速轰炸机
+		set_temp_variable = { RATIO@quad_engine_bomber_equipment 	=   0 } #战略轰炸机
+		if = {
+			limit = {
+				has_tech = tech_mitsubishi_a6m_equipment_1 #三菱 A6M2 零式二一型舰上战斗机
+			}
+			add_to_temp_variable = { RATIO@cv_fighter_equipment = 120 }
+		}
+		### FIGHTER TARGET 
+		set_temp_variable = { ai_fighter_target_buffer = 500 }
+		set_temp_variable = { max_enemy_fighter_ratio = 3.0 }
+		if = { limit = { check_variable = { FIGHTER_WEIGHT^num = 0 } }
+			clear_array = FIGHTER_WEIGHT
+			add_to_array = { FIGHTER_WEIGHT = 1.00 } 	#-- fighter_equipment
+			add_to_array = { FIGHTER_WEIGHT = 0.80 } 	#-- interceptor_equipment
+			add_to_array = { FIGHTER_WEIGHT = 0.70 } 	#-- mr_fighter_equipment
+			add_to_array = { FIGHTER_WEIGHT = 1.20 } 	#-- heavy_fighter_equipment
+			add_to_array = { FIGHTER_WEIGHT = 1.00 } 	#-- fighter_alt_equipment
+			add_to_array = { FIGHTER_WEIGHT = 1.50 } 	#-- jet_fighter_equipment
+		}
+		#这些数值决定了AI在每个战略区域想要的战斗机类型数量；其规模由“matching_states/num_region_states”决定。
+		add_to_temp_array = { REGION_FIGHTER_NEED = 200 } 	#-- home area
+		add_to_temp_array = { REGION_FIGHTER_NEED = 150 } 	#-- core
+		add_to_temp_array = { REGION_FIGHTER_NEED = 75 } 	#-- owned & controlled 
+		add_to_temp_array = { REGION_FIGHTER_NEED = 50 } 	#-- only controlled
+		### 额外战斗机生产聚焦
+		set_temp_variable = { enable_ratio = 1.2 } #如果低于这个比例，就增加战斗机的生产
+		set_temp_variable = { minimum_ratio = 0.5 } #在这个比例下，达到了最大额外产量，如下所列：
+		#这些数值会在启用值和最大值之间进行缩放
+		add_to_temp_array = { MAX_EXTRA_FIGHTER_RATIO_MULT = 2.00 } 	#-- fighter_equipment
+		add_to_temp_array = { MAX_EXTRA_FIGHTER_RATIO_MULT = 0.00 } 	#-- interceptor_equipment
+		add_to_temp_array = { MAX_EXTRA_FIGHTER_RATIO_MULT = 0.00 } 	#-- mr_fighter_equipment
+		add_to_temp_array = { MAX_EXTRA_FIGHTER_RATIO_MULT = 0.00 } 	#-- heavy_fighter_equipment
+		add_to_temp_array = { MAX_EXTRA_FIGHTER_RATIO_MULT = 2.00 } 	#-- fighter_alt_equipment
+		add_to_temp_array = { MAX_EXTRA_FIGHTER_RATIO_MULT = 0.00 } 	#-- jet_fighter_equipment
+		##--- MISC 
+		ai_update_air_production = yes
+	}
+	##################################################################################################	
 	ai_templates_on_end_effect = yes
 }

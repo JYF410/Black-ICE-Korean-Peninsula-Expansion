@@ -1,4 +1,3 @@
-
 #扩编韩国光复军
 KOR_create_free_legion_div = {
 	create_unit = {

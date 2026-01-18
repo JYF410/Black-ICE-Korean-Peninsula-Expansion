@@ -1,65 +1,100 @@
-#韩国战列巡洋舰生产策略
-KOR_heavy_cruisers_production = {
-	KOR = {
-		enable = { always = yes }
-		abort = { always = no }
-		num_of_naval_factories > 12
-		ai_strategy = {
-			type = unit_ratio
-			id = battle_cruiser
-			value = 50
-		}
+#韩国航母生产策略
+KOR_BC_naval_production = {
+	allowed = { tag = KOR }
+	enable = {
+		num_of_naval_factories > 15
+		carrier < 1
+	}
+	abort = {
+		carrier > 2
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = carrier
+		value = 10
+	}
+	ai_strategy = {
+		type = build_ship
+		id = carrier
+		value = 10
 	}
 }
-#韩国重巡洋舰生产策略
-KOR_heavy_cruisers_production = {
-	KOR = {
-		enable = { always = yes }
-		abort = { always = no }
-		num_of_naval_factories > 10
-		ai_strategy = {
-			type = unit_ratio
-			id = heavy_cruiser
-			value = 200
-		}
+#韩国主力舰生产策略
+KOR_BC_naval_production = {
+	allowed = { tag = KOR }
+	enable = {
+		num_of_naval_factories > 15
+		capital_ship < 1
+	}
+	abort = {
+		capital_ship > 6
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = capital_ship
+		value = 20
+	}
+	ai_strategy = {
+		type = build_ship
+		id = capital_ship
+		value = 50
 	}
 }
-#韩国轻巡洋舰生产策略
-KOR_light_cruisers_production = {
-	KOR = {
-		enable = { always = yes }
-		abort = { always = no }
-		num_of_naval_factories > 8
-		ai_strategy = {
-			type = unit_ratio
-			id = light_cruiser
-			value = 500
-		}
-	}
-}
-#韩国驱逐舰生产策略
-KOR_destroyers_production = {
-	KOR = {
-		enable = { always = yes }
-		abort = { always = no }
+#韩国屏卫舰生产策略
+KOR_DD_naval_production = {
+	allowed = { tag = KOR }
+	enable = {
 		num_of_naval_factories > 6
-		ai_strategy = {
-			type = unit_ratio
-			id = destroyer
-			value = 1000
-		}
+		screen_ship < 1
+	}
+	abort = {
+		screen_ship > 20
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = screen_ship
+		value = 500
+	}
+	ai_strategy = {
+		type = build_ship
+		id = screen_ship
+		value = 500
 	}
 }
 #韩国潜艇生产策略
-KOR_submarine_production = {
-	KOR = {
-		enable = { always = yes }
-		abort = { always = no }
+KOR_SS_naval_production = {
+	allowed = { tag = KOR }
+	enable = {
 		num_of_naval_factories > 4
-		ai_strategy = {
-			type = unit_ratio
-			id = submarine
-			value = 2000
-		}
+		submarine < 1
+	}
+	abort = {
+		submarine > 50
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = submarine
+		value = 2000
+	}
+	ai_strategy = {
+		type = build_ship
+		id = submarine
+		value = 2000
+	}
+}
+#韩国运输船生产策略
+KOR_convoy_naval_production = {
+	allowed = { tag = KOR }
+	enable = {
+		num_of_naval_factories > 1
+		convoy < 1
+	}
+	abort = {
+		convoy > 1000
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = convoy
+		value = 50000
 	}
 }
