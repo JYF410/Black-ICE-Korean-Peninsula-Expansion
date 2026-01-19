@@ -14,3 +14,11 @@ KOR_create_northeast_anti_japanese_guerrillas_div = {
 		count = 1
 	}
 }
+#创建民兵编制的火星部队
+KOR_create_Militia_div = {
+	create_unit = {
+		division = "division_template = \"KOR Militia Division I\" start_experience_factor = 0.3 start_equipment_factor = 0.5"
+		owner = new_occupied_country
+		count = 2
+	}
+}

@@ -9,19 +9,10 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		}
 		available = {
 			KOR = {
+				communism > 0.7
 				or = {
 					is_puppet_of = JAP
 					is_in_faction_with = JAP
-				}
-				or = {
-					communism > 0.7
-					has_stability < 0.5
-				}
-			}
-			JAP = {
-				OR = {
-					has_war_with = PRC
-					has_war_with = SOV
 				}
 			}
 		}
@@ -30,31 +21,31 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			has_completed_focus = KOR_front_against_Japan
 		}
 		fire_only_once = yes
-		days_remove = 360
+		days_remove = 7 #测试数据（待修改）
 		cost = 200
 		complete_effect = {
 			#
 		}
 		remove_effect = {
-			if = {
-				limit = {
-					has_government = communism
-				}
-			}
 			start_civil_war = {
-				ruling_party = communism
+				ruling_party = communism #设定进攻方（起义方）政体
 				ideology = ROOT
 				size = civil_war_size_var
-				keep_unit_leaders_trigger = {
-					has_trait = hidden_sympathies
-				}
+				states = { 527 751 815 816 } #设定防御方拥有的地块
+				keep_unit_leaders = {  }
 			}
+			hidden_effect = {
+				add_ideas = ai_dont_call_ally #AI修正：请求盟友加入战争的意愿-1000
+				add_ideas = ai_dont_join_ally #AI修正：参战意愿-1000
+			}
+			KOR_create_Militia_div = yes #测试数据（待修改）
 			KOR = {
+				KOR_create_Militia_div = yes #测试数据（待修改）
 				remove_ideas = neutrality_idea
 			}
-		}
-		ai_will_do = {
-			factor = 90
+			ai_will_do = {
+				factor = 90
+			}
 		}
 	}
 	#韩国光复军起义了！
@@ -66,20 +57,11 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		}
 		available = {
 			KOR = {
+				has_government = fascism
+				neutrality > 0.8
 				or = {
 					is_puppet_of = JAP
 					is_in_faction_with = JAP
-				}
-				or = {
-					communism > 0.7
-					has_stability < 0.5
-				}
-			}
-			JAP = {
-				OR = {
-					has_war_with = CHI
-					has_war_with = USA
-					has_war_with = ENG
 				}
 			}
 		}
@@ -94,13 +76,8 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			#
 		}
 		remove_effect = {
-			if = {
-				limit = {
-					has_government = neutrality
-				}
-			}
 			start_civil_war = {
-				ruling_party = neutrality
+				ruling_party = neutrality #起义军执政党
 				ideology = ROOT
 				size = civil_war_size_var
 				keep_unit_leaders_trigger = {
@@ -116,8 +93,9 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		}
 	}
 }
+#中朝贸易援助
 KOR_PRC_trade_effort = {
-	#中朝贸易援助
+	#朝鲜粮食援助
 	KOR_PRC_food_support = {
 		icon = RAJ_famine
 		allowed = {

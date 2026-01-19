@@ -274,27 +274,27 @@ focus_tree = {
 		completion_reward = {
 			army_experience = 75
 			add_equipment_to_stockpile = {
-				type = infantry_uniforms_1 amount = 2000
+				type = infantry_uniforms_1 amount = 1000
 				producer = SOV
 			}
 			add_equipment_to_stockpile = {
-				type = mount_equipment_0 amount = 1500
+				type = mount_equipment_0 amount = 500
 				producer = SOV
 			}
 			add_equipment_to_stockpile = {
-				type = support_equipment_1 amount = 500
+				type = support_equipment_1 amount = 200
 				producer = SOV
 			}
 			add_equipment_to_stockpile = {
-				type = recon_equipment_0 amount = 500
+				type = recon_equipment_0 amount = 200
 				producer = SOV
 			}
 			add_equipment_to_stockpile = {
-				type = artyhorse_equipment_0 amount = 200
+				type = artyhorse_equipment_0 amount = 100
 				producer = SOV
 			}
 			add_equipment_to_stockpile = {
-				type = mountain_artillery_equipment_0 amount = 100
+				type = mountain_artillery_equipment_0 amount = 50
 				producer = SOV
 			}
 			division_template = {
@@ -389,14 +389,17 @@ focus_tree = {
 		available_if_capitulated = no #投降后不能点该国策
 		cost = 70
 		available = {
-			#
+			KOR = {
+				owns_state = 527 #平安
+				has_government = communism
+			}
 		}
 		completion_reward = {
 			815 = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = hydro_power
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}

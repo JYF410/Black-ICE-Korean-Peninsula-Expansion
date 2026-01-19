@@ -2,7 +2,7 @@ ideas = {
 	hidden_ideas = {
 		#
 	}
-	country = {		
+	country = {
 		#朝鲜半岛独立运动
 		kor_quit_jap_movement = {
 			picture = hol_expand_the_colonial_army
@@ -17,10 +17,10 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				weekly_manpower = 800
+				weekly_manpower = 500
 				autonomy_gain = 0.5
-				communism_drift = 0.02
-				neutrality_drift = 0.02
+				communism_drift = 0.03
+				neutrality_drift = 0.03
 				fascism_drift = -0.02
 			}
 		}
@@ -33,6 +33,7 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
+				neutrality_drift = 0.05 #专制主义理念每日新增+5%
 				stability_weekly = 0.001
 				political_power_factor = 0.05
 				foreign_minister_cost_factor = -0.5
@@ -48,8 +49,8 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
+				communism_drift = 0.05 #共产主义理念每日新增+5%
 				political_power_factor = 0.05 #政治点数获取+5%
-				communism_drift = 0.02 #共产主义理念每日新增+2%
 				foreign_minister_cost_factor = -0.5 #外交部长行动力消耗-50%
 			}	
 		}
@@ -76,21 +77,12 @@ ideas = {
 				}
 			}
 			cancel = { 
-				OR = {
-					KOR = {
-						has_civil_war = no
-						OR = {
-							has_war_with = CHI
-							has_war_with = PRC
-							is_puppet_of = JAP
-							is_in_faction_with = JAP
-						}
-					JAP = {
-						OR = {
-							exists = yes
-							has_capitulated = yes
-						}
-					}	
+				KOR = {
+					has_civil_war = no
+					OR = {
+						has_war_with = CHI
+						has_war_with = PRC
+					}
 				}
 			}
 		}
