@@ -63,10 +63,36 @@ ideas = {
 			modifier = {
 				army_core_attack_factor = 0.5 #核心领土进攻+50%
 				army_core_defence_factor = 0.5 #核心领土防御+50%
-				army_speed_factor = 0.3 #移动速度+30%
+				army_org_factor = 0.8 #陆军组织度+80%
+				army_org_factor = 0.5 #陆军组织度恢复+50%
+				army_speed_factor = 0.5 #移动速度+50%
+				supply_consumption_factor = -0.80 #补给使用-80%
 				war_support_factor = 0.50 #战争支持度+50%
 				surrender_limit = 0.90 #投降界限+90%
-			}	
+			}
+			allowed_civil_war = {
+				NOT ={
+					has_government = fascism #设定爆发内战时不允许拥有民族精神的一方
+				}
+			}
+			cancel = { 
+				OR = {
+					KOR = {
+						has_civil_war = no
+						OR = {
+							has_war_with = CHI
+							has_war_with = PRC
+							is_puppet_of = JAP
+							is_in_faction_with = JAP
+						}
+					JAP = {
+						OR = {
+							exists = yes
+							has_capitulated = yes
+						}
+					}	
+				}
+			}
 		}
 		#朝鲜华侨总联合会
 		KOR_PRC_General_Federation_of_Korean_Chinese = {
@@ -89,9 +115,10 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				supply_consumption_factor = -0.10
-				army_org_factor = 0.05
-				experience_gain_army_factor = 0.05
+				army_org_factor = 0.05 #陆军组织度
+				army_org_factor = 0.02 #陆军组织度恢复
+				supply_consumption_factor = -0.10 #补给使用
+				experience_gain_army_factor = 0.05 #陆军经验增长
 			}		
 		}
 	}
