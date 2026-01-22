@@ -25,7 +25,7 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		cost = 200
 		complete_effect = {
 			country_event = {
-				id = KOR_communism.1
+				id = KOR_communism.1 #弹出事件：朝鲜共产党起义了！
 				days = 5 #测试数据（待修改）
 			}
 		}
