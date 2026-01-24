@@ -81,6 +81,8 @@ set_technology = {
 	mass_assault = 1 #人海突击学说
 }
 add_ideas = { 	#初始民族精神
+	KOR_opium_plantation #朝鲜鸦片种植地
+
 	export_focus
 	tax_low
 	tariffs_average
