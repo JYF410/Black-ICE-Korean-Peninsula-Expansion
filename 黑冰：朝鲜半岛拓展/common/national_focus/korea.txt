@@ -190,7 +190,7 @@ focus_tree = {
 		available = {
 			date > 1937.7.7
 			KOR = {
-				communism > 0.35
+				communism > 0.3
 				exists = yes
 				has_capitulated = no
 				NOT = {
@@ -309,9 +309,6 @@ focus_tree = {
 		available_if_capitulated = no #投降后不能点该国策
 		cost = 70
 		available = {
-			NOT = {
-				has_War_with = PRC
-			}
 			PRC = {
 				exists = yes
 				has_capitulated = no
@@ -357,7 +354,7 @@ focus_tree = {
 		available_if_capitulated = no #投降后不能点该国策
 		cost = 70
 		available = {
-			communism > 0.3
+			communism > 0.2
 			PRC = {
 				exists = yes
 				has_capitulated = no
@@ -800,7 +797,7 @@ focus_tree = {
 		}
 	}
 	#朝鲜银行
-	focus = {
+	focus = {	
 		id = KOR_national_bank
 		icon = GFX_focus_PER_national_bank
 		prerequisite = { focus = KOR_JAP_office_governor }
@@ -811,6 +808,9 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = available_industrial_concern
 			show_ideas_tooltip = SIA_bank
+		}
+		ai_will_do = {
+			factor = 50
 		}
 	}
 	#朝鲜银行券
@@ -833,11 +833,14 @@ focus_tree = {
 					seller_tags = { JAP }
 				}
 				add_equipment_subsidy = {
-					cic = 1000
+					cic = 2000
 					equipment_type = infantry_uniforms
 					seller_tags = { JAP }
 				}
 			}
+		}
+		ai_will_do = {
+			factor = 50
 		}
 	}
 ################################################################################################################
@@ -861,7 +864,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 80
+			factor = 50
 		}
 	}
 
@@ -877,13 +880,6 @@ focus_tree = {
 		y = 1
 		cost = 35 # Previously was: 35.0 
 		available_if_capitulated = no
-		ai_will_do = {
-			factor = 2
-		}
-		bypass = {
-			
-		}
-
 		complete_tooltip = {
 			add_building_construction = {
 				type = infrastructure
@@ -896,10 +892,12 @@ focus_tree = {
 				instant_build = yes
 			}
 		}
-
 		completion_reward = {
 			focus_add_infrastructure_prioritize_home_area = yes
 			focus_add_infrastructure_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
 		}
 	}
 	#重视基建II
@@ -913,12 +911,6 @@ focus_tree = {
 		y = 1
 		cost = 70 # Previously was: 70.0 
 		available_if_capitulated = no
-		bypass = {
-			
-		}
-		ai_will_do = {
-			factor = 2
-		}
 		complete_tooltip = {
 			add_building_construction = {
 				type = infrastructure
@@ -931,12 +923,14 @@ focus_tree = {
 				instant_build = yes
 			}
 		}
-
 		completion_reward = {
 			set_temp_variable = { add = 1 }
 			focus_add_infrastructure_prioritize_home_area = yes
 			set_temp_variable = { add = 2 }
 			focus_add_infrastructure_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
 		}
 	}
 	#开发新领土
@@ -950,9 +944,6 @@ focus_tree = {
 		y = 1
 		cost = 70 # Previously was: 70.0 
 		available_if_capitulated = no
-		ai_will_do = {
-			factor = 1
-		}
 		complete_tooltip = {
 			add_extra_state_shared_building_slots = 1
 			add_extra_state_shared_building_slots = 2
@@ -1009,6 +1000,9 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 2
 			}
 		}
+		ai_will_do = {
+			factor = 5
+		}
 	}
 
 	#重视军备I
@@ -1021,20 +1015,6 @@ focus_tree = {
 		y = 1
 		cost = 70 # Previously was: 70.0 
 		available_if_capitulated = no
-		ai_will_do = {
-			factor = 5			
-		}
-		available = {
-			if = {
-				limit = {
-					is_ai = yes
-				}
-				num_of_factories > 29
-			}
-		}
-		bypass = {
-			#
-		}
 		complete_tooltip = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
@@ -1045,6 +1025,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			focus_add_arms_factory_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
 		}
 	}
 	#重视军备II
@@ -1058,20 +1041,6 @@ focus_tree = {
 		y = 1
 		cost = 70 # Previously was: 70.0 
 		available_if_capitulated = no
-		ai_will_do = {
-			factor = 4
-		}
-		available = {
-			if = {
-				limit = {
-					is_ai = yes
-				}
-				num_of_factories > 39
-			}
-		}
-		bypass = {
-			#
-		}
 		complete_tooltip = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
@@ -1082,6 +1051,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			focus_add_arms_factory_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
 		}
 	}
 	#重视军备III
@@ -1094,25 +1066,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 70 # Previously was: 70.0 
-
 		available_if_capitulated = no
-		ai_will_do = {
-			factor = 4
-		}
-		
-		available = {
-			if = {
-				limit = {
-					is_ai = yes
-				}
-				num_of_factories > 49
-			}
-		}
-
-		bypass = {
-			
-		}
-
 		complete_tooltip = {
 			add_extra_state_shared_building_slots = 2
 			add_building_construction = {
@@ -1121,10 +1075,12 @@ focus_tree = {
 				instant_build = yes
 			}
 		}		
-
 		completion_reward = {
 			set_temp_variable = { add = 2 }
 			focus_add_arms_factory_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
 		}
 	}
 
@@ -1135,9 +1091,6 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		x = 38
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
 		cost = 35 # Previously was: 35.0 
 		available_if_capitulated = no
 		completion_reward = {
@@ -1147,6 +1100,9 @@ focus_tree = {
 				uses = 1
 				category = industry
 			}
+		}
+		ai_will_do = {
+			factor = 5
 		}
 	}
 	#重视建设I
@@ -1160,20 +1116,6 @@ focus_tree = {
 		y = 1
 		cost = 70 # Previously was: 70.0 
 		available_if_capitulated = no
-		available = {
-			if = {
-				limit = {
-					is_ai = yes
-				}
-				num_of_factories > 29
-			}
-		}
-		ai_will_do = {
-			factor = 5
-		}
-		bypass = {
-			#
-		}
 		complete_tooltip = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
@@ -1184,6 +1126,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			focus_add_industrial_complex_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
 		}
 	}
 	#重视建设II
@@ -1197,20 +1142,6 @@ focus_tree = {
 		y = 1
 		cost = 70 # Previously was: 70.0 
 		available_if_capitulated = no
-		ai_will_do = {
-			factor = 5
-		}
-		available = {
-			if = {
-				limit = {
-					is_ai = yes
-				}
-				num_of_factories > 39
-			}
-		}
-		bypass = {
-			#
-		}
 		complete_tooltip = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
@@ -1221,6 +1152,9 @@ focus_tree = {
 		}		
 		completion_reward = {
 			focus_add_industrial_complex_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
 		}
 	}
 	#重视建设III
@@ -1234,20 +1168,6 @@ focus_tree = {
 		y = 1
 		cost = 70 # Previously was: 70.0 
 		available_if_capitulated = no
-		ai_will_do = {
-			factor = 5
-		}
-		available = {
-			if = {
-				limit = {
-					is_ai = yes
-				}
-				num_of_factories > 49
-			}
-		}
-		bypass = {
-			#	
-		}
 		complete_tooltip = {
 			add_extra_state_shared_building_slots = 2
 			add_building_construction = {
@@ -1259,6 +1179,9 @@ focus_tree = {
 		completion_reward = {
 			set_temp_variable = { add = 2 }
 			focus_add_industrial_complex_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
 		}
 	}
 	#建造炼钢厂
@@ -1276,6 +1199,9 @@ focus_tree = {
 			set_temp_variable = { building = token:steel_refinery }
 			focus_add_building_prioritize_home_area = yes
 		}
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	#建造炼铝厂
 	focus = {
@@ -1291,6 +1217,9 @@ focus_tree = {
 		completion_reward = {
 			set_temp_variable = { building = token:aluminium_refinery }
 			focus_add_building_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 	#更多发电厂
@@ -1311,11 +1240,13 @@ focus_tree = {
 				num_of_factories > 29
 			}
 		}
-		ai_will_do = { factor = 2 }
 		available_if_capitulated = no
 		completion_reward = {
 			set_temp_variable = { building = token:power_plant }
 			focus_add_building_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 	#储备燃料
@@ -1331,13 +1262,13 @@ focus_tree = {
 		available_if_capitulated = no
 		available = {
 			has_tech = fuel_silos
-		}		
-		ai_will_do = {
-			factor = 3
 		}
 		completion_reward = {
 			set_temp_variable = { building = token:fuel_silo }
 			focus_add_building_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 	#建造炼油厂
@@ -1357,6 +1288,9 @@ focus_tree = {
 		completion_reward = {
 			set_temp_variable = { building = token:synthetic_refinery }
 			focus_add_building_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 	#建造合成橡胶厂
@@ -1389,13 +1323,6 @@ focus_tree = {
 		y = 1
 		cost = 55
 		available_if_capitulated = no
-		ai_will_do = {
-			factor = 2
-		}
-		bypass = {
-			#
-		}
-
 		complete_tooltip = {
 			add_building_construction = {
 				type = farm
@@ -1403,13 +1330,15 @@ focus_tree = {
 				instant_build = yes
 			}
 		}
-
 		completion_reward = {
 			set_temp_variable = { building = token:farm }
 			focus_add_building_prioritize_home_area = yes
 			
 			set_temp_variable = { building = token:farm }
 			focus_add_building_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 	#国内枪支生产
@@ -1427,6 +1356,9 @@ focus_tree = {
 			set_temp_variable = { building = token:artillery_assembly }
 			focus_add_building_prioritize_home_area = yes
 		}
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	#国内发动机生产
 	focus = {
@@ -1443,6 +1375,9 @@ focus_tree = {
 			set_temp_variable = { building = token:engine_assembly }
 			focus_add_building_prioritize_home_area = yes
 		}
+		ai_will_do = {
+			factor = 1
+		}
 	}	
 	#国内坦克生产
 	focus = {
@@ -1458,6 +1393,9 @@ focus_tree = {
 		completion_reward = {
 			set_temp_variable = { building = token:tank_assembly }
 			focus_add_building_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 
@@ -1480,6 +1418,9 @@ focus_tree = {
 				category = artillery
 			}
 		}
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	#重视步兵装备II
 	focus = {
@@ -1499,6 +1440,9 @@ focus_tree = {
 				category = infantry_weapons
 				category = artillery
 			}
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 	#重视步兵装备III
@@ -1521,6 +1465,9 @@ focus_tree = {
 				category = artillery
 			}
 		}
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	#重视摩托化
 	focus = {
@@ -1539,6 +1486,9 @@ focus_tree = {
 				bonus = 0.2
 				technology = motorised_infantry
 			}
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 	#重视机械化
@@ -1560,6 +1510,9 @@ focus_tree = {
 				category = motorized_equipment
 			}
 		}
+		ai_will_do = {
+			factor = 1
+		}
 	}
 
 	#重视空军
@@ -1569,9 +1522,6 @@ focus_tree = {
 		x = 9
 		y = 8
 		cost = 70 # Previously was: 70.0
-		ai_will_do = {
-			factor = 60
-		}
 		search_filters = { FOCUS_FILTER_AIRFORCE}
 		completion_reward = {
 			air_experience = 50
@@ -1616,6 +1566,9 @@ focus_tree = {
 				}
 			}
 		}
+		ai_will_do = {
+			factor = 5
+		}
 	}
 	#国内飞机生产
 	focus = {
@@ -1632,6 +1585,9 @@ focus_tree = {
 			set_temp_variable = { building = token:air_assembly }
 			focus_add_building_prioritize_home_area = yes
 		}
+		ai_will_do = {
+			factor = 5
+		}
 	}
 	#空军研究
 	focus = {
@@ -1642,18 +1598,15 @@ focus_tree = {
 		relative_position_id = KOR_extra_planes
 		x = 0
 		y = 1
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			num_of_factories > 15
-		}
 		cost = 90 # Previously was: 105.0 
 		completion_reward = {
 			add_research_slot = 1
 			add_research_centre = yes
 			SLOT:air_techs_folder = yes
 			SLOT:air_doctrine_folder = yes
+		}
+		ai_will_do = {
+			factor = 5
 		}
 	}
 	#重视海军
@@ -1663,9 +1616,6 @@ focus_tree = {
 		x = 12
 		y = 8
 		cost = 70 # Previously was: 70.0 
-		ai_will_do = {
-			factor = 40
-		}
 		search_filters = {FOCUS_FILTER_NAVY}
 		available_if_capitulated = no
 		available = {
@@ -1684,6 +1634,9 @@ focus_tree = {
 			navy_experience = 25
 			focus_add_dockyard_prioritize_home_area = yes		
 		}
+		ai_will_do = {
+			factor = 5
+		}
 	}
 	#灵活舰队
 	focus = {
@@ -1697,22 +1650,22 @@ focus_tree = {
 		y = 1
 		cost = 70 # Previously was: 70.0 
 		available_if_capitulated = no
-		ai_will_do = {
-			factor = 40
-			modifier = {
-				factor = 0
-				OR = {
-					NOT = { has_country_flag = coastal_state }
-					num_of_naval_factories < 1
-				}
-			}
-		}
 		completion_reward = {
 			add_tech_bonus = {
 				name = sub_op_bonus
 				bonus = 0.2
 				uses = 2
 				category = naval_doctrine_submarine
+			}
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = { has_country_flag = coastal_state }
+					num_of_naval_factories < 1
+				}
 			}
 		}
 	}
@@ -1728,6 +1681,15 @@ focus_tree = {
 		y = 1
 		cost = 70 # Previously was: 70.0 
 		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = fleet_in_being_bonus
+				bonus = 0.2
+				uses = 2
+				category = naval_doctrine_capital
+				category = naval_doctrine_cruiser
+			}
+		}
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -1736,15 +1698,6 @@ focus_tree = {
 					NOT = { has_country_flag = coastal_state }
 					num_of_naval_factories < 1
 				}
-			}
-		}
-		completion_reward = {
-			add_tech_bonus = {
-				name = fleet_in_being_bonus
-				bonus = 0.2
-				uses = 2
-				category = naval_doctrine_capital
-				category = naval_doctrine_cruiser
 			}
 		}
 	}
@@ -1767,6 +1720,9 @@ focus_tree = {
 			add_research_centre = yes
 			SLOT:naval_folder = yes	
 			SLOT:naval_techs_folder = yes
+		}
+		ai_will_do = {
+			factor = 5
 		}
 	}
 
