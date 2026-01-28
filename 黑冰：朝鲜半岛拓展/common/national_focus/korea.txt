@@ -26,6 +26,9 @@ focus_tree = {
 			add_political_power = 50
 			add_ideas = kor_quit_jap_movement
 		}
+		ai_will_do = {
+			factor = 50
+		}
 	}
 ##################################################中华民国线####################################################
 	#《扶助朝鲜复国运动指导方案》
@@ -147,7 +150,7 @@ focus_tree = {
 		x = 3
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
-		cost = 7
+		cost = 30
 		available = {
 			date > 1936.5.5
 			NOT = {
@@ -183,11 +186,11 @@ focus_tree = {
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes #投降后不能点该国策
-		cost = 14
+		cost = 30
 		available = {
 			date > 1937.3.1
 			KOR = {
-				communism > 0.25
+				communism > 0.40
 				exists = yes
 				has_capitulated = no
 				NOT = {
@@ -254,7 +257,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
-		cost = 7
+		cost = 14
 		available = {
 			#
 		}
@@ -271,7 +274,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 99
+			factor = 95
 		}
 	}
 	#从苏联返回东北
@@ -283,7 +286,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		search_filters = { FOCUS_FILTER_INFRASTRUCTURE }
-		cost = 30
+		cost = 7
 		available = {
 			KOR = {
 				has_civil_war = yes
@@ -321,7 +324,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 98
+			factor = 99
 		}
 	}
 	#稳固前线
@@ -334,7 +337,7 @@ focus_tree = {
 		y = 1
 		search_filters = { FOCUS_FILTER_FORTIFICATION }
 		available_if_capitulated = yes #投降后不能点该国策
-		cost = 14
+		cost = 7
 		available = {
 			#
 		}
@@ -355,7 +358,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 85
+			factor = 99
 		}
 	}
 
@@ -416,9 +419,9 @@ focus_tree = {
 		y = 1
 		search_filters = { FOCUS_FILTER_ARMY }
 		available_if_capitulated = no #投降后不能点该国策
-		cost = 60
+		cost = 30
 		available = {
-			communism > 0.33
+			communism > 0.30
 			PRC = {
 				exists = yes
 				has_capitulated = no
@@ -444,7 +447,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 95
+			factor = 75
 		}
 	}
 	#朝鲜华侨总联合会
@@ -469,7 +472,7 @@ focus_tree = {
 			add_ideas = KOR_PRC_General_Federation_of_Korean_Chinese		
 		}
 		ai_will_do = {
-			factor = 95
+			factor = 75
 		}
 	}
 	#中朝贸易援助
@@ -497,7 +500,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 95
+			factor = 50
 		}
 	}
 	#鸭绿江水丰水力发电公司
@@ -526,6 +529,9 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+		}
+		ai_will_do = {
+			factor = 50
 		}
 	}
 
@@ -597,7 +603,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 15
+			factor = 0
 		}			
 	}
 	#建立中朝贸易走廊
@@ -695,7 +701,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
-		cost = 30
+		cost = 14
 		available = {
 			KOR = {
 				has_government = communism
@@ -743,7 +749,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 60
+			factor = 100
 		}
 	}
 	#建立远东军事走廊
@@ -796,7 +802,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 95
+			factor = 100
 		}
 	}
 	#扩大远东双边贸易
@@ -1495,6 +1501,14 @@ focus_tree = {
 		y = 1
 		cost = 70 # Previously was: 70.0 
 		available_if_capitulated = no
+		available = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				num_of_factories > 10
+			}
+		}
 		complete_tooltip = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
@@ -1521,6 +1535,14 @@ focus_tree = {
 		y = 1
 		cost = 70 # Previously was: 70.0 
 		available_if_capitulated = no
+		available = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				num_of_factories > 13
+			}
+		}
 		complete_tooltip = {
 			add_extra_state_shared_building_slots = 2
 			add_building_construction = {
@@ -1548,6 +1570,14 @@ focus_tree = {
 		y = 1
 		cost = 70 # Previously was: 70.0 
 		available_if_capitulated = no
+		available = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				num_of_factories > 18
+			}
+		}
 		completion_reward = {
 			set_temp_variable = { building = token:steel_refinery }
 			focus_add_building_prioritize_home_area = yes
@@ -1567,6 +1597,14 @@ focus_tree = {
 		y = 1
 		cost = 70 # Previously was: 70.0 
 		available_if_capitulated = no
+		available = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				num_of_factories > 20
+			}
+		}
 		completion_reward = {
 			set_temp_variable = { building = token:aluminium_refinery }
 			focus_add_building_prioritize_home_area = yes

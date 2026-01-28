@@ -18,12 +18,13 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			NOT = { has_government = communism }
 			has_completed_focus = KOR_front_against_Japan
 		}
-		fire_only_once = yes
-		cost = 50
-		complete_effect = {
+		cost = 100
+		fire_only_once = no #决议可多次使用
+		days_remove = 30 #决议持续30天
+		remove_effect = {
 			country_event = {
 				id = KOR_communism.2 #弹窗事件
-				days = 1 #测试数据（待修改）
+				days = 3
 			}
 		}
 		ai_will_do = {
