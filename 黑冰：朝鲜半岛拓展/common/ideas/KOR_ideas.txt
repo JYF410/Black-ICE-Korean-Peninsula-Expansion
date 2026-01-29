@@ -78,22 +78,30 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				army_core_attack_factor = 0.5 #核心领土进攻+50%
-				army_core_defence_factor = 5.0 #核心领土防御+500%
+				army_core_attack_factor = 1.0 #核心领土进攻+100%
+				army_core_defence_factor = 1.0 #核心领土防御+100%
 				army_org_factor = 1.0 #陆军组织度+100%
-				army_morale_factor = 0.3 #陆军组织度恢复+30%
-				army_speed_factor = 0.3 #移动速度+30%
+				army_speed_factor = 0.5 #移动速度+50%
 				supply_consumption_factor = -0.5 #补给使用-50%
 				war_support_factor = 0.5 #战争支持度+50%
 				surrender_limit = 0.5 #投降界限+50%
 			}
 			allowed_civil_war = {
 				NOT ={
-					has_government = fascism #设定爆发内战时不允许拥有民族精神的一方
+					has_government = fascism #设定内战爆发时不允许拥有民族精神的一方
 				}
 			}
-			cancel = { 
-				#has_civil_war = no
+			cancel = {
+				KOR = {
+					controls_state = 815
+					controls_state = 751
+					controls_state = 463
+					controls_state = 525
+					controls_state = 527
+					controls_state = 816
+					controls_state = 819
+					controls_state = 820
+				}
 			}
 		}
 		#朝鲜华侨总联合会

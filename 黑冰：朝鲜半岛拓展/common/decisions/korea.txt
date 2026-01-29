@@ -1,4 +1,5 @@
 KOR_Japan_Korea_Annexation_Treaty = {
+	
 	#对日本殖民据点发动的突袭战役
 	KOR_communist_civil_war = {
 		icon = generic_ignite_civil_war
@@ -31,6 +32,7 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			factor = 95
 		}
 	}
+	
 	#韩国光复军起义了！
 	KOR_neutrality_civil_war = {
 		icon = generic_ignite_civil_war
@@ -75,9 +77,11 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			factor = 90
 		}
 	}
+
 }
 #中朝贸易援助
 KOR_PRC_trade_effort = {
+	
 	#朝鲜粮食援助
 	KOR_PRC_food_support = {
 		icon = RAJ_famine
@@ -128,4 +132,5 @@ KOR_PRC_trade_effort = {
 			}
 		}
 	}
+	
 }
