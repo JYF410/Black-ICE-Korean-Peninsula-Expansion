@@ -180,7 +180,7 @@ KOR_naval_destroyers = {
 		priority = {
 			factor = 9
 			modifier = { 
-				#has_tech = early_ship_hull_light #要求解锁科技：驱逐舰船体(早期)
+				has_tech = early_ship_hull_light #要求解锁科技：驱逐舰船体(早期)
 			}
 		}
 		role_icon_index = 39
@@ -212,7 +212,7 @@ KOR_naval_destroyers = {
 		priority = {
 			factor = 9
 			modifier = { 
-				#has_tech = basic_ship_hull_light #要求解锁科技：驱逐舰船体(改良)
+				has_tech = basic_ship_hull_light #要求解锁科技：驱逐舰船体(改良)
 			}
 		}
 		role_icon_index = 39
@@ -266,7 +266,7 @@ KOR_naval_submarine = {
 		priority = {
 			factor = 10
 			modifier = {
-				#has_tech = early_ship_hull_submarine #要求解锁科技：潜艇船体(早期)
+				has_tech = early_ship_hull_submarine #要求解锁科技：潜艇船体(早期)
 			}
 		}
 		role_icon_index = 122
@@ -296,7 +296,7 @@ KOR_naval_submarine = {
 		priority = {
 			factor = 1000
 			modifier = {
-				#has_tech = basic_ship_hull_submarine #要求解锁科技：潜艇船体(改良)
+				has_tech = basic_ship_hull_submarine #要求解锁科技：潜艇船体(改良)
 				#has_tech = early_sub_diesel #要求解锁科技：潜艇引擎
 			}
 		}
@@ -327,7 +327,7 @@ KOR_naval_submarine = {
 		priority = {
 			factor = 1000
 			modifier = {
-				#has_tech = improved_ship_hull_submarine #要求解锁科技：潜艇船体(战间)
+				has_tech = improved_ship_hull_submarine #要求解锁科技：潜艇船体(战间)
 				#has_tech = improved_sub_diesel #要求解锁科技：改良潜艇引擎
 			}
 		}

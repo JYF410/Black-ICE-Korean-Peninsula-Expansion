@@ -68,7 +68,7 @@ characters = {
 			ideology = stalinism
 			expire = "1994.7.8"
 			id = 202619940708
-			traits = { communist_revolutionary stout_defender }
+			traits = { communist_revolutionary }
 		}
 		advisor = {
 			idea_token = KOR_Kim_Il_sung_supreme_commander

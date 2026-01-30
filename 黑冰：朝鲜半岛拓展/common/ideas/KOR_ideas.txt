@@ -1,6 +1,41 @@
+#MODIFIER_AI_CALL_ALLY_DESIRE_FACTOR: "AI修正：请求盟友加入战争的意愿"
+#MODIFIER_AI_JOIN_ALLY_DESIRE_FACTOR: "AI修正：加入盟友战争的意愿"
+#MODIFIER_AI_GET_ALLY_DESIRE_FACTOR: "AI修正：加入或扩大一个阵营的意愿"
+#MODIFIER_AI_FOCUS_DEFENSE_FACTOR: "AI修正：防御重视程度"
+#MODIFIER_AI_FOCUS_AGGRESSIVE_FACTOR: "AI修正：进攻重视程度"
+#MODIFIER_AI_FOCUS_WAR_PRODUCTION_FACTOR: "AI修正：战时生产重视程度"
+#MODIFIER_AI_FOCUS_MILITARY_ADVANCEMENTS_FACTOR: "AI修正：军事进步重视程度"
+#MODIFIER_AI_FOCUS_MILITARY_EQUIPMENT_FACTOR: "AI修正：军备重视程度"
+#MODIFIER_AI_DESIRED_DIVISIONS_FACTOR: "AI修正：计划部署陆军师数量系数"
+#MODIFIER_AI_FOCUS_PEACEFUL_FACTOR: "AI修正：和平重视程度"
+#MODIFIER_AI_FOCUS_NAVAL_FACTOR: "AI修正：海军重视程度"
+#MODIFIER_AI_FOCUS_NAVAL_AIR_FACTOR: "AI修正：海军航空重视程度"
+#MODIFIER_AI_FOCUS_AVIATION_FACTOR: "AI修正：空军重视程度"
+#MODIFIER_AI_BADASS_FACTOR: "AI修正：威胁度敏感度"
+
 ideas = {
 	hidden_ideas = {
-		#
+		KOR_ai_always_join_ally = {
+			name = "朝鲜AI会主动加入盟友战争"
+			allowed = { always = no }
+			modifier = {
+				ai_join_ally_desire_factor = 1000
+			}
+		}
+		KOR_ai_always_call_ally = {
+			name = "朝鲜AI会主动请求盟友加入战争"
+			allowed = { always = no }
+			modifier = {
+				ai_call_ally_desire_factor = 1000
+			}
+		}
+		KOR_ai_dont_join_faction = {
+			name = "朝鲜AI不会主动加入阵营"
+			allowed = { always = no }
+			modifier = {
+				ai_get_ally_desire_factor = -1000
+			}
+		}
 	}
 	country = {
 		#朝鲜鸦片种植地
@@ -14,11 +49,11 @@ ideas = {
 				always = yes
 			}
 			modifier = {
-				consumer_goods_expected_value = -0.02
-				stability_weekly = 0.001
-				production_factory_efficiency_gain_factor = -0.25
-				production_factory_start_efficiency_factor = -0.05
-				research_speed_factor = -0.02
+				consumer_goods_expected_value = -0.03 #用于生产生活消费品的期望工厂数量: -3.0%
+				stability_weekly = 0.001 #每周稳定度: +0.1%
+				production_factory_efficiency_gain_factor = -0.30 #生产效率增长: -30.0%
+				production_factory_start_efficiency_factor = -0.05 #基础生产效率: -5.0%
+				research_speed_factor = -0.05 #科研速度: -5.0%
 			}
 		}
 		#朝鲜半岛独立运动
@@ -35,11 +70,12 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				weekly_manpower = 500
-				autonomy_gain = 0.5
-				communism_drift = 0.03
-				neutrality_drift = 0.03
-				fascism_drift = -0.02
+				weekly_manpower = 800 #每周人力: +800
+				war_support_factor = 0.10 #战争支持度+10%
+				autonomy_gain = 0.5 #每日自治度进程增长: +0.50
+				communism_drift = 0.03 #每日共产主义支持率: +0.03
+				neutrality_drift = 0.03 #每日中立主义支持率: +0.03
+				fascism_drift = -0.02 #每日法西斯主义支持率: -0.02
 			}
 		}
 		#大韩民国临时政府驻华代表团
@@ -78,12 +114,10 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				army_core_attack_factor = 1.0 #核心领土进攻+100%
+				army_core_attack_factor = 0.50 #核心领土进攻+50%
 				army_core_defence_factor = 1.0 #核心领土防御+100%
 				army_org_factor = 1.0 #陆军组织度+100%
-				army_speed_factor = 0.5 #移动速度+50%
 				supply_consumption_factor = -0.5 #补给使用-50%
-				war_support_factor = 0.5 #战争支持度+50%
 				surrender_limit = 0.5 #投降界限+50%
 			}
 			allowed_civil_war = {
@@ -112,7 +146,7 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				consumer_goods_expected_value = -0.02 #生活消费品工厂-2%
+				consumer_goods_expected_value = -0.01 #用于生产生活消费品的期望工厂数量:-1.0%
 				stability_weekly = 0.002 #每周稳定度+0.2%
 			}	
 		}		
@@ -142,28 +176,16 @@ ideas = {
 				stability_weekly = 0.003 #每周稳定度+0.3%
 			}	
 		}
-	}
-	industrial_concern = {
 		#朝鲜银行
 		KOR_bank = { 
 			picture = ARG_banco_central_de_la_republica_argentina
 			allowed = {
 				original_tag = KOR
 			}
-			available = {
-				has_completed_focus = KOR_national_bank
-			}
-			cost = 50
-			research_bonus = {
-				civilian_tech = 0.05
-			}
-			traits = {  } 
+			removal_cost = -1
 			modifier = {
-				global_building_slots_factor = 0.15
-				consumer_goods_expected_value = -0.03
-			}
-			ai_will_do = {
-				factor = 65
+				global_building_slots_factor = 0.10 #地区最大工厂数: +10.0%
+				consumer_goods_expected_value = -0.02 #用于生产生活消费品的期望工厂数量:-2.0%
 			}
 		}
 	}

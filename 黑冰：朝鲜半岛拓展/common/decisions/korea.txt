@@ -1,4 +1,24 @@
 KOR_Japan_Korea_Annexation_Treaty = {
+	#隐藏：KOR拒绝签署反共产国际协定
+	KOR_anti_soviet_pact_refused_call = {
+		icon = generic_ignite_civil_war
+		on_map_mode = decision_view_only
+		allowed = { tag = KOR }
+		available = { always = yes }
+		visible = { always = no }
+		cost = 0
+		fire_only_once = yes #决议仅能使用一次
+		days_remove = 1
+		remove_effect = {
+			add_opinion_modifier = {
+				target = KOR
+				modifier = refused_anti_comintern_pact_opinion
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
 	
 	#对日本殖民据点发动的突袭战役
 	KOR_communist_civil_war = {
@@ -19,17 +39,17 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			NOT = { has_government = communism }
 			has_completed_focus = KOR_front_against_Japan
 		}
-		cost = 100
-		fire_only_once = no #决议可多次使用
-		days_remove = 30 #决议持续30天
+		cost = 50
+		fire_only_once = yes #决议仅能使用一次
+		days_remove = 14 #决议持续14天
 		remove_effect = {
 			country_event = {
 				id = KOR_communism.2 #弹窗事件
-				days = 3
+				days = 7
 			}
 		}
 		ai_will_do = {
-			factor = 95
+			factor = 100
 		}
 	}
 	
