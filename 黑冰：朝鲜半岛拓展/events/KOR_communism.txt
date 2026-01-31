@@ -45,6 +45,8 @@ country_event = {
 			#set_cosmetic_tag = SPRCIV #当意识形态引发国内内战时，keep_unit_leaders指定保持效忠于原国家的单位领导者的ID
 			#load_focus_tree = civilwar_focus #导入国策树
 			KOR = {
+				set_politics = { ruling_party = communism } #修正分离后的政府意识形态
+				set_popularities = { communism = 100 } #修正分离后的执政党支持率
 				set_capital = { state = 815 } #咸镜：设置首都
 				set_victory_points = { province = 6944 value = 80 } #恩德：胜利点80
 				set_victory_points = { province = 3981 value = 20 } #咸兴：胜利点20
