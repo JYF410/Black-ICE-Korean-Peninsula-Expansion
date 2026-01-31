@@ -16,6 +16,7 @@ KOR_PRC_trade_effort = {
 	allowed = {
 		original_tag = KOR
 		has_government = communism
+		NOT = { has_war_with = PRC }
 		PRC = {
 			exists = yes
 			has_capitulated = no
@@ -23,5 +24,21 @@ KOR_PRC_trade_effort = {
 	}
 	visible = {
 	    has_completed_focus = KOR_PRC_trade_effort
+	}
+}
+#苏联建设援助
+KOR_economic_aid = {
+	icon = GFX_decision_category_generic_prospect_for_resources
+	allowed = {
+		original_tag = KOR
+		has_government = communism
+		NOT = { has_war_with = SOV }
+		SOV = {
+			exists = yes
+			has_capitulated = no
+		}
+	}
+	visible = {
+	    has_completed_focus = KOR_sov_land_development
 	}
 }

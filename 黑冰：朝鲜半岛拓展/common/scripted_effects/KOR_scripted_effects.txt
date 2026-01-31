@@ -7,7 +7,8 @@ KOR_create_JAP_partisan_army_div = {
 		is_locked = yes
 		regiments = {
 			garrison = { x = 0 y = 0 }
-			garrison = { x = 0 y = 1 }
+			militia = { x = 0 y = 1 }
+			militia = { x = 0 y = 2 }
 		}
 		support = {
 			DIV_HQ = { x = 0 y = 0 }
@@ -246,6 +247,32 @@ KOR_ethnic_korean_division_div = {
 	}
 }
 
+#纵深作战理论
+KOR_motorized_AC_division_div = {
+	division_template = {
+		name = "朝鲜独立坦克团"
+		is_locked = yes
+		template_counter = 225
+		regiments = {
+			armored_car = { x = 0 y = 0 }
+			trm_tankette_armor = { x = 1 y = 0 }
+			trm_tankette_armor = { x = 1 y = 1 }
+			motorized = { x = 2 y = 0 }
+		}
+		support = {
+			DIV_HQ_car = { x = 0 y = 0 }
+			recon_ac = { x = 0 y = 1 }
+			engineer_mot = { x = 0 y = 2 }
+			anti_air_car = { x = 1 y = 0 }
+		}
+	}
+	random_owned_controlled_state = {
+		create_unit = {
+			division = "name = \"朝鲜人民军第一独立坦克团\" division_template = \"朝鲜独立坦克团\" start_experience_factor = 0.4 start_equipment_factor = 1.0 force_equipment_variants = { trm_tankette_tank_chassis_sov_t27_1 = { owner = \"SOV\" } }"
+			owner = KOR
+		}
+	}
+}
 #快速坦克部队
 KOR_cavalry_armor_division_div = {
 	division_template = {
@@ -272,8 +299,7 @@ KOR_cavalry_armor_division_div = {
 			trm_tankette_armor_recon = { x = 0 y = 1 }
 			engineer_mot = { x = 0 y = 2 }
 			maintenance_company = { x = 0 y = 3 }
-			mount_support = { x = 1 y = 0 }
-			anti_air = { x = 1 y = 1 }
+			anti_air_car = { x = 1 y = 0 }
 		}
 	}
 	random_owned_controlled_state = {

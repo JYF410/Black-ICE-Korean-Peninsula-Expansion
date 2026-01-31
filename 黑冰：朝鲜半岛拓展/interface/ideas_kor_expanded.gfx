@@ -1,0 +1,8 @@
+spriteTypes = {
+
+	SpriteType = {
+		name = "GFX_idea_KOR_bank"
+		texturefile = "gfx/interface/ideas/idea_KOR_bank.dds"
+	}
+
+}
