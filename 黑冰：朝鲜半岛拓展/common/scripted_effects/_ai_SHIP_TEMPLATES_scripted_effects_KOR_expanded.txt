@@ -1,4 +1,6 @@
 #此效果在游戏启动时和内战时各触发一次，作用范围限定为KOR
+#本文件和__ai_COUNTRY_LOGIC_scripted_effects_KOR_expand.txt共同组成可以在游戏UI中对AI国家进行手动生产策略调整的功能
+
 ai_naval_startup = {
 	KOR = {		
 		if = {

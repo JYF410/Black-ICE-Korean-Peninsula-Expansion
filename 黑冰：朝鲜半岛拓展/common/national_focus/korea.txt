@@ -193,8 +193,9 @@ focus_tree = {
 		cost = 14
 		available = {
 			date > 1937.3.1
+			communism > 0.30
 			KOR = {
-				communism > 0.35
+				communism > 0.30
 				exists = yes
 				has_capitulated = no
 				NOT = {
@@ -352,15 +353,23 @@ focus_tree = {
 		completion_reward = {
 			815 = {
 				set_building_level = {
-					type = bunker #路上要塞
+					type = bunker
 					level = 2
-					province = 6944
+					province = 6944 #恩德
 					instant_build = yes
 				}
-				add_building_construction = {
-					type = coastal_bunker
-					level = 1 #海岸要塞
-					province = 6944
+				set_building_level = {
+					type = bunker
+					level = 1
+					province = 3981 #咸兴
+					instant_build = yes
+				}
+			}
+			527 = {
+				set_building_level = {
+					type = bunker
+					level = 1
+					province = 4052 #平壤
 					instant_build = yes
 				}
 			}
@@ -426,7 +435,7 @@ focus_tree = {
 		available_if_capitulated = no #投降后不能点该国策
 		cost = 30
 		available = {
-			communism > 0.45
+			communism > 0.40
 			PRC = {
 				exists = yes
 				has_capitulated = no
@@ -1045,41 +1054,15 @@ focus_tree = {
 		}
 	}
 	
-	#快速坦克部队
-	focus = {
-		id = KOR_sov_cavalry_tank_division
-		icon = GFX_goal_light_tanks
-		prerequisite = { focus = KOR_sov_pyongyang_military_academy }
-		prerequisite = { focus = KOR_sov_deep_operations_theory }
-		relative_position_id = KOR_sov_deep_operations_theory
-		x = -1
-		y = 1
-		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
-		available_if_capitulated = no #投降后不能点该国策
-		cost = 60
-		available = {
-			#
-		}
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 1
-				category = armor_tech
-			}
-			custom_effect_tooltip = KOR_sov_cavalry_tank_division_DESC
-			hidden_effect = {
-				KOR_cavalry_armor_division_div = yes
-			}
-		}
-	}
 	#购买苏联坦克
 	focus = {
 		id = KOR_soviet_tanks
 		icon = GFX_goal_tankograd
-		prerequisite = { focus = KOR_sov_cavalry_tank_division }
-		relative_position_id = KOR_sov_cavalry_tank_division
-		x = 0
-		y = 1
+		prerequisite = { focus = KOR_sov_deep_operations_theory }
+		prerequisite = { focus = KOR_sov_pyongyang_military_academy }
+		relative_position_id = KOR_sov_air_force_volunteer
+		x = 2
+		y = 0
 		search_filters = { FOCUS_FILTER_ARMY}
 		available_if_capitulated = no #投降后不能点该国策
 		cost = 70 # Previously was: 70.0 
@@ -1100,7 +1083,7 @@ focus_tree = {
 		completion_reward = {
 			army_experience = 15
 			add_equipment_subsidy = {
-				cic = 3000
+				cic = 2000
 				equipment_type = motorized_AC_equipment
 				seller_tags = { SOV }
 			}
@@ -1110,13 +1093,8 @@ focus_tree = {
 				seller_tags = { SOV }
 			}
 			add_equipment_subsidy = {
-				cic = 2000
+				cic = 1000
 				equipment_type = trm_cavalry_tank_chassis
-				seller_tags = { SOV }
-			}
-			add_equipment_subsidy = {
-				cic = 1500
-				equipment_type = trm_light_tank_chassis
 				seller_tags = { SOV }
 			}
 			if = {
@@ -1134,13 +1112,39 @@ focus_tree = {
 			factor = 50
 		}
 	}
+	#快速坦克部队
+	focus = {
+		id = KOR_sov_cavalry_tank_division
+		icon = GFX_goal_light_tanks
+		prerequisite = { focus = KOR_soviet_tanks }
+		relative_position_id = KOR_soviet_tanks
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
+		available_if_capitulated = no #投降后不能点该国策
+		cost = 60
+		available = {
+			#
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = armor_tech
+			}
+			custom_effect_tooltip = KOR_sov_cavalry_tank_division_DESC
+			hidden_effect = {
+				KOR_cavalry_armor_division_div = yes
+			}
+		}
+	}
 	#授权国内坦克生产线
 	focus = {
 		id = KOR_soviet_product_tanks
 		icon = GFX_goal_tank_developments
-		prerequisite = { focus = KOR_soviet_tanks }
+		prerequisite = { focus = KOR_sov_cavalry_tank_division }
 		search_filters = {FOCUS_FILTER_INDUSTRY}
-		relative_position_id = KOR_soviet_tanks
+		relative_position_id = KOR_sov_cavalry_tank_division
 		x = 0
 		y = 1
 		cost = 70
@@ -1488,7 +1492,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 85
+			factor = 95
 		}
 	}
 	#在惠山地方征召部队
@@ -1508,7 +1512,7 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 65
+			factor = 95
 		}
 	}
 	#在普天堡地方征召部队
@@ -1607,7 +1611,7 @@ focus_tree = {
 			KOR_create_JAP_MP_army_div = yes
 		}
 		ai_will_do = {
-			factor = 70
+			factor = 90
 		}
 	}
 
@@ -1637,7 +1641,7 @@ focus_tree = {
 			depression_improves = yes
 		}
 		ai_will_do = {
-			factor = 60
+			factor = 95
 		}
 	}
 	#朝鲜银行
@@ -1654,7 +1658,7 @@ focus_tree = {
 			add_ideas = KOR_bank
 		}
 		ai_will_do = {
-			factor = 60
+			factor = 95
 		}
 	}
 	#朝鲜银行券
@@ -1680,7 +1684,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 65
+			factor = 95
 		}
 	}
 
@@ -1969,7 +1973,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 50
+			factor = 60
 		}
 	}
 

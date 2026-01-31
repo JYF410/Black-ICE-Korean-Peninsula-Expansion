@@ -24,7 +24,7 @@ KOR_naval_capital_bc = {
 		}
 		role_icon_index = 88
 		target_variant = {
-			match_value = 1000.0
+			match_value = 10.0
 			type = nrm_ship_hull_capital_1
 			modules = {
 				fixed_ship_hullform_slot = nrm_ship_hullform_capital_1
@@ -77,7 +77,7 @@ KOR_naval_cruiser_heavy = {
 		}
 		role_icon_index = 50
 		target_variant = {
-			match_value = 1000.0
+			match_value = 10.0
 			type = nrm_ship_hull_cruiser_1
 			modules = {
 				fixed_ship_hullform_slot = nrm_ship_hullform_cruiser_1
@@ -129,7 +129,7 @@ KOR_naval_cruiser_light = {
 		}
 		role_icon_index = 39
 		target_variant = {
-			match_value = 1000.0 
+			match_value = 10.0 
 			type = nrm_ship_hull_cruiser_1
 			modules = {
 				fixed_ship_hullform_slot = nrm_ship_hullform_cruiser_1
@@ -185,7 +185,7 @@ KOR_naval_destroyers = {
 		}
 		role_icon_index = 39
 		target_variant = {
-			match_value = 1000.0
+			match_value = 50.0
 			type = nrm_ship_hull_destroyer_1
 			modules = {
 				fixed_ship_hullform_slot = nrm_ship_hullform_destroyer_1 #船体外形
@@ -217,7 +217,7 @@ KOR_naval_destroyers = {
 		}
 		role_icon_index = 39
 		target_variant = {
-			match_value = 1000.0
+			match_value = 100.0
 			type = nrm_ship_hull_destroyer_2
 			modules = {
 				fixed_ship_hullform_slot = nrm_ship_hullform_destroyer_2 #船体外形
@@ -271,7 +271,7 @@ KOR_naval_submarine = {
 		}
 		role_icon_index = 122
 		target_variant = {
-			match_value = 1000.0  #一个额外的权重，表示如果匹配成功，该设计的价值有多大
+			match_value = 100.0  #一个额外的权重，表示如果匹配成功，该设计的价值有多大
 			type = nrm_ship_hull_submarine_1
 			modules = {
 				fixed_ship_sub_hull_slot = nrm_submarine_hull_1 #船体设计
@@ -302,7 +302,7 @@ KOR_naval_submarine = {
 		}
 		role_icon_index = 6
 		target_variant = {
-			match_value = 1000.0  #一个额外的权重，表示如果匹配成功，该设计的价值有多大
+			match_value = 200.0  #一个额外的权重，表示如果匹配成功，该设计的价值有多大
 			type = nrm_ship_hull_submarine_2
 			modules = {
 				fixed_ship_sub_hull_slot = nrm_submarine_hull_2 #船体设计
@@ -333,7 +333,7 @@ KOR_naval_submarine = {
 		}
 		role_icon_index = 6
 		target_variant = {
-			match_value = 1000.0  #一个额外的权重，表示如果匹配成功，该设计的价值有多大
+			match_value = 300.0  #一个额外的权重，表示如果匹配成功，该设计的价值有多大
 			type = nrm_ship_hull_submarine_3
 			modules = {
 				fixed_ship_sub_hull_slot = nrm_submarine_hull_3 #船体设计

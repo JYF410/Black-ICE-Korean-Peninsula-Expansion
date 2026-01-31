@@ -39,6 +39,6 @@ KOR_economic_aid = {
 		}
 	}
 	visible = {
-	    has_completed_focus = KOR_sov_land_development
+	    #
 	}
 }

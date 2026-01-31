@@ -1,0 +1,48 @@
+#强制AI把多余船厂堆到同一条运输船生产线
+KOR_surplus_override = {
+	allowed = { tag = KOR }
+	enable = {
+		always = yes
+	}
+	abort_when_not_enabled = yes #如果enable = {}条件不满足，这整个AI策略块会被立刻中止，并且不会作为fallback继续执行
+	ai_strategy = {
+		type = equipment_variant_production_factor #AI更愿意继续在这条生产线上追加工厂，而不是新开别的线
+		id = convoy
+		value = 100
+	}
+	ai_strategy = {
+		type = save_equipment #AI保留生产线的倾向
+		id = convoy
+		value = 1000
+	}
+}
+#KOR是JAP傀儡时补充驻军装备的倾向
+KOR_garrison_production = {
+	allowed = { tag = KOR }
+	enable = {
+		is_subject_of = JAP
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = { type = equipment_variant_production_factor id = garrison_equipment value = 100 }
+	ai_strategy = { type = save_equipment id = garrison_equipment value = 1000 }
+}
+#AI建造装甲车和超轻型坦克的倾向
+KOR_AC_and_tankette_production = {
+	allowed = { tag = KOR }
+	enable = { 
+		KOR = { has_completed_focus = KOR_sov_deep_operations_theory }
+	}
+	abort = { always = no }
+	ai_strategy = { type = equipment_variant_production_factor id = motorized_AC_equipment value = 100 }
+	ai_strategy = { type = equipment_variant_production_factor id = trm_tankette_tank_chassis value = 100 }
+}
+##AI建造骑兵坦克和轻型坦克的倾向
+KOR_AC_and_tankette_production = {
+	allowed = { tag = KOR }
+	enable = { 
+		KOR = { has_completed_focus = KOR_sov_cavalry_tank_division }
+	}
+	abort = { always = no }
+	ai_strategy = { type = equipment_variant_production_factor id = trm_light_tank_chassis value = 100 }
+	ai_strategy = { type = equipment_variant_production_factor id = trm_cavalry_tank_chassis value = 100 }
+}

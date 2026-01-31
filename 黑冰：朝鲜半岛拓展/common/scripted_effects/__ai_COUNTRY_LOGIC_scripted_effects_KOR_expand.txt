@@ -1,3 +1,6 @@
+#本文件和_ai_SHIP_TEMPLATES_scripted_effects_KOR_expanded.txt共同组成可以在游戏UI中对AI国家进行手动生产策略调整的功能
+#只有当AI拥有角色模板或模板变量时（_ai_TEMPLATES_scripted_effects.txt），策略功能才会在游戏内生效
+
 ##韩国##
 d_ai_logic/KOR = {
 	#set_temp_variable = { ai_template_skip = 1 }
@@ -9,9 +12,6 @@ d_ai_logic/KOR = {
 		ai_infantry_templates/KOR = yes
 		ai_light_armor_templates/KOR = yes
 	}
-	########################################### 建立部队策略 ###########################################
-	### 只有当AI拥有角色模板或模板变量时（_ai_TEMPLATES_scripted_effects.txt），策略功能才会在游戏内生效 ###
-	##################################################################################################
 	if = {
 		limit = {
 			check_variable = { ai_ignore_deployment = 0 }
@@ -58,9 +58,6 @@ d_ai_logic/KOR = {
 			}
 		}
 	}
-	########################################### 生产军舰策略 ###########################################
-	### 只有当AI拥有角色模板或模板变量时（_ai_TEMPLATES_scripted_effects.txt），策略功能才会在游戏内生效 ###
-	##################################################################################################
 	if = {
 		limit = {
 			check_variable = { ai_ignore_naval_production = 0 }
@@ -71,47 +68,44 @@ d_ai_logic/KOR = {
 		ai_naval_DD/KOR = yes
 		ai_naval_SS/KOR = yes
 		ai_switch_escort_to_destroyer = yes
-		set_temp_variable = { ai_target_convoys                    = 100 }
-		set_temp_variable = { RATIO@naval_capital_bc                 = 1 }
-		set_temp_variable = { RATIO@naval_cruiser_heavy              = 2 }
-		set_temp_variable = { RATIO@naval_cruiser_light              = 4 }
-		set_temp_variable = { RATIO@naval_screen                    = 10 }
+		set_temp_variable = { ai_target_convoys                    = 300 }
+		set_temp_variable = { RATIO@naval_capital_bc                =  1 }
+		set_temp_variable = { RATIO@naval_cruiser_heavy             =  1 }
+		set_temp_variable = { RATIO@naval_cruiser_light             =  1 }
+		set_temp_variable = { RATIO@naval_screen                    =  4 }
 		set_temp_variable = { RATIO@naval_submarine                 = 20 }
 		#战列巡洋舰生产队列
 		if = {
-			limit = { num_of_naval_factories > 12 } #船厂总数要求
-			set_temp_variable = { RATIO@naval_capital_bc             = 1 } #RATIO@生产数调整
-			set_temp_variable = { min_dockyard@nrm_ship_hull_capital < 4 } #min_dockyard@至少分配X个造船厂数量
+			limit = { num_of_naval_factories > 10 }
+			set_temp_variable = { RATIO@naval_capital_bc             = 1 } #生产数调整
+			set_temp_variable = { min_dockyard@nrm_ship_hull_capital < 3 } #至少分配X个造船厂
 		}
 		#重型巡洋舰生产队列
 		if = {
-			limit = { num_of_naval_factories > 10 } #船厂总数要求
-			set_temp_variable = { RATIO@naval_cruiser_heavy          = 2 } #RATIO@生产数调整
-			set_temp_variable = { min_dockyard@naval_cruiser_heavy   < 3 } #min_dockyard@至少分配X个造船厂数量
+			limit = { num_of_naval_factories > 8 }
+			set_temp_variable = { RATIO@naval_cruiser_heavy          = 2 } #生产数调整
+			set_temp_variable = { min_dockyard@naval_cruiser_heavy   < 3 } #至少分配X个造船厂
 		}
 		#轻型巡洋舰生产队列
 		if = {
-			limit = { num_of_naval_factories > 8 } #船厂总数要求
-			set_temp_variable = { RATIO@naval_cruiser_light          = 4 } #RATIO@生产数调整
-			set_temp_variable = { min_dockyard@naval_cruiser_light   < 5 } #min_dockyard@至少分配X个造船厂数量
+			limit = { num_of_naval_factories > 8 }
+			set_temp_variable = { RATIO@naval_cruiser_light          = 4 } #生产数调整
+			set_temp_variable = { min_dockyard@naval_cruiser_light   < 3 } #至少分配X个造船厂
 		}
 		#驱逐舰生产队列
 		if = {
-			limit = { num_of_naval_factories > 6 } #船厂总数要求
-			set_temp_variable = { RATIO@naval_screen                = 10 } #RATIO@生产数调整
-			set_temp_variable = { min_dockyard@naval_screen          < 3 } #min_dockyard@至少分配X个造船厂数量
+			limit = { num_of_naval_factories > 5 }
+			set_temp_variable = { RATIO@naval_screen                = 10 } #生产数调整
+			set_temp_variable = { min_dockyard@naval_screen          < 1 } #m至少分配X个造船厂
 		}
 		#潜艇生产队列
 		if = {
-			limit = { num_of_naval_factories > 4 } #船厂总数要求
-			set_temp_variable = { RATIO@naval_submarine             = 20 } #RATIO@生产数调整
-			set_temp_variable = { min_dockyard@naval_submarine       < 5 } #min_dockyard@至少分配X个造船厂数量
+			limit = { num_of_naval_factories > 2 }
+			set_temp_variable = { RATIO@naval_submarine             = 20 } #生产数调整
+			set_temp_variable = { min_dockyard@naval_submarine       < 1 } #至少分配X个造船厂
 		}
 		ai_update_ship_production = yes
 	}
-	########################################### 生产飞机策略 ###########################################
-	### 只有当AI拥有角色模板或模板变量时（_ai_TEMPLATES_scripted_effects.txt），策略功能才会在游戏内生效 ###
-	##################################################################################################
 	if = {
 		limit = {
 			check_variable = { ai_ignore_air_production = 0 }
@@ -139,7 +133,8 @@ d_ai_logic/KOR = {
 		### FIGHTER TARGET 
 		set_temp_variable = { ai_fighter_target_buffer = 500 }
 		set_temp_variable = { max_enemy_fighter_ratio = 3.0 }
-		if = { limit = { check_variable = { FIGHTER_WEIGHT^num = 0 } }
+		if = { 
+			limit = { check_variable = { FIGHTER_WEIGHT^num = 0 } }
 			clear_array = FIGHTER_WEIGHT
 			add_to_array = { FIGHTER_WEIGHT = 1.00 } 	#-- fighter_equipment
 			add_to_array = { FIGHTER_WEIGHT = 0.80 } 	#-- interceptor_equipment
