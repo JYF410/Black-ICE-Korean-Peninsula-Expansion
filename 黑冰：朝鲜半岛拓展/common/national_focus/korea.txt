@@ -190,10 +190,9 @@ focus_tree = {
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes #投降后不能点该国策
-		cost = 14
+		cost = 30
 		available = {
 			date > 1937.3.1
-			communism > 0.30
 			KOR = {
 				communism > 0.30
 				exists = yes
@@ -250,7 +249,23 @@ focus_tree = {
 			army_experience = 75
 			custom_effect_tooltip = KOR_Northeast_Anti_Japanese_Army
 			hidden_effect = {
+				#部署火星部队
 				KOR_create_Northeast_Anti_Japanese_Army_div = yes
+				#移除错误的苏联opinion
+				SOV = {
+					add_opinion_modifier = {
+						target = KOR
+						modifier = same_government 
+					}
+					remove_opinion_modifier = {
+						target = KOR
+						modifier = different_government 
+					}
+					remove_opinion_modifier = {
+						target = KOR
+						modifier = pact_against_us 
+					}
+				}
 			}
 		}
 		ai_will_do = {
@@ -822,28 +837,22 @@ focus_tree = {
 			#
 		}
 		completion_reward = {
-			effect_tooltip = {
-				add_opinion_modifier = {
-					modifier = KMT_offered_assistance
-					target = SOV
-				}
-				SOV = {
-					add_opinion_modifier = {
-						modifier = KMT_offered_assistance
-						target = ROOT
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
+			KOR = {
+				give_market_access = SOV
 				add_relation_rule_override = {
 					target = SOV
 					can_access_market = yes
 				}
 			}
-			give_market_access = SOV
+			SOV = {
+				add_opinion_modifier = {
+					target = KOR
+					modifier = himalaya_trade_deal 
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 90
 		}
 	}	
 	#苏联军事援助计划
@@ -1492,7 +1501,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 95
+			factor = 90
 		}
 	}
 	#在惠山地方征召部队
@@ -1512,7 +1521,7 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 95
+			factor = 98
 		}
 	}
 	#在普天堡地方征召部队
@@ -1532,7 +1541,7 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 64
+			factor = 85
 		}
 	}
 	#在元山地方征召部队
@@ -1552,7 +1561,7 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 63
+			factor = 85
 		}
 	}
 	#在兴南地方征召部队
@@ -1572,7 +1581,7 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 62
+			factor = 85
 		}
 	}
 	#在南浦地方征召部队
@@ -1592,7 +1601,7 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 61
+			factor = 85
 		}
 	}
 	#组建平壤地方宪兵部队
@@ -1641,7 +1650,7 @@ focus_tree = {
 			depression_improves = yes
 		}
 		ai_will_do = {
-			factor = 95
+			factor = 99
 		}
 	}
 	#朝鲜银行
@@ -1670,7 +1679,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
-		cost = 14
+		cost = 30
 		completion_reward = {
 			add_equipment_subsidy = {
 				cic = 1000
@@ -1697,7 +1706,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		x = 2
 		y = 0
-		cost = 35 # Previously was: 35.0 
+		cost = 60 # Previously was: 35.0 
 		available_if_capitulated = no
 		completion_reward = {
 			add_tech_bonus = {
@@ -1708,7 +1717,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 5
+			factor = 1
 		}
 	}
 	#重视建设I
@@ -1720,7 +1729,7 @@ focus_tree = {
 		relative_position_id = KOR_industrial_effort
 		x = 0
 		y = 1
-		cost = 30 # Previously was: 70.0 
+		cost = 60 # Previously was: 70.0 
 		available_if_capitulated = no
 		complete_tooltip = {
 			add_extra_state_shared_building_slots = 1
@@ -1734,7 +1743,7 @@ focus_tree = {
 			focus_add_industrial_complex_prioritize_home_area = yes
 		}
 		ai_will_do = {
-			factor = 5
+			factor = 1
 		}
 	}
 	#重视建设II
@@ -1746,7 +1755,7 @@ focus_tree = {
 		relative_position_id = KOR_construction_effort
 		x = 0
 		y = 1
-		cost = 30 # Previously was: 70.0 
+		cost = 60 # Previously was: 70.0 
 		available_if_capitulated = no
 		available = {
 			if = {
@@ -1768,7 +1777,7 @@ focus_tree = {
 			focus_add_industrial_complex_prioritize_home_area = yes
 		}
 		ai_will_do = {
-			factor = 5
+			factor = 1
 		}
 	}
 	#重视建设III
@@ -1780,7 +1789,7 @@ focus_tree = {
 		relative_position_id = KOR_construction_effort_2
 		x = 0
 		y = 1
-		cost = 30 # Previously was: 70.0 
+		cost = 60 # Previously was: 70.0 
 		available_if_capitulated = no
 		available = {
 			if = {
@@ -1803,7 +1812,7 @@ focus_tree = {
 			focus_add_industrial_complex_prioritize_home_area = yes
 		}
 		ai_will_do = {
-			factor = 5
+			factor = 1
 		}
 	}
 	#建造炼钢厂
@@ -1815,7 +1824,7 @@ focus_tree = {
 		relative_position_id = KOR_industrial_effort
 		x = 2
 		y = 1
-		cost = 30 # Previously was: 70.0 
+		cost = 60
 		available_if_capitulated = no
 		available = {
 			if = {
@@ -1842,7 +1851,7 @@ focus_tree = {
 		relative_position_id = KOR_extra_steel_refinery
 		x = 0
 		y = 1
-		cost = 30 # Previously was: 70.0 
+		cost = 60
 		available_if_capitulated = no
 		available = {
 			if = {
@@ -1869,7 +1878,7 @@ focus_tree = {
 		relative_position_id = KOR_extra_alu_refinery
 		x = 0
 		y = 1
-		cost = 30 # Previously was: 70.0 
+		cost = 60
 		available = {
 			if = {
 				limit = {
@@ -1896,7 +1905,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		search_filters = {FOCUS_FILTER_INFRASTRUCTURE}
-		cost = 42 # Previously was: 42.0 
+		cost = 60
 		available_if_capitulated = no
 		available = {
 			has_tech = fuel_silos
@@ -1918,7 +1927,7 @@ focus_tree = {
 		relative_position_id = KOR_generic_fuel_stores
 		x = 0
 		y = 1
-		cost = 30 # Previously was: 70.0 
+		cost = 60
 		available = {
 			has_tech = synth_oil_experiments
 		}
@@ -1940,7 +1949,7 @@ focus_tree = {
 		relative_position_id = KOR_extra_synthetic_refinery
 		x = 0
 		y = 1
-		cost = 30 # Previously was: 70.0 
+		cost = 60
 		available_if_capitulated = no
 		available = {
 			has_tech = rubber_processing
@@ -1960,7 +1969,7 @@ focus_tree = {
 		x = 2
 		y = 0
 		search_filters = {FOCUS_FILTER_INFRASTRUCTURE}
-		cost = 30
+		cost = 60
 		available_if_capitulated = no
 		completion_reward = {
 			527 = {
@@ -1973,7 +1982,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 60
+			factor = 5
 		}
 	}
 
@@ -1986,7 +1995,7 @@ focus_tree = {
 		relative_position_id = KOR_xin_nan_farm_factory
 		x = 2
 		y = 0
-		cost = 30 # Previously was: 70.0 
+		cost = 60
 		available_if_capitulated = no
 		complete_tooltip = {
 			add_extra_state_shared_building_slots = 1
@@ -2057,7 +2066,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INFRASTRUCTURE}
 		x = 0
 		y = 1
-		cost = 35 # Previously was: 35.0 
+		cost = 60
 		available_if_capitulated = no
 		complete_tooltip = {
 			add_building_construction = {
@@ -2088,7 +2097,7 @@ focus_tree = {
 		relative_position_id = KOR_infrastructure_effort
 		x = 0
 		y = 1
-		cost = 30 # Previously was: 70.0 
+		cost = 60
 		available_if_capitulated = no
 		complete_tooltip = {
 			add_building_construction = {
@@ -2120,7 +2129,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_naval_dockyard
 		x = 2
 		y = 8
-		cost = 30 # Previously was: 70.0 
+		cost = 60 
 		search_filters = {FOCUS_FILTER_NAVY}
 		available_if_capitulated = no
 		available = {
@@ -2140,7 +2149,7 @@ focus_tree = {
 			focus_add_dockyard_prioritize_home_area = yes		
 		}
 		ai_will_do = {
-			factor = 55
+			factor = 60
 		}
 	}
 	#灵活舰队
@@ -2153,7 +2162,7 @@ focus_tree = {
 		relative_position_id = KOR_naval_effort
 		x = -1
 		y = 1
-		cost = 30 # Previously was: 70.0 
+		cost = 60
 		available_if_capitulated = no
 		completion_reward = {
 			add_tech_bonus = {
@@ -2164,7 +2173,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 5
+			factor = 55
 			modifier = {
 				factor = 0
 				OR = {
@@ -2184,7 +2193,7 @@ focus_tree = {
 		relative_position_id = KOR_naval_effort
 		x = 1
 		y = 1
-		cost = 30 # Previously was: 70.0 
+		cost = 60
 		available_if_capitulated = no
 		completion_reward = {
 			add_tech_bonus = {
@@ -2215,7 +2224,7 @@ focus_tree = {
 		relative_position_id = KOR_naval_effort
 		x = 0
 		y = 2
-		cost = 90 # Previously was: 70.0 
+		cost = 90
 		available = {
 			num_of_naval_factories > 10
 		}

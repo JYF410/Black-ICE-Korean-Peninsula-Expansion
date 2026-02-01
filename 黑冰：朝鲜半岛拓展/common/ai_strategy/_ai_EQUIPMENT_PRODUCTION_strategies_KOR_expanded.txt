@@ -20,7 +20,7 @@ KOR_surplus_override = {
 KOR_garrison_production = {
 	allowed = { tag = KOR }
 	enable = {
-		is_subject_of = JAP
+		KOR = { is_subject_of = JAP }
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = { type = equipment_variant_production_factor id = garrison_equipment value = 100 }

@@ -1,0 +1,10 @@
+﻿l_english:
+ KOR_opium_plantation:5 "Korean Opium Plantations"
+ KOR_opium_plantation_desc:5 "The Japanese authorities promoted the opium and narcotics industries in Korea to supply Japan’s domestic medical sector and for export trade. Compared to Japan proper, Korea’s climate and soil were better suited for poppy cultivation, while labor costs were significantly lower. During the 1930s, Korea became a major exporter of opium and narcotics, supplying raw materials to Japanese-owned opium enterprises in Manchuria. Facilities for the production of morphine and heroin were also established. Many Koreans became involved in the narcotics trade in Manchuria, forming the lower strata of a Northeast Asian drug trafficking network. Japanese pharmaceutical companies flooded the Korean market with illicit drugs, leading to widespread opium and morphine abuse and addiction."
+ kor_quit_jap_movement:5 "Korean Peninsula Independence Movement"
+ kor_quit_jap_movement_desc:5 "The Korean Peninsula Independence Movement"
+ Korean_Liberation_Army:5 "Expansion of the Korean Liberation Army"
+ Korean_Liberation_Army_desc:5 "A military force established by the Provisional Government of the Republic of Korea in China, aimed at resisting Japanese imperialism and striving for Korea’s independence and liberation."
+ KOR_sov_hospital:5 "Pyongyang Soviet Military General Hospital"
+ KOR_sov_hospital_desc:5 "Pyongyang Soviet Military General Hospital"
+ KOR_bank:5 "Bank of [KOR.GetNameDefCap]"

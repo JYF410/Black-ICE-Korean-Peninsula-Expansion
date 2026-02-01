@@ -7,6 +7,40 @@ dont_buy_with_weak_industry = {
 		num_of_civilian_factories > 5
 	}
 	abort_when_not_enabled = yes
+	abort = {
+		stockpile_ratio = { #AI用来判断“某类装备够不够”的库存完成度百分比
+			archetype = motorized_AC_equipment #装甲车
+			ratio > 80 #ratio = 当前库存 / AI认为的“理想库存” × 100
+		}
+		stockpile_ratio = {
+			archetype = trm_tankette_tank_chassis #超轻型坦克
+			ratio > 150
+		}
+		stockpile_ratio = {
+			archetype = trm_light_tank_chassis #轻型坦克
+			ratio > 250
+		}
+		stockpile_ratio = {
+			archetype = trm_cavalry_tank_chassis #骑兵坦克
+			ratio > 250
+		}
+		stockpile_ratio = {
+			archetype = fighter_equipment #战斗机
+			ratio > 200
+		}
+		stockpile_ratio = {
+			archetype = fighter_alt_equipment #轻型战斗机
+			ratio > 150
+		}
+		stockpile_ratio = {
+			archetype = mr_fighter_equipment #多用途战斗机
+			ratio > 100
+		}
+		stockpile_ratio = {
+			archetype = CAS_equipment #对地支援机
+			ratio > 80
+		}
+	}
 	ai_strategy = {
 		type = equipment_market_spend_factories
 		value = 1000
@@ -87,17 +121,6 @@ KOR_buy_tanks_and_planes_like_crazy = {
 		id = fighter_alt_equipment
 		value = 1000
 	}
-	#重型战斗机
-	ai_strategy = {
-		type = equipment_market_buy
-		equipment_type = heavy_fighter_equipment
-		value = 800
-	}
-	ai_strategy = {
-		type = equipment_market_buying_threshold
-		id = heavy_fighter_equipment
-		value = 1000
-	}
 	#多用途战斗机
 	ai_strategy = {
 		type = equipment_market_buy
@@ -107,17 +130,6 @@ KOR_buy_tanks_and_planes_like_crazy = {
 	ai_strategy = {
 		type = equipment_market_buying_threshold
 		id = mr_fighter_equipment
-		value = 1000
-	}
-	#舰载战斗机
-	ai_strategy = {
-		type = equipment_market_buy
-		equipment_type = cv_fighter_equipment
-		value = 800
-	}
-	ai_strategy = {
-		type = equipment_market_buying_threshold
-		id = cv_fighter_equipment
 		value = 1000
 	}
 	#对地支援机

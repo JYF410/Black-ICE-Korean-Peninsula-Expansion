@@ -1,0 +1,148 @@
+#KOR与SOV的市场准入逻辑
+KOR_trade_with_SOV = {
+	allowed = { tag = KOR }
+	enable = {
+		KOR = {
+			has_government = communism
+			has_completed_focus = KOR_sov_expand_bilateral_trade
+		}
+	}
+	abort = {
+		has_war_with = SOV
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = diplo_action_desire #修正：ROOT向目标国家申请市场准入的倾向性
+		id = SOV
+		target = market_access_rights
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance #修正：目标国家批准ROOT进入市场的接受度
+		id = SOV
+		target = market_access_rights
+		value = 1000
+	}
+}
+
+#KOR与CHI的市场准入逻辑
+KOR_trade_with_CHI = {
+	allowed = { tag = KOR }
+	enable = {
+		KOR = {	
+			OR = {
+				has_government = neutrality
+				has_war_with = JAP
+				is_in_faction_with = CHI
+			}
+		}
+	}
+	abort = {
+		has_war_with = CHI
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = diplo_action_desire #修正：ROOT向目标国家申请市场准入的倾向性
+		id = CHI
+		target = market_access_rights
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance #修正：目标国家批准ROOT进入市场的接受度
+		id = CHI
+		target = market_access_rights
+		value = 1000
+	}
+}
+
+#KOR与PRC的市场准入逻辑
+KOR_trade_with_CHI = {
+	allowed = { tag = KOR }
+	enable = {
+		KOR = {
+			has_government = communism
+			has_completed_focus = KOR_PRC_korean_corridor
+			OR = {
+				has_war_with = JAP
+				is_in_faction_with = PRC
+			}
+		}
+	}
+	abort = {
+		has_war_with = PRC
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = diplo_action_desire #修正：ROOT向目标国家申请市场准入的倾向性
+		id = PRC
+		target = market_access_rights
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance #修正：目标国家批准ROOT进入市场的接受度
+		id = PRC
+		target = market_access_rights
+		value = 1000
+	}
+}
+
+#与日本作战逻辑
+KOR_garrison = {
+	allowed = {
+		tag = KOR
+	}
+	enable = {
+		KOR = {
+			has_government = communism
+			OR = {
+				has_civil_war = yes				
+				has_war_with = JAP
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		states = { 815 827 }
+		ratio = 0.10
+		area = asia
+		order_id = 3
+		subtract_invasions_from_need = no
+	}
+}
+
+#与同盟国作战逻辑
+KOR_coastal_garrison = {
+	allowed = { tag = KOR }
+	enable = {
+		KOR = {
+			OR = {
+				has_war_with = USA
+				has_war_with = ENG
+				has_war_with = CHI
+				has_war_with = PRC
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = garrison
+		value = 20
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		states = {
+			527
+			815
+			525
+			751
+			816
+			819
+			820
+		}
+		ratio = 0.20
+		area = asia
+		order_id = 3
+		subtract_invasions_from_need = no
+	}
+}

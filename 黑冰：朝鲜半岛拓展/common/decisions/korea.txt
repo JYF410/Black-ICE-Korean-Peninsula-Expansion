@@ -1,26 +1,5 @@
 #朝鲜半岛独立运动
 KOR_Japan_Korea_Annexation_Treaty = {
-	#隐藏：KOR拒绝签署反共产国际协定
-	KOR_anti_soviet_pact_refused_call = {
-		icon = generic_ignite_civil_war
-		on_map_mode = decision_view_only
-		allowed = { tag = KOR }
-		available = { always = yes }
-		visible = { always = no }
-		cost = 0
-		fire_only_once = yes #决议仅能使用一次
-		days_remove = 1
-		remove_effect = {
-			add_opinion_modifier = {
-				target = KOR
-				modifier = refused_anti_comintern_pact_opinion
-			}
-		}
-		ai_will_do = {
-			factor = 100
-		}
-	}
-	
 	#对日本殖民据点发动的突袭战役
 	KOR_communist_civil_war = {
 		icon = generic_ignite_civil_war
@@ -40,9 +19,9 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			NOT = { has_government = communism }
 			has_completed_focus = KOR_front_against_Japan
 		}
-		cost = 50
+		cost = 75
 		fire_only_once = yes #决议仅能使用一次
-		days_remove = 14 #决议持续14天
+		days_remove = 30 #决议持续30天
 		remove_effect = {
 			country_event = {
 				id = KOR_communism.2 #弹窗事件
@@ -53,7 +32,6 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			factor = 100
 		}
 	}
-	
 	#韩国光复军起义了！
 	KOR_neutrality_civil_war = {
 		icon = generic_ignite_civil_war
@@ -98,12 +76,10 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			factor = 90
 		}
 	}
-
 }
 
 #中朝贸易援助
 KOR_PRC_trade_effort = {
-	
 	#朝鲜粮食援助
 	KOR_PRC_food_support = {
 		icon = RAJ_famine
@@ -154,12 +130,10 @@ KOR_PRC_trade_effort = {
 			}
 		}
 	}
-	
 }
 
 #苏联建设援助
 KOR_economic_aid = {
-
 	#土地资源开发
 	KOR_sov_support_construction = {
 		icon = generic_construction
@@ -262,7 +236,6 @@ KOR_economic_aid = {
 			}
 		}
 	}
-
 	#矿产资源探勘
 	KOR_sov_mineral_development = {
 		icon = generic_construction
@@ -335,5 +308,4 @@ KOR_economic_aid = {
 			}
 		}
 	}
-
 }
