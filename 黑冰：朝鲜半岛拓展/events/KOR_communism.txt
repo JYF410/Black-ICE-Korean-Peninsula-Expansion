@@ -52,17 +52,13 @@ country_event = {
 			#}
 			KOR = {
 				set_capital = { state = 815 } #设置首都:咸镜
-				set_victory_points = { province = 6944 value = 30 } #恩德
-				set_victory_points = { province = 898 value = 4 } #咸镜
-				set_victory_points = { province = 6822 value = 4 } #咸镜
-				set_victory_points = { province = 959 value = 4 } #渔郎
-				set_victory_points = { province = 6922 value = 4 } #咸镜
-				set_victory_points = { province = 3852 value = 4 } #咸镜
-				set_victory_points = { province = 3981 value = 12 } #咸兴
-				set_victory_points = { province = 9790 value = 7 } #平安
-				set_victory_points = { province = 11770 value = 7 } #平安
-				set_victory_points = { province = 6928 value = 7 } #定平
-				set_victory_points = { province = 4052 value = 17 } #平壤
+				set_victory_points = { province = 6944 value = 40 } #恩德
+				set_victory_points = { province = 959 value = 10 } #渔郎
+				set_victory_points = { province = 3981 value = 15 } #咸兴
+				set_victory_points = { province = 9790 value = 5 } #平安
+				set_victory_points = { province = 11770 value = 5 } #平安
+				set_victory_points = { province = 6928 value = 10 } #定平
+				set_victory_points = { province = 4052 value = 15 } #平壤
 				set_country_flag = SOV_armor #加载苏联坦克科研
 				set_country_flag = SOV_air #加载苏联飞机科研
 				KOR_create_militia_army_div = yes #这些effect会对内战中新生成的国家执行，而不是原国家

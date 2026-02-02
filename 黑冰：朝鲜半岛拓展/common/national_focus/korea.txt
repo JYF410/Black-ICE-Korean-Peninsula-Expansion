@@ -190,7 +190,7 @@ focus_tree = {
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes #投降后不能点该国策
-		cost = 30
+		cost = 60
 		available = {
 			date > 1937.3.1
 			KOR = {
@@ -230,14 +230,11 @@ focus_tree = {
 		y = 1
 		search_filters = { FOCUS_FILTER_ARMY }
 		available_if_capitulated = no #投降后不能点该国策
-		cost = 14
+		cost = 7
 		available = {
-			KOR = {
-				has_civil_war = yes
-				has_government = communism
-				NOT = {
-					has_War_with = SOV
-				}
+			has_country_leader = {
+				character = KOR_Kim_Il_sung
+				ruling_only = yes
 			}
 			SOV = {
 				exists = yes
@@ -298,7 +295,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 95
+			factor = 50
 		}
 	}
 	#从苏联返回东北
@@ -310,14 +307,11 @@ focus_tree = {
 		x = 2
 		y = 1
 		search_filters = { FOCUS_FILTER_INFRASTRUCTURE }
-		cost = 14
+		cost = 7
 		available = {
-			KOR = {
-				has_civil_war = yes
-				has_government = communism
-				NOT = {
-					has_War_with = SOV
-				}
+			has_country_leader = {
+				character = KOR_Kim_Il_sung
+				ruling_only = yes
 			}
 			SOV = {
 				exists = yes
@@ -366,6 +360,7 @@ focus_tree = {
 			#
 		}
 		completion_reward = {
+			add_country_leader_trait = stout_defender #领袖特质：坚定的防御者
 			815 = {
 				set_building_level = {
 					type = bunker
@@ -375,8 +370,8 @@ focus_tree = {
 				}
 				set_building_level = {
 					type = bunker
-					level = 1
-					province = 3981 #咸兴
+					level = 2
+					province = 6928 #定平
 					instant_build = yes
 				}
 			}
@@ -385,6 +380,18 @@ focus_tree = {
 					type = bunker
 					level = 1
 					province = 4052 #平壤
+					instant_build = yes
+				}
+				set_building_level = {
+					type = bunker
+					level = 1
+					province = 9790 #平安
+					instant_build = yes
+				}
+				set_building_level = {
+					type = bunker
+					level = 1
+					province = 11770 #平安
 					instant_build = yes
 				}
 			}
@@ -598,7 +605,7 @@ focus_tree = {
 				limit = { country_exists = PRC }
 				diplomatic_relation = {
 					country = PRC
-					relation = non_aggression_pact
+					relation = non_aggression_pact #签订互不侵犯条约
 					active = yes
 				}
 			}
@@ -621,7 +628,7 @@ focus_tree = {
 			SOV = {
 				add_opinion_modifier = {
 					target = ROOT
-					modifier = large_decrease
+					modifier = small_decrease
 				}
 			}
 		}
@@ -740,9 +747,10 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_country_leader_trait = soviet_thaw #领袖特质：亲苏维埃
 			diplomatic_relation = {
 				country = SOV
-				relation = non_aggression_pact
+				relation = non_aggression_pact #签订互不侵犯条约
 				active = yes
 			}
 			SOV = {
@@ -764,7 +772,7 @@ focus_tree = {
 			PRC = {
 				add_opinion_modifier = {
 					target = ROOT
-					modifier = large_decrease
+					modifier = small_decrease
 				}
 			}
 		}
@@ -2133,7 +2141,9 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_NAVY}
 		available_if_capitulated = no
 		available = {
+			date > 1937.9.1
 			has_country_flag = coastal_state
+
 		}
 		complete_tooltip = {
 			navy_experience = 25

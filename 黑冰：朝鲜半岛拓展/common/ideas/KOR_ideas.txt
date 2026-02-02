@@ -70,7 +70,7 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				weekly_manpower = 800 #每周人力: +800
+				weekly_manpower = 1000 #每周人力: +1000
 				war_support_factor = 0.10 #战争支持度+10%
 				autonomy_gain = 0.5 #每日自治度进程增长: +0.50
 				communism_drift = 0.03 #每日共产主义支持率: +0.03
@@ -114,12 +114,14 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				army_core_attack_factor = 0.5 #核心领土进攻+50%
-				army_core_defence_factor = 1.0 #核心领土防御+100%
-				army_org_factor = 0.9 #陆军组织度+90%
-				army_speed_factor = 0.5 #陆军移动速度+50%
-				supply_consumption_factor = -0.5 #补给使用-50%
+				army_core_attack_factor = 0.10 #核心领土进攻+10%
+				army_core_defence_factor = 0.10 #核心领土防御+10%
+				army_org_factor = 0.5 #陆军组织度+50%
 				surrender_limit = 0.5 #投降界限+50%
+			}
+			targeted_modifier = {
+				tag = JAP
+				defense_bonus_against = 2.0 #我国对该国防御加成+200%
 			}
 			allowed_civil_war = {
 				NOT ={
@@ -128,6 +130,8 @@ ideas = {
 			}
 			cancel = {
 				KOR = {
+					NOT = { has_war_with = JAP }
+					has_civil_war = no
 					controls_state = 815
 					controls_state = 751
 					controls_state = 463

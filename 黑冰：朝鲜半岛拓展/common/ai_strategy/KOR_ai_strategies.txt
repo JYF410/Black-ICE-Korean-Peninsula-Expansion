@@ -1,148 +1,93 @@
-#KOR与SOV的市场准入逻辑
-KOR_trade_with_SOV = {
+#################################################################################################
+###KOR与JAP的战争逻辑
+#################################################################################################
+#KOR海岸线防御倾向
+KOR_VS_JAP = {
 	allowed = { tag = KOR }
 	enable = {
 		KOR = {
-			has_government = communism
-			has_completed_focus = KOR_sov_expand_bilateral_trade
-		}
-	}
-	abort = {
-		has_war_with = SOV
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = diplo_action_desire #修正：ROOT向目标国家申请市场准入的倾向性
-		id = SOV
-		target = market_access_rights
-		value = 1000
-	}
-	ai_strategy = {
-		type = diplo_action_acceptance #修正：目标国家批准ROOT进入市场的接受度
-		id = SOV
-		target = market_access_rights
-		value = 1000
-	}
-}
-
-#KOR与CHI的市场准入逻辑
-KOR_trade_with_CHI = {
-	allowed = { tag = KOR }
-	enable = {
-		KOR = {	
-			OR = {
-				has_government = neutrality
-				has_war_with = JAP
-				is_in_faction_with = CHI
-			}
-		}
-	}
-	abort = {
-		has_war_with = CHI
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = diplo_action_desire #修正：ROOT向目标国家申请市场准入的倾向性
-		id = CHI
-		target = market_access_rights
-		value = 1000
-	}
-	ai_strategy = {
-		type = diplo_action_acceptance #修正：目标国家批准ROOT进入市场的接受度
-		id = CHI
-		target = market_access_rights
-		value = 1000
-	}
-}
-
-#KOR与PRC的市场准入逻辑
-KOR_trade_with_CHI = {
-	allowed = { tag = KOR }
-	enable = {
-		KOR = {
-			has_government = communism
-			has_completed_focus = KOR_PRC_korean_corridor
-			OR = {
-				has_war_with = JAP
-				is_in_faction_with = PRC
-			}
-		}
-	}
-	abort = {
-		has_war_with = PRC
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = diplo_action_desire #修正：ROOT向目标国家申请市场准入的倾向性
-		id = PRC
-		target = market_access_rights
-		value = 1000
-	}
-	ai_strategy = {
-		type = diplo_action_acceptance #修正：目标国家批准ROOT进入市场的接受度
-		id = PRC
-		target = market_access_rights
-		value = 1000
-	}
-}
-
-#与日本作战逻辑
-KOR_garrison = {
-	allowed = {
-		tag = KOR
-	}
-	enable = {
-		KOR = {
-			has_government = communism
-			OR = {
-				has_civil_war = yes				
-				has_war_with = JAP
-			}
-		}
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = put_unit_buffers
-		states = { 815 827 }
-		ratio = 0.10
-		area = asia
-		order_id = 3
-		subtract_invasions_from_need = no
-	}
-}
-
-#与同盟国作战逻辑
-KOR_coastal_garrison = {
-	allowed = { tag = KOR }
-	enable = {
-		KOR = {
-			OR = {
-				has_war_with = USA
-				has_war_with = ENG
-				has_war_with = CHI
-				has_war_with = PRC
-			}
+			has_civil_war = yes
+			has_war_with = JAP
 		}
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = {
 		type = garrison
-		value = 20
+		value = 100
 	}
 	ai_strategy = {
-		type = put_unit_buffers
-		states = {
-			527
-			815
-			525
-			751
-			816
-			819
-			820
+		type = garrison_reinforcement_priority #促使AI以更高的优先级给在补给点和海岸线驻军补给人力和装备
+		value = 100
+	}
+}
+#KOR在内战爆发时：降低进攻MAN的倾向、提高集中兵力南下的倾向
+KOR_not_attack_MAN = {
+	allowed = { tag = KOR }
+	enable = {
+		KOR = {
+			has_civil_war = yes
+			has_war_with = JAP
 		}
-		ratio = 0.20
-		area = asia
-		order_id = 3
-		subtract_invasions_from_need = no
+	}
+	abort = {
+		KOR = {
+			OR = {
+				has_civil_war = no
+				NOT = { has_War_with = JAP }
+				MAN = {
+					OR = {
+						exists = no
+						has_capitulated = yes
+					}
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_unit_request #修正AI在指定地块前线部署的兵力
+		tag = KOR
+		state = 816
+		state = 751
+		value = 10
+	}
+	ai_strategy = {
+		type = force_concentration_front_factor #当指定地块前线是主要前线时，允许AI集中兵力
+		tag = KOR
+		state = 816
+		state = 751
+		ratio = 0.2 #占我方指定地块的全部前线长度的10%以上
+		value = 10 #AI的兵力集中优先级提高30%
+	}
+	ai_strategy = {
+		type = front_unit_request #修正AI在指定地块前线部署的兵力
+		tag = KOR
+		state = 811 #东边
+		state = 328 #吉长
+		state = 716 #辽沈
+		value = -30
+	}
+	ai_strategy = {
+		type = force_concentration_target_weight #修正AI在指定地块前线集中兵力的权重
+		tag = KOR
+		state = 811 #东边
+		state = 328 #吉长
+		state = 716 #辽沈
+		value = -50
+	}
+}
+#AI增派坦克单位以进攻指定国家
+KOR_garrison = {
+	allowed = { tag = KOR }
+	enable = {
+		KOR = {
+			has_war_with = JAP
+			has_completed_focus = KOR_sov_cavalry_tank_division #完成国策：快速坦克部队
+		}
+	}
+	ai_strategy = {
+		type = front_armor_score
+		id = KOR
+		value = 100
 	}
 }
