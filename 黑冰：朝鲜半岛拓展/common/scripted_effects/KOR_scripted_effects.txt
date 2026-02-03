@@ -7,8 +7,9 @@ KOR_create_JAP_partisan_army_div = {
 		is_locked = yes
 		regiments = {
 			garrison = { x = 0 y = 0 }
-			militia = { x = 0 y = 1 }
-			militia = { x = 0 y = 2 }
+			garrison = { x = 0 y = 1 }
+			militia = { x = 1 y = 0 }
+			militia = { x = 2 y = 0 }
 		}
 		support = {
 			DIV_HQ = { x = 0 y = 0 }
@@ -18,22 +19,24 @@ KOR_create_JAP_partisan_army_div = {
 	random_owned_controlled_state = {
 		prioritize = { 525 527 816 819 820 }
 		create_unit = {
-			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜地方警备营\" start_experience_factor = 0.2 start_equipment_factor = 0.6 force_equipment_variants = { garrison_equipment_0 = { owner = JAP } }"
-			OWNER = KOR
+			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜地方警备营\" start_experience_factor = 0.2 start_equipment_factor = 0.7 force_equipment_variants = { garrison_equipment_0 = { owner = JAP } }"
+			owner = KOR
 		}
 	}
 }
-#平壤地方宪兵队
+#朝鲜地方宪兵队
 KOR_create_JAP_MP_army_div = {
 	division_template = {
 		name = "朝鲜地方宪兵队"
+		division_names_group = KOR_CAV_01
+		template_counter = 210
 		is_locked = yes
-		template_counter = 232
 		regiments = {
-			armored_car = { x = 0 y = 0 }
+			cavalry = { x = 0 y = 0 }
+			cavalry = { x = 0 y = 1 }
 			cavalry = { x = 1 y = 0 }
 			cavalry = { x = 1 y = 1 }
-			motorized = { x = 2 y = 0 }
+			armored_car = { x = 2 y = 0 }
 		}
 		support = {
 			DIV_HQ = { x = 0 y = 0 }
@@ -42,10 +45,10 @@ KOR_create_JAP_MP_army_div = {
 			military_police = { x = 1 y = 0 }
 		}
 	}
-	527 = {
+	random_owned_controlled_state = {
+		prioritize = { 525 751 819 820 }
 		create_unit = {
-			division = "name = \"平壤地方宪兵队\" division_template = \"朝鲜地方宪兵队\" start_experience_factor = 0.5 start_equipment_factor = 0.7 force_equipment_variants = { motorized_AC_equipment_06 = { owner = JAP } }"
-			prioritize_location = 4052 #平壤
+			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜地方宪兵队\" start_experience_factor = 0.5 start_equipment_factor = 0.9 force_equipment_variants = { motorized_AC_equipment_06 = { owner = JAP } }"
 			owner = KOR
 		}
 	}
@@ -231,7 +234,7 @@ KOR_ethnic_korean_division_div = {
 KOR_motorized_AC_division_div = {
 	division_template = {
 		name = "朝鲜独立装甲车团"
-		is_locked = yes
+		is_locked = no
 		template_counter = @C_MOTORIZED
 		regiments = {
 			trm_tankette_armor = { x = 0 y = 0 }
@@ -258,7 +261,7 @@ KOR_motorized_AC_division_div = {
 KOR_cavalry_armor_division_div = {
 	division_template = {
 		name = "朝鲜骑兵坦克师"
-		is_locked = yes
+		is_locked = no
 		template_counter = @C_LIGHT_ARMOR_ALT
 		regiments = {
 			cavalry = { x = 0 y = 0 }

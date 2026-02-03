@@ -82,12 +82,15 @@
 ##################################################通用军事线####################################################
  KOR_army_effort:5 "国民精神总动员"
  KOR_army_effort_desc:5 "1938年4月，大日本帝国政府公布《国家总动员法》，规定：只要是国家总动员的需要，可以不经过帝国议会批准，而以天皇敕令的形式垄断、统制和调用物资、能源、运输及劳动力；还规定“为有效发挥国家的所有力量，统制使用人、物资源”，人和物一样都成为被统制的“消耗品”。\n中国抗日战争以及太平洋战争期间，国民精神总动员也适用于朝鲜，日本军征召朝鲜籍日本兵。日本提出“大东亚共荣圈”，号召朝鲜人全身心投入“大东亚圣战”，加强对朝鲜的同化宣传。"
- KOR_jap_garrison_army_01:5 "在惠山地方征召部队"
- KOR_jap_garrison_army_02:5 "在普天堡地方征召部队"
- KOR_jap_garrison_army_03:5 "在元山地方征召部队"
- KOR_jap_garrison_army_04:5 "在兴南地方征召部队"
- KOR_jap_garrison_army_05:5 "在南浦地方征召部队"
- KOR_jap_military_police_army:5 "组建平壤地方宪兵部队"
+ KOR_jap_garrison_army_01:5 "在惠山征召部队"
+ KOR_jap_garrison_army_02:5 "在普天堡征召部队"
+ KOR_jap_garrison_army_03:5 "在元山征召部队"
+ KOR_jap_garrison_army_04:5 "在兴南征召部队"
+ KOR_jap_garrison_army_05:5 "在南浦征召部队"
+ KOR_jap_military_police_army_01:5 "在平壤组建宪兵部队"
+ KOR_jap_military_police_army_02:5 "在京城组建宪兵部队"
+ KOR_jap_military_police_army_03:5 "在仁川组建宪兵部队"
+ KOR_jap_military_police_army_04:5 "在釜山组建宪兵部队"
 
 ##################################################通用建设线####################################################
  KOR_JAP_office_governor:5 "朝鲜总督府"

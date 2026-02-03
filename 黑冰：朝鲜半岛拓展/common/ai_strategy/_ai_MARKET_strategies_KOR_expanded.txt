@@ -10,27 +10,27 @@ dont_buy_with_weak_industry = {
 	abort = {
 		stockpile_ratio = { #AI用来判断“某类装备够不够”的库存完成度百分比
 			archetype = motorized_lia_equipment #汽车
-			ratio > 100 #ratio = 当前库存 / AI认为的“理想库存” × 100
+			ratio > 150 #ratio = 当前库存 / AI认为的“理想库存” × 100
 		}
 		stockpile_ratio = {
 			archetype = motorized_AC_equipment #装甲车
-			ratio > 100
+			ratio > 200
 		}
 		stockpile_ratio = {
 			archetype = trm_tankette_tank_chassis #超轻型坦克
-			ratio > 150
+			ratio > 200
 		}
 		stockpile_ratio = {
 			archetype = trm_light_tank_chassis #轻型坦克
-			ratio > 250
+			ratio > 200
 		}
 		stockpile_ratio = {
 			archetype = trm_cavalry_tank_chassis #骑兵坦克
-			ratio > 250
+			ratio > 150
 		}
 		stockpile_ratio = {
 			archetype = fighter_equipment #战斗机
-			ratio > 200
+			ratio > 150
 		}
 		stockpile_ratio = {
 			archetype = fighter_alt_equipment #轻型战斗机
@@ -38,7 +38,7 @@ dont_buy_with_weak_industry = {
 		}
 		stockpile_ratio = {
 			archetype = mr_fighter_equipment #多用途战斗机
-			ratio > 100
+			ratio > 150
 		}
 		stockpile_ratio = {
 			archetype = CAS_equipment #对地支援机

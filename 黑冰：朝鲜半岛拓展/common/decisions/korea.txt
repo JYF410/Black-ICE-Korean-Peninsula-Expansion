@@ -19,7 +19,7 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			NOT = { has_government = communism }
 			has_completed_focus = KOR_front_against_Japan
 		}
-		cost = 75
+		cost = 100
 		fire_only_once = yes #决议仅能使用一次
 		days_remove = 30 #决议持续30天
 		remove_effect = {
@@ -146,6 +146,7 @@ KOR_economic_aid = {
 		available = {
 			KOR = {
 				has_government = communism
+				has_completed_focus = KOR_sov_land_development #土地资源开发
 			}
 			SOV = {
 				exists = yes
@@ -248,6 +249,7 @@ KOR_economic_aid = {
 		available = {
 			KOR = {
 				has_government = communism
+				has_completed_focus = KOR_sov_mineral_development #矿产资源探勘
 			}
 			SOV = {
 				exists = yes

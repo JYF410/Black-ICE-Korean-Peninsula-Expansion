@@ -177,7 +177,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 99
+			factor = 90
 		}
 	}	
 	#朝鲜民族战线联盟
@@ -845,18 +845,22 @@ focus_tree = {
 			#
 		}
 		completion_reward = {
-			KOR = {
-				give_market_access = SOV
-				add_relation_rule_override = {
-					target = SOV
-					can_access_market = yes
-				}
-			}
 			SOV = {
 				add_opinion_modifier = {
 					target = KOR
 					modifier = himalaya_trade_deal 
 				}
+				give_market_access = KOR
+				add_ai_strategy = {
+					type = equipment_market_trade_desire
+					id = KOR
+					value = 1000
+				}
+			}				
+			add_ai_strategy = {
+				type = equipment_market_trade_desire
+				id = SOV
+				value = 1000  
 			}
 		}
 		ai_will_do = {
@@ -888,14 +892,25 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 } #增加2个地图外的军用工厂
 			add_equipment_subsidy = {
-				cic = 3000
+				cic = 5000
 				equipment_type = infantry_equipment
 				seller_tags = { SOV }
 			}
 			add_equipment_subsidy = {
-				cic = 3000
+				cic = 5000
 				equipment_type = infantry_uniforms
+				seller_tags = { SOV }
+			}
+			add_equipment_subsidy = {
+				cic = 2000
+				equipment_type = motorized_lia_equipment
+				seller_tags = { SOV }
+			}
+			add_equipment_subsidy = {
+				cic = 1000
+				equipment_type = motorized_AC_equipment
 				seller_tags = { SOV }
 			}
 		}
@@ -1060,7 +1075,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_tech_bonus = {
-				bonus = 0.5
+				bonus = 0.75
 				uses = 2
 				category = motorized_equipment
 			}
@@ -1098,19 +1113,13 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			army_experience = 15
-			add_equipment_subsidy = {
-				cic = 2000
-				equipment_type = motorized_AC_equipment
-				seller_tags = { SOV }
-			}
 			add_equipment_subsidy = {
 				cic = 2000
 				equipment_type = trm_tankette_tank_chassis
 				seller_tags = { SOV }
 			}
 			add_equipment_subsidy = {
-				cic = 1000
+				cic = 2000
 				equipment_type = trm_cavalry_tank_chassis
 				seller_tags = { SOV }
 			}
@@ -1121,8 +1130,7 @@ focus_tree = {
 				add_equipment_to_stockpile = { type = trm_light_tank_chassis_sov_t26_1 amount = 120 producer = SOV }
 			}
 			else = {
-				add_equipment_to_stockpile = { type = trm_light_tank_chassis_sov_t26_1 amount = 60 producer = SOV }
-				custom_effect_tooltip = KMT_more_if_in_defensive_war_tt
+				add_equipment_to_stockpile = { type = trm_light_tank_chassis_sov_t18_1 amount = 60 producer = SOV }
 			}
 		}
 		ai_will_do = {
@@ -1144,6 +1152,7 @@ focus_tree = {
 			#
 		}
 		completion_reward = {
+			army_experience = 50
 			add_tech_bonus = {
 				bonus = 0.5
 				uses = 1
@@ -1199,7 +1208,7 @@ focus_tree = {
 		id = KOR_joint_soviet_tank
 		icon = GFX_goal_tankograd
 		prerequisite = { focus = KOR_soviet_product_tanks }
-		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCHCENTER }
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
 		relative_position_id = KOR_soviet_product_tanks
 		x = 0
 		y = 1
@@ -1218,16 +1227,15 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = armor_tech
+			}
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = KOR
 					is_controlled_by = KOR
-				}
-				add_tech_bonus = {
-					name = KMT_joint_tank_dev
-					bonus = 0.20
-					uses = 2
-					category = armor_tech
 				}
 				add_research_slot = 1
 				add_research_centre = yes
@@ -1488,7 +1496,7 @@ focus_tree = {
 	focus = {
 		id = KOR_army_effort
 		icon = GFX_focus_MonumentalBanzai
-		x = 5
+		x = 4
 		y = 0
 		search_filters = {FOCUS_FILTER_ARMY}	
 		cost = 30
@@ -1509,10 +1517,10 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 90
+			factor = 80
 		}
 	}
-	#在惠山地方征召部队
+	#在惠山征召部队
 	focus = {
 		id = KOR_jap_garrison_army_01
 		icon = GFX_goal_infantry_tactics
@@ -1529,10 +1537,10 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 98
+			factor = 79
 		}
 	}
-	#在普天堡地方征召部队
+	#在普天堡征召部队
 	focus = {
 		id = KOR_jap_garrison_army_02
 		icon = GFX_goal_infantry_tactics
@@ -1549,10 +1557,10 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 85
+			factor = 78
 		}
 	}
-	#在元山地方征召部队
+	#在元山征召部队
 	focus = {
 		id = KOR_jap_garrison_army_03
 		icon = GFX_goal_infantry_tactics
@@ -1569,10 +1577,10 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 85
+			factor = 77
 		}
 	}
-	#在兴南地方征召部队
+	#在兴南征召部队
 	focus = {
 		id = KOR_jap_garrison_army_04
 		icon = GFX_goal_infantry_tactics
@@ -1589,10 +1597,10 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 85
+			factor = 76
 		}
 	}
-	#在南浦地方征召部队
+	#在南浦征召部队
 	focus = {
 		id = KOR_jap_garrison_army_05
 		icon = GFX_goal_infantry_tactics
@@ -1609,26 +1617,87 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 85
+			factor = 75
 		}
 	}
-	#组建平壤地方宪兵部队
+	#在平壤组建宪兵部队
 	focus = {
-		id = KOR_jap_military_police_army
+		id = KOR_jap_military_police_army_01
 		icon = GFX_goal_reinforce_the_gendarmerie
-		prerequisite = { focus = KOR_jap_garrison_army_01 focus = KOR_jap_garrison_army_02 focus = KOR_jap_garrison_army_03 focus = KOR_jap_garrison_army_04 focus = KOR_jap_garrison_army_05 }
-		relative_position_id = KOR_jap_garrison_army_03
-		x = 0
+		prerequisite = { focus = KOR_jap_garrison_army_01 }
+		prerequisite = { focus = KOR_jap_garrison_army_02 }
+		relative_position_id = KOR_jap_garrison_army_01
+		x = 1
 		y = 1
 		search_filters = {FOCUS_FILTER_ARMY}	
 		cost = 14
 		completion_reward = {
-			add_stability = 0.02 #稳定度+2%
+			add_stability = -0.02 #稳定度+2%
 			add_war_support = -0.05 #战争支持度-5%
 			KOR_create_JAP_MP_army_div = yes
 		}
 		ai_will_do = {
-			factor = 90
+			factor = 74
+		}
+	}
+	#在京城组建宪兵部队
+	focus = {
+		id = KOR_jap_military_police_army_02
+		icon = GFX_goal_reinforce_the_gendarmerie
+		prerequisite = { focus = KOR_jap_garrison_army_02 }
+		prerequisite = { focus = KOR_jap_garrison_army_03 }
+		relative_position_id = KOR_jap_garrison_army_02
+		x = 1
+		y = 1
+		search_filters = {FOCUS_FILTER_ARMY}	
+		cost = 14
+		completion_reward = {
+			add_stability = -0.02 #稳定度+2%
+			add_war_support = -0.05 #战争支持度-5%
+			KOR_create_JAP_MP_army_div = yes
+		}
+		ai_will_do = {
+			factor = 73
+		}
+	}
+	#在仁川组建宪兵部队
+	focus = {
+		id = KOR_jap_military_police_army_03
+		icon = GFX_goal_reinforce_the_gendarmerie
+		prerequisite = { focus = KOR_jap_garrison_army_03 }
+		prerequisite = { focus = KOR_jap_garrison_army_04 }
+		relative_position_id = KOR_jap_garrison_army_03
+		x = 1
+		y = 1
+		search_filters = {FOCUS_FILTER_ARMY}	
+		cost = 14
+		completion_reward = {
+			add_stability = -0.02 #稳定度+2%
+			add_war_support = -0.05 #战争支持度-5%
+			KOR_create_JAP_MP_army_div = yes
+		}
+		ai_will_do = {
+			factor = 72
+		}
+	}
+	#在釜山组建宪兵部队
+	focus = {
+		id = KOR_jap_military_police_army_04
+		icon = GFX_goal_reinforce_the_gendarmerie
+		prerequisite = { focus = KOR_jap_garrison_army_04 }
+		prerequisite = { focus = KOR_jap_garrison_army_05 }
+		relative_position_id = KOR_jap_garrison_army_04
+		x = 1
+		y = 1
+		search_filters = {FOCUS_FILTER_ARMY}	
+		cost = 14
+		completion_reward = {
+			add_stability = -0.02 #稳定度+2%
+			add_war_support = -0.05 #战争支持度-5%
+			KOR_create_JAP_MP_army_div = yes
+		}
+		ai_will_do = {
+			factor = 71
 		}
 	}
 
@@ -1675,7 +1744,7 @@ focus_tree = {
 			add_ideas = KOR_bank
 		}
 		ai_will_do = {
-			factor = 95
+			factor = 99
 		}
 	}
 	#朝鲜银行券
@@ -1690,18 +1759,23 @@ focus_tree = {
 		cost = 30
 		completion_reward = {
 			add_equipment_subsidy = {
-				cic = 1000
-				equipment_type = infantry_equipment
+				cic = 2000
+				equipment_type = motorized_AC_equipment
+				seller_tags = { JAP }
+			}
+			add_equipment_subsidy = {
+				cic = 2000
+				equipment_type = trm_tankette_tank_chassis
 				seller_tags = { JAP }
 			}
 			add_equipment_subsidy = {
 				cic = 1000
-				equipment_type = garrison_equipment
+				equipment_type = trm_light_tank_chassis
 				seller_tags = { JAP }
 			}
 		}
 		ai_will_do = {
-			factor = 95
+			factor = 99
 		}
 	}
 
@@ -1751,7 +1825,11 @@ focus_tree = {
 			focus_add_industrial_complex_prioritize_home_area = yes
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
 		}
 	}
 	#重视建设II
@@ -1785,7 +1863,11 @@ focus_tree = {
 			focus_add_industrial_complex_prioritize_home_area = yes
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
 		}
 	}
 	#重视建设III
@@ -1820,7 +1902,11 @@ focus_tree = {
 			focus_add_industrial_complex_prioritize_home_area = yes
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
 		}
 	}
 	#建造炼钢厂
@@ -1847,7 +1933,11 @@ focus_tree = {
 			focus_add_building_prioritize_home_area = yes
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
 		}
 	}
 	#建造炼铝厂
@@ -1874,7 +1964,11 @@ focus_tree = {
 			focus_add_building_prioritize_home_area = yes
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
 		}
 	}
 	#更多发电厂
@@ -1901,7 +1995,10 @@ focus_tree = {
 			focus_add_building_prioritize_home_area = yes
 		}
 		ai_will_do = {
-			factor = 1
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
 		}
 	}
 	#储备燃料
@@ -1923,7 +2020,10 @@ focus_tree = {
 			focus_add_building_prioritize_home_area = yes
 		}
 		ai_will_do = {
-			factor = 1
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
 		}
 	}
 	#建造炼油厂
@@ -1945,7 +2045,10 @@ focus_tree = {
 			focus_add_building_prioritize_home_area = yes
 		}
 		ai_will_do = {
-			factor = 1
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
 		}
 	}
 	#建造合成橡胶厂
@@ -2063,6 +2166,10 @@ focus_tree = {
 		}
 		ai_will_do = {
 			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
 		}
 	}
 	#重视基建
@@ -2094,6 +2201,10 @@ focus_tree = {
 		}
 		ai_will_do = {
 			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
 		}
 	}
 	#重视基建II
@@ -2127,6 +2238,10 @@ focus_tree = {
 		}
 		ai_will_do = {
 			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
 		}
 	}
 
@@ -2141,9 +2256,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_NAVY}
 		available_if_capitulated = no
 		available = {
-			date > 1937.9.1
 			has_country_flag = coastal_state
-
 		}
 		complete_tooltip = {
 			navy_experience = 25
@@ -2160,6 +2273,14 @@ focus_tree = {
 		}
 		ai_will_do = {
 			factor = 60
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = { has_country_flag = coastal_state }
+					num_of_naval_factories < 1
+					has_government = fascism
+				}
+			}
 		}
 	}
 	#灵活舰队
@@ -2189,6 +2310,7 @@ focus_tree = {
 				OR = {
 					NOT = { has_country_flag = coastal_state }
 					num_of_naval_factories < 1
+					has_government = fascism
 				}
 			}
 		}
@@ -2221,6 +2343,7 @@ focus_tree = {
 				OR = {
 					NOT = { has_country_flag = coastal_state }
 					num_of_naval_factories < 1
+					has_government = fascism
 				}
 			}
 		}
@@ -2246,8 +2369,11 @@ focus_tree = {
 			SLOT:naval_techs_folder = yes
 		}
 		ai_will_do = {
-			factor = 5
+			factor = 10
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
 		}
 	}
-
 }

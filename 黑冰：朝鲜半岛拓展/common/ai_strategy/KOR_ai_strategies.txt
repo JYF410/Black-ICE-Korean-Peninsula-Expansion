@@ -1,63 +1,68 @@
 #################################################################################################
 ###KOR与JAP的战争逻辑
 #################################################################################################
-#KOR海岸线防御倾向
-KOR_VS_JAP = {
+#处于战争状态时固守海岸线
+KOR_not_attack_MAN = {
 	allowed = { tag = KOR }
 	enable = {
 		KOR = {
-			has_civil_war = yes
-			has_war_with = JAP
+			has_war = yes
 		}
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = {
 		type = garrison
-		value = 100
+		value = 80
+	}
+}
+#AI增派坦克单位以进攻指定国家
+KOR_garrison = {
+	allowed = { tag = KOR }
+	enable = {
+		KOR = {
+			has_war = yes
+			has_completed_focus = KOR_sov_cavalry_tank_division #快速坦克部队
+		}
 	}
 	ai_strategy = {
-		type = garrison_reinforcement_priority #促使AI以更高的优先级给在补给点和海岸线驻军补给人力和装备
+		type = front_armor_score
+		id = KOR
 		value = 100
 	}
 }
-#KOR在内战爆发时：降低进攻MAN的倾向、提高集中兵力南下的倾向
+#KOR在内战爆发时：降低进攻MAN的倾向、提高集中兵力南下的倾向，增加海岸线防御倾向
 KOR_not_attack_MAN = {
 	allowed = { tag = KOR }
 	enable = {
 		KOR = {
 			has_civil_war = yes
 			has_war_with = JAP
-		}
-	}
-	abort = {
-		KOR = {
-			OR = {
-				has_civil_war = no
-				NOT = { has_War_with = JAP }
-				MAN = {
-					OR = {
-						exists = no
-						has_capitulated = yes
-					}
-				}
-			}
+			is_in_faction_with = CHI
 		}
 	}
 	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = garrison
+		value = 120
+	}
+	ai_strategy = {
+		type = garrison_reinforcement_priority #促使AI以更高的优先级给在补给点和海岸线驻军补给人力和装备
+		value = 50
+	}
 	ai_strategy = {
 		type = front_unit_request #修正AI在指定地块前线部署的兵力
 		tag = KOR
 		state = 816
 		state = 751
-		value = 10
+		value = 30
 	}
 	ai_strategy = {
 		type = force_concentration_front_factor #当指定地块前线是主要前线时，允许AI集中兵力
 		tag = KOR
 		state = 816
 		state = 751
-		ratio = 0.2 #占我方指定地块的全部前线长度的10%以上
-		value = 10 #AI的兵力集中优先级提高30%
+		ratio = 0.2 #占我方指定地块的全部前线长度的20%以上
+		value = 10 #AI的兵力集中优先级提高10%
 	}
 	ai_strategy = {
 		type = front_unit_request #修正AI在指定地块前线部署的兵力
@@ -65,7 +70,7 @@ KOR_not_attack_MAN = {
 		state = 811 #东边
 		state = 328 #吉长
 		state = 716 #辽沈
-		value = -30
+		value = -50
 	}
 	ai_strategy = {
 		type = force_concentration_target_weight #修正AI在指定地块前线集中兵力的权重
@@ -76,18 +81,27 @@ KOR_not_attack_MAN = {
 		value = -50
 	}
 }
-#AI增派坦克单位以进攻指定国家
-KOR_garrison = {
+
+#################################################################################################
+###KOR与SOV的贸易逻辑
+#################################################################################################
+KOR_trade_SOV_1 = {
 	allowed = { tag = KOR }
 	enable = {
 		KOR = {
-			has_war_with = JAP
-			has_completed_focus = KOR_sov_cavalry_tank_division #完成国策：快速坦克部队
+			has_war = yes
+			has_completed_focus = KOR_sov_expand_bilateral_trade #扩大远东双边贸易
 		}
 	}
+	abort_when_not_enabled = yes
 	ai_strategy = {
-		type = front_armor_score
-		id = KOR
-		value = 100
+		type = send_lend_lease_desire #KOR申请提供租借法案的倾向
+		id = SOV
+		value = 3000
+	}
+	ai_strategy = {
+		type = equipment_market_trade_desire #KOR申请进入国际市场的倾向
+		id = SOV
+		value = 3000
 	}
 }
