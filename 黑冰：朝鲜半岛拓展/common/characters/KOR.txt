@@ -1,4 +1,5 @@
 characters = {
+###################领导人##################
 	KOR_Syngman_Rhee = {  #李承晚
 		name = KOR_Syngman_Rhee
 		allowed_civil_war = {
@@ -104,15 +105,6 @@ characters = {
 			}
 			traits = { administrative_genius }
 		}
-		field_marshal = {
-			traits = { Order_of_Red_Banner war_hero ranger winter_specialist }
-			skill = 2
-			attack_skill = 3
-			defense_skill = 1
-			planning_skill = 1
-			logistics_skill = 1
-			legacy_id = 202619940708
-		}
 	}
 	KOR_Abe_Nobuyuki={  #阿部信行
 		name = KOR_Abe_Nobuyuki
@@ -216,94 +208,161 @@ characters = {
 			ledger = army
 		}
 	}
-	KOR_Choe_Yong_gon={  #崔庸健
+###################红色将领#################
+	KOR_Choe_Yong_gon = {  #崔庸健
 		name = KOR_Choe_Yong_gon
 		allowed_civil_war = {
 			has_government = communism
 		}
-		portraits={
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KOR/Portrait_KOR_Choe_Yong_gon.dds"
+			}
 			army = {
 				small = GFX_idea_generic_political_advisor_asia_13
 			}	
 		}
-		corps_commander = {
-			traits = {  }
-			skill = 2
-			attack_skill = 2
-			defense_skill = 2
-			planning_skill = 1
-			logistics_skill = 1
-			legacy_id = -1
-		}
 		advisor = {
-			slot = army_chief
-			idea_token = KOR_Choe_Yong_gon_army_chief
+			slot = high_command
+			idea_token = KOR_Choe_Yong_gon_high_command
 			on_add = {
 				set_temp_variable = { character = token:KOR_Choe_Yong_gon}
-				set_temp_variable = { slot = token:army_chief}
-				army_chief_on_add_effect = yes
+				set_temp_variable = { slot = token:high_command}
+				high_command_on_add_effect = yes
 			} 
 			on_remove = {
 				set_temp_variable = { character = token:KOR_Choe_Yong_gon}
-				set_temp_variable = { slot = token:army_chief}
-				army_chief_on_remove_effect = yes
+				set_temp_variable = { slot = token:high_command}
+				high_command_on_remove_effect = yes
+			}
+			available = {
+				has_government = communism
 			}
 			traits = {
 				army_infantry_3
-				army_chief_defensive_3
+			}
+			ai_will_do = {
+				factor = 80
 			}
 		}
 	}
-	KOR_O_Jin_u={  #吴振宇
+	KOR_Kim_Chaek={  #金策
+		name = KOR_Kim_Chaek
+		allowed_civil_war = {
+			has_government = communism
+		}
+		portraits={
+			civilian = {
+				large = "gfx/leaders/KOR/Portrait_KOR_Kim_Chaek.dds"
+			}
+			army = {
+				small = GFX_idea_generic_political_advisor_asia_14
+			}	
+		}
+		advisor={
+			idea_token = KOR_Kim_Chaek_domestic_minister
+			slot = domestic_minister
+			on_add = {
+				set_temp_variable = { character = token:KOR_Kim_Chaek}
+				set_temp_variable = { slot = token:domestic_minister}
+				domestic_minister_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Kim_Chaek}
+				set_temp_variable = { slot = token:domestic_minister}
+				domestic_minister_on_remove_effect = yes
+			}
+			available = {
+				has_government = communism
+			}
+			traits = {
+				domestminster_farms
+				trade_minister
+			}
+			ai_will_do = {
+				factor = 100
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = KOR_Kim_Chaek_high_command
+			on_add = {
+				set_temp_variable = { character = token:KOR_Kim_Chaek}
+				set_temp_variable = { slot = token:high_command}
+				high_command_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Kim_Chaek}
+				set_temp_variable = { slot = token:high_command}
+				high_command_on_remove_effect = yes
+			}
+			available = {
+				has_government = communism
+			}
+			traits = {
+				army_chief_organizational_3
+			}
+			ai_will_do = {
+				factor = 90
+			}
+		}
+	}
+	KOR_O_Jin_u={ #吴振宇
 		name = KOR_O_Jin_u
 		allowed_civil_war = {
 			has_government = communism
 		}
 		portraits={
+			civilian = {
+				large = "gfx/leaders/Asia/Portrait_Asia_Generic_land_4.dds"
+			}
 			army = {
-				small = GFX_idea_generic_political_advisor_asia_14
+				small = GFX_idea_generic_army_asia_5
 			}	
 		}
-		corps_commander = {
-			traits = { trait_engineer }
-			skill = 1
-			attack_skill = 1
-			defense_skill = 1
-			planning_skill = 1
-			logistics_skill = 1
-			legacy_id = -1
-		}
 		advisor={
-			idea_token = KOR_O_Jin_u_influence_minister
-			slot = influence_minister
+			slot = interior_minister
+			idea_token = KOR_O_Jin_u_interior_minister			
 			on_add = {
 				set_temp_variable = { character = token:KOR_O_Jin_u}
-				set_temp_variable = { slot = token:influence_minister}
-				influence_minister_on_add_effect = yes
+				set_temp_variable = { slot = token:interior_minister}
+				interior_minister_on_add_effect = yes
 			} 
 			on_remove = {
 				set_temp_variable = { character = token:KOR_O_Jin_u}
-				set_temp_variable = { slot = token:influence_minister}
-				influence_minister_on_remove_effect = yes
+				set_temp_variable = { slot = token:interior_minister}
+				interior_minister_on_remove_effect = yes
 			}
-			traits = { communist_revolutionary }
+			available = {
+				has_government = communism
+			} 
+			traits = {
+				efficient_sociopath
+				transport_minster
+			}
 		}
 		advisor = {
-			slot = navy_chief
-			idea_token = KOR_O_Jin_u_navy_chief
+			slot = army_chief
+			idea_token = KOR_O_Jin_u_army_chief
 			on_add = {
 				set_temp_variable = { character = token:KOR_O_Jin_u}
-				set_temp_variable = { slot = token:navy_chief}
-				navy_chief_on_add_effect = yes
+				set_temp_variable = { slot = token:army_chief}
+				army_chief_on_add_effect = yes
 			} 
 			on_remove = {
 				set_temp_variable = { character = token:KOR_O_Jin_u}
-				set_temp_variable = { slot = token:navy_chief}
-				navy_chief_on_remove_effect = yes
+				set_temp_variable = { slot = token:army_chief}
+				army_chief_on_remove_effect = yes
+			}
+			available = {
+				has_government = communism
 			}
 			traits = {
-				navy_chief_maneuver_3
-				navy_chief_commerce_raiding_3
+				army_cavalry_3
+				army_chief_maneuver_3
+			}
+			ai_will_do = {
+				factor = 50
 			}
 		}
 	}
@@ -312,36 +371,32 @@ characters = {
 		allowed_civil_war = {
 			has_government = communism
 		}
-		portraits={
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/Asia/Portrait_Asia_Generic_land_5.dds"
+			}
 			army = {
-				small = GFX_idea_generic_political_advisor_asia_6
+				small = GFX_idea_generic_army_asia_6
 			}	
 		}
-		corps_commander = {
-			traits = {  }
-			skill = 1
-			attack_skill = 1
-			defense_skill = 1
-			planning_skill = 1
-			logistics_skill = 1
-			legacy_id = -1
-		}
-		advisor={
+		advisor = {
 			slot = economic_minister
-			idea_token = CZE_jan_syrovy_economic_minister			
+			idea_token = KOR_Choi_Kwang_economic_minister			
 			on_add = {
-				set_temp_variable = { character = token:CZE_jan_syrovy}
+				set_temp_variable = { character = token:KOR_Choi_Kwang}
 				set_temp_variable = { slot = token:economic_minister}
-
 				economic_minister_on_add_effect = yes
 			} 
 			on_remove = {
-				set_temp_variable = { character = token:CZE_jan_syrovy}
+				set_temp_variable = { character = token:KOR_Choi_Kwang}
 				set_temp_variable = { slot = token:economic_minister}
-
 				economic_minister_on_remove_effect = yes
-			} 
-			traits = { 
+			}
+			available = {
+				has_government = communism
+			}
+			traits = { 	
+				economic_reformer
 				war_industrialist
 			}
 		}
@@ -351,19 +406,13 @@ characters = {
 		allowed_civil_war = {
 			has_government = communism
 		}
-		portraits={
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/Asia/Portrait_Asia_Generic_land_2.dds"
+			}
 			army = {
-				small = gfx/interface/ideas/idea_generic_army_asia_1.dds
+				small = GFX_idea_generic_army_asia_7
 			}	
-		}
-		corps_commander = {
-			traits = { harsh_leader }
-			skill = 1
-			attack_skill = 1
-			defense_skill = 1
-			planning_skill = 1
-			logistics_skill = 1
-			legacy_id = -1
 		}
 		advisor = {
 			slot = foreign_minister
@@ -378,9 +427,38 @@ characters = {
 				set_temp_variable = { slot = token:foreign_minister}
 				foreign_minister_on_remove_effect = yes
 			}
+			available = {
+				has_government = communism
+			}
 			traits = {
 				smooth_talking_charmer
 			}
 		}
+		advisor = {
+			slot = navy_chief
+			idea_token = KOR_Kim_Chaek_navy_chief
+			on_add = {
+				set_temp_variable = { character = token:KOR_Kim_Chaek}
+				set_temp_variable = { slot = token:navy_chief}
+				navy_chief_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Kim_Chaek}
+				set_temp_variable = { slot = token:navy_chief}
+				navy_chief_on_remove_effect = yes
+			}
+			available = {
+				has_government = communism
+			}
+			traits = {
+				navy_chief_maneuver_3
+				navy_chief_commerce_raiding_3
+			}
+			ai_will_do = {
+				factor = 5
+			}
+		}
 	}
+###################黑色将领#################
+###################灰色将领#################
 }

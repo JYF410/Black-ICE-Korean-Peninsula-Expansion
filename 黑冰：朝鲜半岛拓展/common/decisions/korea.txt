@@ -25,7 +25,7 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		remove_effect = {
 			country_event = {
 				id = KOR_communism.2 #弹窗事件
-				days = 7
+				days = 3
 			}
 		}
 		ai_will_do = {

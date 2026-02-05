@@ -243,12 +243,59 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			army_experience = 75
+			add_field_marshal_role = {
+				Character = KOR_Choe_Yong_gon
+				traits = { war_hero skilled_staffer }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 1
+				legacy_id = -1
+			}
+			add_corps_commander_role = {
+				Character = KOR_Kim_Chaek
+				traits = { trait_engineer }
+				skill = 1
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 1
+				legacy_id = -1
+			}
+			add_corps_commander_role = {
+				Character = KOR_O_Jin_u
+				traits = { harsh_leader }
+				skill = 1
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 1
+				legacy_id = -1
+				}
+			add_corps_commander_role = {
+				Character = KOR_Choi_Kwang
+				traits = {  }
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+				legacy_id = -1
+			}	
+			add_corps_commander_role = {
+				Character = KOR_Ri_Ul_sol
+				traits = {  }
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+				legacy_id = -1
+			}
 			custom_effect_tooltip = KOR_Northeast_Anti_Japanese_Army
 			hidden_effect = {
-				#部署火星部队
 				KOR_create_Northeast_Anti_Japanese_Army_div = yes
-				#移除错误的苏联opinion
 				SOV = {
 					add_opinion_modifier = {
 						target = KOR
@@ -266,7 +313,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 95
+			factor = 100
 		}
 	}
 	#我们的军队该走向何方
@@ -283,15 +330,16 @@ focus_tree = {
 			#
 		}
 		completion_reward = {
+			army_experience = 75
 			remove_ideas = neutrality_idea #AI修正：移除外交中立
 			hidden_effect = {
-				#add_ideas = ai_dont_call_ally #AI修正：请求盟友加入战争的意愿-1000
-				#add_ideas = ai_dont_join_ally #AI修正：参战意愿-1000
 				add_ai_strategy = {
-					type = send_volunteers_desire #AI修正：派遣志愿军+2000
+					type = send_volunteers_desire #AI修正：申请派遣志愿军的倾向+2000
 					id = ROOT
 					value = 2000
 				}
+				#add_ideas = ai_dont_call_ally #AI修正：请求盟友加入战争的意愿-1000
+				#add_ideas = ai_dont_join_ally #AI修正：参战意愿-1000
 			}
 		}
 		ai_will_do = {
@@ -516,9 +564,9 @@ focus_tree = {
 		id = KOR_PRC_trade_effort
 		icon = GFX_focus_generic_agricultural_subsidies
 		prerequisite = { focus = KOR_communism_army_to_prc }
-		relative_position_id = KOR_PRC_korean_corridor
+		relative_position_id = KOR_communism_army_to_prc
 		x = -2
-		y = 0
+		y = 1
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		available_if_capitulated = no #投降后不能点该国策
 		cost = 30
@@ -1403,7 +1451,6 @@ focus_tree = {
 			custom_effect_tooltip = CHI_free_mountain_template_tt
 			division_template = {
 				name = "朝鲜人民军山地师"
-				division_names_group = KOR_MNT_01
 				regiments = {
 					mountaineers = { x = 0 y = 0 }
 					mountaineers = { x = 0 y = 1 }
@@ -1515,9 +1562,13 @@ focus_tree = {
 				uses = 2
 				category = land_doctrine
 			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.03
+			}
 		}
 		ai_will_do = {
-			factor = 80
+			factor = 40
 		}
 	}
 	#在惠山征召部队
@@ -1529,15 +1580,25 @@ focus_tree = {
 		x = -4
 		y = 1
 		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 7
+		cost = 14
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
 		completion_reward = {
 			add_manpower = -3000
 			add_stability = -0.01 #稳定度-1%
-			add_war_support = -0.02 #战争支持度-2%
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.01
+			}
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 79
+			factor = 40
 		}
 	}
 	#在普天堡征召部队
@@ -1549,15 +1610,25 @@ focus_tree = {
 		x = -2
 		y = 1
 		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 7
+		cost = 14
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
 		completion_reward = {
 			add_manpower = -3000
 			add_stability = -0.01 #稳定度-1%
-			add_war_support = -0.02 #战争支持度-2%
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.01
+			}
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 78
+			factor = 40
 		}
 	}
 	#在元山征召部队
@@ -1569,15 +1640,25 @@ focus_tree = {
 		x = 0
 		y = 1
 		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 7
+		cost = 14
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
 		completion_reward = {
 			add_manpower = -3000
 			add_stability = -0.01 #稳定度-1%
-			add_war_support = -0.02 #战争支持度-2%
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.01
+			}
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 77
+			factor = 40
 		}
 	}
 	#在兴南征召部队
@@ -1589,15 +1670,25 @@ focus_tree = {
 		x = 2
 		y = 1
 		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 7
+		cost = 14
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
 		completion_reward = {
 			add_manpower = -3000
 			add_stability = -0.01 #稳定度-1%
-			add_war_support = -0.02 #战争支持度-2%
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.01
+			}
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 76
+			factor = 40
 		}
 	}
 	#在南浦征召部队
@@ -1609,15 +1700,25 @@ focus_tree = {
 		x = 4
 		y = 1
 		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 7
+		cost = 14
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
 		completion_reward = {
 			add_manpower = -3000
 			add_stability = -0.01 #稳定度-1%
-			add_war_support = -0.02 #战争支持度-2%
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.01
+			}
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 75
+			factor = 40
 		}
 	}
 	#在平壤组建宪兵部队
@@ -1630,14 +1731,24 @@ focus_tree = {
 		x = 1
 		y = 1
 		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 14
+		cost = 30
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
 		completion_reward = {
-			add_stability = -0.02 #稳定度+2%
-			add_war_support = -0.05 #战争支持度-5%
+			add_stability = -0.02
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.02
+			}
 			KOR_create_JAP_MP_army_div = yes
 		}
 		ai_will_do = {
-			factor = 74
+			factor = 60
 		}
 	}
 	#在京城组建宪兵部队
@@ -1650,14 +1761,24 @@ focus_tree = {
 		x = 1
 		y = 1
 		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 14
+		cost = 30
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
 		completion_reward = {
-			add_stability = -0.02 #稳定度+2%
-			add_war_support = -0.05 #战争支持度-5%
+			add_stability = -0.02
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.02
+			}
 			KOR_create_JAP_MP_army_div = yes
 		}
 		ai_will_do = {
-			factor = 73
+			factor = 60
 		}
 	}
 	#在仁川组建宪兵部队
@@ -1670,14 +1791,24 @@ focus_tree = {
 		x = 1
 		y = 1
 		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 14
+		cost = 30
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
 		completion_reward = {
-			add_stability = -0.02 #稳定度+2%
-			add_war_support = -0.05 #战争支持度-5%
+			add_stability = -0.02
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.02
+			}
 			KOR_create_JAP_MP_army_div = yes
 		}
 		ai_will_do = {
-			factor = 72
+			factor = 60
 		}
 	}
 	#在釜山组建宪兵部队
@@ -1690,14 +1821,24 @@ focus_tree = {
 		x = 1
 		y = 1
 		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 14
+		cost = 30
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
 		completion_reward = {
-			add_stability = -0.02 #稳定度+2%
-			add_war_support = -0.05 #战争支持度-5%
+			add_stability = -0.02
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.02
+			}
 			KOR_create_JAP_MP_army_div = yes
 		}
 		ai_will_do = {
-			factor = 71
+			factor = 60
 		}
 	}
 
@@ -1727,7 +1868,7 @@ focus_tree = {
 			depression_improves = yes
 		}
 		ai_will_do = {
-			factor = 99
+			factor = 100
 		}
 	}
 	#朝鲜银行
@@ -1744,7 +1885,7 @@ focus_tree = {
 			add_ideas = KOR_bank
 		}
 		ai_will_do = {
-			factor = 99
+			factor = 100
 		}
 	}
 	#朝鲜银行券
@@ -1775,7 +1916,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 99
+			factor = 100
 		}
 	}
 
