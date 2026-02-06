@@ -27,6 +27,8 @@
  KOR_plan_strike_jap_desc:5 "To prepare for the army’s return, we must coordinate with the Soviets and secure their support."
  KOR_solid_front_line:5 "Stabilize the Front"
  KOR_solid_front_line_desc:5 "No one wants to be displaced again. We decide to resist the enemy on our own land to the end."
+ KOR_controlled_north_front_line:5 "Controlled North Front Line"
+ KOR_controlled_north_front_line_desc:5 "We decide to firmly control the northern front line of Korea."
 
 ################################################### CCP Historical Path ###################################################
  KOR_PRC_political_reform:5 "Northeast Bureau Pyongyang Office"

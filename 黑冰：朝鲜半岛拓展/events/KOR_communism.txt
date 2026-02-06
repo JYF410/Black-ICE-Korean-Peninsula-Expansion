@@ -33,20 +33,20 @@ country_event = {
 			tag = KOR
 		}
 		start_civil_war = {
-			#朝鲜殖民地（叛军） = {
+			#朝鲜殖民地 = {
 				ruling_party = communism #原国家保留的执政党（内战爆发后政府的执政党转变）
 				ideology = fascism #发动叛乱的意识形态（ROOT即当前政府的意识形态）
 				size = civil_war_size_var #叛乱规模修正（0–1 的比例值），影响装备库存（stockpile）、陆军、空军、海军
 				army_ratio = 1.0 #叛军能够保留的陆军规模
 				navy_ratio = 0.5 #叛军能够保留的海军规模
-				air_ratio = 0.5 #叛军能够保留的空军规模
+				air_ratio = 0.5 #叛军能够保留的空军规模  
 				keep_unit_leaders = { 202619940708 } #指定指挥官ID，这些指挥官将留在原国家，不会加入叛军
 				set_capital = { state = 525 } #设置首都:京城
 				states = { 525 751 816 819 820 } #划归给叛军的州
 				set_victory_points = { province = 4126 value = 10 } #光州
 				set_victory_points = { province = 11977 value = 20 } #忠清
 				set_victory_points = { province = 4056 value = 50 } #釜山
-				#keep_unit_leaders_trigger = {  } #用触发器来判定 哪些指挥官留在原国家
+				add_ideas = KOR_opium_plantation #朝鲜鸦片种植地
 				#set_cosmetic_tag = SPRCIV #当意识形态引发国内内战时，keep_unit_leaders指定保持效忠于原国家的单位领导者的ID
 				#load_focus_tree = civilwar_focus #导入国策树
 			#}
@@ -54,13 +54,12 @@ country_event = {
 				set_capital = { state = 815 } #设置首都:咸镜
 				set_victory_points = { province = 6944 value = 40 } #恩德
 				set_victory_points = { province = 959 value = 10 } #渔郎
-				set_victory_points = { province = 3981 value = 15 } #咸兴
-				set_victory_points = { province = 9790 value = 5 } #平安
-				set_victory_points = { province = 11770 value = 5 } #平安
+				set_victory_points = { province = 3981 value = 20 } #咸兴
 				set_victory_points = { province = 6928 value = 10 } #定平
-				set_victory_points = { province = 4052 value = 15 } #平壤
+				set_victory_points = { province = 4052 value = 20 } #平壤
 				set_country_flag = SOV_armor #加载苏联坦克科研
 				set_country_flag = SOV_air #加载苏联飞机科研
+				remove_ideas = KOR_opium_plantation #朝鲜鸦片种植地
 				KOR_create_militia_army_div = yes #这些effect会对内战中新生成的国家执行，而不是原国家
 				KOR_create_partisan_army_div = yes #这些effect会对内战中新生成的国家执行，而不是原国家
 				add_field_marshal_role = {
@@ -72,6 +71,16 @@ country_event = {
 					planning_skill = 1
 					logistics_skill = 1
 					legacy_id = 202619940708
+				}
+				add_field_marshal_role = {
+					Character = KOR_Choe_Yong_gon
+					traits = { Order_of_Red_Banner skilled_staffer }
+					skill = 2
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 2
+					logistics_skill = 1
+					legacy_id = -1
 				}
 				#keep_unit_leaders = {  } #指定指挥官ID，这些指挥官将留在原国家，不会加入叛军
 				#add_ideas = KOR_ai_dont_join_faction #朝鲜AI不会主动加入阵营
@@ -107,6 +116,9 @@ country_event = {
 			}
 		}
 		ai_chance = { factor = 99 }
+		hidden_effect = {
+			play_song = "GF_24"
+		}
 	}
 	option = {
 		name = KOR_communism.2.b

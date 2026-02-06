@@ -118,6 +118,7 @@ set_popularities = {
 #############################################################
 recruit_character = KOR_Syngman_Rhee  #李承晚
 recruit_character = KOR_Kim_Il_sung  #金日成
+recruit_character = KOR_Minami_Jiro  #南次郎
 recruit_character = KOR_Abe_Nobuyuki  #阿部信行
 recruit_character = KOR_Park_Heon_young  #朴宪永
 recruit_character = KOR_Choe_Yong_gon  #崔庸健

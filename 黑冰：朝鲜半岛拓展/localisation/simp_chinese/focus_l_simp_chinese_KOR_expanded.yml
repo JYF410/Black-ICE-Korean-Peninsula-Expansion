@@ -25,8 +25,10 @@
  KOR_communism_army_where_to_go_desc:5 "是时候考虑谁是我们的红色盟友了。"
  KOR_plan_strike_jap:5 "从苏联返回东北"
  KOR_plan_strike_jap_desc:5 "为了做好军队回归的计划，我们必须和苏联人打好招呼，并争取他们的支持。"
- KOR_solid_front_line:5 "稳固前线"
- KOR_solid_front_line_desc:5 "所有人都不想再背井离乡了，我们决定在自己的土地上和敌人反抗到底。"
+ KOR_solid_front_line:5 "稳固咸镜前线"
+ KOR_solid_front_line_desc:5 "所有人都不想再背井离乡了，我们决定留在自己的土地上与敌人反抗到底。"
+ KOR_controlled_north_front_line:5 "控制北方领土"
+ KOR_controlled_north_front_line_desc:5 "我们决定将朝鲜北部的前线牢牢控制在自己手中。"
 
 ###################################################中共史实线###################################################
  KOR_PRC_political_reform:5 "中共中央东北局平壤办事处"

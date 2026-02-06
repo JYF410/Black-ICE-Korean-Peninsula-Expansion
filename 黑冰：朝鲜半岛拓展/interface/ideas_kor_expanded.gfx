@@ -4,5 +4,9 @@ spriteTypes = {
 		name = "GFX_idea_KOR_bank"
 		texturefile = "gfx/interface/ideas/idea_KOR_bank.dds"
 	}
+	SpriteType = {
+		name = "GFX_KOR_controlled_north_front_line"
+		texturefile = "gfx/interface/goals/KOR_controlled_north_front_line.dds"
+	}
 
 }

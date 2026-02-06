@@ -106,42 +106,42 @@ characters = {
 			traits = { administrative_genius }
 		}
 	}
-	KOR_Abe_Nobuyuki={  #阿部信行
-		name = KOR_Abe_Nobuyuki
+	KOR_Minami_Jiro = {  #南次郎
+		name = KOR_Minami_Jiro
 		allowed_civil_war = {
 			has_government = fascism
 		}
 		portraits = {
 			civilian = {
-				large = "gfx/leaders/KOR/Portrait_KOR_Abe_Nobuyuki.dds"
+				large = "gfx/leaders/KOR/Portrait_KOR_Minami_Jiro.dds"
 			}
 		}
 		country_leader={
-			desc = "POLITICS_Abe_Nobuyuki_DESC"
+			desc = "POLITICS_Minami_Jiro_DESC"
 			ideology = fascism_ideology
-			expire = "1953.9.7"
-			id = 202619530907
-			traits = { industry_reformer }
+			expire = "1942.6.15"
+			id = 202619420615
+			traits = { ideological_groupie }
 		}
 		field_marshal = {
-			traits = {  }
+			traits = { Manchuria_Incident }
 			skill = 2
-			attack_skill = 1
-			defense_skill = 2
+			attack_skill = 2
+			defense_skill = 1
 			planning_skill = 1
 			logistics_skill = 2
-			legacy_id = -1
+			legacy_id = 2026020701
 		}
 		advisor = {
 			slot = head_of_state
-			idea_token = KOR_Abe_Nobuyuki_head_of_state
+			idea_token = KOR_Minami_Jiro_head_of_state
 			on_add = {
-				set_temp_variable = { character = token:KOR_Abe_Nobuyuki}
+				set_temp_variable = { character = token:KOR_Minami_Jiro}
 				set_temp_variable = { slot = token:head_of_state}
 				head_of_state_on_add_effect = yes
 			} 
 			on_remove = {
-				set_temp_variable = { character = token:KOR_Abe_Nobuyuki}
+				set_temp_variable = { character = token:KOR_Minami_Jiro}
 				set_temp_variable = { slot = token:head_of_state}
 				head_of_state_on_remove_effect = yes
 			} 
@@ -151,15 +151,15 @@ characters = {
 			traits = { schemer }
 		}
 		advisor = {
-			idea_token = KOR_Abe_Nobuyuki_supreme_commander
+			idea_token = KOR_Minami_Jiro_supreme_commander
 			slot = supreme_commander
 			on_add = {
-				set_temp_variable = { character = token:KOR_Abe_Nobuyuki}
+				set_temp_variable = { character = token:KOR_Minami_Jiro}
 				set_temp_variable = { slot = token:supreme_commander}
 				supreme_commander_on_add_effect = yes
 			}
 			on_remove = {
-				set_temp_variable = { character = token:KOR_Abe_Nobuyuki}
+				set_temp_variable = { character = token:KOR_Minami_Jiro}
 				set_temp_variable = { slot = token:supreme_commander}
 				supreme_commander_on_remove_effect = yes
 			}
@@ -460,5 +460,79 @@ characters = {
 		}
 	}
 ###################黑色将领#################
+	KOR_Abe_Nobuyuki={  #阿部信行
+		name = KOR_Abe_Nobuyuki
+		allowed_civil_war = {
+			has_government = fascism
+		}
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KOR/Portrait_KOR_Abe_Nobuyuki.dds"
+			}
+		}
+		country_leader={
+			desc = "POLITICS_Abe_Nobuyuki_DESC"
+			ideology = fascism_ideology
+			expire = "1953.9.7"
+			id = 202619530907
+			traits = { industry_reformer }
+		}
+		corps_commander = {
+			traits = {  }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = 2026020702
+		}
+		advisor = {
+			slot = economic_minister
+			idea_token = KOR_Abe_Nobuyuki_economic_minister			
+			on_add = {
+				set_temp_variable = { character = token:KOR_Abe_Nobuyuki}
+				set_temp_variable = { slot = token:economic_minister}
+				economic_minister_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Abe_Nobuyuki}
+				set_temp_variable = { slot = token:economic_minister}
+				economic_minister_on_remove_effect = yes
+			}
+			available = {
+				has_government = fascism
+			}
+			traits = { 	
+				economic_reformer
+				war_industrialist
+			}
+			ai_will_do = {
+				factor = 50
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = KOR_Abe_Nobuyuki_high_command
+			on_add = {
+				set_temp_variable = { character = token:KOR_Abe_Nobuyuki}
+				set_temp_variable = { slot = token:high_command}
+				high_command_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Abe_Nobuyuki}
+				set_temp_variable = { slot = token:high_command}
+				high_command_on_remove_effect = yes
+			}
+			available = {
+				has_government = fascism
+			}
+			traits = {
+				army_cavalry_2
+			}
+			ai_will_do = {
+				factor = 80
+			}
+		}
+	}
 ###################灰色将领#################
 }

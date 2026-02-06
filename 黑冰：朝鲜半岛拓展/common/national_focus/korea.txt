@@ -14,7 +14,7 @@ focus_tree = {
 	focus = {
 		id = KOR_Japan_Korea_Annexation_Treaty
 		icon = GFX_focus_AFG_against_kabul
-		x = 15
+		x = 16
 		y = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = no #投降后不能点该国策
@@ -42,7 +42,7 @@ focus_tree = {
 		icon = GFX_focus_GER_ally_chiang_kai_shek
 		prerequisite = { focus = KOR_Japan_Korea_Annexation_Treaty }
 		relative_position_id = KOR_Japan_Korea_Annexation_Treaty
-		x = -3
+		x = -5
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		cost = 30
@@ -66,7 +66,7 @@ focus_tree = {
 		prerequisite = { focus = KOR_CHI_restoration_movement }
 		mutually_exclusive = { focus = KOR_PRC_political_reform }
 		relative_position_id = KOR_CHI_restoration_movement
-		x = 0
+		x = 3
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = no #投降后不能点该国策
@@ -152,7 +152,7 @@ focus_tree = {
 		icon = GFX_focus_NOR_moscows_education_centers
 		prerequisite = { focus = KOR_Japan_Korea_Annexation_Treaty }
 		relative_position_id = KOR_Japan_Korea_Annexation_Treaty
-		x = 3
+		x = 5
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		cost = 30
@@ -243,16 +243,6 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_field_marshal_role = {
-				Character = KOR_Choe_Yong_gon
-				traits = { war_hero skilled_staffer }
-				skill = 2
-				attack_skill = 2
-				defense_skill = 1
-				planning_skill = 2
-				logistics_skill = 1
-				legacy_id = -1
-			}
 			add_corps_commander_role = {
 				Character = KOR_Kim_Chaek
 				traits = { trait_engineer }
@@ -352,10 +342,10 @@ focus_tree = {
 		icon = GFX_focus_AFG_defender_of_central_asia
 		prerequisite = { focus = KOR_front_against_Japan }
 		relative_position_id = KOR_front_against_Japan
-		x = 2
+		x = 3
 		y = 1
 		search_filters = { FOCUS_FILTER_INFRASTRUCTURE }
-		cost = 7
+		cost = 14
 		available = {
 			has_country_leader = {
 				character = KOR_Kim_Il_sung
@@ -393,7 +383,7 @@ focus_tree = {
 			factor = 100
 		}
 	}
-	#稳固前线
+	#稳固咸镜前线
 	focus = {
 		id = KOR_solid_front_line
 		icon = GFX_focus_AUS_frontmiliz_focus
@@ -405,28 +395,67 @@ focus_tree = {
 		available_if_capitulated = yes #投降后不能点该国策
 		cost = 14
 		available = {
-			#
+			815 = { is_controlled_by = ROOT }
 		}
 		completion_reward = {
 			add_country_leader_trait = stout_defender #领袖特质：坚定的防御者
 			815 = {
 				set_building_level = {
 					type = bunker
-					level = 2
+					level = 1
+					province = 6944 #恩德
+					instant_build = yes
+				}
+				set_building_level = {
+					type = coastal_bunker
+					level = 1
 					province = 6944 #恩德
 					instant_build = yes
 				}
 				set_building_level = {
 					type = bunker
-					level = 2
-					province = 6928 #定平
+					level = 1
+					province = 3981 #咸兴
+					instant_build = yes
+				}
+				set_building_level = {
+					type = coastal_bunker
+					level = 1
+					province = 959 #渔郎
 					instant_build = yes
 				}
 			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	#控制北方领土
+	focus = {
+		id = KOR_controlled_north_front_line
+		icon = GFX_KOR_controlled_north_front_line
+		prerequisite = { focus = KOR_solid_front_line }
+		relative_position_id = KOR_communism_army_to_sov
+		x = 2
+		y = 0
+		search_filters = { FOCUS_FILTER_FORTIFICATION }
+		available_if_capitulated = yes #投降后不能点该国策
+		cost = 30
+		available = {
+			527 = { is_controlled_by = ROOT }
+			815 = { is_controlled_by = ROOT }
+		}
+		completion_reward = {
 			527 = {
 				set_building_level = {
 					type = bunker
-					level = 1
+					level = 3
+					province = 4052 #平壤
+					instant_build = yes
+				}
+				set_building_level = {
+					type = coastal_bunker
+					level = 2
 					province = 4052 #平壤
 					instant_build = yes
 				}
@@ -443,6 +472,10 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			unlock_decision_tooltip = {
+				decision = KOR_move_capital_to_pyeongchang
+				show_effect_tooltip = yes
+			}
 		}
 		ai_will_do = {
 			factor = 100
@@ -457,7 +490,7 @@ focus_tree = {
 		prerequisite = { focus = KOR_restore_society }
 		mutually_exclusive = { focus = KOR_CHI_political_reform }
 		relative_position_id = KOR_restore_society
-		x = -2
+		x = -3
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = no #投降后不能点该国策
@@ -773,7 +806,6 @@ focus_tree = {
 		id = KOR_communism_army_to_sov
 		icon = GFX_focus_fra_loyalty_stalin
 		prerequisite = { focus = KOR_communism_army_where_to_go }
-		prerequisite = { focus = KOR_solid_front_line }
 		mutually_exclusive = { focus = KOR_communism_army_to_prc }
 		relative_position_id = KOR_communism_army_where_to_go
 		x = 1
@@ -987,70 +1019,6 @@ focus_tree = {
 				}
 			}
 			add_ideas = KOR_sov_hospital
-		}
-	}
-	#土地资源开发
-	focus = {
-		id = KOR_sov_land_development
-		icon = GFX_sov_industry_reborn
-		prerequisite = { focus = KOR_communism_army_to_sov }
-		relative_position_id = KOR_communism_army_to_sov
-		x = 4
-		y = 1
-		cost = 90
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		available = {
-			NOT = {
-				has_war_with = SOV
-			}
-			SOV = {
-				exists = yes
-				has_capitulated = no
-			}
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			unlock_decision_tooltip = {
-				decision = KOR_sov_support_construction
-				show_effect_tooltip = yes
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	#矿产资源探勘
-	focus = {
-		id = KOR_sov_mineral_development
-		icon = GFX_focus_generic_aluminum
-		prerequisite = { focus = KOR_sov_land_development }
-		relative_position_id = KOR_sov_land_development
-		x = 0
-		y = 1
-		cost = 90
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		available = {
-			NOT = {
-				has_war_with = SOV
-			}
-			SOV = {
-				exists = yes
-				has_capitulated = no
-			}
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			unlock_decision_tooltip = {
-				decision = KOR_sov_mineral_development #土地资源开发
-				show_effect_tooltip = yes
-			}
-		}
-		ai_will_do = {
-			factor = 1
 		}
 	}
 	
@@ -1420,6 +1388,68 @@ focus_tree = {
 		}
 		ai_will_do = {
 			factor = 5
+		}
+	}
+
+	#土地资源开发
+	focus = {
+		id = KOR_sov_land_development
+		icon = GFX_sov_industry_reborn
+		prerequisite = { focus = KOR_communism_army_to_sov focus = KOR_controlled_north_front_line }
+		relative_position_id = KOR_communism_army_to_sov
+		x = 4
+		y = 1
+		cost = 90
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available = {
+			KOR = {
+				exists = yes
+				has_capitulated = no
+			}
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			unlock_decision_tooltip = {
+				decision = KOR_sov_support_construction
+				show_effect_tooltip = yes
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#矿产资源探勘
+	focus = {
+		id = KOR_sov_mineral_development
+		icon = GFX_focus_generic_aluminum
+		prerequisite = { focus = KOR_sov_land_development }
+		relative_position_id = KOR_sov_land_development
+		x = 0
+		y = 1
+		cost = 90
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available = {
+			NOT = {
+				has_war_with = SOV
+			}
+			SOV = {
+				exists = yes
+				has_capitulated = no
+			}
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			unlock_decision_tooltip = {
+				decision = KOR_sov_mineral_development #土地资源开发
+				show_effect_tooltip = yes
+			}
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 
@@ -1847,7 +1877,7 @@ focus_tree = {
 	focus = {
 		id = KOR_JAP_office_governor
 		icon = GFX_focus_ARG_strengthening_the_concordancia
-		x = 24
+		x = 29
 		y = 0
 		search_filters = { FOCUS_FILTER_INFRASTRUCTURE }
 		cost = 30
@@ -1900,17 +1930,17 @@ focus_tree = {
 		cost = 30
 		completion_reward = {
 			add_equipment_subsidy = {
-				cic = 2000
+				cic = 500
 				equipment_type = motorized_AC_equipment
 				seller_tags = { JAP }
 			}
 			add_equipment_subsidy = {
-				cic = 2000
+				cic = 500
 				equipment_type = trm_tankette_tank_chassis
 				seller_tags = { JAP }
 			}
 			add_equipment_subsidy = {
-				cic = 1000
+				cic = 500
 				equipment_type = trm_light_tank_chassis
 				seller_tags = { JAP }
 			}

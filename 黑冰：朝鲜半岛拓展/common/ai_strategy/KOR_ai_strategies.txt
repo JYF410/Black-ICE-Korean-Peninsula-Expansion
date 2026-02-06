@@ -12,7 +12,7 @@ KOR_not_attack_MAN = {
 	abort_when_not_enabled = yes
 	ai_strategy = {
 		type = garrison
-		value = 100
+		value = 80
 	}
 }
 #AI增派坦克单位以进攻指定国家
