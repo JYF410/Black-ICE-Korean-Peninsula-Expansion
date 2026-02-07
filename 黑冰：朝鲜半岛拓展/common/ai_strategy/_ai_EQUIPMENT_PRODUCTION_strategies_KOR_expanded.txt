@@ -8,7 +8,7 @@ KOR_surplus_override = {
 	ai_strategy = {
 		type = equipment_variant_production_factor #AI更愿意继续在这条生产线上追加工厂，而不是新开别的线
 		id = convoy
-		value = 100
+		value = 200
 	}
 	ai_strategy = {
 		type = save_equipment #AI保留生产线的倾向

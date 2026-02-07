@@ -10,6 +10,7 @@ d_ai_logic/KOR = {
 		}
 		ai_militia_templates/KOR = yes
 		ai_infantry_templates/KOR = yes
+		ai_motorized_templates/KOR = yes
 		ai_light_armor_templates/KOR = yes
 	}
 	if = {
@@ -18,14 +19,14 @@ d_ai_logic/KOR = {
 		}
 		# disable_build  #禁用建立
 		# production_ratio  #生产权重
-		set_temp_variable = { BASE@role_infantry 				= 2  }
+		set_temp_variable = { BASE@role_infantry 				= 5  }
 		set_temp_variable = { BASE@role_light_infantry 			= 0  }
 		set_temp_variable = { BASE@role_heavy_infantry 			= 0  }
-		set_temp_variable = { BASE@role_militia		 			= 5  }
+		set_temp_variable = { BASE@role_militia		 			= 9  }
 		set_temp_variable = { BASE@role_garrison 				= 0  }
 		set_temp_variable = { BASE@role_cavalry 				= 0  }
-		set_temp_variable = { BASE@role_motorized 				= 0  }
-		set_temp_variable = { BASE@role_light_armor 			= 1  }
+		set_temp_variable = { BASE@role_motorized 				= 3  }
+		set_temp_variable = { BASE@role_light_armor 			= 2  }
 		set_temp_variable = { BASE@role_light_armor_alt 		= 0  }
 		set_temp_variable = { BASE@role_medium_armor 			= 0  }
 		set_temp_variable = { BASE@role_medium_armor_alt 		= 0  }
@@ -39,11 +40,10 @@ d_ai_logic/KOR = {
 				is_in_faction_with = PRC
 			}
 			add_to_temp_variable = {
-				BASE@role_infantry = 20
-				BASE@role_heavy_infantry = 10
+				BASE@role_militia = 9
+				BASE@role_infantry = 5
 				BASE@role_motorized = 5
 				BASE@role_light_armor = 2
-				BASE@role_medium_armor = 1
 			}
 		}
 		if = {
@@ -51,13 +51,12 @@ d_ai_logic/KOR = {
 				is_in_faction_with = JAP
 			}
 			add_to_temp_variable = {
-				BASE@role_infantry = 10
 				BASE@role_militia = 5
-				BASE@role_mountaineers = 2
-				BASE@role_light_armor = 1
+				BASE@role_infantry = 2
 			}
 		}
 	}
+	##海军生产策略
 	if = {
 		limit = {
 			check_variable = { ai_ignore_naval_production = 0 }
@@ -106,6 +105,7 @@ d_ai_logic/KOR = {
 		}
 		ai_update_ship_production = yes
 	}
+	##空军生产策略
 	if = {
 		limit = {
 			check_variable = { ai_ignore_air_production = 0 }

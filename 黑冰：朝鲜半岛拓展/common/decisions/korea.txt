@@ -21,7 +21,7 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		}
 		cost = 100
 		fire_only_once = yes #决议仅能使用一次
-		days_remove = 30 #决议持续30天
+		days_remove = 14 #决议持续14天
 		remove_effect = {
 			country_event = {
 				id = KOR_communism.2 #弹窗事件

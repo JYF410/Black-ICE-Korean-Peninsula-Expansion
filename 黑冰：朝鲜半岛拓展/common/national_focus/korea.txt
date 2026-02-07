@@ -857,7 +857,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 100
+			factor = 65
 		}
 	}
 	#建立远东军事走廊
@@ -907,7 +907,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 100
+			factor = 65
 		}
 	}
 	#扩大远东双边贸易
@@ -944,7 +944,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 90
+			factor = 65
 		}
 	}	
 	#苏联军事援助计划
@@ -994,6 +994,9 @@ focus_tree = {
 				seller_tags = { SOV }
 			}
 		}
+		ai_will_do = {
+			factor = 65
+		}
 	}	
 	#平壤苏军总医院
 	focus = {
@@ -1019,6 +1022,9 @@ focus_tree = {
 				}
 			}
 			add_ideas = KOR_sov_hospital
+		}
+		ai_will_do = {
+			factor = 6
 		}
 	}
 	

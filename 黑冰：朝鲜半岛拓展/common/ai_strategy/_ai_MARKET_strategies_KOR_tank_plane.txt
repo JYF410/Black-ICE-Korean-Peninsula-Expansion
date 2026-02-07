@@ -9,12 +9,8 @@ dont_buy_with_weak_industry = {
 	abort_when_not_enabled = yes
 	abort = {
 		stockpile_ratio = { #AI用来判断“某类装备够不够”的库存完成度百分比
-			archetype = motorized_lia_equipment #汽车
-			ratio > 150 #ratio = 当前库存 / AI认为的“理想库存” × 100
-		}
-		stockpile_ratio = {
 			archetype = motorized_AC_equipment #装甲车
-			ratio > 200
+			ratio > 200 #ratio = 当前库存 / AI认为的“理想库存” × 100
 		}
 		stockpile_ratio = {
 			archetype = trm_tankette_tank_chassis #超轻型坦克
@@ -58,7 +54,7 @@ dont_buy_with_weak_industry = {
 		value = 1000
 	}
 }
-#取消AI所有购买限制，买买买
+#取消AI所有购买限制
 KOR_buy_tanks_and_planes_like_crazy = {
 	allowed = {
 		tag = KOR
@@ -67,17 +63,6 @@ KOR_buy_tanks_and_planes_like_crazy = {
 		always = yes
 	}
 	abort_when_not_enabled = yes
-	#汽车
-	ai_strategy = {
-		type = equipment_market_buy
-		equipment_type = motorized_lia_equipment
-		value = 1000
-	}
-	ai_strategy = {
-		type = equipment_market_buying_threshold
-		id = motorized_lia_equipment
-		value = 1000
-	}
 	#装甲车
 	ai_strategy = {
 		type = equipment_market_buy

@@ -11,6 +11,7 @@ set_country_flag = JAP_air
 
 set_country_flag = ai_country_logic #启用AI调度，加载d_ai_logic/KOR
 set_country_flag = ai_has_air_production #启用AI飞机生产，加载位置common\ai_strategy\_ai_AIR_PRODUCTION_strategies.txt
+set_country_flag = ai_production/fighter_equipment
 
 JAP = {
 	puppet = KOR

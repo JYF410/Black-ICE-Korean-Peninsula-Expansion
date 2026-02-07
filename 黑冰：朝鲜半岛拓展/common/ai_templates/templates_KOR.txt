@@ -17,38 +17,42 @@
  
 KOR_militia_role = {
     available_for = { KOR }  #该规则可用国家
-    roles = { militia }  #定义此编制的类型（这里定义的是militia民兵师编制）
+    role = militia  #定义此编制的类型（这里定义的是militia民兵师编制）
     match_to_count = 0.5  #其他属于该类型的已存在编制，如果你不想让AI拉太多这种低级编制那就调低此参数（数值太低会导致前期AI没改到对应编制前一点兵也不出）
+    #朝鲜义勇军
     KOR_militia_role_1 = {
         production_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在实际生产时的权重。
-            base = 30
+            base = 50
             modifier = { add = 10 has_country_flag = { flag = ai_militia_template value = 1 } }
         }
         upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
             base = 10
             modifier = { add = 10 has_country_flag = { flag = ai_militia_template value = 1 } }
         }
-        reinforce_prio = @militia_prio  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
-        can_upgrade_in_field = {  #是一个触发块，决定AI何时尝试对已部署的部队升级编制。
-            ai_has_engineer = yes
-        }  
+        reinforce_prio = 0  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
+        can_upgrade_in_field = {
+            ai_has_mountain_artillery_brigade = yes  #是一个触发块，决定AI何时尝试对已部署的部队升级编制。
+        }
         target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
-            weight = 0.8  #是AI应该多大程度上去靠近这个编制。
+            weight = 0.9  #是AI应该多大程度上去靠近这个编制。
             match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
             regiments = {  #目标编制内常规营的列表
-                militia = 6  #6个民兵营
+                militia = 7  #7个民兵营
             }
             support = {  #目标编制内支援连的列表设定
                 DIV_HQ = 1
                 recon = 1
+                engineer = 1
             }
         }
         allowed_types = {  #AI编制要用到的营和支援连，不写AI就捏不出来
             militia
             DIV_HQ
             recon
+            engineer
         }
     }
+    #二阶民兵师
     KOR_militia_role_2 = {
         production_prio = {
             base = 0
@@ -58,10 +62,10 @@ KOR_militia_role = {
             base = 0
             modifier = { add = 10 has_country_flag = { flag = ai_militia_template value = 2 } }
         }
-        reinforce_prio = @militia_prio
+        reinforce_prio = 0
         #can_upgrade_in_field = { }
         target_template = {
-            weight = 0.8
+            weight = 0.5
             match_value = 1000
             regiments = {
                 militia = 9
@@ -84,62 +88,64 @@ KOR_militia_role = {
 }
 
 KOR_infantry_role = {
-    available_for = { KOR }  #该规则可用国家
-    roles = { infantry }  #定义此编制的类型（这里定义的是infantry师编制）
-    match_to_count = 0.7  #其他属于该类型的已存在编制，如果你不想让AI拉太多这种低级编制那就调低此参数（数值太低会导致前期AI没改到对应编制前一点兵也不出）
-    KOR_militia_role_1 = {  #一阶步兵师
+    available_for = { KOR }
+    role = infantry
+    match_to_count = 0.5
+    #一阶步兵师
+    KOR_infantry_role_1 = {  
         production_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在实际生产时的权重。
-            base = 10
+            base = 30
             modifier = { add = 10 has_country_flag = { flag = ai_infantry_template value = 1 } }
         }
         upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
             base = 10
             modifier = { add = 10 has_country_flag = { flag = ai_infantry_template value = 1 } }
         }
-        reinforce_prio = @infantry_prio  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
-        target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
-            weight = 0.8  #是AI应该多大程度上去靠近这个编制。
-            match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
-            regiments = {  #目标编制内常规营的列表
+        reinforce_prio = 1
+        can_upgrade_in_field = {
+            ai_has_mountain_artillery_brigade = yes  #是一个触发块，决定AI何时尝试对已部署的部队升级编制。
+        }
+        target_template = {
+            weight = 0.5
+            match_value = 1000
+            regiments = {
                 infantry = 7
-				mountain_artillery_brigade = 2
             }
-            support = {  #目标编制内支援连的列表设定
+            support = {
                 DIV_HQ = 1
                 recon = 1
+                engineer = 1
                 anti_air = 1
             }
         }
-        allowed_types = {  #AI编制要用到的营和支援连，不写AI就捏不出来
+        allowed_types = {
             infantry
-            mountain_artillery_brigade
             DIV_HQ
             recon
+            engineer
             anti_air
         }
     }
-    KOR_militia_role_2 = {  #二阶步兵师
-        production_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在实际生产时的权重。
+    #二阶步兵师
+    KOR_infantry_role_2 = {
+        production_prio = {
+            base = 10
+            modifier = { add = 10 has_country_flag = { flag = ai_infantry_template value = 1 } }
+        }
+        upgrade_prio = {
             base = 0
             modifier = { add = 10 has_country_flag = { flag = ai_infantry_template value = 1 } }
         }
-        upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
-            base = 0
-            modifier = { add = 10 has_country_flag = { flag = ai_infantry_template value = 1 } }
-        }
-        reinforce_prio = @infantry_prio  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
-        can_upgrade_in_field = {  #是一个触发块，决定AI何时尝试升级已分配此编制的部队到将要替换的编制。
-            ai_has_engineer = yes  #必须先解锁工兵连科技
-        } 
-        target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
-            weight = 0.8  #是AI应该多大程度上去靠近这个编制。
-            match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
-            regiments = {  #目标编制内常规营的列表
+        reinforce_prio = @infantry_prio
+        target_template = {
+            weight = 0.5
+            match_value = 1000
+            regiments = {
                 infantry = 9
                 artillery_brigade_med = 1
 				mountain_artillery_brigade = 2
             }
-            support = {  #目标编制内支援连的列表设定
+            support = {
                 DIV_HQ = 1
                 recon_cav = 1
                 engineer = 1
@@ -147,7 +153,7 @@ KOR_infantry_role = {
                 anti_air = 1
             }
         }
-        allowed_types = {  #AI编制要用到的营和支援连，不写AI就捏不出来
+        allowed_types = {
             infantry
             artillery_brigade_med
             mountain_artillery_brigade
@@ -158,171 +164,124 @@ KOR_infantry_role = {
             anti_air
         }
     }
-    KOR_militia_role_3 = {  #三阶步兵师
+}
+
+KOR_motorized_role = {
+    available_for = { KOR }
+    role = motorized
+    match_to_count = 0.5
+    #装甲车部队
+    KOR_motorized_role_1 = {
         production_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在实际生产时的权重。
-            base = 0
-            modifier = { add = 10 has_country_flag = { flag = ai_infantry_template value = 1 } }
+            base = 10
+            modifier = { add = 10 has_country_flag = { flag = ai_motorized_template value = 1 } }
         }
         upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
-            base = 0
-            modifier = { add = 10 has_country_flag = { flag = ai_infantry_template value = 1 } }
+            base = 10
+            modifier = { add = 10 has_country_flag = { flag = ai_motorized_template value = 1 } }
         }
-        reinforce_prio = @infantry_prio  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
-        can_upgrade_in_field = {  #是一个触发块，决定AI何时尝试升级已分配此编制的部队到将要替换的编制。
-            ai_has_signal_company = yes
-            ai_has_combat_engineer = yes
-        }
+        reinforce_prio = 2  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
+        #can_upgrade_in_field = { }  #是一个触发块，决定AI何时尝试升级已分配此编制的部队到将要替换的编制。
         target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
-            weight = 0.8  #是AI应该多大程度上去靠近这个编制。
+            weight = 0.5  #是AI应该多大程度上去靠近这个编制。
             match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
-            regiments = {  #目标编制内常规营的列表
-                infantry = 10
-                artillery_brigade_med = 2
-				mountain_artillery_brigade = 2
+            regiments = {
+                armored_car = 1
+				trm_tankette_armor = 2
+                motorized = 1
             }
-            support = {  #目标编制内支援连的列表设定
-				DIV_HQ_car = 1
+            support = {
+                DIV_HQ_car = 1
 				recon_ac = 1
 				engineer_mot = 1
-				field_hospital = 1
-				combat_engineer_mot = 1
-				signal_company_mot = 1
-				artillery_heavy_mot = 1
 				anti_air_car = 1
             }
         }
-        allowed_types = {  #AI编制要用到的营和支援连，不写AI就捏不出来
-            infantry
-            artillery_brigade_med
-            mountain_artillery_brigade
+        allowed_types = {
+            armored_car
+            trm_tankette_armor
+            motorized
             DIV_HQ_car
             recon_ac
             engineer_mot
-            field_hospital
-            combat_engineer_mot
-            signal_company_mot
-            artillery_heavy_mot
+            maintenance_company
             anti_air_car
         }
     }
-}
+}  
 
 KOR_light_armor_role = {
-    available_for = { KOR }  #该规则可用国家
-    roles = { light_armor }  #定义此编制的类型（这里定义的是militia民兵师编制）
-    match_to_count = 0.5  #其他属于该类型的已存在编制，如果你不想让AI拉太多这种低级编制那就调低此参数（数值太低会导致前期AI没改到对应编制前一点兵也不出）
+    available_for = { KOR }
+    role = light_armor
+    match_to_count = 0.5
+    #骑兵坦克部队
     KOR_light_armor_role_1 = {
-        production_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在实际生产时的权重。
-            base = 30
-            modifier = { add = 10 has_country_flag = { flag = ai_light_armor_template value = 1 } }
-        }
-        upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
+        production_prio = {
             base = 10
             modifier = { add = 10 has_country_flag = { flag = ai_light_armor_template value = 1 } }
         }
-        reinforce_prio = @light_armor_prio  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
-        #can_upgrade_in_field = { }  #是一个触发块，决定AI何时尝试升级已分配此编制的部队到将要替换的编制。
-        target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
-            weight = 0.7  #是AI应该多大程度上去靠近这个编制。
-            match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
-            regiments = {  #目标编制内常规营的列表
-                semi_motorized = 6
-				trm_light_armor = 2
-                artillery_brigade_mot_med = 2
-            }
-            support = {  #目标编制内支援连的列表设定
-                DIV_HQ = 1
-				recon_cav = 1
-				engineer = 1
-				maintenance_company = 1
-				logistics_company = 1
-				combat_engineer = 1
-				anti_air = 1
-            }
-        }
-        allowed_types = {  #AI编制要用到的营和支援连，不写AI就捏不出来
-            semi_motorized
-            trm_light_armor
-            artillery_brigade_mot_med
-            DIV_HQ
-            recon_cav
-            engineer
-            maintenance_company
-            logistics_company
-            combat_engineer
-            anti_air
-        }
-    }
-    KOR_light_armor_role_2 = {
-        production_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在实际生产时的权重。
-            base = 30
-            modifier = { add = 10 has_country_flag = { flag = ai_light_armor_template value = 1 } }
-        }
-        upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
+        upgrade_prio = {
             base = 10
             modifier = { add = 10 has_country_flag = { flag = ai_light_armor_template value = 1 } }
         }
-        reinforce_prio = @light_armor_prio  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
-        can_upgrade_in_field = {  #是一个触发块，决定AI何时尝试升级已分配此编制的部队到将要替换的编制。
-            ai_has_motorized = yes
-            ai_has_signal_company = yes            
+        reinforce_prio = 2
+        can_upgrade_in_field = {
+            ai_has_mechanized = yes   
         }
-        target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
-            weight = 0.7  #是AI应该多大程度上去靠近这个编制。
-            match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
-            regiments = {  #目标编制内常规营的列表
-                motorized = 6
+        target_template = {
+            weight = 0.5
+            match_value = 1000
+            regiments = {
+                cavalry = 6
+                trm_cavalry_armor = 2
 				trm_light_armor = 2
-                artillery_brigade_mot_med = 3
+                artillery_brigade_mot_med = 1
+                artillery_brigade_mot = 1
             }
-            support = {  #目标编制内支援连的列表设定
+            support = {
 				DIV_HQ_car = 1
-				recon_cav = 1
+				trm_tankette_armor_recon = 1
 				engineer_mot = 1
 				maintenance_company = 1
-				logistics_company_car = 1
 				combat_engineer_mot = 1
-				signal_company_mot = 1
-				anti_air_car = 1
+                anti_air_car = 1
             }
         }
-        allowed_types = {  #AI编制要用到的营和支援连，不写AI就捏不出来
-            motorized
+        allowed_types = {
+            cavalry
+            trm_cavalry_armor
             trm_light_armor
             artillery_brigade_mot_med
+            artillery_brigade_mot
             DIV_HQ_car
-            recon_cav
+            trm_tankette_armor_recon
             engineer_mot
             maintenance_company
-            logistics_company_car
             combat_engineer_mot
-            signal_company_mot
             anti_air_car
         }
     }
-    KOR_light_armor_role_3 = {
-        production_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在实际生产时的权重。
+    #机械化坦克师
+    KOR_light_armor_role_2 = {
+        production_prio = {
             base = 30
             modifier = { add = 10 has_country_flag = { flag = ai_light_armor_template value = 1 } }
         }
-        upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
+        upgrade_prio = {
             base = 10
             modifier = { add = 10 has_country_flag = { flag = ai_light_armor_template value = 1 } }
         }
-        reinforce_prio = @light_armor_prio  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
-        can_upgrade_in_field = {  #是一个触发块，决定AI何时尝试升级已分配此编制的部队到将要替换的编制。
-            ai_has_mechanized = yes   
-        }
-        target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
-            weight = 0.7  #是AI应该多大程度上去靠近这个编制。
-            match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
-            regiments = {  #目标编制内常规营的列表
+        reinforce_prio = 2
+        target_template = {
+            weight = 0.2
+            match_value = 1000
+            regiments = {
                 mechanized = 8
                 trm_medium_armor = 1
 				trm_light_armor = 2
                 trm_medium_sp_artillery = 3
             }
-            support = {  #目标编制内支援连的列表设定
+            support = {
 				DIV_HQ_mech = 1
 				recon_mech = 1
 				engineer_mech = 1
@@ -333,7 +292,7 @@ KOR_light_armor_role = {
 				anti_air_car = 1
             }
         }
-        allowed_types = {  #AI编制要用到的营和支援连，不写AI就捏不出来
+        allowed_types = {
             mechanized
             trm_medium_armor
             trm_light_armor

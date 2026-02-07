@@ -1,0 +1,221 @@
+#无视民厂数量允许最大化花费
+dont_buy_with_weak_industry = {
+	allowed = {
+		tag = KOR
+	}
+	enable = {
+		num_of_civilian_factories > 12
+	}
+	abort_when_not_enabled = yes
+	abort = {
+		stockpile_ratio = {
+			archetype = infantry_equipment #步兵装备
+			ratio > 120
+		}
+		stockpile_ratio = {
+			archetype = infantry_uniforms #野战制服
+			ratio > 120
+		}
+		stockpile_ratio = {
+			archetype = support_equipment #支援装备
+			ratio > 100
+		}
+		stockpile_ratio = {
+			archetype = recon_equipment #侦查装备
+			ratio > 100
+		}
+		stockpile_ratio = {
+			archetype = HMG_equipment #机枪
+			ratio > 80
+		}
+		stockpile_ratio = {
+			archetype = handheld_at_equipment #手持式反坦克武器装备
+			ratio > 80
+		}
+		stockpile_ratio = {
+			archetype = mortar_equipment #迫击炮
+			ratio > 80
+		}
+		stockpile_ratio = {
+			archetype = infantrygun_equipment #步兵炮
+			ratio > 50
+		}
+		stockpile_ratio = {
+			archetype = anti_air_equipment #防空炮
+			ratio > 50
+		}
+		stockpile_ratio = {
+			archetype = mountain_artillery_equipment #山地火炮
+			ratio > 120
+		}
+		stockpile_ratio = {
+			archetype = medartillery_equipment #中型火炮
+			ratio > 100
+		}
+		stockpile_ratio = {
+			archetype = motorized_lia_equipment #汽车
+			ratio > 100 
+		}
+		stockpile_ratio = {
+			archetype = motorized_equipment #运输卡车
+			ratio > 120
+		}
+	}
+	ai_strategy = {
+		type = equipment_market_spend_factories
+		value = 600
+	}
+}
+#取消AI所有购买限制
+KOR_buy_tanks_and_planes_like_crazy = {
+	allowed = {
+		tag = KOR
+	}
+	enable = {
+		always = yes
+	}
+	abort_when_not_enabled = yes
+	#步兵装备
+	ai_strategy = {
+		type = equipment_market_buy
+		equipment_type = infantry_equipment
+		value = 1000
+	}
+	ai_strategy = {
+		type = equipment_market_buying_threshold
+		id = infantry_equipment
+		value = 1000
+	}
+	#野战制服
+	ai_strategy = {
+		type = equipment_market_buy
+		equipment_type = infantry_uniforms
+		value = 1000
+	}
+	ai_strategy = {
+		type = equipment_market_buying_threshold
+		id = infantry_uniforms
+		value = 1000
+	}
+	#支援装备
+	ai_strategy = {
+		type = equipment_market_buy
+		equipment_type = support_equipment
+		value = 1000
+	}
+	ai_strategy = {
+		type = equipment_market_buying_threshold
+		id = support_equipment
+		value = 1000
+	}
+	#侦查装备
+	ai_strategy = {
+		type = equipment_market_buy
+		equipment_type = recon_equipment
+		value = 1000
+	}
+	ai_strategy = {
+		type = equipment_market_buying_threshold
+		id = recon_equipment
+		value = 1000
+	}
+	#机枪
+	ai_strategy = {
+		type = equipment_market_buy
+		equipment_type = HMG_equipment
+		value = 1000
+	}
+	ai_strategy = {
+		type = equipment_market_buying_threshold
+		id = HMG_equipment
+		value = 1000
+	}
+	#手持式反坦克武器装备
+	ai_strategy = {
+		type = equipment_market_buy
+		equipment_type = handheld_at_equipment
+		value = 1000
+	}
+	ai_strategy = {
+		type = equipment_market_buying_threshold
+		id = handheld_at_equipment
+		value = 1000
+	}
+	#迫击炮
+	ai_strategy = {
+		type = equipment_market_buy
+		equipment_type = mortar_equipment
+		value = 1000
+	}
+	ai_strategy = {
+		type = equipment_market_buying_threshold
+		id = mortar_equipment
+		value = 1000
+	}
+	#步兵炮
+	ai_strategy = {
+		type = equipment_market_buy
+		equipment_type = infantrygun_equipment
+		value = 1000
+	}
+	ai_strategy = {
+		type = equipment_market_buying_threshold
+		id = infantrygun_equipment
+		value = 1000
+	}
+	#防空炮
+	ai_strategy = {
+		type = equipment_market_buy
+		equipment_type = anti_air_equipment
+		value = 1000
+	}
+	ai_strategy = {
+		type = equipment_market_buying_threshold
+		id = anti_air_equipment
+		value = 1000
+	}
+	#山地火炮
+	ai_strategy = {
+		type = equipment_market_buy
+		equipment_type = mountain_artillery_equipment
+		value = 1000
+	}
+	ai_strategy = {
+		type = equipment_market_buying_threshold
+		id = mountain_artillery_equipment
+		value = 1000
+	}
+	#中型火炮
+	ai_strategy = {
+		type = equipment_market_buy
+		equipment_type = medartillery_equipment
+		value = 1000
+	}
+	ai_strategy = {
+		type = equipment_market_buying_threshold
+		id = medartillery_equipment
+		value = 1000
+	}
+	#汽车
+	ai_strategy = {
+		type = equipment_market_buy
+		equipment_type = motorized_lia_equipment
+		value = 1000
+	}
+	ai_strategy = {
+		type = equipment_market_buying_threshold
+		id = motorized_lia_equipment
+		value = 1000
+	}
+	#运输卡车
+	ai_strategy = {
+		type = equipment_market_buy
+		equipment_type = motorized_equipment
+		value = 1000
+	}
+	ai_strategy = {
+		type = equipment_market_buying_threshold
+		id = motorized_equipment
+		value = 1000
+	}
+}
