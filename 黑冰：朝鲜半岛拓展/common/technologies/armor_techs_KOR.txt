@@ -61,9 +61,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -114,9 +113,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		dependencies = {
@@ -308,9 +306,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -366,9 +363,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -423,9 +419,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -476,9 +471,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -528,9 +522,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -567,9 +560,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		dependencies = {
@@ -616,9 +608,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -661,9 +652,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -706,9 +696,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -752,9 +741,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -798,9 +786,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -848,9 +835,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -889,9 +875,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -1010,9 +995,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -1072,9 +1056,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -1124,9 +1107,8 @@ technologies = {
 		}
 
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -1193,9 +1175,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -1256,9 +1237,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -1313,9 +1293,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		
@@ -1365,9 +1344,8 @@ technologies = {
 		}
 		
 		allow_branch = {
-			OR = {
-				original_tag = KOR
-			}
+			original_tag = KOR
+			
 		}
 		
 		

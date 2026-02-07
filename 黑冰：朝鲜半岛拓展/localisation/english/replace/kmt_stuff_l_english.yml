@@ -1,13 +1,22 @@
 ﻿l_english:
- KMTKOR_communism:0 "Democratic People's Republic of Korea"
- KMTKOR_communism_DEF:0 "the Democratic People's Republic of Korea"
- KMTKOR_communism_ADJ:0 "Korean"
- KMTKOR_neutrality:0 "Republic of Korea"
- KMTKOR_neutrality_DEF:0 "the Republic of Korea"
- KMTKOR_neutrality_ADJ:0 "Korean"
  KMTKOR_fascism:0 "Japanese Colony of Korea"
  KMTKOR_fascism_DEF:0 "the Japanese Colony of Korea"
  KMTKOR_fascism_ADJ:0 "Korean"
+ KOR_fascism:0 "Japanese Colony of Korea"
+ KOR_fascism_DEF:0 "the Japanese Colony of Korea"
+ KOR_fascism_ADJ:0 "Korean"
+
+ KMTKOR_communism:0 "Democratic People's Republic of Korea"
+ KMTKOR_communism_DEF:0 "the Democratic People's Republic of Korea"
+ KMTKOR_communism_ADJ:0 "Korean"
+
+ KMTKOR_neutrality:0 "Republic of Korea"
+ KMTKOR_neutrality_DEF:0 "the Republic of Korea"
+ KMTKOR_neutrality_ADJ:0 "Korean"
+ KOR_CHI_aligned:0 "Provisional Government of the Republic of Korea"
+ KOR_CHI_aligned_DEF:0 "Provisional Government of the Republic of Korea"
+ KOR_CHI_aligned_ADJ:0 "Korean"
+
  KMTKOR_socialism:0 "Democratic Independent State of Korea"
  KMTKOR_socialism_DEF:0 "the Democratic Independent State of Korea"
  KMTKOR_socialism_ADJ:0 "Korean"

@@ -1,0 +1,9 @@
+#每当你新建 cosmetic tag，最好也在 00_scripted_effects.txt 里给它写一个对应的效果，这样以后调用会更方便。
+KOR_CHI_aligned = {
+	color = rgb { 25 116 210 } #155 101 107 
+	color_ui = rgb { 25 116 210 } #202 131 139 
+}
+KMTKOR_fascism = {
+	color = rgb { 229  189  160 } # 221  178  83
+	color_ui = rgb { 229  189  160 } #
+}

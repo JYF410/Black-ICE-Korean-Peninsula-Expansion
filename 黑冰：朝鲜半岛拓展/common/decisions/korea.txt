@@ -78,7 +78,7 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		available = {
 			KOR = {
 				has_government = fascism
-				neutrality > 0.8
+				neutrality > 0.1
 				or = {
 					is_puppet_of = JAP
 					is_in_faction_with = JAP
@@ -87,29 +87,19 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		}
 		visible = {
 			NOT = { has_government = neutrality }
-			has_completed_focus = KOR_CHI_restoration_movement
+			has_completed_focus = KOR_CHI_civilwar
 		}
+		cost = 100
 		fire_only_once = yes
-		days_remove = 360
-		cost = 200
-		complete_effect = {
-			#
-		}
+		days_remove = 14
 		remove_effect = {
-			start_civil_war = {
-				ruling_party = neutrality #起义军执政党
-				ideology = ROOT
-				size = civil_war_size_var
-				keep_unit_leaders_trigger = {
-					has_trait = hidden_sympathies
-				}
-			}
-			KOR = {
-				remove_ideas = neutrality_idea
+			country_event = {
+				id = KOR_neutrality.2 #弹窗事件
+				days = 7
 			}
 		}
 		ai_will_do = {
-			factor = 90
+			factor = 10
 		}
 	}
 }
