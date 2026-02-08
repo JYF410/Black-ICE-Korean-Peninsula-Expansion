@@ -5,8 +5,16 @@ spriteTypes = {
 		texturefile = "gfx/interface/ideas/idea_KOR_bank.dds"
 	}
 	SpriteType = {
+		name = "GFX_idea_KOR_political_reform"
+		texturefile = "gfx/interface/ideas/idea_KOR_political_reform.dds"
+	}
+	SpriteType = {
 		name = "GFX_KOR_controlled_north_front_line"
 		texturefile = "gfx/interface/goals/KOR_controlled_north_front_line.dds"
+	}
+	SpriteType = {
+		name = "GFX_KOR_CHI_political_reform"
+		texturefile = "gfx/interface/goals/KOR_CHI_political_reform.dds"
 	}
 
 }

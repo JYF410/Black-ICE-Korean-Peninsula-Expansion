@@ -14,7 +14,7 @@ focus_tree = {
 	focus = {
 		id = KOR_Japan_Korea_Annexation_Treaty
 		icon = GFX_focus_AFG_against_kabul
-		x = 16
+		x = 17
 		y = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = no #投降后不能点该国策
@@ -24,104 +24,137 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_political_power = 50
-			add_ideas = kor_quit_jap_movement
-			hidden_effect = {
-				unlock_decision_tooltip = {
-					decision = KOR_anti_soviet_pact_refused_call
-				}
-			}
+			add_ideas = kor_quit_jap_movement #朝鲜半岛独立运动
 		}
 		ai_will_do = {
 			factor = 50
 		}
 	}
 ##################################################中华民国线####################################################
-	#《扶助朝鲜复国运动指导方案》
+	#扶助朝鲜复国运动指导方案
 	focus = {
 		id = KOR_CHI_restoration_movement
 		icon = GFX_focus_GER_ally_chiang_kai_shek
 		prerequisite = { focus = KOR_Japan_Korea_Annexation_Treaty }
+		mutually_exclusive = { focus = KOR_restore_society }
 		relative_position_id = KOR_Japan_Korea_Annexation_Treaty
 		x = -5
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		cost = 30
 		available = {
-			always = no #开发中（待删除）
-			NOT = {
-				has_government = communism
+			KOR = {
+				exists = yes
+				has_capitulated = no
 			}
 		}
 		completion_reward = {
-			#
+			add_political_power = 75
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.15
+			}
+			CHI = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = medium_increase
+				}
+				add_ai_strategy = {
+					type = send_volunteers_desire
+					id = ROOT
+					value = 1000
+				}
+				add_ai_strategy = {
+					type = support
+					id = ROOT
+					value = 1000
+				}
+			}
+			news_event = {
+				id = KOR_neutrality.1 #弹窗事件：扶助朝鲜复国运动指导方案
+				days = 0
+			}
 		}
 		ai_will_do = {
-			factor = 1
-		}
-	}
-	#大韩民国临时政府驻华代表团
-	focus = {
-		id = KOR_CHI_political_reform
-		icon = GFX_focus_chi_cooperation_with_the_nationalists
-		prerequisite = { focus = KOR_CHI_restoration_movement }
-		mutually_exclusive = { focus = KOR_PRC_political_reform }
-		relative_position_id = KOR_CHI_restoration_movement
-		x = 3
-		y = 1
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available_if_capitulated = no #投降后不能点该国策
-		cost = 30
-		available = {
-			neutrality > 0.3
-			CHI = {
-				exists = yes
-				has_capitulated = no
-				OR = {
-					has_opinion = { target = CHI value > 59 }
-					is_in_faction_with = CHI
+			factor = 0
+			modifier = {
+				add = 30
+				limit = {
+					CHI = { is_ai = no }
 				}
 			}
 		}
-		completion_reward = {
-			add_political_power = 100
-			add_ideas = KOR_CHI_political_reform
-		}
-		ai_will_do = {
-			factor = 1
-		}
 	}
-	#爆发冲突（暂定）
+	#半岛撤离行动
 	focus = {
 		id = KOR_CHI_civilwar
 		icon = GFX_focus_AST_war_japan
-		prerequisite = { focus = KOR_CHI_political_reform }
-		relative_position_id = KOR_CHI_political_reform
-		x = 0
+		prerequisite = { focus = KOR_CHI_restoration_movement }
+		relative_position_id = KOR_CHI_restoration_movement
+		x = 3
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes #投降后不能点该国策
 		cost = 30
 		available = {
-			neutrality > 0.7
-			exists = yes
+			KOR = {
+				exists = yes
+				has_capitulated = no
+				has_government = fascism
+			}
 		}
 		completion_reward = {
-			add_ideas = KOR_front_against_Japan
 			unlock_decision_tooltip = {
-				decision = KOR_neutrality_civil_war
+				decision = KOR_neutrality_civil_war #大韩民国临时政府要员撤离行动
 				show_effect_tooltip = yes
 			}
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 50
 		}
 	}
+	#大韩民国临时政府
+	focus = {
+		id = KOR_CHI_political_reform
+		icon = GFX_KOR_CHI_political_reform
+		prerequisite = { focus = KOR_CHI_civilwar }
+		relative_position_id = KOR_CHI_civilwar
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = no #投降后不能点该国策
+		cost = 30
+		available = {
+			KOR = {
+				exists = yes
+				has_capitulated = no
+				has_government = neutrality
+			}
+			CHI = {
+				exists = yes
+				has_capitulated = no
+				has_full_control_of_state = 596 #杭州
+				has_opinion = { target = KOR value > 19 }
+			}
+		}
+		completion_reward = {
+			add_ideas = KOR_CHI_political_reform_hangzhou #大韩民国临时政府驻杭州馆
+			unlock_decision_tooltip = {
+				decision = KOR_CHI_move_to_hangzhou #大韩民国临时政府迁至杭州
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#韩国特务队独立军
+	#鹰计划
 	#韩国光复军
 	focus = {
 		id = Korean_Liberation_Army
 		icon = GFX_focus_POL_beck_ribbentrop
-		prerequisite = { focus = KOR_CHI_civilwar }
-		relative_position_id = KOR_CHI_civilwar
+		prerequisite = { focus = KOR_CHI_political_reform }
+		relative_position_id = KOR_CHI_political_reform
 		x = 0
 		y = 1
 		search_filters = { FOCUS_FILTER_ARMY }
@@ -141,9 +174,10 @@ focus_tree = {
 			KOR_create_Korean_Liberation_Army_div = yes
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 50
 		}
 	}
+	#韩中互助军事协定
 
 ###################################################朝鲜历史线##################################################
 	#祖国光复会
@@ -151,9 +185,10 @@ focus_tree = {
 		id = KOR_restore_society
 		icon = GFX_focus_NOR_moscows_education_centers
 		prerequisite = { focus = KOR_Japan_Korea_Annexation_Treaty }
-		relative_position_id = KOR_Japan_Korea_Annexation_Treaty
-		x = 5
-		y = 1
+		mutually_exclusive = { focus = KOR_CHI_restoration_movement }
+		relative_position_id = KOR_CHI_restoration_movement
+		x = 10
+		y = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		cost = 30
 		available = {
@@ -171,13 +206,19 @@ focus_tree = {
 				ideology = fascism
 				popularity = -0.10
 			}
-			country_event = {
+			news_event = {
 				id = KOR_communism.1 #弹窗事件：祖国光复会正式成立
 				days = 0
 			}
 		}
 		ai_will_do = {
-			factor = 90
+			factor = 100
+			modifier = {
+				add = -100
+				limit = {
+					CHI = { is_ai = no }
+				}
+			}
 		}
 	}	
 	#朝鲜民族战线联盟
@@ -197,9 +238,6 @@ focus_tree = {
 				communism > 0.30
 				exists = yes
 				has_capitulated = no
-				NOT = {
-					is_puppet_of = CHI
-				}
 			}
 			PRC = {
 				exists = yes
@@ -488,7 +526,6 @@ focus_tree = {
 		id = KOR_PRC_political_reform
 		icon = GFX_focus_chi_cooperation_with_the_communists
 		prerequisite = { focus = KOR_restore_society }
-		mutually_exclusive = { focus = KOR_CHI_political_reform }
 		relative_position_id = KOR_restore_society
 		x = -3
 		y = 1
@@ -715,6 +752,12 @@ focus_tree = {
 		}
 		ai_will_do = {
 			factor = 0
+			modifier = {
+				add = 100
+				limit = {
+					PRC = { is_ai = no }
+				}
+			}
 		}			
 	}
 	#建立中朝贸易走廊
@@ -857,7 +900,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 65
+			factor = 60
 		}
 	}
 	#建立远东军事走廊
@@ -1604,7 +1647,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 40
+			factor = 70
 		}
 	}
 	#在惠山征召部队
@@ -1634,7 +1677,7 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 40
+			factor = 70
 		}
 	}
 	#在普天堡征召部队
@@ -1664,7 +1707,7 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 40
+			factor = 70
 		}
 	}
 	#在元山征召部队
@@ -1694,7 +1737,7 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 40
+			factor = 60
 		}
 	}
 	#在兴南征召部队
@@ -1724,7 +1767,7 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 40
+			factor = 60
 		}
 	}
 	#在南浦征召部队
@@ -1754,7 +1797,7 @@ focus_tree = {
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 40
+			factor = 60
 		}
 	}
 	#在平壤组建宪兵部队
@@ -1784,7 +1827,7 @@ focus_tree = {
 			KOR_create_JAP_MP_army_div = yes
 		}
 		ai_will_do = {
-			factor = 60
+			factor = 70
 		}
 	}
 	#在京城组建宪兵部队
@@ -1883,10 +1926,13 @@ focus_tree = {
 	focus = {
 		id = KOR_JAP_office_governor
 		icon = GFX_focus_ARG_strengthening_the_concordancia
-		x = 29
+		x = 30
 		y = 0
 		search_filters = { FOCUS_FILTER_INFRASTRUCTURE }
 		cost = 30
+		available = {
+			525 = { is_controlled_by = ROOT }
+		}
 		completion_reward = {
 			capital_scope = {
 				add_extra_state_shared_building_slots = 1
@@ -1936,7 +1982,22 @@ focus_tree = {
 		cost = 30
 		completion_reward = {
 			add_equipment_subsidy = {
-				cic = 500
+				cic = 800
+				equipment_type = infantry_equipment
+				seller_tags = { JAP }
+			}
+			add_equipment_subsidy = {
+				cic = 800
+				equipment_type = infantry_uniforms
+				seller_tags = { JAP }
+			}
+			add_equipment_subsidy = {
+				cic = 300
+				equipment_type = motorized_lia_equipment
+				seller_tags = { JAP }
+			}
+			add_equipment_subsidy = {
+				cic = 300
 				equipment_type = motorized_AC_equipment
 				seller_tags = { JAP }
 			}
@@ -1953,6 +2014,35 @@ focus_tree = {
 		}
 		ai_will_do = {
 			factor = 100
+		}
+	}
+
+	#兴南化肥联合企业
+	focus = {
+		id = KOR_xin_nan_farm_factory
+		icon = GFX_goal_generic_farming
+		prerequisite = { focus = KOR_JAP_office_governor }
+		relative_position_id = KOR_industrial_effort
+		x = 2
+		y = 0
+		search_filters = {FOCUS_FILTER_INFRASTRUCTURE}
+		cost = 60
+		available_if_capitulated = no
+		available = {
+			527 = { is_controlled_by = ROOT }
+		}
+		completion_reward = {
+			527 = {
+				add_building_construction = {
+					type = farm
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 
@@ -2245,32 +2335,6 @@ focus_tree = {
 		completion_reward = {
 			set_temp_variable = { building = token:synthetic_rubber_refinery }
 			focus_add_building_prioritize_home_area = yes
-		}
-	}
-
-	#兴南化肥联合企业
-	focus = {
-		id = KOR_xin_nan_farm_factory
-		icon = GFX_goal_generic_farming
-		prerequisite = { focus = KOR_JAP_office_governor }
-		relative_position_id = KOR_industrial_effort
-		x = 2
-		y = 0
-		search_filters = {FOCUS_FILTER_INFRASTRUCTURE}
-		cost = 60
-		available_if_capitulated = no
-		completion_reward = {
-			527 = {
-				add_building_construction = {
-					type = farm
-					level = 2
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 2
-			}
-		}
-		ai_will_do = {
-			factor = 5
 		}
 	}
 

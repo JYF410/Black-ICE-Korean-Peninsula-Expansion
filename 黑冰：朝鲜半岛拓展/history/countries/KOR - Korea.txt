@@ -117,6 +117,7 @@ set_popularities = {
 	socialism = 1
 }
 #############################################################
+recruit_character = KOR_Kim_Koo  #金九
 recruit_character = KOR_Syngman_Rhee  #李承晚
 recruit_character = KOR_Kim_Il_sung  #金日成
 recruit_character = KOR_Minami_Jiro  #南次郎
@@ -127,6 +128,8 @@ recruit_character = KOR_Kim_Chaek  #金策
 recruit_character = KOR_O_Jin_u  #吴振宇
 recruit_character = KOR_Choi_Kwang  #崔光
 recruit_character = KOR_Ri_Ul_sol  #李乙雪
+recruit_character = KOR_Ji_Cheong_cheon  #池青天
+recruit_character = KOR_Lee_Beom_seok  #李范奭
 #############################################################
 # battleship #
 create_equipment_variant = {

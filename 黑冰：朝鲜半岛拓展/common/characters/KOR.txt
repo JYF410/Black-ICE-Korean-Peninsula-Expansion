@@ -1,5 +1,44 @@
 characters = {
 ###################领导人##################
+	KOR_Kim_Koo = {  #金九
+		name = KOR_Kim_Koo
+		allowed_civil_war = {
+			has_government = neutrality
+		}
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KOR/Portrait_KOR_Kim_Koo.dds"
+			}
+			army = {
+				small = GFX_idea_generic_political_advisor_asia_4
+			}
+		}
+		country_leader = {
+			desc = "POLITICS_Kim_Koo_DESC"
+			ideology = despotism
+			expire = "1949.6.26"
+			id = 202619490626
+			traits = { independent_guy }
+		}
+		advisor = {
+			slot = head_of_state
+			idea_token = KOR_Kim_Koo_head_of_state
+			on_add = {
+				set_temp_variable = { character = token:KOR_Kim_Koo}
+				set_temp_variable = { slot = token:head_of_state}
+				head_of_state_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Kim_Koo}
+				set_temp_variable = { slot = token:head_of_state}
+				head_of_state_on_remove_effect = yes
+			} 
+			available = {
+				has_government = neutrality
+			}
+			traits = { elder_statesman }
+		}
+	}
 	KOR_Syngman_Rhee = {  #李承晚
 		name = KOR_Syngman_Rhee
 		allowed_civil_war = {
@@ -8,7 +47,10 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Syngman_Rhee.dds"
-			}	
+			}
+			army = {
+				small = GFX_idea_generic_political_advisor_asia_6
+			}
 		}
 		country_leader = {
 			desc = "POLITICS_Syngman_Rhee_DESC"
@@ -36,22 +78,24 @@ characters = {
 			traits = { popular_figurehead }
 		}
 		advisor = {
-			idea_token = KOR_Syngman_Rhee_supreme_commander
-			slot = supreme_commander
+			slot = foreign_minister
+			idea_token = KOR_Syngman_Rhee_foreign_minister
 			on_add = {
 				set_temp_variable = { character = token:KOR_Syngman_Rhee}
-				set_temp_variable = { slot = token:supreme_commander}
-				supreme_commander_on_add_effect = yes
-			}
+				set_temp_variable = { slot = token:foreign_minister}
+				foreign_minister_on_add_effect = yes
+			} 
 			on_remove = {
 				set_temp_variable = { character = token:KOR_Syngman_Rhee}
-				set_temp_variable = { slot = token:supreme_commander}
-				supreme_commander_on_remove_effect = yes
+				set_temp_variable = { slot = token:foreign_minister}
+				foreign_minister_on_remove_effect = yes
 			}
 			available = {
 				has_government = neutrality
 			}
-			traits = { supreme_com_organizer }
+			traits = {
+				smooth_talking_charmer
+			}
 		}
 	}
 	KOR_Kim_Il_sung = {  #金日成
@@ -185,28 +229,6 @@ characters = {
 				dealbroker
 			}
 		}
-		advisor = {
-			slot = high_command
-			idea_token = KOR_Park_Heon_young_high_command
-			on_add = {
-				set_temp_variable = { character = token:KOR_Park_Heon_young}
-				set_temp_variable = { slot = token:high_command}
-				high_command_on_add_effect = yes
-			} 
-			on_remove = {
-				set_temp_variable = { character = token:KOR_Park_Heon_young}
-				set_temp_variable = { slot = token:high_command}
-				high_command_on_remove_effect = yes
-			} 
-			available = {
-				has_government = conservatism
-				has_government = socialism
-			}
-			traits = {
-				army_chief_organizational_3 #陆军组织
-			}
-			ledger = army
-		}
 	}
 ###################红色将领#################
 	KOR_Choe_Yong_gon = {  #崔庸健
@@ -239,7 +261,7 @@ characters = {
 				has_government = communism
 			}
 			traits = {
-				army_infantry_3
+				army_regrouping_3 #陆军重组 （奇才）
 			}
 			ai_will_do = {
 				factor = 80
@@ -300,7 +322,7 @@ characters = {
 				has_government = communism
 			}
 			traits = {
-				army_chief_organizational_3
+				army_chief_defensive_3 #陆军防御 （奇才）
 			}
 			ai_will_do = {
 				factor = 90
@@ -358,8 +380,7 @@ characters = {
 				has_government = communism
 			}
 			traits = {
-				army_cavalry_3
-				army_chief_maneuver_3
+				army_chief_maneuver_3 #陆军机动 （奇才）
 			}
 			ai_will_do = {
 				factor = 50
@@ -535,4 +556,96 @@ characters = {
 		}
 	}
 ###################灰色将领#################
+	KOR_Ji_Cheong_cheon={  #池清天
+		name = KOR_Ji_Cheong_cheon
+		allowed_civil_war = {
+			has_government = neutrality
+		}
+		portraits={
+			civilian = {
+				large = "gfx/leaders/KOR/Portrait_KOR_Ji_Cheong_cheon.dds"
+			}
+			army = {
+				small = GFX_idea_generic_political_advisor_asia_15
+			}	
+		}
+		advisor = {
+			slot = high_command
+			idea_token = KOR_Ji_Cheong_cheon_high_command
+			on_add = {
+				set_temp_variable = { character = token:KOR_Ji_Cheong_cheon}
+				set_temp_variable = { slot = token:high_command}
+				high_command_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Ji_Cheong_cheon}
+				set_temp_variable = { slot = token:high_command}
+				high_command_on_remove_effect = yes
+			}
+			available = {
+				has_government = neutrality
+			}
+			traits = {
+				army_infantry_3 #步兵部队 （奇才）
+			}
+			ai_will_do = {
+				factor = 90
+			}
+		}
+		advisor = {
+			idea_token = KOR_Ji_Cheong_cheon_supreme_commander
+			slot = supreme_commander
+			on_add = {
+				set_temp_variable = { character = token:KOR_Ji_Cheong_cheon}
+				set_temp_variable = { slot = token:supreme_commander}
+				supreme_commander_on_add_effect = yes
+			}
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Ji_Cheong_cheon}
+				set_temp_variable = { slot = token:supreme_commander}
+				supreme_commander_on_remove_effect = yes
+			}
+			available = {
+				has_government = neutrality
+			}
+			traits = { supreme_com_organizer }
+		}
+	}
+	KOR_Lee_Beom_seok={  #李范奭
+		name = KOR_Lee_Beom_seok
+		allowed_civil_war = {
+			has_government = neutrality
+		}
+		portraits={
+			civilian = {
+				large = "gfx/leaders/KOR/Portrait_KOR_Lee_Beom_seok.dds"
+			}
+			army = {
+				small = GFX_idea_generic_army_asia_8
+			}	
+		}
+		advisor={
+			slot = army_chief
+			idea_token = KOR_Lee_Beom_seok_army_chief
+			on_add = {
+				set_temp_variable = { character = token:KOR_Lee_Beom_seok}
+				set_temp_variable = { slot = token:army_chief}
+				army_chief_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Lee_Beom_seok}
+				set_temp_variable = { slot = token:army_chief}
+				army_chief_on_remove_effect = yes
+			}
+			available = {
+				has_government = neutrality
+			}
+			traits = {
+				army_chief_organizational_3 #陆军组织 （奇才）
+			}
+			ai_will_do = {
+				factor = 70
+			}
+		}
+	}
 }

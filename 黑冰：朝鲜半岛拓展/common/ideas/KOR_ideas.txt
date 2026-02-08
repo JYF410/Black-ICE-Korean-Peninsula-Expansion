@@ -14,6 +14,7 @@
 #MODIFIER_AI_BADASS_FACTOR: "AI修正：威胁度敏感度"
 
 ideas = {
+	#隐藏精神
 	hidden_ideas = {
 		KOR_ai_always_join_ally = {
 			name = "朝鲜AI会主动加入盟友战争"
@@ -78,21 +79,6 @@ ideas = {
 				fascism_drift = -0.02 #每日法西斯主义支持率: -0.02
 			}
 		}
-		#大韩民国临时政府驻华代表团
-		KOR_CHI_political_reform = {
-			picture = BEL_traditional_family_values
-			allowed = {
-				always = no
-			}
-			removal_cost = -1
-			modifier = {
-				neutrality_drift = 0.05 #专制主义理念每日新增+5%
-				stability_weekly = 0.001
-				political_power_factor = 0.05
-				foreign_minister_cost_factor = -0.5
-				neutrality_drift = 0.05
-			}	
-		}
 		#中共中央东北局平壤办事处
 		KOR_PRC_political_reform = {
 			picture = chi_chinese_unity
@@ -155,20 +141,6 @@ ideas = {
 				stability_weekly = 0.002 #每周稳定度+0.2%
 			}	
 		}		
-		#韩国光复军
-		Korean_Liberation_Army = {
-			picture = chi_warlord_integration5
-			allowed = {
-				always = no
-			}
-			removal_cost = -1
-			modifier = {
-				army_org_factor = 0.05 #陆军组织度
-				army_org_factor = 0.02 #陆军组织度恢复
-				supply_consumption_factor = -0.10 #补给使用
-				experience_gain_army_factor = 0.05 #陆军经验增长
-			}		
-		}
 		#平壤苏军总医院
 		KOR_sov_hospital = {
 			picture = generic_angel
@@ -195,6 +167,53 @@ ideas = {
 				global_building_slots_factor = 0.10 #地区最大工厂数: +10.0%
 				consumer_goods_expected_value = -0.02 #用于生产生活消费品的期望工厂数量:-2.0%
 			}
+		}
+		#大韩民国临时政府驻杭州馆
+		KOR_CHI_political_reform_hangzhou = {
+			picture = KOR_political_reform
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_factor = 0.05 #政治点数获取
+				neutrality_drift = 0.04 #每日中立主义支持率
+				stability_weekly = 0.001 #每周稳定度
+				war_support_weekly = 0.002 #每周战争支持度
+				foreign_minister_cost_factor = -0.5 #外交部长行动力消耗
+			}
+			cancel = {
+				KOR = {
+					NOT = { has_war_with = JAP }
+					has_civil_war = no
+					controls_state = 815
+					controls_state = 751
+					controls_state = 463
+					controls_state = 525
+					controls_state = 527
+					controls_state = 816
+					controls_state = 819
+					controls_state = 820
+				}
+			}
+		}
+		#大韩民国临时政府驻柳州馆
+		#KOR_CHI_political_reform_liuzhou = {
+		#大韩民国临时政府驻重庆馆
+		#KOR_CHI_political_reform_chongqing = {
+		#韩国光复军
+		Korean_Liberation_Army = {
+			picture = chi_warlord_integration5
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.05 #陆军组织度
+				army_org_factor = 0.02 #陆军组织度恢复
+				supply_consumption_factor = -0.10 #补给使用
+				experience_gain_army_factor = 0.05 #陆军经验增长
+			}		
 		}
 	}
 }

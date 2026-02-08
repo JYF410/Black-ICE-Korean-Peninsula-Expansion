@@ -3,7 +3,10 @@
  KOR_opium_plantation_desc:5 "日本当局在朝鲜支持鸦片业和麻醉药业，供给日本国内医药事业，及参与出口贸易。与日本相比，朝鲜的气候和土壤更加适合种植罂粟，同时劳力成本亦较日本本土为低。20世纪30年代，朝鲜是主要的鸦片和麻醉药出口地，为满洲的日资鸦片企业供给原料。此外，朝鲜亦建有生产吗啡和海洛因的设施。许多朝鲜人在满洲从事毒品生意，组成东北亚贩毒系统的底层。日本药商向朝鲜市场提供非法毒品，令鸦片和吗啡泛滥，许多人吸食成瘾。"
  kor_quit_jap_movement:5 "朝鲜半岛独立运动"
  kor_quit_jap_movement_desc:5 "朝鲜半岛独立运动"
- Korean_Liberation_Army:5 "扩编韩国光复军"
+ KOR_CHI_political_reform_hangzhou:5 "大韩民国临时政府驻杭州馆"
+ KOR_CHI_political_reform_hangzhou_desc:5 "大韩民国临时政府在中国杭州设立的代表团，旨在协调对日斗争和争取国际支持。"
+
+ Korean_Liberation_Army:5 "韩国光复军"
  Korean_Liberation_Army_desc:5 "大韩民国临时政府在中国境内组建的军事力量，旨在抗击日本帝国主义，争取朝鲜的独立和解放。"
  KOR_sov_hospital:5 "平壤苏军总医院"
  KOR_sov_hospital_desc:5 "平壤苏军总医院"

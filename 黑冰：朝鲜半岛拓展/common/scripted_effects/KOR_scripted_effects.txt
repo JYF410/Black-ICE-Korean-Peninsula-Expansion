@@ -1,11 +1,3 @@
-#用于KOR地图颜色、国名字颜色切换脚本效果，新建cosmetic_tag在00_scripted_effects.txt里给它写一个对应的效果，方便以后调用
-KOR_set_cosmetic_chi_aligned = {
-    set_cosmetic_tag = KOR_CHI_aligned #改名为“大韩民国临时政府”，触发器开关：KOR_set_chi_aligned_cosmetic = yes
-}
-KOR_clear_cosmetic = {
-    set_cosmetic_tag = KOR #还原为“大韩民国”
-}
-
 #朝鲜地方警备营
 KOR_create_JAP_partisan_army_div = {
 	division_template = {
@@ -61,7 +53,7 @@ KOR_create_JAP_MP_army_div = {
 		}
 	}
 }
-##############################################
+
 #朝鲜游击队
 KOR_create_partisan_army_div = {
 	division_template = {
@@ -155,6 +147,7 @@ KOR_create_militia_army_div = {
 		}
 	}
 }
+
 #东北抗日联军教导旅
 KOR_create_Northeast_Anti_Japanese_Army_div = {
 	division_template = {
@@ -185,6 +178,58 @@ KOR_create_Northeast_Anti_Japanese_Army_div = {
 		}
 	}
 }
+#中国人民解放军朝鲜族师
+KOR_ethnic_korean_division_div = {
+	division_template = {
+		name = "中国人民解放军朝鲜族师"
+		is_locked = no
+		template_counter = 114
+		#division_names_group = KOR_INF_01
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 2 y = 0 }
+			infantry = { x = 2 y = 1 }
+			infantry = { x = 2 y = 2 }
+			mountain_artillery_brigade = { x = 3 y = 0 }
+			artillery_brigade = { x = 3 y = 1 }
+			artillery_brigade = { x = 3 y = 2 }
+		}
+		support = {
+			DIV_HQ = { x = 0 y = 0 }
+			recon_cav = { x = 0 y = 1}
+			engineer = { x = 0 y = 2 }
+			logistics_company = { x = 0 y = 3 }
+			signal_company = { x = 0 y = 4 }
+			mount_support = { x = 1 y = 0 }
+			anti_air = { x = 1 y = 1 }
+			anti_tank = { x = 1 y = 2 }
+		}
+	}	
+	random_owned_controlled_state = {
+		create_unit = {
+			division = "name = \"朝鲜人民军第2军团第5步兵师（原164师）\" division_template = \"中国人民解放军朝鲜族师\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
+			owner = KOR
+		}
+	}
+	random_owned_controlled_state = {
+		create_unit = {
+			division = "name = \"朝鲜人民军第6步兵师（原166师）\" division_template = \"中国人民解放军朝鲜族师\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
+			owner = KOR
+		}
+	}
+	random_owned_controlled_state = {
+		create_unit = {
+			division = "name = \"朝鲜人民军第1军团第12步兵师（原156师）\" division_template = \"中国人民解放军朝鲜族师\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
+			owner = KOR
+		}
+	}
+}
+
 #纵深作战理论
 KOR_motorized_AC_division_div = {
 	division_template = {
@@ -248,86 +293,60 @@ KOR_cavalry_armor_division_div = {
 		}
 	}
 }
-#中国人民解放军朝鲜族师
-KOR_ethnic_korean_division_div = {
+
+#韩国特务队独立军
+KOR_create_Korean_Liberation_Army_div = {
 	division_template = {
-		name = "中国人民解放军朝鲜族师"
-		is_locked = no
-		template_counter = 114
-		#division_names_group = KOR_INF_01
+		name = "韩国特务队独立军"
+		is_locked = yes
 		regiments = {
-			infantry = { x = 0 y = 0 }
-			infantry = { x = 0 y = 1 }
-			infantry = { x = 0 y = 2 }
-			infantry = { x = 1 y = 0 }
-			infantry = { x = 1 y = 1 }
-			infantry = { x = 1 y = 2 }
-			infantry = { x = 2 y = 0 }
-			infantry = { x = 2 y = 1 }
-			infantry = { x = 2 y = 2 }
-			artillery_brigade_med = { x = 3 y = 0 }
-			artillery_brigade = { x = 3 y = 1 }
-			artillery_brigade = { x = 3 y = 2 }
+			light_infantry = { x = 0 y = 0 }
+			militia = { x = 0 y = 1 }
+			militia = { x = 0 y = 2 }
+			light_infantry = { x = 1 y = 0 }
+			militia = { x = 1 y = 1 }
+			militia = { x = 1 y = 2 }
 		}
 		support = {
 			DIV_HQ = { x = 0 y = 0 }
-			recon_cav = { x = 0 y = 1}
-			engineer = { x = 0 y = 2 }
-			logistics_company = { x = 0 y = 3 }
-			signal_company = { x = 0 y = 4 }
-			mount_support = { x = 1 y = 0 }
-			anti_air = { x = 1 y = 1 }
-			anti_tank = { x = 1 y = 2 }
+			recon_ac = { x = 0 y = 1}
+			engineer = { x = 0 y = 2 }	
 		}
 	}	
-	random_owned_controlled_state = {
+	7221 = {
 		create_unit = {
-			division = "name = \"朝鲜人民军第2军团第5步兵师（原164师）\" division_template = \"中国人民解放军朝鲜族师\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
-			owner = KOR
-		}
-	}
-	random_owned_controlled_state = {
-		create_unit = {
-			division = "name = \"朝鲜人民军第6步兵师（原166师）\" division_template = \"中国人民解放军朝鲜族师\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
-			owner = KOR
-		}
-	}
-	random_owned_controlled_state = {
-		create_unit = {
-			division = "name = \"朝鲜人民军第1军团第12步兵师（原156师）\" division_template = \"中国人民解放军朝鲜族师\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
+			division = "name = \"韩国特务队独立军\" division_template = \"韩国特务队独立军\" start_experience_factor = 0.2 start_equipment_factor = 0.4"
 			owner = KOR
 		}
 	}
 }
-##############################################
 #韩国光复军
 KOR_create_Korean_Liberation_Army_div = {
 	division_template = {
 		name = "韩国光复军"
-		is_locked = yes
-		template_counter = 44
-		#division_names_group = KOR_INF_01
+		division_names_group = KOR_INF_01
+		template_counter = @C_LIGHT_INFANTRY
+		is_locked = no
 		regiments = {
 			light_infantry = { x = 0 y = 0 }
 			light_infantry = { x = 0 y = 1 }
 			light_infantry = { x = 0 y = 2 }
 			light_infantry = { x = 1 y = 0 }
 			light_infantry = { x = 1 y = 1 }
-			light_infantry = { x = 1 y = 2 }
+			light_infantry = { x = 2 y = 0 }
+			light_infantry = { x = 2 y = 1 }
+			artillery_brigade = { x = 3 y = 0 }
 		}
 		support = {
-			DIV_HQ_car = { x = 0 y = 0 }
+			DIV_HQ = { x = 0 y = 0 }
 			recon_ac = { x = 0 y = 1}
-			engineer = { x = 0 y = 2 }			
+			engineer = { x = 0 y = 2 }
+			anti_air = { x = 1 y = 0 }		
 		}
 	}	
 	random_owned_controlled_state = {
 		create_unit = {
-			division = "name = \"韩国光复军第1军\" division_template = \"韩国光复军\" start_experience_factor = 0.2 start_equipment_factor = 0.5"
-			owner = KOR
-		}
-		create_unit = {
-			division = "name = \"韩国光复军第2军\" division_template = \"韩国光复军\" start_experience_factor = 0.2 start_equipment_factor = 0.5"
+			division = "division_name = { is_name_ordered = yes } division_template = \"韩国光复军\" start_experience_factor = 0.1 start_equipment_factor = 0.7 force_equipment_variants = { artillery_equipment_1 = { owner = USA } }"
 			owner = KOR
 		}
 	}
