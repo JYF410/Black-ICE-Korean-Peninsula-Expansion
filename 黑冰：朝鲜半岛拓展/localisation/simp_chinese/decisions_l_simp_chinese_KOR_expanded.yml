@@ -7,7 +7,7 @@
 
  KOR_request_sent_flag: "静待回复"
  KOR_host_confirmed_flag: "已确认一个可供流亡的东道国"
- KOR_host_country_decision: "请求允许在[FROM.GetName]建立流亡政府"
+ KOR_host_country_decision: "请求允许在中华民国领地上建立临时政府"
  KOR_host_country_decision_desc: "我们需要做好最坏的打算。如果国家沦陷，我们需要一个基地以便我们继续抵抗。我们应当接触[FROM.GetAdjective]政府并请求他们允许我们在该国建立流亡政府。"
  KOR_host_country_decision_tt: "如果在停止抵抗前完成了§Y$KOR_boarding_the_train$§!国策，§Y[ROOT.GetLeader]§!将可以在§Y[FROM.GetNameWithFlag]§!建立§Y流亡政府§!。\n\n解锁在[FROM.GetNameDef]作为流亡政府期间可用的额外国策。"
 

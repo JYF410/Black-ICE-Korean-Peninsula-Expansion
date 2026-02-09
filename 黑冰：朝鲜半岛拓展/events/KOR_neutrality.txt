@@ -1,4 +1,5 @@
 add_namespace = KOR_neutrality
+
 #大韩民国临时政府建立
 news_event = {
 	id = KOR_neutrality.1
@@ -8,11 +9,8 @@ news_event = {
 	fire_only_once = yes #只能触发一次
 	is_triggered_only = yes #不能自然触发/只能被别的事件/决议点名触发
 	option = {
+		trigger = { tag = KOR }
 		name = KOR_neutrality.1.a
-		trigger = {
-			tag = KOR
-			tag = CHI
-		}
 	}
 }
 
@@ -27,7 +25,6 @@ country_event = {
 	option = {
 		name = KOR_neutrality.2.a
 		trigger = { tag = KOR }
-		596 = { transfer_state_to = KOR } #CHI将杭州的控制权交给KOR
 		start_civil_war = {
 			#朝鲜殖民地 = {
 				set_cosmetic_tag = KMTKOR_fascism #更名为“日本帝国朝鲜殖民地”
@@ -41,22 +38,15 @@ country_event = {
 				set_capital = { state = 527 } #设置首都:平壤
 				states = { 527 815 816 751 819 820 } #划归给叛军的州
 				add_ideas = KOR_opium_plantation #朝鲜鸦片种植地
-				#set_cosmetic_tag = SPRCIV #当意识形态引发国内内战时，keep_unit_leaders指定保持效忠于原国家的单位领导者的ID
-				#load_focus_tree = civilwar_focus #导入国策树
 			#}
 			KOR = {
 				set_country_flag = KOR_neutrality_civilwar_started #为下面流亡事件做标记
 				set_cosmetic_tag = KOR_CHI_aligned #更名为“大韩民国临时政府”
-				set_capital = { state = 596 } #迁都杭州
-				set_victory_points = { province = 7191 value = 100 } #杭州
+				set_victory_points = { province = 7125 value = 5 } #京城
+				set_victory_points = { province = 7221 value = 15 } #仁川
 				set_country_flag = SOV_armor #加载苏联坦克科研
 				set_country_flag = USA_air #加载美国飞机科研
 				remove_ideas = KOR_opium_plantation #移除：朝鲜鸦片种植地
-				#keep_unit_leaders = {  } #指定指挥官ID，这些指挥官将留在原国家，不会加入叛军
-				#add_ideas = KOR_ai_dont_join_faction #朝鲜AI不会主动加入阵营
-				#add_ideas = KOR_ai_always_join_ally #朝鲜AI会主动加入盟友战争
-				#add_ideas = KOR_ai_always_call_ally #朝鲜AI会主动请求盟友加入战争
-				#set_rule = { can_join_opposite_factions = no } #加入由不同意识形态领导的阵营
 				add_field_marshal_role = {
 					Character = KOR_Ji_Cheong_cheon #池青天
 					traits = { trait_reckless }
@@ -79,7 +69,7 @@ country_event = {
 				}
 			}
 		}
-		ai_chance = { factor = 99 }
+		ai_chance = { factor = 100 }
 		hidden_effect = {
 			play_song = "GF_06"
 		}
@@ -90,75 +80,73 @@ country_event = {
 		trigger = {
 			tag = KOR
 		}
-		ai_chance = { factor = 1 }
+		ai_chance = { factor = 0 }
 	}
 }
 
-#KOR主动进入流亡状态
+#KOR请求CHI在杭州建立流亡政府
 country_event = {
 	id = KOR_neutrality.3
 	title = KOR_neutrality.3.t
 	desc = KOR_neutrality.3.d
 	picture = GFX_report_event_generic_battle
 	fire_only_once = yes
-	#is_triggered_only = yes #本事件自然触发/条件触发/不依靠固定事件触发
-	#AI决策的“隐藏计算层”
-	immediate = {
-		hidden_effect = {
-			set_variable = { var_opinion = ROOT.opinion@FROM} #读取ROOT对FROM的好感度
-			divide_variable = { var_opinion = 100 } #从-100 ~ +100变成：-1 ~ +1
-			add_to_variable = { var_opinion = 2 } #再平移到：1 ~ 3，最终得到一个“关系系数”变量
-		}
-	}
-	trigger = {
-		tag = KOR
-		KOR = {
-			surrender_progress > 0.2 #投降进度>20%
-			has_country_flag = KOR_neutrality_civilwar_started #大韩民国临时政府要员撤离行动
-			NOT = { is_in_faction_with = JAP }
-			NOT = { has_country_flag = KOR_neutrality_exile_established }
-			NOT = { any_controlled_state = { is_core_of = KOR } }
-		}
-		CHI = {
-			exists = yes
-			has_capitulated = no
-			has_full_control_of_state = 596 #杭州
-		}
-	}
-	#CHI同意接收流亡政府（核心）
+	is_triggered_only = yes #本事件是否自然触发/条件触发/不依靠固定事件触发
+	#trigger = {
+	#	KOR = {
+	#		has_country_flag = KOR_neutrality_civilwar_started #大韩民国临时政府要员撤离行动
+	#		surrender_progress > 0.2 #投降进度低于80%
+	#		has_government = neutrality
+	#		NOT = { is_in_faction_with = JAP }
+	#	}
+	#	CHI = {
+	#		exists = yes
+	#		has_capitulated = no
+	#		has_full_control_of_state = 596 #杭州
+	#	}
+	#}
+	#CHI同意接收流亡政府
 	option = {
 		name = KOR_neutrality.3.a
-		set_country_flag = KOR_neutrality_exile_established
-		596 = { transfer_state_to = KOR } #临时领土：杭州
-		set_capital = { state = 596 }
-		set_victory_points = { province = 7191 value = 100 } #杭州
-		add_ideas = KOR_CHI_political_reform_hangzhou #大韩民国临时政府驻杭州馆
-		set_country_flag = KOR_is_government_in_exile #标记进入流亡状态
-		set_variable = { KOR.host_nation = CHI } #标记CHI是寄主国
-		if = {
-			limit = {
-				CHI = {
-					is_in_faction = yes
-					is_faction_leader = yes
-				}
-			}
-			CHI = { add_to_faction = KOR }
+		trigger = { tag = CHI }
+		KOR = {
+			set_country_flag = KOR_is_government_in_exile #标记进入流亡状态
+			set_variable = { KOR.host_nation = CHI } #标记CHI是寄主国
+			set_capital = { state = 596 } #杭州
+			set_victory_points = { province = 7191 value = 100 } #杭州
+			add_ideas = KOR_CHI_political_reform_hangzhou #大韩民国临时政府驻杭州馆
 		}
-		FROM = {
-			country_event = {
-				id = BBA_italo_ethiopian_war_events.101 #告诉ETH：你被接收了
-				hours = 8
-				random_hours = 8
-			}
+		CHI = {
+			596 = { transfer_state_to = KOR } #临时领土：杭州
 		}
-		ai_chance = { factor = 99 }
+		news_event = { id = KOR_neutrality.4 }
+		ai_chance = {
+			base = 100
+		}
 	}
 	#选择放弃抵抗
 	option = {
 		name = KOR_neutrality.3.b
+		trigger = { tag = CHI }
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+#蒋介石接受了大韩民国临时政府的请求
+news_event = {
+	id = KOR_neutrality.4
+	title = KOR_neutrality.4.t
+	desc = KOR_neutrality.4.d
+	picture = GFX_report_event_generic_battle
+	fire_only_once = yes #只能触发一次
+	is_triggered_only = yes
+	option = {
+		name = KOR_neutrality.4.a
 		trigger = {
 			tag = KOR
+			tag = CHI
 		}
-		ai_chance = { factor = 1 }
 	}
 }

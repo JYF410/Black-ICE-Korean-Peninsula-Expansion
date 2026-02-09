@@ -295,7 +295,7 @@ KOR_cavalry_armor_division_div = {
 }
 
 #韩国特务队独立军
-KOR_create_Korean_Liberation_Army_div = {
+KOR_create_Korean_Secret_Army_div = {
 	division_template = {
 		name = "韩国特务队独立军"
 		is_locked = yes
@@ -306,6 +306,7 @@ KOR_create_Korean_Liberation_Army_div = {
 			light_infantry = { x = 1 y = 0 }
 			militia = { x = 1 y = 1 }
 			militia = { x = 1 y = 2 }
+			artillery_brigade = { x = 2 y = 0 }
 		}
 		support = {
 			DIV_HQ = { x = 0 y = 0 }
@@ -313,9 +314,9 @@ KOR_create_Korean_Liberation_Army_div = {
 			engineer = { x = 0 y = 2 }	
 		}
 	}	
-	7221 = {
+	525 = {
 		create_unit = {
-			division = "name = \"韩国特务队独立军\" division_template = \"韩国特务队独立军\" start_experience_factor = 0.2 start_equipment_factor = 0.4"
+			division = "name = \"韩国特务队独立军\" division_template = \"韩国特务队独立军\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
 			owner = KOR
 		}
 	}
@@ -335,6 +336,7 @@ KOR_create_Korean_Liberation_Army_div = {
 			light_infantry = { x = 1 y = 1 }
 			light_infantry = { x = 2 y = 0 }
 			light_infantry = { x = 2 y = 1 }
+			guards_artillery_brigade_med = { x = 3 y = 0 }
 			artillery_brigade = { x = 3 y = 0 }
 		}
 		support = {
@@ -346,7 +348,7 @@ KOR_create_Korean_Liberation_Army_div = {
 	}	
 	random_owned_controlled_state = {
 		create_unit = {
-			division = "division_name = { is_name_ordered = yes } division_template = \"韩国光复军\" start_experience_factor = 0.1 start_equipment_factor = 0.7 force_equipment_variants = { artillery_equipment_1 = { owner = USA } }"
+			division = "division_name = { is_name_ordered = yes } division_template = \"韩国光复军\" start_experience_factor = 0.3 start_equipment_factor = 0.9 force_equipment_variants = { artillery_equipment_1 = { owner = USA } }"
 			owner = KOR
 		}
 	}

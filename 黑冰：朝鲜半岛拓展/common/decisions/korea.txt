@@ -8,16 +8,16 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		allowed = {
 			tag = KOR
 		}
+		visible = {
+			NOT = { has_government = communism }
+			has_completed_focus = KOR_front_against_Japan
+		}
 		available = {
 			date > 1937.6.4
 			OR = {
 				is_puppet_of = JAP
 				is_in_faction_with = JAP
 			}
-		}
-		visible = {
-			NOT = { has_government = communism }
-			has_completed_focus = KOR_front_against_Japan
 		}
 		cost = 100
 		fire_only_once = yes #决议仅能使用一次
@@ -39,6 +39,10 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		allowed = {
 			tag = KOR
 		}
+		visible = {
+			NOT = { has_government = fascism }
+			has_completed_focus = KOR_controlled_north_front_line
+		}
 		available = {
 			527 = { is_fully_controlled_by = ROOT }
 			NOT = {
@@ -48,10 +52,6 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		}
 		modifier = {
 			civilian_factory_use = 2 #民用工厂运作
-		}
-		visible = {
-			NOT = { has_government = fascism }
-			has_completed_focus = KOR_controlled_north_front_line
 		}
 		cost = 50
 		fire_only_once = yes
@@ -75,6 +75,11 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		allowed = {
 			tag = KOR
 		}
+		visible = {
+			NOT = { has_country_flag = KOR_neutrality_civil_war_started }
+			NOT = { has_government = neutrality }
+			has_completed_focus = KOR_CHI_civilwar #大韩民国临时政府要员撤离行动
+		}
 		available = {
 			CHI = {
 				exists = yes
@@ -89,17 +94,14 @@ KOR_Japan_Korea_Annexation_Treaty = {
 				}
 			}
 		}
-		visible = {
-			NOT = { has_government = neutrality }
-			has_completed_focus = KOR_CHI_civilwar #大韩民国临时政府要员撤离行动
-		}
-		cost = 100
+		cost = 50
 		fire_only_once = yes #决议仅能使用一次
-		days_remove = 30 #决议持续14天
+		days_remove = 14 #决议持续14天
 		remove_effect = {
+			set_country_flag = KOR_neutrality_civil_war_started
 			country_event = {
 				id = KOR_neutrality.2 #弹窗事件
-				days = 7
+				days = 3
 			}
 		}
 		ai_will_do = {
@@ -108,44 +110,50 @@ KOR_Japan_Korea_Annexation_Treaty = {
 	}
 	#请求在中国建立临时政府
 	KOR_host_country_decision = {
-		target_trigger = { FROM = { tag = CHI } }
-		icon = generic_prepare_civil_war
-		allowed = { tag = KOR }
-		available = {
-			has_completed_focus	= KOR_CHI_civilwar #半岛撤离行动
-			NOT = { has_country_flag = KOR_request_sent_flag }
-			NOT = { KOR = { is_in_faction_with = JAP } }
+		icon = generic_break_treaty
+		on_map_mode = decision_view_only
+		allowed = {
+			tag = KOR
 		}
 		visible = {
-			has_completed_focus = ETH_rally_around_the_emperor 
-			NOT = { has_country_flag = ETH_host_confirmed_flag }
+			has_country_flag = KOR_neutrality_civil_war_started
+			has_completed_focus = KOR_CHI_civilwar #大韩民国临时政府要员撤离行动
+			KOR = { has_civil_war = yes }
 		}
-		fire_only_once = no
-		cost = 0
-		days_re_enable = 30
-		complete_effect = {
-			set_country_flag = ETH_request_sent_flag
-			FROM = {
+		available = {
+			has_completed_focus	= KOR_CHI_civilwar #半岛撤离行动
+			NOT = { KOR = { is_in_faction_with = JAP } }
+			CHI = {
+				exists = yes
+				has_capitulated = no
+			}
+		}
+		cost = 10
+		fire_only_once = yes
+		days_remove = 7
+		remove_effect = {
+			set_country_flag = KOR_neutrality_host_country_decision_completed
+			CHI = {
 				country_event = {
-					id = KOR_neutrality.3
+					id = KOR_neutrality.3 #KOR请求CHI在杭州建立流亡政府
 					days = 3
 				}
 			}
 			custom_effect_tooltip = if_they_accept_tt
-			custom_effect_tooltip = ETH_host_country_decision_tt
 		}
 		ai_will_do = {
-			base = 100
-			modifier = {
-				factor = 2
-				FROM = { tag = CHI }
-			}
+			factor = 100
 		}
 	}
 	#大韩民国临时政府迁至杭州
 	KOR_CHI_move_to_hangzhou = {
 		icon = generic_decision
+		on_map_mode = decision_view_only
+		allowed = {
+			tag = KOR
+		}
 		visible = {
+			has_country_flag = KOR_neutrality_host_country_decision_completed
 			KOR = { has_civil_war = yes }
 		}
 		available = {
@@ -170,6 +178,8 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		days_remove = 30
 		modifier = { civilian_factory_use = 1 } #民用工厂运作
 		remove_effect = {
+			set_country_flag = KOR_neutrality_move_to_hangzhou_completed
+			#set_capital = { state = 596 } #设置首都:杭州
 			596 = {
 				add_state_modifier = {
 					modifier = { resistance_target = -2.0 } #抵抗目标
@@ -179,6 +189,8 @@ KOR_Japan_Korea_Annexation_Treaty = {
 					modifier = { compliance_gain = 1.0 } #每日顺从度增长
 				}
 			}
+			set_rule = { can_not_declare_war = yes } #禁止宣战
+			set_rule = { can_send_volunteers = yes } #允许派遣志愿军
 		}
 		ai_will_do = {
 			factor = 100
