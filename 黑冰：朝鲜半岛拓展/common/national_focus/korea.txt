@@ -94,7 +94,7 @@ focus_tree = {
 		x = 3
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
-		available_if_capitulated = yes #投降后不能点该国策
+		#available_if_capitulated = yes #投降后不能点该国策
 		cost = 30
 		available = {
 			KOR = {
@@ -106,7 +106,7 @@ focus_tree = {
 		completion_reward = {
 			unlock_decision_tooltip = {
 				decision = KOR_neutrality_civil_war #大韩民国临时政府要员撤离行动
-				show_effect_tooltip = yes
+				show_effect_tooltip = no
 			}
 		}
 		ai_will_do = {
@@ -138,9 +138,12 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_ideas = KOR_CHI_political_reform_hangzhou #大韩民国临时政府驻杭州馆
+			#add_ideas = KOR_CHI_political_reform_hangzhou #大韩民国临时政府驻杭州馆
 			unlock_decision_tooltip = {
 				decision = KOR_CHI_move_to_hangzhou #大韩民国临时政府迁至杭州
+				show_effect_tooltip = no
+				#decision = KOR_exile_decisions #流亡政府相关决议
+				#show_effect_tooltip = no
 			}
 		}
 		ai_will_do = {

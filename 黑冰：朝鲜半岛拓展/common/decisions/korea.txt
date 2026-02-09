@@ -106,6 +106,42 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			factor = 100
 		}
 	}
+	#请求在中国建立临时政府
+	KOR_host_country_decision = {
+		target_trigger = { FROM = { tag = CHI } }
+		icon = generic_prepare_civil_war
+		allowed = { tag = KOR }
+		available = {
+			has_completed_focus	= KOR_CHI_civilwar #半岛撤离行动
+			NOT = { has_country_flag = KOR_request_sent_flag }
+			NOT = { KOR = { is_in_faction_with = JAP } }
+		}
+		visible = {
+			has_completed_focus = ETH_rally_around_the_emperor 
+			NOT = { has_country_flag = ETH_host_confirmed_flag }
+		}
+		fire_only_once = no
+		cost = 0
+		days_re_enable = 30
+		complete_effect = {
+			set_country_flag = ETH_request_sent_flag
+			FROM = {
+				country_event = {
+					id = KOR_neutrality.3
+					days = 3
+				}
+			}
+			custom_effect_tooltip = if_they_accept_tt
+			custom_effect_tooltip = ETH_host_country_decision_tt
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 2
+				FROM = { tag = CHI }
+			}
+		}
+	}
 	#大韩民国临时政府迁至杭州
 	KOR_CHI_move_to_hangzhou = {
 		icon = generic_decision

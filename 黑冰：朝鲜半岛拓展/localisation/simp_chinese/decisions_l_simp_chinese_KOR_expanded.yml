@@ -4,11 +4,20 @@
  KOR_communist_civil_war_desc:5 "1936年5月朝鲜祖国光复会在中国东北成立，并发表了著名的抗日救国十大纲领。此后，朝鲜人民的革命武装斗争得到了迅速发展，仅几个月时间，祖国光复会的组织就遍及朝鲜各地，会员达几十万人。1937年3月，金日成在中国吉林的西冈召开会议，提出关于进军朝鲜国内的战略方针，制定了攻打普天堡的作战计划。"
  KOR_move_capital_to_pyeongchang:5 "将首都迁至平壤"
  KOR_move_capital_to_pyeongchang_desc:5 "为了更好地指挥和管理我们的国家事务，我们决定将首都从汉城迁至平壤。"
+
+ KOR_request_sent_flag: "静待回复"
+ KOR_host_confirmed_flag: "已确认一个可供流亡的东道国"
+ KOR_host_country_decision: "请求允许在[FROM.GetName]建立流亡政府"
+ KOR_host_country_decision_desc: "我们需要做好最坏的打算。如果国家沦陷，我们需要一个基地以便我们继续抵抗。我们应当接触[FROM.GetAdjective]政府并请求他们允许我们在该国建立流亡政府。"
+ KOR_host_country_decision_tt: "如果在停止抵抗前完成了§Y$KOR_boarding_the_train$§!国策，§Y[ROOT.GetLeader]§!将可以在§Y[FROM.GetNameWithFlag]§!建立§Y流亡政府§!。\n\n解锁在[FROM.GetNameDef]作为流亡政府期间可用的额外国策。"
+
  KOR_neutrality_civil_war:5 "大韩民国临时政府要员撤离行动"
  KOR_neutrality_civil_war_desc:5 "大韩民国临时政府要员撤离行动是指在第二次世界大战期间，为了避免被日本帝国政府逮捕和迫害，大韩民国临时政府的领导人和重要成员从朝鲜半岛撤离到中国等地的行动。这一行动旨在保护临时政府的核心成员，使其能够继续领导朝鲜独立运动，并在国际舞台上争取对朝鲜独立的支持。撤离行动通常涉及秘密计划和组织，以确保成员的安全，并维持临时政府的运作。" 
  KOR_CHI_move_to_hangzhou:5 "大韩民国临时政府迁至杭州"
+
  KOR_PRC_food_support:5 "朝鲜粮食援助"
  KOR_PRC_food_support_desc:5 "在东北解放战争期间，朝鲜政府和人民对中国东北民主联军给予了大力支援，特别是在物资供应方面。朝鲜不仅无偿提供了大量的武器弹药、军服和药品，还通过贸易渠道向我方提供了大量的粮食和其他生活必需品。这些援助对于缓解我方的物资短缺问题，保障前线部队的战斗力发挥了重要作用。朝鲜的支援体现了两国人民之间深厚的友谊和团结合作精神，为中国东北解放战争的胜利做出了积极贡献。"
+
  KOR_economic_aid:5 "领土开发"
  KOR_sov_support_construction:5 "土地资源开发"
  KOR_sov_mineral_development:5 "矿产资源探勘"
