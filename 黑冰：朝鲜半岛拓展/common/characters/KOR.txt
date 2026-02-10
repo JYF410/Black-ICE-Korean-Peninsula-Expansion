@@ -18,7 +18,7 @@ characters = {
 			ideology = despotism
 			expire = "1949.6.26"
 			id = 202619490626
-			traits = { independent_guy }
+			traits = { elder_statesman }
 		}
 		advisor = {
 			slot = head_of_state
@@ -36,7 +36,7 @@ characters = {
 			available = {
 				has_government = neutrality
 			}
-			traits = { elder_statesman }
+			traits = { indomitable_perseverance }
 		}
 	}
 	KOR_Syngman_Rhee = {  #李承晚

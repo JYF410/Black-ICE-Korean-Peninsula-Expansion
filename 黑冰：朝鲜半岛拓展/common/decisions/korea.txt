@@ -105,7 +105,7 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			}
 		}
 		ai_will_do = {
-			factor = 100
+			factor = 500
 		}
 	}
 	#请求在中国建立临时政府
@@ -139,10 +139,9 @@ KOR_Japan_Korea_Annexation_Treaty = {
 					days = 3
 				}
 			}
-			custom_effect_tooltip = if_they_accept_tt
 		}
 		ai_will_do = {
-			factor = 100
+			factor = 500
 		}
 	}
 	#大韩民国临时政府迁至杭州
@@ -154,12 +153,9 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		}
 		visible = {
 			has_country_flag = KOR_neutrality_host_country_decision_completed
-			KOR = { has_civil_war = yes }
 		}
 		available = {
 			KOR = {
-				exists = yes
-				has_capitulated = no
 				has_full_control_of_state = 596
 				NOT = {
 					has_government = fascism

@@ -1,5 +1,5 @@
 KOR_GAR_01 = {
-        name = "朝鲜地方警备营"
+        name = "Garrison Divisions"
         for_countries = { KOR }
         division_types = { "garrison" }
         ordered = {
@@ -11,7 +11,7 @@ KOR_GAR_01 = {
         }
 }
 KOR_CAV_01 = {
-        name = "朝鲜地方宪兵队"
+        name = "Cavalry Divisions"
         for_countries = { KOR }
         division_types = { "cavalry" }
         ordered = {

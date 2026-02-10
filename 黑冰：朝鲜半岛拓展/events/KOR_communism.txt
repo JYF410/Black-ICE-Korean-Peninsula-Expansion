@@ -34,6 +34,7 @@ country_event = {
 		}
 		start_civil_war = {
 			#朝鲜殖民地 = {
+				set_cosmetic_tag = KMTKOR_fascism #更名为“日本帝国朝鲜殖民地”
 				ruling_party = communism #原国家保留的执政党（内战爆发后政府的执政党转变）
 				ideology = fascism #发动叛乱的意识形态（ROOT即当前政府的意识形态）
 				size = civil_war_size_var #叛乱规模修正（0–1 的比例值），影响装备库存（stockpile）、陆军、空军、海军
@@ -47,10 +48,10 @@ country_event = {
 				set_victory_points = { province = 11977 value = 20 } #忠清
 				set_victory_points = { province = 4056 value = 50 } #釜山
 				add_ideas = KOR_opium_plantation #朝鲜鸦片种植地
-				#set_cosmetic_tag = SPRCIV #当意识形态引发国内内战时，keep_unit_leaders指定保持效忠于原国家的单位领导者的ID
-				#load_focus_tree = civilwar_focus #导入国策树
+				add_ideas = KOR_bank #朝鲜银行
 			#}
 			KOR = {
+				set_cosmetic_tag = KMTKOR_communism #更名为“朝鲜民主主义人民共和国”
 				set_capital = { state = 815 } #设置首都:咸镜
 				set_victory_points = { province = 6944 value = 40 } #恩德
 				set_victory_points = { province = 959 value = 10 } #渔郎
@@ -59,9 +60,10 @@ country_event = {
 				set_victory_points = { province = 4052 value = 20 } #平壤
 				set_country_flag = SOV_armor #加载苏联坦克科研
 				set_country_flag = SOV_air #加载苏联飞机科研
-				remove_ideas = KOR_opium_plantation #朝鲜鸦片种植地
-				KOR_create_militia_army_div = yes #这些effect会对内战中新生成的国家执行，而不是原国家
-				KOR_create_partisan_army_div = yes #这些effect会对内战中新生成的国家执行，而不是原国家
+				remove_ideas = KOR_opium_plantation #移除：朝鲜鸦片种植地
+				remove_ideas = KOR_bank #移除：朝鲜银行
+				KOR_create_partisan_army_div = yes #部署24个朝鲜游击队
+				KOR_create_militia_army_div = yes #部署6个朝鲜义勇军
 				add_field_marshal_role = {
 					Character = KOR_Kim_Il_sung
 					traits = { Order_of_Red_Banner war_hero ranger winter_specialist }

@@ -110,7 +110,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 50
+			factor = 5
 		}
 	}
 	#大韩民国临时政府
@@ -138,19 +138,17 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			#add_ideas = KOR_CHI_political_reform_hangzhou #大韩民国临时政府驻杭州馆
+			add_ideas = KOR_CHI_political_reform_hangzhou #大韩民国临时政府驻杭州馆
 			unlock_decision_tooltip = {
 				decision = KOR_CHI_move_to_hangzhou #大韩民国临时政府迁至杭州
 				show_effect_tooltip = no
-				#decision = KOR_exile_decisions #流亡政府相关决议
-				#show_effect_tooltip = no
 			}
 			KOR_create_Korean_Secret_Army_div = yes
 			hidden_effect = {
 				CHI = {
 					remove_opinion_modifier = {
 						target = KOR
-						modifier = different_government 
+						modifier = different_government #移除对KOR的负面影响
 					}
 				}
 			}
@@ -1036,11 +1034,6 @@ focus_tree = {
 			add_equipment_subsidy = {
 				cic = 5000
 				equipment_type = infantry_uniforms
-				seller_tags = { SOV }
-			}
-			add_equipment_subsidy = {
-				cic = 2000
-				equipment_type = motorized_lia_equipment
 				seller_tags = { SOV }
 			}
 			add_equipment_subsidy = {
@@ -1962,7 +1955,7 @@ focus_tree = {
 			depression_improves = yes
 		}
 		ai_will_do = {
-			factor = 85
+			factor = 100
 		}
 	}
 	#朝鲜银行
@@ -1974,12 +1967,12 @@ focus_tree = {
 		x = -3
 		y = 1
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
-		cost = 30
+		cost = 14
 		completion_reward = {
 			add_ideas = KOR_bank
 		}
 		ai_will_do = {
-			factor = 85
+			factor = 100
 		}
 	}
 	#朝鲜银行券
@@ -1991,21 +1984,23 @@ focus_tree = {
 		x = 0
 		y = 1
 		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
-		cost = 30
+		cost = 14
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
 		completion_reward = {
 			add_equipment_subsidy = {
-				cic = 800
+				cic = 500
 				equipment_type = infantry_equipment
 				seller_tags = { JAP }
 			}
 			add_equipment_subsidy = {
-				cic = 800
+				cic = 500
 				equipment_type = infantry_uniforms
-				seller_tags = { JAP }
-			}
-			add_equipment_subsidy = {
-				cic = 300
-				equipment_type = motorized_lia_equipment
 				seller_tags = { JAP }
 			}
 			add_equipment_subsidy = {
@@ -2014,18 +2009,13 @@ focus_tree = {
 				seller_tags = { JAP }
 			}
 			add_equipment_subsidy = {
-				cic = 500
+				cic = 300
 				equipment_type = trm_tankette_tank_chassis
-				seller_tags = { JAP }
-			}
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = trm_light_tank_chassis
 				seller_tags = { JAP }
 			}
 		}
 		ai_will_do = {
-			factor = 85
+			factor = 100
 		}
 	}
 
@@ -2034,9 +2024,9 @@ focus_tree = {
 		id = KOR_xin_nan_farm_factory
 		icon = GFX_goal_generic_farming
 		prerequisite = { focus = KOR_JAP_office_governor }
-		relative_position_id = KOR_industrial_effort
-		x = 2
-		y = 0
+		relative_position_id = KOR_JAP_office_governor
+		x = -1
+		y = 1
 		search_filters = {FOCUS_FILTER_INFRASTRUCTURE}
 		cost = 60
 		available_if_capitulated = no
@@ -2057,145 +2047,14 @@ focus_tree = {
 			factor = 1
 		}
 	}
-
-	#重视工业
-	focus = {
-		id = KOR_industrial_effort
-		icon = GFX_goal_generic_production
-		prerequisite = { focus = KOR_JAP_office_governor }
-		relative_position_id = KOR_national_bank
-		search_filters = {FOCUS_FILTER_INDUSTRY}
-		x = 2
-		y = 0
-		cost = 60 # Previously was: 35.0 
-		available_if_capitulated = no
-		completion_reward = {
-			add_tech_bonus = {
-				name = industrial_bonus
-				bonus = 0.25
-				uses = 1
-				category = industry
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	#重视建设I
-	focus = {
-		id = KOR_construction_effort
-		icon = GFX_focus_generic_industry_2
-		prerequisite = { focus = KOR_industrial_effort }
-		search_filters = {FOCUS_FILTER_INDUSTRY}
-		relative_position_id = KOR_industrial_effort
-		x = 0
-		y = 1
-		cost = 60 # Previously was: 70.0 
-		available_if_capitulated = no
-		complete_tooltip = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}			
-		}
-		completion_reward = {
-			focus_add_industrial_complex_prioritize_home_area = yes
-		}
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				factor = 0
-				has_government = fascism
-			}
-		}
-	}
-	#重视建设II
-	focus = {
-		id = KOR_construction_effort_2
-		icon = GFX_focus_generic_industry_3
-		prerequisite = { focus = KOR_construction_effort }
-		search_filters = {FOCUS_FILTER_INDUSTRY}
-		relative_position_id = KOR_construction_effort
-		x = 0
-		y = 1
-		cost = 60 # Previously was: 70.0 
-		available_if_capitulated = no
-		available = {
-			if = {
-				limit = {
-					is_ai = yes
-				}
-				num_of_factories > 10
-			}
-		}
-		complete_tooltip = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-		}		
-		completion_reward = {
-			focus_add_industrial_complex_prioritize_home_area = yes
-		}
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				factor = 0
-				has_government = fascism
-			}
-		}
-	}
-	#重视建设III
-	focus = {
-		id = KOR_construction_effort_3
-		icon = GFX_goal_generic_construct_civ_factory
-		prerequisite = { focus = KOR_construction_effort_2 }
-		search_filters = {FOCUS_FILTER_INDUSTRY}
-		relative_position_id = KOR_construction_effort_2
-		x = 0
-		y = 1
-		cost = 60 # Previously was: 70.0 
-		available_if_capitulated = no
-		available = {
-			if = {
-				limit = {
-					is_ai = yes
-				}
-				num_of_factories > 13
-			}
-		}
-		complete_tooltip = {
-			add_extra_state_shared_building_slots = 2
-			add_building_construction = {
-				type = industrial_complex
-				level = 2
-				instant_build = yes
-			}
-		}
-		completion_reward = {
-			set_temp_variable = { add = 2 }
-			focus_add_industrial_complex_prioritize_home_area = yes
-		}
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				factor = 0
-				has_government = fascism
-			}
-		}
-	}
 	#建造炼钢厂
 	focus = {
 		id = KOR_extra_steel_refinery
 		icon = GFX_IRE_heavy_industry
-		prerequisite = { focus = KOR_industrial_effort }
+		prerequisite = { focus = KOR_xin_nan_farm_factory }
 		search_filters = {FOCUS_FILTER_INDUSTRY}
-		relative_position_id = KOR_industrial_effort
-		x = 2
+		relative_position_id = KOR_xin_nan_farm_factory
+		x = 0
 		y = 1
 		cost = 60
 		available_if_capitulated = no
@@ -2350,15 +2209,146 @@ focus_tree = {
 		}
 	}
 
+	#重视工业
+	focus = {
+		id = KOR_industrial_effort
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = KOR_JAP_office_governor }
+		relative_position_id = KOR_national_bank
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		x = 4
+		y = 0
+		cost = 60 # Previously was: 35.0 
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.25
+				uses = 1
+				category = industry
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#重视建设I
+	focus = {
+		id = KOR_construction_effort
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = KOR_industrial_effort }
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		relative_position_id = KOR_industrial_effort
+		x = 0
+		y = 1
+		cost = 60 # Previously was: 70.0 
+		available_if_capitulated = no
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}			
+		}
+		completion_reward = {
+			focus_add_industrial_complex_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
+		}
+	}
+	#重视建设II
+	focus = {
+		id = KOR_construction_effort_2
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = KOR_construction_effort }
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		relative_position_id = KOR_construction_effort
+		x = 0
+		y = 1
+		cost = 60 # Previously was: 70.0 
+		available_if_capitulated = no
+		available = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				num_of_factories > 10
+			}
+		}
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}		
+		completion_reward = {
+			focus_add_industrial_complex_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
+		}
+	}
+	#重视建设III
+	focus = {
+		id = KOR_construction_effort_3
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = KOR_construction_effort_2 }
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		relative_position_id = KOR_construction_effort_2
+		x = 0
+		y = 1
+		cost = 60 # Previously was: 70.0 
+		available_if_capitulated = no
+		available = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				num_of_factories > 13
+			}
+		}
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { add = 2 }
+			focus_add_industrial_complex_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
+		}
+	}
+
 	#开发新领土
 	focus = {
 		id = KOR_generic_land_development
 		icon = GFX_goal_generic_construction
 		prerequisite = { focus = KOR_JAP_office_governor }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
-		relative_position_id = KOR_xin_nan_farm_factory
-		x = 2
-		y = 0
+		relative_position_id = KOR_JAP_office_governor
+		x = 3
+		y = 1
 		cost = 60
 		available_if_capitulated = no
 		complete_tooltip = {

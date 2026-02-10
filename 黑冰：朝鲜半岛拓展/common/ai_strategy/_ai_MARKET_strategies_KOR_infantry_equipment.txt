@@ -53,10 +53,6 @@ dont_buy_with_weak_industry = {
 			ratio > 100
 		}
 		stockpile_ratio = {
-			archetype = motorized_lia_equipment #汽车
-			ratio > 100 
-		}
-		stockpile_ratio = {
 			archetype = motorized_equipment #运输卡车
 			ratio > 120
 		}
@@ -194,17 +190,6 @@ KOR_buy_tanks_and_planes_like_crazy = {
 	ai_strategy = {
 		type = equipment_market_buying_threshold
 		id = medartillery_equipment
-		value = 1000
-	}
-	#汽车
-	ai_strategy = {
-		type = equipment_market_buy
-		equipment_type = motorized_lia_equipment
-		value = 1000
-	}
-	ai_strategy = {
-		type = equipment_market_buying_threshold
-		id = motorized_lia_equipment
 		value = 1000
 	}
 	#运输卡车

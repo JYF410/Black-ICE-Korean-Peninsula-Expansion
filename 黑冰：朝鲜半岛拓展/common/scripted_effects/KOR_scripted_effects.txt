@@ -1,3 +1,31 @@
+#大韩民国流亡政府flag
+save_cosmetic_tags = {
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = saved_cosmetic_tags
+			}
+		}
+		set_country_flag = saved_cosmetic_tags
+		if = {
+			limit = {
+				has_cosmetic_tag = KOR_CHI_aligned
+			}
+			set_country_flag = KOR_CHI_aligned
+		}
+	}
+}
+apply_cosmetic_tags = {
+	clr_country_flag = saved_cosmetic_tags
+	if = {
+		limit = {
+			has_country_flag = KOR_CHI_aligned
+		}
+		set_cosmetic_tag = KOR_CHI_aligned
+		clr_country_flag = KOR_CHI_aligned
+	}
+}
+
 #朝鲜地方警备营
 KOR_create_JAP_partisan_army_div = {
 	division_template = {
@@ -17,7 +45,6 @@ KOR_create_JAP_partisan_army_div = {
 		}
 	}
 	random_owned_controlled_state = {
-		prioritize = { 525 527 816 819 820 }
 		create_unit = {
 			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜地方警备营\" start_experience_factor = 0.2 start_equipment_factor = 0.7 force_equipment_variants = { garrison_equipment_0 = { owner = JAP } }"
 			owner = KOR
@@ -46,7 +73,6 @@ KOR_create_JAP_MP_army_div = {
 		}
 	}
 	random_owned_controlled_state = {
-		prioritize = { 525 751 819 820 }
 		create_unit = {
 			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜地方宪兵队\" start_experience_factor = 0.5 start_equipment_factor = 0.9 force_equipment_variants = { motorized_AC_equipment_06 = { owner = JAP } }"
 			owner = KOR
@@ -74,7 +100,7 @@ KOR_create_partisan_army_div = {
 	815 = {
 		create_unit = {
 			division = "name = \"朝鲜游击队\" division_template = \"朝鲜游击队\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
-			count = 10
+			count = 12
 			owner = KOR
 		}
 	}

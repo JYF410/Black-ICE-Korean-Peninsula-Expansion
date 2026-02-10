@@ -38,17 +38,19 @@ country_event = {
 				set_capital = { state = 527 } #设置首都:平壤
 				states = { 527 815 816 751 819 820 } #划归给叛军的州
 				add_ideas = KOR_opium_plantation #朝鲜鸦片种植地
+				add_ideas = KOR_bank #朝鲜银行
 			#}
 			KOR = {
-				set_country_flag = KOR_neutrality_civilwar_started #为下面流亡事件做标记
 				set_cosmetic_tag = KOR_CHI_aligned #更名为“大韩民国临时政府”
 				set_victory_points = { province = 7125 value = 5 } #京城
 				set_victory_points = { province = 7221 value = 15 } #仁川
 				set_country_flag = SOV_armor #加载苏联坦克科研
 				set_country_flag = USA_air #加载美国飞机科研
 				remove_ideas = KOR_opium_plantation #移除：朝鲜鸦片种植地
+				remove_ideas = KOR_bank #移除：朝鲜银行
+				#池青天
 				add_field_marshal_role = {
-					Character = KOR_Ji_Cheong_cheon #池青天
+					Character = KOR_Ji_Cheong_cheon 
 					traits = { trait_reckless }
 					skill = 2
 					attack_skill = 2
@@ -57,8 +59,9 @@ country_event = {
 					logistics_skill = 2
 					legacy_id = 2026020801
 				}
+				#李范奭
 				add_corps_commander_role = {
-					Character = KOR_Lee_Beom_seok #李范奭
+					Character = KOR_Lee_Beom_seok
 					traits = { skilled_staffer }
 					skill = 1
 					attack_skill = 1
@@ -84,28 +87,15 @@ country_event = {
 	}
 }
 
-#KOR请求CHI在杭州建立流亡政府
+#KOR请求CHI允许在杭州建立流亡政府
 country_event = {
 	id = KOR_neutrality.3
 	title = KOR_neutrality.3.t
 	desc = KOR_neutrality.3.d
 	picture = GFX_report_event_generic_battle
 	fire_only_once = yes
-	is_triggered_only = yes #本事件是否自然触发/条件触发/不依靠固定事件触发
-	#trigger = {
-	#	KOR = {
-	#		has_country_flag = KOR_neutrality_civilwar_started #大韩民国临时政府要员撤离行动
-	#		surrender_progress > 0.2 #投降进度低于80%
-	#		has_government = neutrality
-	#		NOT = { is_in_faction_with = JAP }
-	#	}
-	#	CHI = {
-	#		exists = yes
-	#		has_capitulated = no
-	#		has_full_control_of_state = 596 #杭州
-	#	}
-	#}
-	#CHI同意接收流亡政府
+	is_triggered_only = yes #本事件由KOR丧失全部核心领土后触发，对应文件common\on_actions\zzz_kor_exile_patch.txt
+	#CHI同意
 	option = {
 		name = KOR_neutrality.3.a
 		trigger = { tag = CHI }
@@ -114,17 +104,16 @@ country_event = {
 			set_variable = { KOR.host_nation = CHI } #标记CHI是寄主国
 			set_capital = { state = 596 } #杭州
 			set_victory_points = { province = 7191 value = 100 } #杭州
-			add_ideas = KOR_CHI_political_reform_hangzhou #大韩民国临时政府驻杭州馆
 		}
 		CHI = {
-			596 = { transfer_state_to = KOR } #临时领土：杭州
+			596 = { transfer_state_to = KOR } #移交领土杭州给KOR
 		}
-		news_event = { id = KOR_neutrality.4 }
+		news_event = { id = KOR_neutrality.4 } #蒋介石接受了大韩民国临时政府的请求
 		ai_chance = {
 			base = 100
 		}
 	}
-	#选择放弃抵抗
+	#CHI拒绝
 	option = {
 		name = KOR_neutrality.3.b
 		trigger = { tag = CHI }

@@ -1,0 +1,28 @@
+#设定大韩民国在内战失败后也能建立流亡政府
+on_actions = {
+	# ROOT是流亡国, FROM是战胜国
+	on_capitulation = { #当KOR被判定为投降时
+		effect = {
+			#KOR将建立流亡政府
+			IF = {
+				limit = {
+					tag = KOR
+					has_government = neutrality #必须限制意识形态，否则将军也会建立流亡政府（先挖坑）
+				}
+				KOR = {
+					#KOR转变为流亡政府
+					become_exiled_in = {
+						target = CHI #对应events\KOR_neutrality.txt的set_variable = { KOR.host_nation = CHI }
+						legitimacy = 5 #设置初始KOR流亡政府正统性
+					}
+					#触发事件：KOR请求CHI允许在杭州建立流亡政府
+					country_event = {
+						id = KOR_neutrality.3
+						hours = 3
+						random_hours = 6
+					}
+				}
+			}
+		}
+	}
+}

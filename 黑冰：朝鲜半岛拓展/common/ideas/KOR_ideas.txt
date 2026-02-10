@@ -177,10 +177,9 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				political_power_factor = 0.05 #政治点数获取
-				neutrality_drift = 0.04 #每日中立主义支持率
-				stability_weekly = 0.001 #每周稳定度
+				stability_weekly = 0.002 #每周稳定度
 				war_support_weekly = 0.002 #每周战争支持度
-				foreign_minister_cost_factor = -0.5 #外交部长行动力消耗
+				neutrality_drift = 0.03 #每日中立主义支持率
 			}
 			cancel = {
 				KOR = {

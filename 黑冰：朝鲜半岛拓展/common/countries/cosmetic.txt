@@ -1,9 +1,26 @@
 #每当你新建 cosmetic tag，最好也在 00_scripted_effects.txt 里给它写一个对应的效果，这样以后调用会更方便。
-KOR_CHI_aligned = {
-	color = rgb { 25 116 210 } #155 101 107 
-	color_ui = rgb { 25 116 210 } #202 131 139 
-}
+#日本帝国朝鲜殖民地
 KMTKOR_fascism = {
 	color = rgb { 229  189  160 } # 221  178  83
 	color_ui = rgb { 229  189  160 } #
 }
+KOR_fascism = {
+	color = rgb { 229  189  160 } # 221  178  83
+	color_ui = rgb { 229  189  160 } #
+}
+#大韩民国临时政府
+KOR_CHI_aligned = {
+	color = rgb { 25 116 210 } #155 101 107 
+	color_ui = rgb { 25 116 210 } #202 131 139 
+}
+#大韩民国
+KMTKOR_neutrality = {
+	color = rgb { 25 116 210 } #155 101 107 
+	color_ui = rgb { 25 116 210 } #202 131 139 
+}
+#朝鲜民主主义人民共和国
+KMTKOR_communism = {
+	color = rgb { 178 34 34 }
+	color_ui = rgb { 178 34 34 }
+}
+
