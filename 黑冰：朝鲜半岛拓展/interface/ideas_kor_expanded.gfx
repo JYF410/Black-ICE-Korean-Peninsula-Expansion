@@ -1,20 +1,32 @@
 spriteTypes = {
-
+	#朝鲜银行
 	SpriteType = {
 		name = "GFX_idea_KOR_bank"
 		texturefile = "gfx/interface/ideas/idea_KOR_bank.dds"
 	}
+	#大韩民国临时政府
 	SpriteType = {
 		name = "GFX_idea_KOR_political_reform"
 		texturefile = "gfx/interface/ideas/idea_KOR_political_reform.dds"
 	}
+	#半岛撤离行动
+	SpriteType = {
+		name = "GFX_KOR_peninsula_evacuation_operation"
+		texturefile = "gfx/interface/goals/KOR_peninsula_evacuation_operation.dds"
+	}
+	#控制北方领土
 	SpriteType = {
 		name = "GFX_KOR_controlled_north_front_line"
 		texturefile = "gfx/interface/goals/KOR_controlled_north_front_line.dds"
 	}
+	#大韩民国临时政府
 	SpriteType = {
 		name = "GFX_KOR_CHI_political_reform"
 		texturefile = "gfx/interface/goals/KOR_CHI_political_reform.dds"
 	}
-
+	#成立韩国光复军
+	SpriteType = {
+		name = "GFX_Korean_Liberation_Army"
+		texturefile = "gfx/interface/goals/Korean_Liberation_Army.dds"
+	}
 }

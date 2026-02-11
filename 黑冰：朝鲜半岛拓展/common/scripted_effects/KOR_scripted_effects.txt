@@ -1,4 +1,4 @@
-#大韩民国流亡政府flag
+#大韩民国临时政府标记flag
 save_cosmetic_tags = {
 	if = {
 		limit = {
@@ -32,7 +32,7 @@ KOR_create_JAP_partisan_army_div = {
 		name = "朝鲜地方警备营"
 		division_names_group = KOR_GAR_01
 		template_counter = 89
-		is_locked = yes
+		is_locked = no
 		regiments = {
 			garrison = { x = 0 y = 0 }
 			garrison = { x = 0 y = 1 }
@@ -57,7 +57,7 @@ KOR_create_JAP_MP_army_div = {
 		name = "朝鲜地方宪兵队"
 		division_names_group = KOR_CAV_01
 		template_counter = 210
-		is_locked = yes
+		is_locked = no
 		regiments = {
 			cavalry = { x = 0 y = 0 }
 			cavalry = { x = 0 y = 1 }
@@ -340,7 +340,7 @@ KOR_create_Korean_Secret_Army_div = {
 			engineer = { x = 0 y = 2 }	
 		}
 	}	
-	525 = {
+	random_owned_controlled_state = {
 		create_unit = {
 			division = "name = \"韩国特务队独立军\" division_template = \"韩国特务队独立军\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
 			owner = KOR

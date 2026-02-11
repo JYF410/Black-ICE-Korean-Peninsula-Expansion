@@ -1,5 +1,6 @@
 #朝鲜半岛独立运动
 KOR_Japan_Korea_Annexation_Treaty = {
+
 	#对日本殖民据点发动的突袭战役
 	KOR_communist_civil_war = {
 		icon = generic_ignite_civil_war
@@ -68,7 +69,8 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			factor = 100
 		}
 	}
-	#大韩民国临时政府要员撤离行动
+	
+	#韩国开始撤离（这个事件完成后KOR就不能再点国策了）
 	KOR_neutrality_civil_war = {
 		icon = generic_ignite_civil_war
 		on_map_mode = decision_view_only
@@ -84,7 +86,6 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			CHI = {
 				exists = yes
 				has_capitulated = no
-				has_full_control_of_state = 596 #杭州
 			}
 			KOR = {
 				has_government = fascism
@@ -95,12 +96,12 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			}
 		}
 		cost = 50
-		fire_only_once = yes #决议仅能使用一次
-		days_remove = 14 #决议持续14天
+		fire_only_once = yes
+		days_remove = 7
 		remove_effect = {
 			set_country_flag = KOR_neutrality_civil_war_started
 			country_event = {
-				id = KOR_neutrality.2 #弹窗事件
+				id = KOR_neutrality.2 #大韩民国临时政府要员撤离行动
 				days = 3
 			}
 		}
@@ -108,8 +109,8 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			factor = 500
 		}
 	}
-	#请求在中国建立临时政府
-	KOR_host_country_decision = {
+	#大韩民国请求在杭州建立临时政府(划分领土给KOR)
+	KOR_host_country_decision_01 = {
 		icon = generic_break_treaty
 		on_map_mode = decision_view_only
 		allowed = {
@@ -117,22 +118,25 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		}
 		visible = {
 			has_country_flag = KOR_neutrality_civil_war_started
-			has_completed_focus = KOR_CHI_civilwar #大韩民国临时政府要员撤离行动
-			KOR = { has_civil_war = yes }
+			has_completed_focus = KOR_CHI_political_reform #大韩民国临时政府
 		}
 		available = {
-			has_completed_focus	= KOR_CHI_civilwar #半岛撤离行动
-			NOT = { KOR = { is_in_faction_with = JAP } }
+			KOR = {
+				has_government = neutrality
+				is_government_in_exile = yes #是流亡政府
+				has_capitulated = yes #停止抵抗
+			}
 			CHI = {
 				exists = yes
 				has_capitulated = no
+				has_opinion = { target = KOR value > 29 }
+				has_full_control_of_state = 596 #杭州
 			}
 		}
 		cost = 10
 		fire_only_once = yes
 		days_remove = 7
 		remove_effect = {
-			set_country_flag = KOR_neutrality_host_country_decision_completed
 			CHI = {
 				country_event = {
 					id = KOR_neutrality.3 #KOR请求CHI在杭州建立流亡政府
@@ -144,7 +148,7 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			factor = 500
 		}
 	}
-	#大韩民国临时政府迁至杭州
+	#大韩民国临时政府迁至杭州(去除领土的抵抗度)
 	KOR_CHI_move_to_hangzhou = {
 		icon = generic_decision
 		on_map_mode = decision_view_only
@@ -152,21 +156,14 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			tag = KOR
 		}
 		visible = {
-			has_country_flag = KOR_neutrality_host_country_decision_completed
+			has_country_flag = KOR_neutrality_host_country_decision_completed #先完成请求事件KOR_neutrality.3，对应代码：events\KOR_neutrality.txt
 		}
 		available = {
 			KOR = {
+				has_government = neutrality
+				is_government_in_exile = yes #是流亡政府
+				has_capitulated = yes #停止抵抗
 				has_full_control_of_state = 596
-				NOT = {
-					has_government = fascism
-					is_puppet_of = JAP
-					is_in_faction_with = JAP
-				}
-			}
-		}
-		highlight_states = { 
-			highlight_state_targets = {
-				state = 596
 			}
 		}
 		cost = 50
@@ -174,28 +171,33 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		days_remove = 30
 		modifier = { civilian_factory_use = 1 } #民用工厂运作
 		remove_effect = {
-			set_country_flag = KOR_neutrality_move_to_hangzhou_completed
-			#set_capital = { state = 596 } #设置首都:杭州
+			set_rule = {
+				can_send_volunteers = yes #允许派遣志愿军
+				can_join_factions = yes #可以加入阵营
+				can_not_declare_war = yes #禁止宣战
+				#can_declare_war_on_same_ideology = yes
+				#can_only_justify_war_on_threat_country = yes
+			}
 			596 = {
 				add_state_modifier = {
-					modifier = { resistance_target = -2.0 } #抵抗目标
-					modifier = { resistance_decay = 2.0 } #抵抗下降速度
-					modifier = { resistance_growth = -2.0 } #抵抗增长速度
+					modifier = { resistance_target = -1.0 } #抵抗目标
+					modifier = { resistance_decay = 1.0 } #抵抗下降速度
+					modifier = { resistance_growth = -1.0 } #抵抗增长速度
 					modifier = { compliance_growth = 1.0 } #顺从度增长速度
 					modifier = { compliance_gain = 1.0 } #每日顺从度增长
 				}
 			}
-			set_rule = { can_not_declare_war = yes } #禁止宣战
-			set_rule = { can_send_volunteers = yes } #允许派遣志愿军
 		}
 		ai_will_do = {
 			factor = 100
 		}
 	}
+
 }
 
 #中朝贸易援助
 KOR_PRC_trade_effort = {
+
 	#朝鲜粮食援助
 	KOR_PRC_food_support = {
 		icon = RAJ_famine
@@ -246,10 +248,12 @@ KOR_PRC_trade_effort = {
 			}
 		}
 	}
+
 }
 
 #建设开发
 KOR_economic_aid = {
+
 	#土地资源开发
 	KOR_sov_support_construction = {
 		icon = generic_construction
@@ -426,4 +430,5 @@ KOR_economic_aid = {
 			}
 		}
 	}
+
 }

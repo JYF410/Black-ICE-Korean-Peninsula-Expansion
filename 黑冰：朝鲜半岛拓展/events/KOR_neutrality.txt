@@ -1,16 +1,27 @@
 add_namespace = KOR_neutrality
 
-#大韩民国临时政府建立
+#扶助朝鲜复国运动指导方案
 news_event = {
 	id = KOR_neutrality.1
 	title = KOR_neutrality.1.t
 	desc = KOR_neutrality.1.d
 	picture = GFX_report_event_generic_battle
-	fire_only_once = yes #只能触发一次
+	major = yes
 	is_triggered_only = yes #不能自然触发/只能被别的事件/决议点名触发
 	option = {
-		trigger = { tag = KOR }
 		name = KOR_neutrality.1.a
+		trigger = {
+			tag = KOR
+			tag = CHI
+			NOT = { tag = JAP }
+		}
+	}
+	option = {
+		name = KOR_neutrality.1.b
+		trigger = {
+			tag = JAP
+			is_in_faction_with = JAP
+		}
 	}
 }
 
@@ -87,7 +98,7 @@ country_event = {
 	}
 }
 
-#KOR请求CHI允许在杭州建立流亡政府
+#大韩民国请求在杭州建立临时政府
 country_event = {
 	id = KOR_neutrality.3
 	title = KOR_neutrality.3.t
@@ -99,14 +110,15 @@ country_event = {
 	option = {
 		name = KOR_neutrality.3.a
 		trigger = { tag = CHI }
-		KOR = {
-			set_country_flag = KOR_is_government_in_exile #标记进入流亡状态
-			set_variable = { KOR.host_nation = CHI } #标记CHI是寄主国
-			set_capital = { state = 596 } #杭州
-			set_victory_points = { province = 7191 value = 100 } #杭州
-		}
 		CHI = {
 			596 = { transfer_state_to = KOR } #移交领土杭州给KOR
+		}
+		KOR = {
+			set_country_flag = KOR_neutrality_host_country_decision_completed #标记可见决议：大韩民国临时政府迁至杭州
+			set_variable = { KOR.host_nation = CHI } #标记CHI是寄主国
+			set_capital = { state = 596 } #杭州
+			set_victory_points = { province = 7191 value = 50 } #杭州
+			set_victory_points = { province = 4042 value = 10 } #钱塘
 		}
 		news_event = { id = KOR_neutrality.4 } #蒋介石接受了大韩民国临时政府的请求
 		ai_chance = {

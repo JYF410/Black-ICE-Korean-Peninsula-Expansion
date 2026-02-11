@@ -5,11 +5,8 @@
  KOR_move_capital_to_pyeongchang:5 "将首都迁至平壤"
  KOR_move_capital_to_pyeongchang_desc:5 "为了更好地指挥和管理我们的国家事务，我们决定将首都从汉城迁至平壤。"
 
- KOR_request_sent_flag: "静待回复"
- KOR_host_confirmed_flag: "已确认一个可供流亡的东道国"
- KOR_host_country_decision: "请求允许在中华民国领地上建立临时政府"
- KOR_host_country_decision_desc: "我们需要做好最坏的打算。如果国家沦陷，我们需要一个基地以便我们继续抵抗。我们应当接触[FROM.GetAdjective]政府并请求他们允许我们在该国建立流亡政府。"
- KOR_host_country_decision_tt: "如果在停止抵抗前完成了§Y$KOR_boarding_the_train$§!国策，§Y[ROOT.GetLeader]§!将可以在§Y[FROM.GetNameWithFlag]§!建立§Y流亡政府§!。\n\n解锁在[FROM.GetNameDef]作为流亡政府期间可用的额外国策。"
+ KOR_host_country_decision_01: "大韩民国请求在杭州建立临时政府"
+ KOR_host_country_decision_01_desc: "现在国家沦陷，我们需要一个基地以便于继续抵抗。我们应当尽快接触[FROM.GetAdjective]政府，请求他们允许在他们的领地上建立临时政权。"
 
  KOR_neutrality_civil_war:5 "大韩民国临时政府要员撤离行动"
  KOR_neutrality_civil_war_desc:5 "大韩民国临时政府要员撤离行动是指在第二次世界大战期间，为了避免被日本帝国政府逮捕和迫害，大韩民国临时政府的领导人和重要成员从朝鲜半岛撤离到中国等地的行动。这一行动旨在保护临时政府的核心成员，使其能够继续领导朝鲜独立运动，并在国际舞台上争取对朝鲜独立的支持。撤离行动通常涉及秘密计划和组织，以确保成员的安全，并维持临时政府的运作。" 
