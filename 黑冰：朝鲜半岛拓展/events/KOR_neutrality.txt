@@ -1,26 +1,17 @@
 add_namespace = KOR_neutrality
 
-#扶助朝鲜复国运动指导方案
+#组建联合光复阵线
 news_event = {
 	id = KOR_neutrality.1
 	title = KOR_neutrality.1.t
 	desc = KOR_neutrality.1.d
-	picture = GFX_report_event_generic_battle
-	major = yes
+	picture = GFX_report_event_generic_croatia_handshake
+	major = yes #全球广播
 	is_triggered_only = yes #不能自然触发/只能被别的事件/决议点名触发
 	option = {
 		name = KOR_neutrality.1.a
-		trigger = {
-			tag = KOR
-			tag = CHI
-			NOT = { tag = JAP }
-		}
-	}
-	option = {
-		name = KOR_neutrality.1.b
-		trigger = {
-			tag = JAP
-			is_in_faction_with = JAP
+		KOR = {
+			add_political_power = 10
 		}
 	}
 }
@@ -30,7 +21,7 @@ country_event = {
 	id = KOR_neutrality.2
 	title = KOR_neutrality.2.t
 	desc = KOR_neutrality.2.d
-	picture = GFX_report_event_generic_battle
+	picture = GFX_report_event_portnavy_mutiny1
 	is_triggered_only = yes
 	#选择爆发内战
 	option = {
@@ -40,46 +31,28 @@ country_event = {
 			#朝鲜殖民地 = {
 				set_cosmetic_tag = KMTKOR_fascism #更名为“日本帝国朝鲜殖民地”
 				ruling_party = neutrality #原国家保留的执政党（内战爆发后政府的执政党转变）
-				ideology = fascism #发动叛乱的意识形态（ROOT即当前政府的意识形态）
+				ideology = fascism #发动叛乱的意识形态
 				size = civil_war_size_var #叛乱规模修正（0–1 的比例值），影响装备库存（stockpile）、陆军、空军、海军
-				army_ratio = 1.0 #叛军能够保留的陆军规模
-				navy_ratio = 0.5 #叛军能够保留的海军规模
-				air_ratio = 0.5 #叛军能够保留的空军规模
-				keep_unit_leaders = { 202619940708 } #指定指挥官ID，这些指挥官将留在原国家，不会加入叛军
+				army_ratio = 1.0 #朝鲜殖民地能够保留的陆军规模
+				navy_ratio = 0 #朝鲜殖民地能够保留的海军规模
+				air_ratio = 0 #朝鲜殖民地能够保留的空军规模
+				keep_unit_leaders = { 202619940708 } #指定指挥官ID，这些指挥官将留在大韩民国临时政府，不会加入朝鲜殖民地
 				set_capital = { state = 527 } #设置首都:平壤
-				states = { 527 815 816 751 819 820 } #划归给叛军的州
-				add_ideas = KOR_opium_plantation #朝鲜鸦片种植地
-				add_ideas = KOR_bank #朝鲜银行
+				states = { 527 815 816 751 819 820 } #划归给朝鲜殖民地的州
+				hidden_effect = {
+					add_ideas = KOR_opium_plantation #朝鲜鸦片种植地
+					add_ideas = KOR_bank #朝鲜银行
+				}
 			#}
 			KOR = {
 				set_cosmetic_tag = KOR_CHI_aligned #更名为“大韩民国临时政府”
-				set_victory_points = { province = 7125 value = 5 } #京城
-				set_victory_points = { province = 7221 value = 15 } #仁川
-				set_country_flag = SOV_armor #加载苏联坦克科研
-				set_country_flag = USA_air #加载美国飞机科研
-				remove_ideas = KOR_opium_plantation #移除：朝鲜鸦片种植地
-				remove_ideas = KOR_bank #移除：朝鲜银行
-				#池青天
-				add_field_marshal_role = {
-					Character = KOR_Ji_Cheong_cheon 
-					traits = { trait_reckless }
-					skill = 2
-					attack_skill = 2
-					defense_skill = 1
-					planning_skill = 1
-					logistics_skill = 2
-					legacy_id = 2026020801
-				}
-				#李范奭
-				add_corps_commander_role = {
-					Character = KOR_Lee_Beom_seok
-					traits = { skilled_staffer }
-					skill = 1
-					attack_skill = 1
-					defense_skill = 1
-					planning_skill = 2
-					logistics_skill = 1
-					legacy_id = 2026020802
+				hidden_effect = {
+					set_victory_points = { province = 7125 value = 5 } #京城
+					set_victory_points = { province = 7221 value = 15 } #仁川
+					set_country_flag = SOV_armor #加载苏联坦克科研
+					set_country_flag = USA_air #加载美国飞机科研
+					remove_ideas = KOR_opium_plantation #移除：朝鲜鸦片种植地
+					remove_ideas = KOR_bank #移除：朝鲜银行
 				}
 			}
 		}
@@ -91,14 +64,12 @@ country_event = {
 	#选择不爆发内战
 	option = {
 		name = KOR_neutrality.2.b
-		trigger = {
-			tag = KOR
-		}
+		trigger = { tag = KOR }
 		ai_chance = { factor = 0 }
 	}
 }
 
-#大韩民国请求在杭州建立临时政府
+#金九请求在杭州建立临时政府
 country_event = {
 	id = KOR_neutrality.3
 	title = KOR_neutrality.3.t
@@ -114,11 +85,11 @@ country_event = {
 			596 = { transfer_state_to = KOR } #移交领土杭州给KOR
 		}
 		KOR = {
-			set_country_flag = KOR_neutrality_host_country_decision_completed #标记可见决议：大韩民国临时政府迁至杭州
+			set_country_flag = KOR_neutrality_host_country_decision_completed #对应文件：common\decisions\korea.txt，大韩民国临时政府迁至杭州(去除领土的抵抗度)
 			set_variable = { KOR.host_nation = CHI } #标记CHI是寄主国
-			set_capital = { state = 596 } #杭州
+			set_capital = { state = 596 } #迁都杭州
 			set_victory_points = { province = 7191 value = 50 } #杭州
-			set_victory_points = { province = 4042 value = 10 } #钱塘
+			set_victory_points = { province = 4042 value = 15 } #钱塘
 		}
 		news_event = { id = KOR_neutrality.4 } #蒋介石接受了大韩民国临时政府的请求
 		ai_chance = {
@@ -140,14 +111,66 @@ news_event = {
 	id = KOR_neutrality.4
 	title = KOR_neutrality.4.t
 	desc = KOR_neutrality.4.d
-	picture = GFX_report_event_generic_battle
+	picture = GFX_KOR_KMT_allow_korea_event
 	fire_only_once = yes #只能触发一次
 	is_triggered_only = yes
 	option = {
 		name = KOR_neutrality.4.a
+		trigger = { tag = KOR }
+		add_ideas = KOR_CHI_political_reform_hangzhou #大韩民国临时政府驻杭州领事馆
+	}
+	option = {
+		name = KOR_neutrality.4.b
+		trigger = { tag = CHI }
+		add_stability = 0.05 #稳定度+5%
+		add_war_support = 0.05 #战争支持度+5%
+	}
+	option = {
+		name = KOR_neutrality.4.c
+		trigger = { tag = JAP }
+		add_stability = -0.01 #稳定度-1%
+	}
+}
+
+#扶助朝鲜复国运动指导方案
+news_event = {
+	id = KOR_neutrality.5
+	title = KOR_neutrality.5.t
+	desc = KOR_neutrality.5.d
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = yes
+	option = {
+		name = KOR_neutrality.5.a
+		trigger = { tag = KOR }
+	}
+	option = {
+		name = KOR_neutrality.5.b
+		trigger = { tag = CHI }
+	}
+	option = {
+		name = KOR_neutrality.5.c
+		trigger = { tag = JAP }
+	}
+}
+
+#飞鹰计划
+news_event = {
+	id = KOR_neutrality.7
+	title = KOR_neutrality.7.t
+	desc = KOR_neutrality.7.d
+	picture = GFX_KOR_American_Eagle_Project_event
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = KOR_neutrality.7.a
 		trigger = {
 			tag = KOR
-			tag = CHI
+		}
+	}
+	option = {
+		name = KOR_neutrality.7.a
+		trigger = {
+			tag = USA
 		}
 	}
 }

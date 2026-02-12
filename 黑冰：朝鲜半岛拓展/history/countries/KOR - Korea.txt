@@ -130,6 +130,7 @@ recruit_character = KOR_Choi_Kwang  #崔光
 recruit_character = KOR_Ri_Ul_sol  #李乙雪
 recruit_character = KOR_Ji_Cheong_cheon  #池青天
 recruit_character = KOR_Lee_Beom_seok  #李范奭
+recruit_character = KOR_William_Joseph_Donovan  #威廉·约瑟夫·多诺万
 #############################################################
 # battleship #
 create_equipment_variant = {

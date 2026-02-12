@@ -168,7 +168,7 @@ ideas = {
 				consumer_goods_expected_value = -0.02 #用于生产生活消费品的期望工厂数量:-2.0%
 			}
 		}
-		#大韩民国临时政府驻杭州馆
+		#大韩民国临时政府驻杭州领事馆
 		KOR_CHI_political_reform_hangzhou = {
 			picture = KOR_political_reform
 			allowed = {
@@ -177,9 +177,9 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				political_power_factor = 0.05 #政治点数获取
-				stability_weekly = 0.002 #每周稳定度
+				stability_weekly = 0.003 #每周稳定度
 				war_support_weekly = 0.002 #每周战争支持度
-				neutrality_drift = 0.03 #每日中立主义支持率
+				neutrality_drift = 0.01 #每日中立主义支持率
 			}
 			cancel = {
 				KOR = {
@@ -196,9 +196,9 @@ ideas = {
 				}
 			}
 		}
-		#大韩民国临时政府驻柳州馆
+		#大韩民国临时政府驻柳州领事馆
 		#KOR_CHI_political_reform_liuzhou = {
-		#大韩民国临时政府驻重庆馆
+		#大韩民国临时政府驻重庆领事馆
 		#KOR_CHI_political_reform_chongqing = {
 	}
 }

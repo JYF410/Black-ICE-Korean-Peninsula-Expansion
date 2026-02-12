@@ -10,7 +10,7 @@ characters = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Kim_Koo.dds"
 			}
 			army = {
-				small = GFX_idea_generic_political_advisor_asia_4
+				small = GFX_idea_tsukizo_akinaga
 			}
 		}
 		country_leader = {
@@ -36,7 +36,22 @@ characters = {
 			available = {
 				has_government = neutrality
 			}
-			traits = { indomitable_perseverance }
+			traits = { administrative_genius }
+		}
+		advisor={
+			slot = interior_minister
+			idea_token = KOR_Kim_Koo_interior_minister
+			on_add = {
+				set_temp_variable = { character = token:KOR_Kim_Koo}
+				set_temp_variable = { slot = token:interior_minister}
+				interior_minister_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Kim_Koo}
+				set_temp_variable = { slot = token:interior_minister}
+				interior_minister_on_remove_effect = yes
+			} 
+			traits = { backroom_backstabber }	
 		}
 	}
 	KOR_Syngman_Rhee = {  #李承晚
@@ -106,7 +121,10 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Kim_Il_sung.dds"
-			}	
+			}
+			army = {
+				small = GFX_idea_generic_political_advisor_asia_1
+			}
 		}
 		country_leader = {
 			desc = "POLITICS_Kim_Il_sung_DESC"
@@ -147,7 +165,7 @@ characters = {
 			available = {
 				has_government = communism
 			}
-			traits = { administrative_genius }
+			traits = { indomitable_perseverance }
 		}
 	}
 	KOR_Minami_Jiro = {  #南次郎
@@ -158,6 +176,9 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Minami_Jiro.dds"
+			}
+			army = {
+				small = GFX_idea_teiichi_suzuki
 			}
 		}
 		country_leader={
@@ -339,7 +360,7 @@ characters = {
 				large = "gfx/leaders/Asia/Portrait_Asia_Generic_land_4.dds"
 			}
 			army = {
-				small = GFX_idea_generic_army_asia_5
+				small = GFX_idea_generic_political_advisor_asia_17
 			}	
 		}
 		advisor={
@@ -397,7 +418,7 @@ characters = {
 				large = "gfx/leaders/Asia/Portrait_Asia_Generic_land_5.dds"
 			}
 			army = {
-				small = GFX_idea_generic_army_asia_6
+				small = GFX_idea_generic_political_advisor_asia_16
 			}	
 		}
 		advisor = {
@@ -489,6 +510,9 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Abe_Nobuyuki.dds"
+			}
+			army = {
+				small = GFX_idea_generic_army_asia_9
 			}
 		}
 		country_leader={
@@ -609,6 +633,9 @@ characters = {
 				has_government = neutrality
 			}
 			traits = { supreme_com_organizer }
+			ai_will_do = {
+				factor = 90
+			}
 		}
 	}
 	KOR_Lee_Beom_seok={  #李范奭
@@ -645,6 +672,42 @@ characters = {
 			}
 			ai_will_do = {
 				factor = 70
+			}
+		}
+	}
+	KOR_William_Joseph_Donovan = {  #威廉·约瑟夫·多诺万
+		name = William_Joseph_Donovan
+		allowed_civil_war = {
+			has_government = neutrality
+		}
+		portraits = {
+			army={
+				large = "gfx/leaders/USA/Portrait_USA_Generic_land_4.dds"
+			}
+			army={
+				small = "gfx/interface/ideas/idea_USA_generic_land_4.dds"
+			}
+		}
+		advisor={
+			slot = intel_minister
+			idea_token = William_Joseph_Donovan_interior_minister
+			on_add = {
+				set_temp_variable = { character = token:KOR_Kim_Koo}
+				set_temp_variable = { slot = token:intel_minister}
+				intel_minister_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Kim_Koo}
+				set_temp_variable = { slot = token:intel_minister}
+				intel_minister_on_remove_effect = yes
+			}
+			available = {
+				has_government = neutrality
+				has_completed_focus = KOR_American_Eagle_Project
+			}
+			traits = { clandestine_contacts }
+			ai_will_do = {
+				factor = 90
 			}
 		}
 	}

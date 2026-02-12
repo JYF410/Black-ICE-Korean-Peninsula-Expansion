@@ -2,13 +2,35 @@ spriteTypes = {
 	##############################################################################
 	####  COUNTRY EVENTS need to be report_event_[name]gfxaddon.tga  #############
 	##############################################################################
+	#成立祖国光复会
 	spriteType = {
 		name = "GFX_KOR_communism_event_001"
 		texturefile = "gfx/event_pictures/KOR_communism_event_001.tga"
 	}
+	#对日本殖民据点发动突袭！
 	spriteType = {
 		name = "GFX_KOR_communism_event_002"
 		texturefile = "gfx/event_pictures/KOR_communism_event_002.tga"
+	}
+	#金九请求在杭州建立临时政府
+	spriteType = {
+		name = "GFX_KOR_request_KMT_event"
+		texturefile = "gfx/event_pictures/KOR_request_KMT_event.tga"
+	}
+	#蒋介石接受了大韩民国临时政府的请求
+	spriteType = {
+		name = "GFX_KOR_KMT_allow_korea_event"
+		texturefile = "gfx/event_pictures/KOR_KMT_allow_korea_event.tga"
+	}
+	#成立韩国光复军
+	spriteType = {
+		name = "GFX_KOR_Liberation_Army_event"
+		texturefile = "gfx/event_pictures/KOR_Liberation_Army_event.tga"
+	}
+	#飞鹰计划
+	spriteType = {
+		name = "GFX_KOR_American_Eagle_Project_event"
+		texturefile = "gfx/event_pictures/KOR_American_Eagle_Project_event.tga"
 	}
 }
 #EOF#

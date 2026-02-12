@@ -1,15 +1,23 @@
-#朝鲜半岛独立运动
-KOR_Japan_Korea_Annexation_Treaty = {
+######################################大韩民国#####################################
+#决议栏：大韩民国复国运动
+KOR_CHI_Korea_Reconquista = {
+	icon = generic_industry
+	picture = GFX_decision_cat_korea_china_meeting 
+	allowed = {
+		original_tag = KOR
+	}
+}
+
+#################################朝鲜民主主义共和国#################################
+#决议栏：朝鲜民族复国运动
+KOR_Japan_Korea_Reconquista = {
 	icon = generic_industry
 	picture = GFX_decision_cat_picture_concessions_to_the_trade_unions 
 	allowed = {
 		original_tag = KOR
 	}
-	visible = {
-	    has_completed_focus = KOR_Japan_Korea_Annexation_Treaty
-	}
 }
-#中朝贸易决议栏
+#决议栏：中朝贸易决
 KOR_PRC_trade_effort = {
 	icon = generic_trade
 	picture = GFX_decision_cat_picture_concessions_to_the_trade_unions 
@@ -26,7 +34,7 @@ KOR_PRC_trade_effort = {
 	    has_completed_focus = KOR_PRC_trade_effort
 	}
 }
-#苏联建设援助
+#决议栏：苏联建设援助
 KOR_economic_aid = {
 	icon = GFX_decision_category_generic_prospect_for_resources
 	allowed = {
@@ -39,6 +47,6 @@ KOR_economic_aid = {
 		}
 	}
 	visible = {
-	    #
+	    has_completed_focus = KOR_communism_army_to_sov
 	}
 }
