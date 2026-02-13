@@ -14,7 +14,7 @@ focus_tree = {
 	focus = {
 		id = KOR_Japan_Korea_Annexation_Treaty
 		icon = GFX_focus_AFG_against_kabul
-		x = 17
+		x = 18
 		y = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = no #投降后不能点该国策
@@ -37,8 +37,7 @@ focus_tree = {
 		icon = GFX_focus_generic_infiltration
 		prerequisite = { focus = KOR_Japan_Korea_Annexation_Treaty }
 		mutually_exclusive = { focus = KOR_restore_society }
-		relative_position_id = KOR_Japan_Korea_Annexation_Treaty
-		x = -5
+		x = 12
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		cost = 30
@@ -97,7 +96,7 @@ focus_tree = {
 		relative_position_id = KOR_CHI_civilwar
 		available_if_capitulated = yes #投降后能点该国策
 		search_filters = { FOCUS_FILTER_POLITICAL }
-		x = 0
+		x = 1
 		y = 1
 		cost = 30
 		available = {
@@ -112,7 +111,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_political_power = 100
+			add_ideas = foreign_neutral #中立主义
 			KOR = {
 				unlock_decision_tooltip = {
 					decision = KOR_host_country_decision_01 #解锁决议：请求在中国建立临时政府
@@ -136,60 +135,12 @@ focus_tree = {
 			factor = 50
 		}
 	}
-	
-	#韩国特务队独立军
-	focus = {
-		id = KOR_CHI_Secret_Army
-		icon = GFX_goal_compromise_with_the_nationalities
-		prerequisite = { focus = KOR_CHI_civilwar }
-		relative_position_id = KOR_CHI_civilwar
-		available_if_capitulated = yes #投降后能点该国策
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		x = 4
-		y = 1
-		cost = 30
-		available = {
-			KOR = {
-				has_government = neutrality
-				is_government_in_exile = yes
-				has_capitulated = yes #停止抵抗
-			}
-			has_country_flag = KOR_neutrality_host_country_decision_completed
-		}
-		completion_reward = {
-			add_command_power = 15 #指挥点数
-			add_field_marshal_role = {
-				Character = KOR_Ji_Cheong_cheon #池青天
-				traits = { trait_reckless }
-				skill = 2
-				attack_skill = 2
-				defense_skill = 1
-				planning_skill = 1
-				logistics_skill = 2
-				legacy_id = 2026020801
-			}
-			add_corps_commander_role = {
-				Character = KOR_Lee_Beom_seok #李范奭
-				traits = { skilled_staffer }
-				skill = 1
-				attack_skill = 1
-				defense_skill = 1
-				planning_skill = 2
-				logistics_skill = 1
-				legacy_id = 2026020802
-			}
-			KOR_create_Korean_Liberation_Army_div = yes
-		}
-		ai_will_do = {
-			factor = 50
-		}
-	}
 	#韩中互助军事协定
 	focus = {
 		id = KOR_CHI_help_Korea_amry
 		icon = GFX_focus_POL_beck_ribbentrop
-		prerequisite = { focus = KOR_CHI_Secret_Army }
-		relative_position_id = KOR_CHI_Secret_Army
+		prerequisite = { focus = KOR_CHI_political_reform }
+		relative_position_id = KOR_CHI_political_reform
 		available_if_capitulated = yes #投降后能点该国策
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		x = 0
@@ -238,7 +189,6 @@ focus_tree = {
 			}
 		}
 	}
-	#韩国独立军特别班
 	#成立韩国光复军
 	focus = {
 		id = Korean_Liberation_Army
@@ -251,6 +201,7 @@ focus_tree = {
 		y = 1
 		cost = 14
 		available = {
+			date > 1940.9.17
 			KOR = {
 				has_government = neutrality
 				is_government_in_exile = yes
@@ -268,19 +219,19 @@ focus_tree = {
 			factor = 50
 		}
 	}
-
-	#扶助朝鲜复国运动指导方案
+	#扶助朝鲜指导方案
 	focus = {
 		id = KOR_CHI_National_Reunification_Movement
 		icon = GFX_focus_GER_ally_chiang_kai_shek
-		prerequisite = { focus = KOR_CHI_political_reform }
-		relative_position_id = KOR_CHI_political_reform
+		prerequisite = { focus = Korean_Liberation_Army }
+		relative_position_id = Korean_Liberation_Army
 		available_if_capitulated = yes #投降后能点该国策
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		x = 0
 		y = 1
 		cost = 30
 		available = {
+			date > 1942.7.20
 			CHI = {
 				exists = yes
 				has_capitulated = no
@@ -299,15 +250,327 @@ focus_tree = {
 			factor = 50
 		}
 	}
-	#綦江统一会议
+	
+	#韩国独立军特别班
 	focus = {
-		id = KOR_Qijiang_Unification_Conference
-		icon = GFX_focus_generic_mutual_cooperation
-		prerequisite = { focus = KOR_CHI_National_Reunification_Movement }
-		relative_position_id = KOR_CHI_National_Reunification_Movement
+		id = KOR_CHI_Secret_Military_Academy
+		icon = GFX_goal_compromise_with_the_nationalities
+		prerequisite = { focus = KOR_CHI_political_reform }
+		relative_position_id = KOR_CHI_political_reform
+		available_if_capitulated = yes #投降后能点该国策
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		x = 2
+		y = 1
+		cost = 30
+		available = {
+			has_country_flag = KOR_neutrality_host_country_decision_completed #蒋介石同意了我们的请求
+			KOR = {
+				has_government = neutrality
+				is_government_in_exile = yes
+				has_capitulated = yes #停止抵抗
+			}
+			CHI = {
+				exists = yes
+				has_capitulated = no
+			}
+		}
+		completion_reward = {
+			add_command_power = 15 #指挥点数
+			
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#韩国特务队独立军
+	focus = {
+		id = KOR_CHI_Secret_Army
+		icon = GFX_goal_compromise_with_the_nationalities
+		prerequisite = { focus = KOR_CHI_Secret_Military_Academy }
+		relative_position_id = KOR_CHI_Secret_Military_Academy
 		available_if_capitulated = yes #投降后能点该国策
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		x = 0
+		y = 1
+		cost = 30
+		available = {
+			has_country_flag = KOR_neutrality_host_country_decision_completed #蒋介石同意了我们的请求
+			KOR = {
+				has_government = neutrality
+				is_government_in_exile = yes
+				has_capitulated = yes #停止抵抗
+			}
+			CHI = {
+				exists = yes
+				has_capitulated = no
+			}
+		}
+		completion_reward = {
+			add_field_marshal_role = {
+				Character = KOR_Ji_Cheong_cheon #池青天
+				traits = { trait_reckless }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 2
+				legacy_id = 2026020801
+			}
+			add_corps_commander_role = {
+				Character = KOR_Lee_Beom_seok #李范奭
+				traits = { skilled_staffer }
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 1
+				legacy_id = 2026020802
+			}
+			custom_effect_tooltip = KOR_CHI_Secret_Army_completed
+			hidden_effect = {
+				KOR_create_Korean_Secret_Army_div = yes
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	
+	#联系罗斯福总统
+	focus = {
+		id = KOR_call_for_roosevelt
+		icon = GFX_goal_power_to_president_roosevelt
+		prerequisite = { focus = KOR_CHI_civilwar }
+		relative_position_id = KOR_CHI_civilwar
+		available_if_capitulated = yes #投降后能点该国策
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		x = -1
+		y = 1
+		cost = 30
+		available = {
+			date > 1941.3.1
+			USA = {
+				has_country_leader = {
+					character = USA_franklin_delano_roosevelt
+					ruling_only = yes
+				}
+			}
+		}
+		completion_reward = {
+			add_ideas = foreign_cooperative #合作主义
+			add_ideas = labor_allowed #允许女性工作
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.15
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#飞鹰计划
+	focus = {
+		id = KOR_American_Eagle_Project
+		icon = GFX_focus_USA_idea_of_pentagon
+		prerequisite = { focus = KOR_call_for_roosevelt }
+		relative_position_id = KOR_call_for_roosevelt
+		available_if_capitulated = yes #投降后能点该国策
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		x = -2
+		y = 1
+		cost = 30
+		available = {
+			USA = {
+				has_country_leader = {
+					character = USA_franklin_delano_roosevelt
+					ruling_only = yes
+				}
+				has_opinion = {
+					target = KOR
+					value > 59
+				}
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = William_Joseph_Donovan_interior_minister
+			if = {
+				limit = {
+					has_dlc = "La Resistance"
+					has_intelligence_agency = no
+				}
+				create_intelligence_agency = yes
+				upgrade_intelligence_agency = upgrade_form_operations #行动部门
+			}
+			else = {
+				upgrade_intelligence_agency = upgrade_passive_defense #反间谍
+				upgrade_intelligence_agency = upgrade_army_department #陆军部
+			}
+			news_event = { id = KOR_neutrality.7 }
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#要求美国承认临时政府
+	focus = {
+		id = KOR_American_admit_korea_gov
+		icon = GFX_focus_USA_beast_of_america
+		prerequisite = { focus = KOR_call_for_roosevelt }
+		relative_position_id = KOR_call_for_roosevelt
+		available_if_capitulated = yes #投降后能点该国策
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		x = 0
+		y = 1
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			#
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#重视海军
+	focus = {
+		id = KOR_naval_effort
+		prerequisite = { focus = KOR_American_admit_korea_gov }
+		relative_position_id = KOR_American_admit_korea_gov
+		icon = GFX_goal_generic_construct_naval_dockyard
+		available_if_capitulated = no #投降后能点该国策
+		search_filters = {FOCUS_FILTER_NAVY}
+		x = -8
+		y = 4
+		cost = 60 
+		available = { has_country_flag = coastal_state }
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+		}
+		completion_reward = {
+			navy_experience = 25
+			focus_add_dockyard_prioritize_home_area = yes		
+		}
+		ai_will_do = {
+			factor = 60
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = { has_country_flag = coastal_state }
+					num_of_naval_factories < 1
+					has_government = fascism
+				}
+			}
+		}
+	}
+	#灵活舰队
+	focus = {
+		id = KOR_flexible_navy
+		icon = GFX_goal_generic_build_navy
+		prerequisite = { focus = KOR_naval_effort }
+		mutually_exclusive = { focus = KOR_large_navy }
+		relative_position_id = KOR_naval_effort
+		available_if_capitulated = no
+		search_filters = {FOCUS_FILTER_NAVY}
+		x = -1
+		y = 1
+		cost = 60
+		completion_reward = {
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 0.2
+				uses = 2
+				category = naval_doctrine_submarine
+			}
+		}
+		ai_will_do = {
+			factor = 55
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = { has_country_flag = coastal_state }
+					num_of_naval_factories < 1
+					has_government = fascism
+				}
+			}
+		}
+	}
+	#大规模的海军
+	focus = {
+		id = KOR_large_navy
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = KOR_naval_effort }
+		mutually_exclusive = { focus = KOR_flexible_navy }
+		relative_position_id = KOR_naval_effort
+		available_if_capitulated = no
+		search_filters = {FOCUS_FILTER_NAVY}
+		x = 1
+		y = 1
+		cost = 60
+		completion_reward = {
+			add_tech_bonus = {
+				name = fleet_in_being_bonus
+				bonus = 0.2
+				uses = 2
+				category = naval_doctrine_capital
+				category = naval_doctrine_cruiser
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = { has_country_flag = coastal_state }
+					num_of_naval_factories < 1
+					has_government = fascism
+				}
+			}
+		}
+	}
+	#海军研究
+	focus = {
+		id = KOR_naval_research
+		icon = GFX_focus_generic_navy_research_bonus
+		prerequisite = { focus = KOR_flexible_navy focus = KOR_large_navy }
+		relative_position_id = KOR_naval_effort
+		available_if_capitulated = no
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		x = 0
+		y = 2
+		cost = 90
+		available = { num_of_naval_factories > 10 }
+		completion_reward = {
+			add_research_slot = 1
+			add_research_centre = yes
+			SLOT:naval_folder = yes	
+			SLOT:naval_techs_folder = yes
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
+		}
+	}
+	
+	#綦江统一会议
+	focus = {
+		id = KOR_Qijiang_Unification_Conference
+		icon = GFX_focus_ARG_keep_it_in_the_party
+		prerequisite = { focus = KOR_CHI_political_reform }
+		relative_position_id = KOR_CHI_political_reform
+		available_if_capitulated = yes #投降后能点该国策
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		x = 4
 		y = 1
 		cost = 30
 		available = {
@@ -356,89 +619,8 @@ focus_tree = {
 			factor = 50
 		}
 	}
-	#联系罗斯福总统
-	focus = {
-		id = KOR_call_for_roosevelt
-		icon = GFX_goal_power_to_president_roosevelt
-		prerequisite = { focus = Korean_Liberation_Army }
-		relative_position_id = Korean_Liberation_Army
-		available_if_capitulated = yes #投降后能点该国策
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		x = 0
-		y = 1
-		cost = 30
-		available = {
-			date > 1941.3.1
-			USA = {
-				has_country_leader = {
-					character = USA_franklin_delano_roosevelt
-					ruling_only = yes
-				}
-			}
-		}
-		completion_reward = {
-			#
-		}
-		ai_will_do = {
-			factor = 50
-		}
-	}
-	#要求美国承认临时政府
-	focus = {
-		id = KOR_American_admit_korea_gov
-		icon = GFX_focus_USA_beast_of_america
-		prerequisite = { focus = KOR_call_for_roosevelt }
-		relative_position_id = KOR_call_for_roosevelt
-		available_if_capitulated = yes #投降后能点该国策
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		x = 0
-		y = 1
-		cost = 30
-		available = {
-			#
-		}
-		completion_reward = {
-			#
-		}
-		ai_will_do = {
-			factor = 50
-		}
-	}
-	#飞鹰计划
-	focus = {
-		id = KOR_American_Eagle_Project
-		icon = GFX_focus_USA_idea_of_pentagon
-		prerequisite = { focus = Korean_Liberation_Army }
-		relative_position_id = Korean_Liberation_Army
-		available_if_capitulated = yes #投降后能点该国策
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		x = -2
-		y = 1
-		cost = 30
-		available = {
-			#
-		}
-		completion_reward = {
-			add_command_power = 15 #指挥点数
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = William_Joseph_Donovan_interior_minister
-			if = {
-				limit = {
-					has_intelligence_agency = no
-				}
-				create_intelligence_agency = yes
-			}
-			else = {
-				upgrade_intelligence_agency = upgrade_passive_defense
-			}
-			news_event = { id = KOR_neutrality.7 }
-		}
-		ai_will_do = {
-			factor = 50
-		}
-	}
-	
-###################################################朝鲜历史线##################################################
+
+###################################################朝鲜线##################################################
 	#成立祖国光复会
 	focus = {
 		id = KOR_restore_society
@@ -446,7 +628,7 @@ focus_tree = {
 		prerequisite = { focus = KOR_Japan_Korea_Annexation_Treaty }
 		mutually_exclusive = { focus = KOR_CHI_Restoration_Front }
 		relative_position_id = KOR_CHI_Restoration_Front
-		x = 10
+		x = 12
 		y = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		cost = 30
@@ -678,7 +860,7 @@ focus_tree = {
 			factor = 100
 		}
 	}
-	#稳固咸镜前线
+	#稳固前线
 	focus = {
 		id = KOR_solid_front_line
 		icon = GFX_focus_AUS_frontmiliz_focus
@@ -690,6 +872,10 @@ focus_tree = {
 		available_if_capitulated = yes #投降后不能点该国策
 		cost = 14
 		available = {
+			has_country_leader = {
+				character = KOR_Kim_Il_sung
+				ruling_only = yes
+			}
 			815 = { is_controlled_by = ROOT }
 		}
 		completion_reward = {
@@ -697,12 +883,6 @@ focus_tree = {
 			815 = {
 				set_building_level = {
 					type = bunker
-					level = 1
-					province = 6944 #恩德
-					instant_build = yes
-				}
-				set_building_level = {
-					type = coastal_bunker
 					level = 1
 					province = 6944 #恩德
 					instant_build = yes
@@ -728,11 +908,11 @@ focus_tree = {
 	#控制北方领土
 	focus = {
 		id = KOR_controlled_north_front_line
-		icon = GFX_KOR_controlled_north_front_line
-		prerequisite = { focus = KOR_solid_front_line }
-		relative_position_id = KOR_communism_army_to_sov
-		x = 2
-		y = 0
+		icon = GFX_focus_AUS_osterreichische_gebirgsjager
+		prerequisite = { focus = KOR_plan_strike_jap }
+		relative_position_id = KOR_solid_front_line
+		x = 3
+		y = 1
 		search_filters = { FOCUS_FILTER_FORTIFICATION }
 		available_if_capitulated = yes #投降后不能点该国策
 		cost = 30
@@ -775,15 +955,43 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
+	}	
+
+	#北朝鲜劳动党
+	focus = {
+		id = KOR_north_communism
+		icon = GFX_KOR_north_communism
+		prerequisite = { focus = KOR_controlled_north_front_line }
+		prerequisite = { focus = KOR_communism_army_to_sov }
+		relative_position_id = KOR_controlled_north_front_line
+		available_if_capitulated = yes #投降后不能点该国策
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		x = 3
+		y = 1
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			add_political_power = 200
+			set_party_name = { 
+				ideology = communism 
+				long_name = KOR_communism_party_north_long 
+				name = KOR_communism_party_north 
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
 	}
 
-###################################################中共史实线###################################################
+###################################################中共线###################################################
 	#中共中央东北局平壤办事处
 	focus = {
 		id = KOR_PRC_political_reform
 		icon = GFX_focus_chi_cooperation_with_the_communists
-		prerequisite = { focus = KOR_restore_society }
-		relative_position_id = KOR_restore_society
+		prerequisite = { focus = KOR_front_against_Japan }
+		relative_position_id = KOR_front_against_Japan
 		x = -3
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -798,21 +1006,11 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			KOR = {
-				add_popularity = {
-					ideology = communism
-					popularity = 0.10
-				}
-				add_popularity = {
-					ideology = fascism
-					popularity = -0.10
-				}
-				add_ideas = KOR_PRC_political_reform
-			}
+			add_ideas = KOR_PRC_political_reform
 			PRC = {
 				add_opinion_modifier = {
 					target = KOR
-					modifier = large_increase
+					modifier = medium_increase
 				}
 			}
 		}
@@ -861,100 +1059,14 @@ focus_tree = {
 			factor = 75
 		}
 	}
-	#朝鲜华侨总联合会
-	focus = {
-		id = KOR_PRC_General_Federation_of_Korean_Chinese
-		icon = GFX_focus_BRA_rio_protocol
-		prerequisite = { focus = KOR_PRC_support_northeast_democratic_army }
-		relative_position_id = KOR_PRC_support_northeast_democratic_army
-		x = 0
-		y = 1
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available_if_capitulated = no #投降后不能点该国策
-		cost = 30
-		available = {
-			PRC = {
-				exists = yes #存在
-				has_capitulated = no #没有停止抵抗
-			}
-		}
-		completion_reward = {
-			add_political_power = 100 #政治点数+100
-			add_ideas = KOR_PRC_General_Federation_of_Korean_Chinese		
-		}
-		ai_will_do = {
-			factor = 75
-		}
-	}
-	#中朝贸易援助
-	focus = {
-		id = KOR_PRC_trade_effort
-		icon = GFX_focus_generic_agricultural_subsidies
-		prerequisite = { focus = KOR_communism_army_to_prc }
-		relative_position_id = KOR_communism_army_to_prc
-		x = -2
-		y = 1
-		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
-		available_if_capitulated = no #投降后不能点该国策
-		cost = 30
-		available = {
-			PRC = {
-				exists = yes #存在
-				has_capitulated = no #没有停止抵抗
-			}
-		}
-		completion_reward = {
-			unlock_decision_tooltip = {
-				decision = KOR_PRC_food_support
-				show_effect_tooltip = yes
-			}
-		}
-		ai_will_do = {
-			factor = 50
-		}
-	}
-	#鸭绿江水丰水力发电公司
-	focus = {
-		id = KOR_Yalu_River_water_power_station
-		icon = GFX_focus_generic_hydroelectric_energy
-		prerequisite = { focus = KOR_PRC_trade_effort }
-		relative_position_id = KOR_PRC_trade_effort
-		x = 0
-		y = 1
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		available_if_capitulated = no #投降后不能点该国策
-		cost = 30
-		available = {
-			KOR = {
-				owns_state = 527 #平安
-				has_government = communism
-			}
-		}
-		completion_reward = {
-			815 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = hydro_power
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 50
-		}
-	}
-
-###################################################中共if线####################################################
-	#延安派
+	#倾向延安
 	focus = {
 		id = KOR_communism_army_to_prc
 		icon = GFX_focus_prc_maoism
 		prerequisite = { focus = KOR_communism_army_where_to_go }
-		prerequisite = { focus = KOR_PRC_General_Federation_of_Korean_Chinese }
 		mutually_exclusive = { focus = KOR_communism_army_to_sov }
-		relative_position_id = KOR_communism_army_where_to_go
-		x = -1
+		relative_position_id = KOR_PRC_support_northeast_democratic_army
+		x = 0
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		cost = 30
@@ -1027,10 +1139,15 @@ focus_tree = {
 		available_if_capitulated = no #投降后不能点该国策
 		cost = 30
 		available = {
+			KOR = {
+				owns_state = 815 #咸镜
+				owns_state = 527 #平安
+			}
 			PRC = {
-				owns_state = 811 #东边
-				owns_state = 328 #吉长
-				owns_state = 716 #辽沈
+				OR = {
+					owns_state = 811 #东边
+					owns_state = 756 #吉长
+				}
 			}
 		}
 		completion_reward = {
@@ -1046,6 +1163,89 @@ focus_tree = {
 				target = PRC
 				modifier = aided_industry
 			}		
+		}
+	}
+	#朝鲜华侨总联合会
+	focus = {
+		id = KOR_PRC_General_Federation_of_Korean_Chinese
+		icon = GFX_focus_BRA_rio_protocol
+		prerequisite = { focus = KOR_PRC_korean_corridor }
+		relative_position_id = KOR_PRC_korean_corridor
+		x = -2
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = no #投降后不能点该国策
+		cost = 30
+		available = {
+			PRC = {
+				exists = yes #存在
+				has_capitulated = no #没有停止抵抗
+			}
+		}
+		completion_reward = {
+			add_political_power = 100 #政治点数+100
+			add_ideas = KOR_PRC_General_Federation_of_Korean_Chinese		
+		}
+		ai_will_do = {
+			factor = 75
+		}
+	}
+	#中朝贸易援助
+	focus = {
+		id = KOR_PRC_trade_effort
+		icon = GFX_focus_generic_agricultural_subsidies
+		prerequisite = { focus = KOR_PRC_General_Federation_of_Korean_Chinese }
+		relative_position_id = KOR_PRC_General_Federation_of_Korean_Chinese
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+		available_if_capitulated = no #投降后不能点该国策
+		cost = 30
+		available = {
+			PRC = {
+				exists = yes #存在
+				has_capitulated = no #没有停止抵抗
+			}
+		}
+		completion_reward = {
+			unlock_decision_tooltip = {
+				decision = KOR_PRC_food_support
+				show_effect_tooltip = yes
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#鸭绿江水丰水力发电公司
+	focus = {
+		id = KOR_Yalu_River_water_power_station
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = KOR_PRC_trade_effort }
+		relative_position_id = KOR_PRC_trade_effort
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = no #投降后不能点该国策
+		cost = 30
+		available = {
+			KOR = {
+				owns_state = 527 #平安
+				has_government = communism
+			}
+		}
+		completion_reward = {
+			815 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = hydro_power
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 50
 		}
 	}
 	#中国人民解放军朝鲜族师
@@ -1066,47 +1266,135 @@ focus_tree = {
 		}	
 		completion_reward = {
 			army_experience = 75
-			add_equipment_to_stockpile = {
-				type = infantry_equipment_1 amount = 5000
-				producer = prc
+			custom_effect_tooltip = KOR_ethnic_korean_division_completed
+			hidden_effect = {
+				KOR_ethnic_korean_division_div = yes
 			}
-			add_equipment_to_stockpile = {
-				type = infantry_uniforms_1 amount = 2000
-				producer = prc
+		}
+	}
+	#特种作战训练
+	focus = {
+		id = KOR_sov_special_operations_training
+		icon = GFX_goal_generic_death_swords
+		prerequisite = { focus = KOR_ethnic_korean_division }
+		relative_position_id = KOR_ethnic_korean_division
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
+		available_if_capitulated = no #投降后不能点该国策
+		cost = 60
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		available = {
+			#
+		}
+		completion_reward = {	
+			add_tech_bonus = {
+				name = CHI_elite_mountaineers
+				bonus = 0.5
+				uses = 1
+				category = mountaineers_tech
 			}
-			add_equipment_to_stockpile = {
-				type = support_equipment_1 amount = 1000
-				producer = prc
+			custom_effect_tooltip = CHI_free_mountain_template_tt
+			division_template = {
+				name = "朝鲜人民军山地师"
+				regiments = {
+					mountaineers = { x = 0 y = 0 }
+					mountaineers = { x = 0 y = 1 }
+					mountaineers = { x = 0 y = 2 }
+					mountaineers = { x = 1 y = 0 }
+					mountaineers = { x = 1 y = 1 }
+					mountaineers = { x = 1 y = 2 }
+					mountaineers = { x = 2 y = 0 }
+					mountain_artillery_brigade = { x = 2 y = 1 }
+					mountain_artillery_brigade = { x = 2 y = 2 }
+				}
+				support = {
+					artillery_heavy = { x = 0 y = 0 }
+				}
 			}
-			add_equipment_to_stockpile = {
-				type = recon_equipment_0 amount = 500
-				producer = prc
+		}
+	}
+	#重视步兵装备
+	focus = {
+		id = KOR_equipment_effort
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = KOR_sov_special_operations_training }
+		search_filters = {FOCUS_FILTER_ARMY}
+		relative_position_id = KOR_sov_special_operations_training
+		x = 0
+		y = 1
+		cost = 30 # Previously was: 70.0 
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				ahead_reduction = 0.2
+				uses = 1
+				category = infantry_weapons
+				category = artillery
 			}
-			add_equipment_to_stockpile = {
-				type = artyhorse_equipment_0 amount = 300
-				producer = prc
+		}
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	#重视摩托化
+	focus = {
+		id = KOR_motorization_effort
+		icon = GFX_generic_trucks
+		prerequisite = { focus = KOR_equipment_effort }
+		search_filters = {FOCUS_FILTER_ARMY}
+		relative_position_id = KOR_equipment_effort
+		x = 0
+		y = 1
+		cost = 30 # Previously was: 70.0 
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 0.2
+				technology = motorised_infantry
 			}
-			add_equipment_to_stockpile = {
-				type = artillery_equipment_0 amount = 100
-				producer = prc
+		}
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	#重视机械化
+	focus = {
+		id = KOR_mechanization_effort
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = KOR_motorization_effort }
+		search_filters = {FOCUS_FILTER_ARMY}
+		relative_position_id = KOR_motorization_effort
+		x = 0
+		y = 1
+		cost = 30 # Previously was: 70.0 
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				ahead_reduction = 0.2
+				uses = 1
+				category = motorized_equipment
 			}
-			add_equipment_to_stockpile = {
-				type = medartillery_equipment_0 amount = 20
-				producer = prc
-			}
-			KOR_ethnic_korean_division_div = yes
+		}
+		ai_will_do = {
+			factor = 10
 		}
 	}
 
-####################################################苏联if线##################################################
-	#莫斯科派
+####################################################苏联线##################################################
+	#倾向苏联
 	focus = {
 		id = KOR_communism_army_to_sov
-		icon = GFX_focus_fra_loyalty_stalin
+		icon = GFX_focus_SOV_father_of_nations
 		prerequisite = { focus = KOR_communism_army_where_to_go }
 		mutually_exclusive = { focus = KOR_communism_army_to_prc }
 		relative_position_id = KOR_communism_army_where_to_go
-		x = 1
+		x = 3
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		cost = 30
@@ -1245,12 +1533,41 @@ focus_tree = {
 			factor = 65
 		}
 	}	
+	#平壤苏军总医院
+	focus = {
+		id = KOR_expand_pyeongchang_military_hospital
+		icon = GFX_focus_generic_low_cost_housing
+		prerequisite = { focus = KOR_sov_expand_bilateral_trade }
+		relative_position_id = KOR_sov_expand_bilateral_trade
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER }
+		available_if_capitulated = no #投降后不能点该国策
+		cost = 30
+		available = {
+			527 = { is_controlled_by = ROOT }
+		}
+		completion_reward = {
+			527 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_ideas = KOR_sov_hospital
+		}
+		ai_will_do = {
+			factor = 6
+		}
+	}
 	#苏联军事援助计划
 	focus = {
 		id = KOR_sov_military_aid_program
 		icon = GFX_goal_arms_factory
-		prerequisite = { focus = KOR_sov_expand_bilateral_trade }
-		relative_position_id = KOR_sov_expand_bilateral_trade
+		prerequisite = { focus = KOR_expand_pyeongchang_military_hospital }
+		relative_position_id = KOR_expand_pyeongchang_military_hospital
 		x = 0
 		y = 1
 		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
@@ -1291,36 +1608,7 @@ focus_tree = {
 			factor = 65
 		}
 	}	
-	#平壤苏军总医院
-	focus = {
-		id = KOR_expand_pyeongchang_military_hospital
-		icon = GFX_focus_generic_low_cost_housing
-		prerequisite = { focus = KOR_communism_army_to_sov }
-		relative_position_id = KOR_sov_korean_corridor
-		x = 2
-		y = 0
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER }
-		available_if_capitulated = no #投降后不能点该国策
-		cost = 30
-		available = {
-			527 = { is_controlled_by = ROOT }
-		}
-		completion_reward = {
-			527 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			add_ideas = KOR_sov_hospital
-		}
-		ai_will_do = {
-			factor = 6
-		}
-	}
-	
+
 	#苏联驻朝军事顾问团
 	focus = {
 		id = KOR_sov_army_adviser
@@ -1378,10 +1666,10 @@ focus_tree = {
 	focus = {
 		id = KOR_sov_deep_operations_theory
 		icon = GFX_focus_generic_tankette
-		prerequisite = { focus = KOR_sov_army_adviser }
+		prerequisite = { focus = KOR_sov_pyongyang_military_academy }
 		relative_position_id = KOR_sov_pyongyang_military_academy
-		x = 2
-		y = 0
+		x = 0
+		y = 1
 		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
 		available_if_capitulated = no #投降后不能点该国策
 		cost = 60
@@ -1400,13 +1688,12 @@ focus_tree = {
 			}
 		}
 	}
-	
+
 	#购买苏联坦克
 	focus = {
 		id = KOR_soviet_tanks
 		icon = GFX_goal_tankograd
 		prerequisite = { focus = KOR_sov_deep_operations_theory }
-		prerequisite = { focus = KOR_sov_pyongyang_military_academy }
 		relative_position_id = KOR_sov_air_force_volunteer
 		x = 2
 		y = 0
@@ -1569,9 +1856,8 @@ focus_tree = {
 		id = KOR_sov_air_force_volunteer
 		icon = GFX_soviet_plane_in_clouds
 		prerequisite = { focus = KOR_sov_military_aid_program }
-		prerequisite = { focus = KOR_sov_pyongyang_military_academy }
 		relative_position_id = KOR_sov_military_aid_program
-		x = 1
+		x = 0
 		y = 1
 		search_filters = { FOCUS_FILTER_AIRFORCE }
 		available_if_capitulated = no #投降后不能点该国策
@@ -1690,20 +1976,22 @@ focus_tree = {
 		}
 	}
 
+####################################################中苏共通线##################################################
 	#土地资源开发
 	focus = {
 		id = KOR_sov_land_development
 		icon = GFX_sov_industry_reborn
-		prerequisite = { focus = KOR_communism_army_to_sov focus = KOR_controlled_north_front_line }
-		relative_position_id = KOR_communism_army_to_sov
-		x = 4
-		y = 1
+		prerequisite = { focus = KOR_sov_korean_corridor focus = KOR_PRC_korean_corridor }
+		relative_position_id = KOR_restore_society
+		x = -1
+		y = 6
 		cost = 90
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available = {
 			KOR = {
 				exists = yes
 				has_capitulated = no
+				NOT = { has_war_with = SOV }
 			}
 		}
 		cancel_if_invalid = yes
@@ -1719,23 +2007,276 @@ focus_tree = {
 			factor = 1
 		}
 	}
+	#开发新领土
+	focus = {
+		id = KOR_generic_land_development
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = KOR_sov_land_development }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = KOR_sov_land_development
+		x = 0
+		y = 1
+		cost = 60
+		available_if_capitulated = no
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_extra_state_shared_building_slots = 2
+		}		
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
+		}
+	}
+	#重视基建
+	focus = {
+		id = KOR_infrastructure_effort
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = KOR_generic_land_development }
+		relative_position_id = KOR_generic_land_development
+		search_filters = {FOCUS_FILTER_INFRASTRUCTURE}
+		x = 0
+		y = 1
+		cost = 60
+		available_if_capitulated = no
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		completion_reward = {
+			focus_add_infrastructure_prioritize_home_area = yes
+			focus_add_infrastructure_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
+		}
+	}
+	#重视基建II
+	focus = {
+		id = KOR_infrastructure_effort_2
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = KOR_infrastructure_effort }
+		search_filters = {FOCUS_FILTER_INFRASTRUCTURE}
+		relative_position_id = KOR_infrastructure_effort
+		x = 0
+		y = 1
+		cost = 60
+		available_if_capitulated = no
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { add = 1 }
+			focus_add_infrastructure_prioritize_home_area = yes
+			set_temp_variable = { add = 2 }
+			focus_add_infrastructure_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
+		}
+	}
+	#重视建设I
+	focus = {
+		id = KOR_construction_effort
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = KOR_infrastructure_effort_2 }
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		relative_position_id = KOR_infrastructure_effort_2
+		x = 0
+		y = 1
+		cost = 60 # Previously was: 70.0 
+		available_if_capitulated = no
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}			
+		}
+		completion_reward = {
+			focus_add_industrial_complex_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
+		}
+	}
+	#重视建设II
+	focus = {
+		id = KOR_construction_effort_2
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = KOR_construction_effort }
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		relative_position_id = KOR_construction_effort
+		x = 0
+		y = 1
+		cost = 60 # Previously was: 70.0 
+		available_if_capitulated = no
+		available = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				num_of_factories > 10
+			}
+		}
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}		
+		completion_reward = {
+			focus_add_industrial_complex_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
+		}
+	}
+	#重视建设III
+	focus = {
+		id = KOR_construction_effort_3
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = KOR_construction_effort_2 }
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		relative_position_id = KOR_construction_effort_2
+		x = 0
+		y = 1
+		cost = 60 # Previously was: 70.0 
+		available_if_capitulated = no
+		available = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				num_of_factories > 13
+			}
+		}
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { add = 2 }
+			focus_add_industrial_complex_prioritize_home_area = yes
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
+		}
+	}
+
 	#矿产资源探勘
 	focus = {
 		id = KOR_sov_mineral_development
 		icon = GFX_focus_generic_aluminum
-		prerequisite = { focus = KOR_sov_land_development }
-		relative_position_id = KOR_sov_land_development
-		x = 0
-		y = 1
+		prerequisite = { focus = KOR_sov_korean_corridor focus = KOR_PRC_korean_corridor }
+		relative_position_id = KOR_restore_society
+		x = 1
+		y = 6
 		cost = 90
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available = {
-			NOT = {
-				has_war_with = SOV
-			}
-			SOV = {
+			KOR = {
 				exists = yes
 				has_capitulated = no
+				NOT = { has_war_with = SOV }
 			}
 		}
 		cancel_if_invalid = yes
@@ -1751,554 +2292,13 @@ focus_tree = {
 			factor = 1
 		}
 	}
-
-##################################################中苏合流线####################################################
-	#特种作战训练
-	focus = {
-		id = KOR_sov_special_operations_training
-		icon = GFX_goal_generic_death_swords
-		prerequisite = { focus = KOR_ethnic_korean_division focus = KOR_sov_military_aid_program }
-		relative_position_id = KOR_sov_military_aid_program
-		x = -1
-		y = 1
-		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
-		available_if_capitulated = no #投降后不能点该国策
-		cost = 60
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		available = {
-			#
-		}
-		completion_reward = {	
-			add_tech_bonus = {
-				name = CHI_elite_mountaineers
-				bonus = 0.5
-				uses = 1
-				category = mountaineers_tech
-			}
-			custom_effect_tooltip = CHI_free_mountain_template_tt
-			division_template = {
-				name = "朝鲜人民军山地师"
-				regiments = {
-					mountaineers = { x = 0 y = 0 }
-					mountaineers = { x = 0 y = 1 }
-					mountaineers = { x = 0 y = 2 }
-					mountaineers = { x = 1 y = 0 }
-					mountaineers = { x = 1 y = 1 }
-					mountaineers = { x = 1 y = 2 }
-					mountaineers = { x = 2 y = 0 }
-					mountain_artillery_brigade = { x = 2 y = 1 }
-					mountain_artillery_brigade = { x = 2 y = 2 }
-				}
-				support = {
-					artillery_heavy = { x = 0 y = 0 }
-				}
-			}
-		}
-	}
-	#重视步兵装备
-	focus = {
-		id = KOR_equipment_effort
-		icon = GFX_goal_generic_army_artillery2
-		prerequisite = { focus = KOR_sov_special_operations_training }
-		search_filters = {FOCUS_FILTER_ARMY}
-		relative_position_id = KOR_sov_special_operations_training
-		x = 0
-		y = 1
-		cost = 30 # Previously was: 70.0 
-		available_if_capitulated = no
-		completion_reward = {
-			add_tech_bonus = {
-				name = infantry_artillery_bonus
-				ahead_reduction = 0.2
-				uses = 1
-				category = infantry_weapons
-				category = artillery
-			}
-		}
-		ai_will_do = {
-			factor = 10
-		}
-	}
-	#重视摩托化
-	focus = {
-		id = KOR_motorization_effort
-		icon = GFX_generic_trucks
-		prerequisite = { focus = KOR_equipment_effort }
-		search_filters = {FOCUS_FILTER_ARMY}
-		relative_position_id = KOR_equipment_effort
-		x = 0
-		y = 1
-		cost = 30 # Previously was: 70.0 
-		available_if_capitulated = no
-		completion_reward = {
-			add_tech_bonus = {
-				name = motorized_bonus
-				bonus = 0.2
-				technology = motorised_infantry
-			}
-		}
-		ai_will_do = {
-			factor = 10
-		}
-	}
-	#重视机械化
-	focus = {
-		id = KOR_mechanization_effort
-		icon = GFX_goal_generic_build_tank
-		prerequisite = { focus = KOR_motorization_effort }
-		search_filters = {FOCUS_FILTER_ARMY}
-		relative_position_id = KOR_motorization_effort
-		x = 0
-		y = 1
-		cost = 30 # Previously was: 70.0 
-		available_if_capitulated = no
-		completion_reward = {
-			add_tech_bonus = {
-				name = motorized_bonus
-				ahead_reduction = 0.2
-				uses = 1
-				category = motorized_equipment
-			}
-		}
-		ai_will_do = {
-			factor = 10
-		}
-	}
-
-##################################################通用军事线####################################################
-	#国民精神总动员
-	focus = {
-		id = KOR_army_effort
-		icon = GFX_focus_MonumentalBanzai
-		x = 4
-		y = 0
-		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 30
-		available = {
-			has_government = fascism
-			or = {
-				is_puppet_of = JAP
-				is_in_faction_with = JAP
-			}
-		}
-		completion_reward = {
-			army_experience = 25
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 2
-				category = land_doctrine
-			}
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.03
-			}
-		}
-		ai_will_do = {
-			factor = 70
-		}
-	}
-	#在惠山征召部队
-	focus = {
-		id = KOR_jap_garrison_army_01
-		icon = GFX_goal_infantry_tactics
-		prerequisite = { focus = KOR_army_effort }
-		relative_position_id = KOR_army_effort
-		x = -4
-		y = 1
-		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 14
-		available = {
-			has_government = fascism
-			or = {
-				is_puppet_of = JAP
-				is_in_faction_with = JAP
-			}
-		}
-		completion_reward = {
-			add_manpower = -3000
-			add_stability = -0.01 #稳定度-1%
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.01
-			}
-			KOR_create_JAP_partisan_army_div = yes
-		}
-		ai_will_do = {
-			factor = 70
-		}
-	}
-	#在普天堡征召部队
-	focus = {
-		id = KOR_jap_garrison_army_02
-		icon = GFX_goal_infantry_tactics
-		prerequisite = { focus = KOR_army_effort }
-		relative_position_id = KOR_army_effort
-		x = -2
-		y = 1
-		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 14
-		available = {
-			has_government = fascism
-			or = {
-				is_puppet_of = JAP
-				is_in_faction_with = JAP
-			}
-		}
-		completion_reward = {
-			add_manpower = -3000
-			add_stability = -0.01 #稳定度-1%
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.01
-			}
-			KOR_create_JAP_partisan_army_div = yes
-		}
-		ai_will_do = {
-			factor = 70
-		}
-	}
-	#在元山征召部队
-	focus = {
-		id = KOR_jap_garrison_army_03
-		icon = GFX_goal_infantry_tactics
-		prerequisite = { focus = KOR_army_effort }
-		relative_position_id = KOR_army_effort
-		x = 0
-		y = 1
-		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 14
-		available = {
-			has_government = fascism
-			or = {
-				is_puppet_of = JAP
-				is_in_faction_with = JAP
-			}
-		}
-		completion_reward = {
-			add_manpower = -3000
-			add_stability = -0.01 #稳定度-1%
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.01
-			}
-			KOR_create_JAP_partisan_army_div = yes
-		}
-		ai_will_do = {
-			factor = 60
-		}
-	}
-	#在兴南征召部队
-	focus = {
-		id = KOR_jap_garrison_army_04
-		icon = GFX_goal_infantry_tactics
-		prerequisite = { focus = KOR_army_effort }
-		relative_position_id = KOR_army_effort
-		x = 2
-		y = 1
-		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 14
-		available = {
-			has_government = fascism
-			or = {
-				is_puppet_of = JAP
-				is_in_faction_with = JAP
-			}
-		}
-		completion_reward = {
-			add_manpower = -3000
-			add_stability = -0.01 #稳定度-1%
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.01
-			}
-			KOR_create_JAP_partisan_army_div = yes
-		}
-		ai_will_do = {
-			factor = 60
-		}
-	}
-	#在南浦征召部队
-	focus = {
-		id = KOR_jap_garrison_army_05
-		icon = GFX_goal_infantry_tactics
-		prerequisite = { focus = KOR_army_effort }
-		relative_position_id = KOR_army_effort
-		x = 4
-		y = 1
-		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 14
-		available = {
-			has_government = fascism
-			or = {
-				is_puppet_of = JAP
-				is_in_faction_with = JAP
-			}
-		}
-		completion_reward = {
-			add_manpower = -3000
-			add_stability = -0.01 #稳定度-1%
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.01
-			}
-			KOR_create_JAP_partisan_army_div = yes
-		}
-		ai_will_do = {
-			factor = 60
-		}
-	}
-	#在平壤组建宪兵部队
-	focus = {
-		id = KOR_jap_military_police_army_01
-		icon = GFX_goal_reinforce_the_gendarmerie
-		prerequisite = { focus = KOR_jap_garrison_army_01 }
-		prerequisite = { focus = KOR_jap_garrison_army_02 }
-		relative_position_id = KOR_jap_garrison_army_01
-		x = 1
-		y = 1
-		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 30
-		available = {
-			has_government = fascism
-			or = {
-				is_puppet_of = JAP
-				is_in_faction_with = JAP
-			}
-		}
-		completion_reward = {
-			add_stability = -0.02
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.02
-			}
-			KOR_create_JAP_MP_army_div = yes
-		}
-		ai_will_do = {
-			factor = 70
-		}
-	}
-	#在京城组建宪兵部队
-	focus = {
-		id = KOR_jap_military_police_army_02
-		icon = GFX_goal_reinforce_the_gendarmerie
-		prerequisite = { focus = KOR_jap_garrison_army_02 }
-		prerequisite = { focus = KOR_jap_garrison_army_03 }
-		relative_position_id = KOR_jap_garrison_army_02
-		x = 1
-		y = 1
-		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 30
-		available = {
-			has_government = fascism
-			or = {
-				is_puppet_of = JAP
-				is_in_faction_with = JAP
-			}
-		}
-		completion_reward = {
-			add_stability = -0.02
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.02
-			}
-			KOR_create_JAP_MP_army_div = yes
-		}
-		ai_will_do = {
-			factor = 60
-		}
-	}
-	#在仁川组建宪兵部队
-	focus = {
-		id = KOR_jap_military_police_army_03
-		icon = GFX_goal_reinforce_the_gendarmerie
-		prerequisite = { focus = KOR_jap_garrison_army_03 }
-		prerequisite = { focus = KOR_jap_garrison_army_04 }
-		relative_position_id = KOR_jap_garrison_army_03
-		x = 1
-		y = 1
-		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 30
-		available = {
-			has_government = fascism
-			or = {
-				is_puppet_of = JAP
-				is_in_faction_with = JAP
-			}
-		}
-		completion_reward = {
-			add_stability = -0.02
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.02
-			}
-			KOR_create_JAP_MP_army_div = yes
-		}
-		ai_will_do = {
-			factor = 60
-		}
-	}
-	#在釜山组建宪兵部队
-	focus = {
-		id = KOR_jap_military_police_army_04
-		icon = GFX_goal_reinforce_the_gendarmerie
-		prerequisite = { focus = KOR_jap_garrison_army_04 }
-		prerequisite = { focus = KOR_jap_garrison_army_05 }
-		relative_position_id = KOR_jap_garrison_army_04
-		x = 1
-		y = 1
-		search_filters = {FOCUS_FILTER_ARMY}	
-		cost = 30
-		available = {
-			has_government = fascism
-			or = {
-				is_puppet_of = JAP
-				is_in_faction_with = JAP
-			}
-		}
-		completion_reward = {
-			add_stability = -0.02
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.02
-			}
-			KOR_create_JAP_MP_army_div = yes
-		}
-		ai_will_do = {
-			factor = 60
-		}
-	}
-
-##################################################通用建设线####################################################
-	#朝鲜总督府
-	focus = {
-		id = KOR_JAP_office_governor
-		icon = GFX_focus_ARG_strengthening_the_concordancia
-		x = 30
-		y = 0
-		search_filters = { FOCUS_FILTER_INFRASTRUCTURE }
-		cost = 30
-		available = {
-			525 = { is_controlled_by = ROOT }
-		}
-		completion_reward = {
-			capital_scope = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			depression_improves = yes
-		}
-		ai_will_do = {
-			factor = 100
-		}
-	}
-	#朝鲜银行
-	focus = {
-		id = KOR_national_bank
-		icon = GFX_focus_PER_national_bank
-		prerequisite = { focus = KOR_JAP_office_governor }
-		relative_position_id = KOR_JAP_office_governor
-		x = -3
-		y = 1
-		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
-		cost = 14
-		completion_reward = {
-			add_ideas = KOR_bank
-		}
-		ai_will_do = {
-			factor = 100
-		}
-	}
-	#朝鲜银行券
-	focus = {
-		id = KOR_bank_note
-		icon = GFX_focus_mex_privatisation
-		prerequisite = { focus = KOR_national_bank }
-		relative_position_id = KOR_national_bank
-		x = 0
-		y = 1
-		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
-		cost = 14
-		available = {
-			has_government = fascism
-			or = {
-				is_puppet_of = JAP
-				is_in_faction_with = JAP
-			}
-		}
-		completion_reward = {
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = infantry_equipment
-				seller_tags = { JAP }
-			}
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = infantry_uniforms
-				seller_tags = { JAP }
-			}
-			add_equipment_subsidy = {
-				cic = 300
-				equipment_type = motorized_AC_equipment
-				seller_tags = { JAP }
-			}
-			add_equipment_subsidy = {
-				cic = 300
-				equipment_type = trm_tankette_tank_chassis
-				seller_tags = { JAP }
-			}
-		}
-		ai_will_do = {
-			factor = 100
-		}
-	}
-
-	#兴南化肥联合企业
-	focus = {
-		id = KOR_xin_nan_farm_factory
-		icon = GFX_goal_generic_farming
-		prerequisite = { focus = KOR_JAP_office_governor }
-		relative_position_id = KOR_JAP_office_governor
-		x = -1
-		y = 1
-		search_filters = {FOCUS_FILTER_INFRASTRUCTURE}
-		cost = 60
-		available_if_capitulated = no
-		available = {
-			527 = { is_controlled_by = ROOT }
-		}
-		completion_reward = {
-			527 = {
-				add_building_construction = {
-					type = farm
-					level = 2
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 2
-			}
-		}
-		ai_will_do = {
-			factor = 5
-		}
-	}
 	#建造炼钢厂
 	focus = {
 		id = KOR_extra_steel_refinery
 		icon = GFX_IRE_heavy_industry
-		prerequisite = { focus = KOR_xin_nan_farm_factory }
+		prerequisite = { focus = KOR_sov_mineral_development }
 		search_filters = {FOCUS_FILTER_INDUSTRY}
-		relative_position_id = KOR_xin_nan_farm_factory
+		relative_position_id = KOR_sov_mineral_development
 		x = 0
 		y = 1
 		cost = 60
@@ -2454,414 +2454,425 @@ focus_tree = {
 		}
 	}
 
-	#重视工业
+##################################################日本线####################################################
+	#朝鲜总督府
 	focus = {
-		id = KOR_industrial_effort
-		icon = GFX_goal_generic_production
-		prerequisite = { focus = KOR_JAP_office_governor }
-		relative_position_id = KOR_national_bank
-		search_filters = {FOCUS_FILTER_INDUSTRY}
-		x = 4
+		id = KOR_JAP_office_governor
+		icon = GFX_focus_ARG_strengthening_the_concordancia
+		search_filters = { FOCUS_FILTER_INFRASTRUCTURE }
+		x = 1
 		y = 0
-		cost = 60 # Previously was: 35.0 
-		available_if_capitulated = no
-		completion_reward = {
-			add_tech_bonus = {
-				name = industrial_bonus
-				bonus = 0.25
-				uses = 1
-				category = industry
-			}
-		}
-		ai_will_do = {
-			factor = 5
-		}
-	}
-	#重视建设I
-	focus = {
-		id = KOR_construction_effort
-		icon = GFX_focus_generic_industry_2
-		prerequisite = { focus = KOR_industrial_effort }
-		search_filters = {FOCUS_FILTER_INDUSTRY}
-		relative_position_id = KOR_industrial_effort
-		x = 0
-		y = 1
-		cost = 60 # Previously was: 70.0 
-		available_if_capitulated = no
-		complete_tooltip = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}			
-		}
-		completion_reward = {
-			focus_add_industrial_complex_prioritize_home_area = yes
-		}
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				factor = 0
-				has_government = fascism
-			}
-		}
-	}
-	#重视建设II
-	focus = {
-		id = KOR_construction_effort_2
-		icon = GFX_focus_generic_industry_3
-		prerequisite = { focus = KOR_construction_effort }
-		search_filters = {FOCUS_FILTER_INDUSTRY}
-		relative_position_id = KOR_construction_effort
-		x = 0
-		y = 1
-		cost = 60 # Previously was: 70.0 
-		available_if_capitulated = no
+		cost = 30
 		available = {
-			if = {
-				limit = {
-					is_ai = yes
-				}
-				num_of_factories > 10
-			}
-		}
-		complete_tooltip = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-		}		
-		completion_reward = {
-			focus_add_industrial_complex_prioritize_home_area = yes
-		}
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				factor = 0
-				has_government = fascism
-			}
-		}
-	}
-	#重视建设III
-	focus = {
-		id = KOR_construction_effort_3
-		icon = GFX_goal_generic_construct_civ_factory
-		prerequisite = { focus = KOR_construction_effort_2 }
-		search_filters = {FOCUS_FILTER_INDUSTRY}
-		relative_position_id = KOR_construction_effort_2
-		x = 0
-		y = 1
-		cost = 60 # Previously was: 70.0 
-		available_if_capitulated = no
-		available = {
-			if = {
-				limit = {
-					is_ai = yes
-				}
-				num_of_factories > 13
-			}
-		}
-		complete_tooltip = {
-			add_extra_state_shared_building_slots = 2
-			add_building_construction = {
-				type = industrial_complex
-				level = 2
-				instant_build = yes
-			}
+			525 = { is_controlled_by = ROOT }
 		}
 		completion_reward = {
-			set_temp_variable = { add = 2 }
-			focus_add_industrial_complex_prioritize_home_area = yes
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			depression_improves = yes
 		}
 		ai_will_do = {
-			factor = 5
-			modifier = {
-				factor = 0
-				has_government = fascism
-			}
+			factor = 100
 		}
 	}
-
-	#开发新领土
+	#兴南化肥联合企业
 	focus = {
-		id = KOR_generic_land_development
-		icon = GFX_goal_generic_construction
+		id = KOR_xin_nan_farm_factory
+		icon = GFX_goal_generic_farming
 		prerequisite = { focus = KOR_JAP_office_governor }
-		search_filters = { FOCUS_FILTER_INDUSTRY }
 		relative_position_id = KOR_JAP_office_governor
-		x = 3
+		x = 1
 		y = 1
+		search_filters = {FOCUS_FILTER_INFRASTRUCTURE}
 		cost = 60
 		available_if_capitulated = no
-		complete_tooltip = {
-			add_extra_state_shared_building_slots = 1
-			add_extra_state_shared_building_slots = 2
-		}		
+		available = {
+			527 = { is_controlled_by = ROOT }
+		}
 		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 0
-						include_locked = yes
-					}
-					OR = {
-						is_in_home_area = yes
-						NOT = {
-							owner = {
-								any_owned_state = {
-									free_building_slots = {
-										building = arms_factory
-										size > 0
-										include_locked = yes
-									}
-									is_in_home_area = yes
-								}
-							}
-						}
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 0
-						include_locked = yes
-					}
-					OR = {
-						is_in_home_area = yes
-						NOT = {
-							owner = {
-								any_owned_state = {
-									free_building_slots = {
-										building = arms_factory
-										size > 0
-										include_locked = yes
-									}
-									is_in_home_area = yes
-								}
-							}
-						}
-					}
+			527 = {
+				add_building_construction = {
+					type = farm
+					level = 2
+					instant_build = yes
 				}
 				add_extra_state_shared_building_slots = 2
 			}
 		}
 		ai_will_do = {
 			factor = 5
-			modifier = {
-				factor = 0
-				has_government = fascism
-			}
-		}
-	}
-	#重视基建
-	focus = {
-		id = KOR_infrastructure_effort
-		icon = GFX_goal_generic_construct_infrastructure
-		prerequisite = { focus = KOR_generic_land_development }
-		relative_position_id = KOR_generic_land_development
-		search_filters = {FOCUS_FILTER_INFRASTRUCTURE}
-		x = 0
-		y = 1
-		cost = 60
-		available_if_capitulated = no
-		complete_tooltip = {
-			add_building_construction = {
-				type = infrastructure
-				level = 1
-				instant_build = yes
-			}
-			add_building_construction = {
-				type = infrastructure
-				level = 1
-				instant_build = yes
-			}
-		}
-		completion_reward = {
-			focus_add_infrastructure_prioritize_home_area = yes
-			focus_add_infrastructure_prioritize_home_area = yes
-		}
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				factor = 0
-				has_government = fascism
-			}
-		}
-	}
-	#重视基建II
-	focus = {
-		id = KOR_infrastructure_effort_2
-		icon = GFX_goal_generic_construct_infrastructure
-		prerequisite = { focus = KOR_infrastructure_effort }
-		search_filters = {FOCUS_FILTER_INFRASTRUCTURE}
-		relative_position_id = KOR_infrastructure_effort
-		x = 0
-		y = 1
-		cost = 60
-		available_if_capitulated = no
-		complete_tooltip = {
-			add_building_construction = {
-				type = infrastructure
-				level = 1
-				instant_build = yes
-			}
-			add_building_construction = {
-				type = infrastructure
-				level = 2
-				instant_build = yes
-			}
-		}
-		completion_reward = {
-			set_temp_variable = { add = 1 }
-			focus_add_infrastructure_prioritize_home_area = yes
-			set_temp_variable = { add = 2 }
-			focus_add_infrastructure_prioritize_home_area = yes
-		}
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				factor = 0
-				has_government = fascism
-			}
 		}
 	}
 
-###############################################################################################################
-	#重视海军
+	#朝鲜银行
 	focus = {
-		id = KOR_naval_effort
-		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 2
-		y = 8
-		cost = 60 
-		search_filters = {FOCUS_FILTER_NAVY}
-		available_if_capitulated = no
-		available = {
-			has_country_flag = coastal_state
+		id = KOR_national_bank
+		icon = GFX_focus_PER_national_bank
+		prerequisite = { focus = KOR_JAP_office_governor }
+		relative_position_id = KOR_JAP_office_governor
+		x = -1
+		y = 1
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		cost = 14
+		completion_reward = {
+			add_ideas = KOR_bank
 		}
-		complete_tooltip = {
-			navy_experience = 25
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = dockyard
-				level = 1
-				instant_build = yes
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	#朝鲜银行券
+	focus = {
+		id = KOR_bank_note
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = KOR_national_bank }
+		relative_position_id = KOR_national_bank
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
+		cost = 14
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
 			}
 		}
 		completion_reward = {
-			navy_experience = 25
-			focus_add_dockyard_prioritize_home_area = yes		
+			add_equipment_subsidy = {
+				cic = 500
+				equipment_type = infantry_equipment
+				seller_tags = { JAP }
+			}
+			add_equipment_subsidy = {
+				cic = 500
+				equipment_type = infantry_uniforms
+				seller_tags = { JAP }
+			}
+			add_equipment_subsidy = {
+				cic = 300
+				equipment_type = motorized_AC_equipment
+				seller_tags = { JAP }
+			}
+			add_equipment_subsidy = {
+				cic = 300
+				equipment_type = trm_tankette_tank_chassis
+				seller_tags = { JAP }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	#在平壤组建宪兵部队
+	focus = {
+		id = KOR_jap_military_police_army_01
+		icon = GFX_goal_reinforce_the_gendarmerie
+		prerequisite = { focus = KOR_bank_note }
+		relative_position_id = KOR_bank_note
+		x = 0
+		y = 1
+		search_filters = {FOCUS_FILTER_ARMY}	
+		cost = 30
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
+		completion_reward = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.02
+			}
+			KOR_create_JAP_MP_army_div = yes
+		}
+		ai_will_do = {
+			factor = 70
+		}
+	}
+	#在京城组建宪兵部队
+	focus = {
+		id = KOR_jap_military_police_army_02
+		icon = GFX_goal_reinforce_the_gendarmerie
+		prerequisite = { focus = KOR_bank_note }
+		relative_position_id = KOR_jap_military_police_army_01
+		x = 2
+		y = 0
+		search_filters = {FOCUS_FILTER_ARMY}	
+		cost = 30
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
+		completion_reward = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.02
+			}
+			KOR_create_JAP_MP_army_div = yes
 		}
 		ai_will_do = {
 			factor = 60
-			modifier = {
-				factor = 0
-				OR = {
-					NOT = { has_country_flag = coastal_state }
-					num_of_naval_factories < 1
-					has_government = fascism
-				}
-			}
 		}
 	}
-	#灵活舰队
+	#在仁川组建宪兵部队
 	focus = {
-		id = KOR_flexible_navy
-		icon = GFX_goal_generic_build_navy
-		prerequisite = { focus = KOR_naval_effort }
-		mutually_exclusive = { focus = KOR_large_navy }
-		search_filters = {FOCUS_FILTER_NAVY}
-		relative_position_id = KOR_naval_effort
+		id = KOR_jap_military_police_army_03
+		icon = GFX_goal_reinforce_the_gendarmerie
+		prerequisite = { focus = KOR_bank_note }
+		relative_position_id = KOR_jap_military_police_army_02
+		x = 2
+		y = 0
+		search_filters = {FOCUS_FILTER_ARMY}	
+		cost = 30
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
+		completion_reward = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.02
+			}
+			KOR_create_JAP_MP_army_div = yes
+		}
+		ai_will_do = {
+			factor = 60
+		}
+	}
+	#在釜山组建宪兵部队
+	focus = {
+		id = KOR_jap_military_police_army_04
+		icon = GFX_goal_reinforce_the_gendarmerie
+		prerequisite = { focus = KOR_bank_note }
+		relative_position_id = KOR_jap_military_police_army_03
+		x = 2
+		y = 0
+		search_filters = {FOCUS_FILTER_ARMY}	
+		cost = 30
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
+		completion_reward = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.02
+			}
+			KOR_create_JAP_MP_army_div = yes
+		}
+		ai_will_do = {
+			factor = 60
+		}
+	}
+
+	#国民精神总动员
+	focus = {
+		id = KOR_army_effort
+		icon = GFX_focus_MonumentalBanzai
+		search_filters = {FOCUS_FILTER_ARMY}
+		x = 5
+		y = 0
+		cost = 30
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
+		completion_reward = {
+			army_experience = 25
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.03
+			}
+		}
+		ai_will_do = {
+			factor = 70
+		}
+	}
+	#在惠山征召部队
+	focus = {
+		id = KOR_jap_garrison_army_01
+		icon = GFX_goal_infantry_tactics
+		prerequisite = { focus = KOR_army_effort }
+		relative_position_id = KOR_army_effort
 		x = -1
 		y = 1
-		cost = 60
-		available_if_capitulated = no
-		completion_reward = {
-			add_tech_bonus = {
-				name = sub_op_bonus
-				bonus = 0.2
-				uses = 2
-				category = naval_doctrine_submarine
+		search_filters = {FOCUS_FILTER_ARMY}	
+		cost = 14
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
 			}
+		}
+		completion_reward = {
+			add_manpower = -3000
+			add_stability = -0.01 #稳定度-1%
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.01
+			}
+			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 55
-			modifier = {
-				factor = 0
-				OR = {
-					NOT = { has_country_flag = coastal_state }
-					num_of_naval_factories < 1
-					has_government = fascism
-				}
-			}
+			factor = 70
 		}
 	}
-	#大规模的海军
+	#在南浦征召部队
 	focus = {
-		id = KOR_large_navy
-		icon = GFX_goal_generic_navy_doctrines_tactics
-		prerequisite = { focus = KOR_naval_effort }
-		mutually_exclusive = { focus = KOR_flexible_navy }
-		search_filters = {FOCUS_FILTER_NAVY}
-		relative_position_id = KOR_naval_effort
-		x = 1
+		id = KOR_jap_garrison_army_05
+		icon = GFX_goal_infantry_tactics
+		prerequisite = { focus = KOR_army_effort }
+		relative_position_id = KOR_jap_garrison_army_01
+		x = 2
+		y = 0
+		search_filters = {FOCUS_FILTER_ARMY}	
+		cost = 14
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
+		completion_reward = {
+			add_manpower = -3000
+			add_stability = -0.01 #稳定度-1%
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.01
+			}
+			KOR_create_JAP_partisan_army_div = yes
+		}
+		ai_will_do = {
+			factor = 60
+		}
+	}
+	#在普天堡征召部队
+	focus = {
+		id = KOR_jap_garrison_army_02
+		icon = GFX_goal_infantry_tactics
+		prerequisite = { focus = KOR_jap_garrison_army_01 }
+		relative_position_id = KOR_jap_garrison_army_01
+		x = -1
 		y = 1
-		cost = 60
-		available_if_capitulated = no
-		completion_reward = {
-			add_tech_bonus = {
-				name = fleet_in_being_bonus
-				bonus = 0.2
-				uses = 2
-				category = naval_doctrine_capital
-				category = naval_doctrine_cruiser
+		search_filters = {FOCUS_FILTER_ARMY}	
+		cost = 14
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
 			}
+		}
+		completion_reward = {
+			add_manpower = -3000
+			add_stability = -0.01 #稳定度-1%
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.01
+			}
+			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				OR = {
-					NOT = { has_country_flag = coastal_state }
-					num_of_naval_factories < 1
-					has_government = fascism
-				}
-			}
+			factor = 70
 		}
 	}
-	#海军研究
+	#在元山征召部队
 	focus = {
-		id = KOR_naval_research
-		icon = GFX_focus_generic_navy_research_bonus
-		prerequisite = { focus = KOR_flexible_navy focus = KOR_large_navy }
-		search_filters = {FOCUS_FILTER_RESEARCH}
-		relative_position_id = KOR_naval_effort
+		id = KOR_jap_garrison_army_03
+		icon = GFX_goal_infantry_tactics
+		prerequisite = { focus = KOR_army_effort }
+		relative_position_id = KOR_army_effort
 		x = 0
 		y = 2
-		cost = 90
+		search_filters = {FOCUS_FILTER_ARMY}	
+		cost = 14
 		available = {
-			num_of_naval_factories > 10
-		}
-		available_if_capitulated = no
-		completion_reward = {
-			add_research_slot = 1
-			add_research_centre = yes
-			SLOT:naval_folder = yes	
-			SLOT:naval_techs_folder = yes
-		}
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				factor = 0
-				has_government = fascism
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
 			}
 		}
+		completion_reward = {
+			add_manpower = -3000
+			add_stability = -0.01 #稳定度-1%
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.01
+			}
+			KOR_create_JAP_partisan_army_div = yes
+		}
+		ai_will_do = {
+			factor = 60
+		}
 	}
+	#在兴南征召部队
+	focus = {
+		id = KOR_jap_garrison_army_04
+		icon = GFX_goal_infantry_tactics
+		prerequisite = { focus = KOR_jap_garrison_army_05 }
+		relative_position_id = KOR_jap_garrison_army_03
+		x = 2
+		y = 0
+		search_filters = {FOCUS_FILTER_ARMY}	
+		cost = 14
+		available = {
+			has_government = fascism
+			or = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
+		completion_reward = {
+			add_manpower = -3000
+			add_stability = -0.01 #稳定度-1%
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.01
+			}
+			KOR_create_JAP_partisan_army_div = yes
+		}
+		ai_will_do = {
+			factor = 60
+		}
+	}
+
 }

@@ -1,9 +1,44 @@
 ﻿l_english:
- KOR_communism.1.t:0 "The Fatherland Restoration Association Is Officially Established"
- KOR_communism.1.d:0 "The Fatherland Restoration Association, led by General Kim Il-sung, did not represent the interests of any single class or social stratum. Instead, it upheld the concrete demands and interests of the entire people. Under the chairmanship of General Kim Il-sung, the Association brought together many well-known patriotic revolutionaries, including Kim Chaek and Choe Yong-gon. Although these communists and patriotic figures differed in political positions and ideological views, they united in their common goal: to overthrow the rule of their shared enemy—Japanese imperialism—and to establish an independent national state for their homeland.\n\nBy organizing the masses, the Fatherland Restoration Association became the foundation of the armed guerrilla struggle led by General Kim Il-sung, delivering heavy blows against the bandit-like Japanese imperialists until the very end. From its first day, this anti-Japanese national united front unfolded in brutal struggle against the enemy. As a result of Japan’s so-called 'pacification campaigns,' tens of thousands of Association members and patriots were arrested, imprisoned, or killed.\n\nAlongside the expansion of the organization and the intensification of armed resistance, extensive propaganda efforts were carried out to awaken national consciousness and patriotic spirit among the people. The Fatherland Restoration Association secretly published its own journals, including the monthly 'Sam-il' and 'Hwatyeonmin' (an underground publication within Korea), as well as numerous pamphlets and leaflets distributed through mimeograph printing, forming a powerful propaganda campaign."
- KOR_communism.1.a:0 "Long Live General Kim Il-sung!"
 
- KOR_communism.2.t:0 "The Battle of Pochonbo Breaks Out"
- KOR_communism.2.d:0 "On June 4, 1937, under the direct command of Kim Il-sung, the Korean People's Revolutionary Army broke through the blockade along the Sino–Korean border and entered Pochonbo, located on the banks of the Yalu River in northern Ryanggang Province. The force attacked and burned Japanese colonial police stations, administrative offices, forestry management offices, and agricultural experiment stations, destroying enemy units and capturing large quantities of military supplies, weapons, and ammunition. Documents and propaganda materials issued by the Fatherland Restoration Association—including the 'Ten-Point Program' and the 'Appeal to the Korean People'—were posted throughout the streets of Pochonbo.\n\nKim Il-sung addressed the population, calling on all anti-Japanese patriotic forces to unite in the struggle to liberate the homeland and resist Japanese imperialism. His speech left a profound impression on the local populace."
- KOR_communism.2.a:0 "General, March South!"
- KOR_communism.2.b:0 "Perhaps Not Yet"
+###################################### Republic of Korea #####################################
+
+KOR_neutrality.1.t:0 "Formation of the United Korean Liberation Front"
+KOR_neutrality.1.d:0 "Led by Kim Ku, nine right-wing organizations including the Korean National Party, the Korean Independence Party, the Korean Revolutionary Party, and the Korean Comrades Association established the “United Korean Liberation Movement Council” in Nanjing, commonly referred to as the Liberation Front. Several months later, left-wing groups led by Kim Won-bong—including the Korean National Revolutionary Party, the Korean National Liberation League, and the League of Korean Revolutionaries—formed the “Korean National Front Alliance” in Wuhan, known as the National Front. Gathering intelligence behind enemy lines and promoting resistance among overseas Korean communities became the most fundamental tasks of the Provisional Government. Meanwhile, organizing armed forces to fight directly on the battlefield was also placed on the agenda."
+KOR_neutrality.1.a:0 "We will resist to the end"
+
+KOR_neutrality.2.t:0 "Officials of the Provisional Government Begin Evacuation"
+KOR_neutrality.2.d:0 "We must ensure that the leaders and key members of the Korean Provisional Government can safely evacuate to Chinese territory, so that they may continue to lead the anti-Japanese struggle in the future."
+KOR_neutrality.2.a:0 "We shall return"
+KOR_neutrality.2.b:0 "Forget it"
+
+KOR_neutrality.3.t:0 "[KOR.GetLeader] Requests to Establish [KOR.GetNameDefCap] in Hangzhou"
+KOR_neutrality.3.d:0 "After losing all core territories on the Korean Peninsula, [KOR.GetLeader] decided to remain in China and establish [KOR.GetNameDefCap]. He has requested Chiang Kai-shek’s permission to use Hangzhou as a temporary base, and to accept unified command under the National Revolutionary Army of the Republic of China in order to jointly resist foreign aggression."
+KOR_neutrality.3.a:0 "Agree"
+KOR_neutrality.3.b:0 "Refuse"
+
+KOR_neutrality.4.t:0 "[CHI.GetNameDefCap] Agrees to Receive [KOR.GetNameDefCap]"
+KOR_neutrality.4.d:0 "[CHI.GetLeader] has agreed to [KOR.GetLeader]'s request, allowing [KOR.GetNameDefCap] to establish a provisional authority on [CHI.GetName] territory. From now on, both sides will unite to resist [JAP.GetNameDefCap]."
+KOR_neutrality.4.a:0 "Long live Generalissimo Chiang!"
+KOR_neutrality.4.b:0 "Let them be"
+
+KOR_neutrality.5.t:0 "Guidelines for Assisting the Korean Restoration Movement"
+KOR_neutrality.5.d:0 "In order to strengthen assistance to Korea, in July 1942 the Military Affairs Commission drafted the “Guidelines for the Assistance and Utilization of Korean Revolutionary Forces in China,” consisting of three sections and fifteen articles. The proposal stated that assistance to Korean revolutionary forces in China should be carried out with “enthusiastic, magnanimous, and impartial support”; that “in utilizing multiple parties, one should not insist on a single party and must enable cooperation among them”; and that “the Korean Provisional Government should be enabled to lead all parties, implement democratic politics, and avoid monopolization by a single party,” while “considering international circumstances and recognizing it at an appropriate time.” On August 1, the Central Assistance-to-Korea Group held its first meeting, deciding: (1) in principle to recognize the Korean Provisional Government before other nations, timing to be determined by the government; (2) before formal recognition, only one organization could be acknowledged as counterpart; (3) loans to Korean revolutionary forces in China would be handled by the Party under principles of magnanimity and freedom. Subsequent meetings determined that political and administrative coordination would be overseen by the Party’s Secretariat, recognition timing would be decided by Chiang, and one million yuan would be allocated to support Korean revolutionary forces."
+KOR_neutrality.5.a:0 "Long live the Generalissimo"
+KOR_neutrality.5.b:0 "Excellent"
+KOR_neutrality.5.c:0 "A rabble"
+
+KOR_neutrality.7.t:0 "Operation Flying Eagle"
+KOR_neutrality.7.d:0 "The Korean Peninsula infiltration plan “Operation Flying Eagle,” jointly advanced by the Provisional Government of the Republic of Korea and the U.S. Office of Strategic Services (OSS), has been approved by U.S. Headquarters in China. Over eight months, 45 Korean university students proficient in English will be selected as agents. Assigned to intelligence or communications teams, they will receive OSS training in wireless communication, espionage, explosives, cliff climbing, and marksmanship. They will then be deployed to one of five cities in Korea—Chongjin, Sinuiju, Busan, Pyongyang, or Seoul—to conduct intelligence operations, sabotage Japanese activities, and incite unrest."
+KOR_neutrality.7.a:0 "We will cooperate with [USA.GetNameDefCap]"
+KOR_neutrality.7.b:0 "We will cooperate with [KOR.GetNameDefCap]"
+
+################################# Democratic People's Republic of Korea #################################
+
+KOR_communism.1.t:0 "The Association for the Restoration of the Fatherland Is Officially Established"
+KOR_communism.1.d:0 "Led by General Kim Il-sung, the Association for the Restoration of the Fatherland did not represent the interests of any single class or stratum, but upheld the genuine demands and interests of the entire people. Under Kim Il-sung’s chairmanship, it brought together many prominent patriots and revolutionaries, including Kim Chaek and Choe Yong-gon. Despite differences in political stance and ideology, these communists and patriots united to overthrow their common enemy—Japanese imperialism—and establish national independence. Through mass organization, the Association became the foundation of Kim Il-sung’s anti-Japanese guerrilla struggle, striking severe blows against Japanese imperialism until the very end. Due to Japanese “pacification” campaigns, tens of thousands of members were arrested or sacrificed. Alongside its development, the Association conducted vigorous propaganda to inspire anti-Japanese consciousness and patriotism, secretly publishing journals such as the “March First” monthly and “Hwat’ae Min,” as well as numerous pamphlets and leaflets."
+KOR_communism.1.a:0 "Long live General Kim Il-sung!"
+
+KOR_communism.2.t:0 "The Battle of Pochonbo"
+KOR_communism.2.d:0 "On June 4, 1937, under Kim Il-sung’s direct command, the Korean People’s Revolutionary Army broke through the Sino-Korean border blockade and entered Pochonbo on the Yalu River in northern Ryanggang Province. They attacked and burned Japanese colonial police stations, offices, forestry stations, and agricultural experimental sites, eliminating numerous enemies and capturing large quantities of military supplies and ammunition. The Association’s “Ten-Point Program” and “Appeal to the Korean People” were posted throughout the town. Kim Il-sung delivered a speech calling on all anti-Japanese patriotic forces to unite for national liberation and struggle against Japanese imperialism, leaving a profound impression on the populace."
+KOR_communism.2.a:0 "General, march south!"
+KOR_communism.2.b:0 "Forget it"

@@ -4,11 +4,16 @@ spriteTypes = {
 		name = "GFX_KOR_CHI_political_reform"
 		texturefile = "gfx/interface/goals/KOR_CHI_political_reform.dds"			
 	}	
-	#控制北方领土
+	#北方朝鲜共产党
 	SpriteType = {
-		name = "GFX_KOR_controlled_north_front_line"
-		texturefile = "gfx/interface/goals/KOR_controlled_north_front_line.dds"			
-	}	
+		name = "GFX_KOR_north_communism"
+		texturefile = "gfx/interface/goals/KOR_north_communism.dds"			
+	}
+	#南方朝鲜共产党
+	SpriteType = {
+		name = "GFX_KOR_south_communism"
+		texturefile = "gfx/interface/goals/KOR_south_communism.dds"			
+	}
 	#半岛要员撤离行动
 	SpriteType = {
 		name = "GFX_KOR_peninsula_evacuation_operation"

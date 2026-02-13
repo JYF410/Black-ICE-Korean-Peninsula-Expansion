@@ -1,11 +1,32 @@
 ﻿l_english:
- KOR_Japan_Korea_Reconquista:5 "Korean Independence Movement"
- KOR_communist_civil_war:5 "Launch Raids on Japanese Colonial Strongholds!"
- KOR_communist_civil_war_desc:5 "In May 1936, the Korean Fatherland Restoration Association was established in Northeast China and issued the well-known Ten-Point Program for Anti-Japanese National Salvation. Thereafter, the revolutionary armed struggle of the Korean people developed rapidly. Within only a few months, the organization spread throughout Korea, with tens of thousands of members. In March 1937, Kim Il-sung convened a meeting at Xigang in Jilin, China, proposing a strategic guideline for advancing into Korea proper and formulating the operational plan for the Battle of Pochonbo."
- KOR_neutrality_civil_war:5 "The Korean Liberation Army Rises Up!"
- KOR_neutrality_civil_war_desc:5 "The Korean Liberation Army has risen in rebellion!"
- KOR_PRC_food_support:5 "Korean Food Assistance"
- KOR_PRC_food_support_desc:5 "During the War of Liberation in Northeast China, the Korean government and people provided extensive support to the Northeast Democratic United Army, particularly in terms of material supplies. Korea not only supplied large quantities of weapons, ammunition, uniforms, and medical supplies free of charge, but also delivered substantial amounts of food and other daily necessities through trade channels. This assistance played a crucial role in alleviating material shortages and sustaining the combat effectiveness of frontline forces. Korean support reflected the deep friendship and spirit of solidarity and cooperation between the two peoples, making a significant contribution to the victory of the Northeast Liberation War."
- KOR_economic_aid:5 "Territorial Development"
- KOR_sov_support_construction:5 "Land Resource Development"
- KOR_sov_mineral_development:5 "Mineral Resource Exploration"
+###################################### Republic of Korea #####################################
+
+KOR_CHI_Korea_Reconquista:5 "Republic of Korea Restoration Movement"
+KOR_CHI_Korea_Reconquista_desc:5 "In the early stages of the Korean independence movement, numerous factions emerged and regrouped over time, eventually forming two major forces: the Korean National Party led by Kim Ku and the Korean National Revolutionary Party led by Kim Won-bong. During the early years of the War of Resistance, discord between the two hindered the development of the independence movement. In 1938, Chiang Kai-shek met separately with both leaders, urging them to cooperate openly against Japan in pursuit of Korean independence. In May 1939, Kim Ku and Kim Won-bong jointly issued an 'Open Letter to Comrades and Compatriots,' calling upon all Korean parties and factions to set aside their differences and unite."
+
+KOR_neutrality_civil_war:5 "Evacuation of Korean Officials"
+KOR_neutrality_civil_war_desc:5 "The evacuation of officials from the Provisional Government of the Republic of Korea during World War II aimed to prevent their arrest and persecution by the Japanese Empire. Leaders and key members withdrew from the Korean Peninsula to China and other locations to safeguard the core of the Provisional Government, enabling it to continue leading the independence movement and seeking international recognition. These operations involved secret planning to ensure safety and maintain governmental continuity."
+
+KOR_host_country_decision_01: "Request [CHI.GetLeader]'s Permission to Establish [KOR.GetNameDefCap] in §YHangzhou§!"
+KOR_host_country_decision_01_desc: "With our homeland occupied, we require an overseas base to continue resistance. We must contact [CHI.GetLeader] and request permission to establish a provisional authority on [CHI.GetNameDefCap] territory."
+
+KOR_neutrality_host_country_decision_completed: "[CHI.GetLeader] Has Accepted Our Request"
+KOR_CHI_move_to_hangzhou:5 "Relocate the Provisional Government to Hangzhou"
+
+################################# Democratic People's Republic of Korea #################################
+
+KOR_Japan_Korea_Reconquista:5 "Korean National Restoration Movement"
+KOR_Japan_Korea_Reconquista_desc:5 "Korean National Restoration Movement"
+
+KOR_communist_civil_war:5 "Launch Raids on Japanese Colonial Outposts!"
+KOR_communist_civil_war_desc:5 "In May 1936, the Association for the Restoration of the Fatherland was established in Northeast China and proclaimed the Ten-Point Program for National Salvation. Revolutionary armed struggle expanded rapidly, and within months the organization spread across Korea with tens of thousands of members. In March 1937, Kim Il-sung convened a meeting in Xigang, Jilin, outlining the strategy for advancing into Korea and planning the attack on Pochonbo."
+
+KOR_move_capital_to_pyeongchang:5 "Move the Capital to Pyongyang"
+KOR_move_capital_to_pyeongchang_desc:5 "To better administer and direct national affairs, we have decided to relocate the capital from Hanseong to Pyongyang."
+
+KOR_PRC_food_support:5 "Korean Food Aid"
+KOR_PRC_food_support_desc:5 "During the Chinese Civil War in Northeast China, the Korean government and people provided significant support to the Northeast Democratic United Army. In addition to supplying weapons, uniforms, and medicine free of charge, Korea also delivered large quantities of grain and essential goods through trade channels. This assistance alleviated shortages and ensured frontline combat effectiveness, reflecting deep friendship and solidarity between the two peoples."
+
+KOR_economic_aid:5 "Territorial Development"
+KOR_sov_support_construction:5 "Land Resource Development"
+KOR_sov_mineral_development:5 "Mineral Resource Exploration"

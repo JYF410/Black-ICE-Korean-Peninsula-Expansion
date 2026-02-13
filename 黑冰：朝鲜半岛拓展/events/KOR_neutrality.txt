@@ -16,7 +16,7 @@ news_event = {
 	}
 }
 
-#大韩民国临时政府要员撤离行动
+#大韩民国临时政府要员撤离行动（由KOR触发）
 country_event = {
 	id = KOR_neutrality.2
 	title = KOR_neutrality.2.t
@@ -51,6 +51,8 @@ country_event = {
 					set_victory_points = { province = 7221 value = 15 } #仁川
 					set_country_flag = SOV_armor #加载苏联坦克科研
 					set_country_flag = USA_air #加载美国飞机科研
+					add_ideas = foreign_cooperative #合作主义
+					add_ideas = labor_allowed #允许女性工作
 					remove_ideas = KOR_opium_plantation #移除：朝鲜鸦片种植地
 					remove_ideas = KOR_bank #移除：朝鲜银行
 				}
@@ -69,7 +71,7 @@ country_event = {
 	}
 }
 
-#金九请求在杭州建立临时政府
+#在杭州建立临时政府（由CHI触发）
 country_event = {
 	id = KOR_neutrality.3
 	title = KOR_neutrality.3.t
@@ -82,16 +84,12 @@ country_event = {
 		name = KOR_neutrality.3.a
 		trigger = { tag = CHI }
 		CHI = {
-			596 = { transfer_state_to = KOR } #移交领土杭州给KOR
+			add_stability = 0.05 #稳定度+5%
+			add_war_support = 0.05 #战争支持度+5%
 		}
 		KOR = {
-			set_country_flag = KOR_neutrality_host_country_decision_completed #对应文件：common\decisions\korea.txt，大韩民国临时政府迁至杭州(去除领土的抵抗度)
-			set_variable = { KOR.host_nation = CHI } #标记CHI是寄主国
-			set_capital = { state = 596 } #迁都杭州
-			set_victory_points = { province = 7191 value = 50 } #杭州
-			set_victory_points = { province = 4042 value = 15 } #钱塘
+			news_event = { id = KOR_neutrality.4 } #蒋介石接受了大韩民国临时政府的请求
 		}
-		news_event = { id = KOR_neutrality.4 } #蒋介石接受了大韩民国临时政府的请求
 		ai_chance = {
 			base = 100
 		}
@@ -106,7 +104,7 @@ country_event = {
 	}
 }
 
-#蒋介石接受了大韩民国临时政府的请求
+#蒋介石接受了大韩民国临时政府的请求（由KOR触发）
 news_event = {
 	id = KOR_neutrality.4
 	title = KOR_neutrality.4.t
@@ -117,22 +115,37 @@ news_event = {
 	option = {
 		name = KOR_neutrality.4.a
 		trigger = { tag = KOR }
+		CHI = {
+			596 = { transfer_state_to = KOR } #移交领土杭州给KOR
+		}
+		KOR = {
+			set_country_flag = KOR_neutrality_host_country_decision_completed #对应文件：common\decisions\korea.txt，去除杭州抵抗度
+			set_variable = { KOR.host_nation = CHI } #标记CHI是寄主国
+			hidden_effect = {
+				set_capital = { state = 596 } #迁都杭州
+				set_victory_points = { province = 7191 value = 50 } #杭州
+				set_victory_points = { province = 4042 value = 15 } #钱塘
+			}
+		}
 		add_ideas = KOR_CHI_political_reform_hangzhou #大韩民国临时政府驻杭州领事馆
+		ai_chance = {
+			base = 500
+		}
 	}
 	option = {
-		name = KOR_neutrality.4.b
-		trigger = { tag = CHI }
-		add_stability = 0.05 #稳定度+5%
-		add_war_support = 0.05 #战争支持度+5%
-	}
-	option = {
-		name = KOR_neutrality.4.c
+		name = KOR_neutrality.3.b
 		trigger = { tag = JAP }
-		add_stability = -0.01 #稳定度-1%
+		JAP = {
+			add_stability = -0.01 #稳定度-1%
+			add_war_support = -0.01 #战争支持度-1%
+		}
+		ai_chance = {
+			base = 100
+		}
 	}
 }
 
-#扶助朝鲜复国运动指导方案
+#扶助朝鲜指导方案
 news_event = {
 	id = KOR_neutrality.5
 	title = KOR_neutrality.5.t
@@ -163,14 +176,26 @@ news_event = {
 	is_triggered_only = yes
 	option = {
 		name = KOR_neutrality.7.a
-		trigger = {
-			tag = KOR
+		trigger = { tag = KOR }
+		create_operative_leader = {
+			name = "威廉·约瑟夫·多诺万"
+			GFX = GFX_KOR_William_Joseph_Donovan
+			traits = { operative_commando operative_infiltrator }
+			bypass_recruitment = no
+			available_to_spy_master = yes
+			female = no
+			nationalities = { USA }
+			skill = 2
+		}
+		ai_chance = {
+			base = 500
 		}
 	}
 	option = {
-		name = KOR_neutrality.7.a
-		trigger = {
-			tag = USA
+		name = KOR_neutrality.7.b
+		trigger = { tag = USA }
+		ai_chance = {
+			base = 500
 		}
 	}
 }

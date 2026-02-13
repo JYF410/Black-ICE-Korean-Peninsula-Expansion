@@ -1,129 +1,185 @@
 ﻿l_english:
 
- KOR_Japan_Korea_Annexation_Treaty:5 "Korean Peninsula Independence Movement"
- KOR_Japan_Korea_Annexation_Treaty_desc:5 "On August 22, 1910, under Japanese military угрозes, Japan’s Resident‑General of Korea, Terauchi Masatake, coerced Korean Prime Minister Lee Wan‑yong to sign in Hanseong (modern Seoul). Through this treaty, Japan carried out the so‑called “Japan–Korea Annexation.” After the signing, Japan renamed the Residency‑General to the Governor‑General of Korea, the highest authority for ruling Korea, controlling all state affairs. The Governor‑General answered directly to the Japanese Emperor and held legislative, judicial, and administrative power. The treaty reduced Korea to a Japanese colony and ended Korean sovereignty."
+KOR_Japan_Korea_Annexation_Treaty:5 "Korean Peninsula Independence Movement"
+KOR_Japan_Korea_Annexation_Treaty_desc:5 "On August 22, 1910, under Japanese military pressure, Terauchi Masatake, the Japanese Resident-General of Korea, coerced Korean Prime Minister Yi Wan-yong into signing the treaty in Hanseong (present-day Seoul). Through this treaty, Japan carried out the so-called “Japan–Korea Annexation.” After its signing, the Japanese Residency-General was renamed the Government-General of Korea, becoming the supreme authority governing the peninsula. The Governor-General, directly appointed by the Emperor of Japan, controlled legislative, judicial, and administrative powers. The treaty reduced Korea to a full Japanese colony and marked the loss of national sovereignty."
 
-################################################## Republic of China Path ####################################################
- KOR_CHI_restoration_movement:5 "“Guidelines for Assisting the Korean National Restoration Movement”"
- KOR_CHI_restoration_movement_desc:5 "To strengthen aid to Korea, on July 20, 1942, the KMT Central Executive Committee’s Standing Committee decided to form a special group to comprehensively study assistance to Korea, appointing Dai Jitao, He Yingqin, Wang Chonghui, Chen Guofu, Zhu Jiahua, Wu Tiecheng, and Wang Shijie as members, with Wu Tiecheng and Wang Chonghui as conveners. In the same month, the Military Affairs Commission was ordered to draft the “Guidelines for Assisting and Utilizing Korean Revolutionary Forces in China,” consisting of 3 sections and 15 articles.\nFor Korean independence activists, beyond moral support, China also provided extensive financial assistance. For requests from parties led by Kim Koo, Kim Yak‑san, and the Provisional Government of Korea, China was almost always accommodating. At times, Chiang Kai‑shek even specifically instructed: “No need to audit, to avoid injuring their self‑respect.”"
- KOR_CHI_political_reform:5 "Korean Provisional Government Delegation in China"
- KOR_CHI_political_reform_desc:5 "Dispatch a delegation to China to establish diplomatic ties with the Republic of China, seeking international recognition and support."
- KOR_CHI_civilwar:5 "Outbreak of Conflict (TBD)"
- KOR_CHI_civilwar_desc:5 "Outbreak of Conflict (TBD)"
- Korean_Liberation_Army:5 "Korean Liberation Army"
- Korean_Liberation_Army_desc:5 "The Korean Liberation Army was an anti‑Japanese restoration force established by the Provisional Government of the Republic of Korea in Chongqing on September 17, 1940, initially with about 300 members. Its first commander‑in‑chief was Lee Cheong‑cheon. The force was directly under the Military Affairs Commission of the Nationalist Government and carried five core tasks: intelligence gathering, enemy‑rear propaganda, persuasion of Japanese troops to defect, and more. In 1942 it merged with the Korean Volunteer Army and expanded into a six‑tier structure. While in China, it participated in the main Chinese fronts and the China–Burma–India theater. By 1945 it had grown to nearly 2,000 members, many of whom later became core figures in building the Republic of Korea’s government and armed forces."
+################################################## Republic of China Branch ##################################################
 
-################################################### Korean History Path ##################################################
- KOR_restore_society:5 "Patriotic Restoration Association"
- KOR_restore_society_desc:5 "The Patriotic Restoration Association was the first permanent anti‑Japanese national united front on the Korean Peninsula and a powerful underground revolutionary organization. Its founder and leader was Kim Il‑sung. It was established in Northeast China, with its network and subordinate groups spread across the Korean Peninsula and large parts of Northeast China, and even in Japan. The organization and its branches steadily carried out armed anti‑Japanese संघर्ष in various ways."
- KOR_front_against_Japan:5 "Korean National Front Alliance"
- KOR_front_against_Japan_desc:5 "In October 1937, to defeat Japanese imperialism, a national united front was formed in China by four groups with different beliefs and guiding ideologies: the Korean National Revolutionary Party (nationalist group), the Korean National Liberation League (communist group), the Korean Youth Vanguard League (Marxist‑guided group), and the League of Korean Revolutionaries (anarchist group). They formed the “Korean National Front Alliance.” As the war situation worsened, in February 1938 Japan promulgated the “Korean Conscription Ordinance” and established “Korean Conscription Special Training Centers” in Beiping and Tianjin, forcibly recruiting Koreans in occupied North China to form “security corps” and “resident corps” in major cities of the occupied zones, turning them into cannon fodder for its war of aggression. This further enraged the Korean people, and the Korean Volunteer Corps gradually formed."
- KOR_SOV_northeast_anti_japanese_guerrillas:5 "Northeast Anti‑Japanese United Army Training Brigade"
- KOR_Northeast_Anti_Japanese_Army:5 "A well‑trained unit has appeared in [ROOT.GetAdjective] territory: §H88th Separate Special Infantry Brigade of the Soviet Far Eastern Army§!"
- KOR_SOV_northeast_anti_japanese_guerrillas_desc:5 "In 1942, Anti‑Japanese United Army units that had retreated into the USSR were reorganized into the Northeast Anti‑Japanese United Army Training Brigade (the Soviet internal designation: 88th Separate Infantry Brigade of the Far Eastern Red Banner Army), stationed near Vyatsk. The unit comprised four infantry battalions and one radio battalion, with command led by Brigade Commander Zhou Baozhong, Political Deputy Brigade Commander Li Zhaolin, and Soviet liaison officer Wang Xinlin, among others.\nKim Il‑sung served as commander of the 1st Battalion. This unit was the seed of the Northeast Anti‑Japanese United Army and China’s first special forces using Soviet equipment — an armed special operations force. Over the following years, it repeatedly crossed the border to conduct raids, sabotage, and reconnaissance, demonstrating the presence of Chinese resistance in the Northeast.\nAfter entering the USSR, Kim Il‑sung also led multiple incursions, including missions to search for Wei Zhengmin (returning after confirmation of Wei’s death). In August 1945, when the Allies launched a full offensive against the Kwantung Army in the Northeast, the brigade’s soldiers took part; Kim Il‑sung later received the Soviet Order of the Red Banner for his anti‑Japanese service."
- KOR_communism_army_where_to_go:5 "Which Way Should Our Army Go?"
- KOR_communism_army_where_to_go_desc:5 "It is time to consider who our red ally should be."
- KOR_plan_strike_jap:5 "Return from the Soviet Union to the Northeast"
- KOR_plan_strike_jap_desc:5 "To prepare for the army’s return, we must coordinate with the Soviets and secure their support."
- KOR_solid_front_line:5 "Stabilize the Front"
- KOR_solid_front_line_desc:5 "No one wants to be displaced again. We decide to resist the enemy on our own land to the end."
- KOR_controlled_north_front_line:5 "Controlled North Front Line"
- KOR_controlled_north_front_line_desc:5 "We decide to firmly control the northern front line of Korea."
+KOR_CHI_Restoration_Front:5 "Form the United Korean Liberation Front"
+KOR_CHI_Restoration_Front_desc:5 "In August 1937, Kim Ku led the Korean National Party, along with the Korean Revolutionary Party, the Korean Independence Party, and other groups, to establish the United Korean Liberation Movement Council in Nanjing, known as the 'Liberation Front.' In November, the Korean National Revolutionary Party and other groups formed the Korean National Front Alliance. In January 1938, both factions met in Changsha to negotiate unification but failed to reach agreement. In January 1939, Chiang Kai-shek personally urged Kim Ku and Kim Won-bong to cooperate wholeheartedly against Japan and strive for Korean independence. In May, both leaders issued a joint declaration calling for unity beyond ideological and party divisions."
 
-################################################### CCP Historical Path ###################################################
- KOR_PRC_political_reform:5 "Northeast Bureau Pyongyang Office"
- KOR_PRC_political_reform_desc:5 "Considering the existence of the Soviet‑American Joint Commission and the constraints of the Yalta Agreement, the Pyongyang office used two names: internally it was called the “Northeast Bureau Office in Korea” (also called the “Pyongyang Office”), and externally it was called the “Pyongyang Liming Company.”"
- KOR_PRC_support_northeast_democratic_army:5 "Support the Northeast Democratic United Army"
- KOR_PRC_support_northeast_democratic_army_desc:5 "In the early stage of the War of Liberation, the troops often lacked weapons and ammunition. When Chen Yun and Xiao Jinguang visited Korea, they requested arms support for the PLA. Kim Il‑sung directly provided the Northeast forces with 100,000 rifles and large quantities of explosives produced by the Hungnam fertilizer plant in Hamhung. All of these were given to the Northeast forces. At that time Korea’s economy was weak, yet Kim Il‑sung still provided enough cloth to make nearly ten thousand uniforms and a truckload of medicine. The other side was sincere and considerate in every way."
- KOR_PRC_General_Federation_of_Korean_Chinese:5 "General Federation of Korean‑Chinese"
- KOR_PRC_General_Federation_of_Korean_Chinese_desc:5 "At the time, a federation of overseas Chinese in Korea also supported the homeland’s Northeast Liberation War. After victory in the War of Resistance, there were about 50–60 thousand Chinese in Korea, including over 20 thousand in northern Korea. After consultation between the CCP Central Committee and the Korean Workers’ Party Central Committee, the General Federation of Korean‑Chinese was established in Pyongyang in November 1946, with its leadership body简称 “Hualian Federation.” At the same time, branch federations were set up in provinces and counties with sizable Chinese communities; some local branches even created sub‑organizations, such as the “Overseas Chinese Children’s Corps” (founded in 1947) under the Sinuiju branch.\nThe Hualian Federation was jointly led by the Korean Workers’ Party Central Committee and the CCP Northeast Bureau Pyongyang Office. It administered provincial, city, and county federations, the Xinhua Bookstore, and its official newspaper, “Democratic Overseas Chinese.”\nIts early tasks included: internationalist and patriotic education among the overseas Chinese;宣传 the policies of the Korean party and government; educating overseas Chinese to love Korea, abide by Korean laws and policies, and actively participate in local建设;宣传 the CCP’s call to “Overthrow Chiang Kai‑shek and liberate all of China” and the favorable situation in the domestic liberation war; promoting traditional Sino‑Korean friendship and harmonious relations between overseas Chinese and the Korean people; safeguarding overseas Chinese interests and cultivating local cadres."
- KOR_PRC_trade_effort:5 "Sino‑Korean Trade Assistance"
- KOR_PRC_trade_effort_desc:5 "During the Northeast Liberation War, Korea not only provided free material assistance, but also actively engaged in trade with us. Comrade Kim Il‑sung attached great importance to Sino‑Korean trade and issued directives in the name of the Korean Provisional People’s Committee requiring all levels of the Korean authorities to assist trade with the Chinese Northeast Democratic United Army and cooperate in a friendly manner."
- KOR_Yalu_River_water_power_station:5 "Yalu River Sup’ung Hydropower Company"
- KOR_Yalu_River_water_power_station_desc:5 "Yalu River Sup’ung Hydropower Company"
+KOR_CHI_civilwar:5 "Evacuation of Peninsula Officials"
+KOR_CHI_civilwar_desc:5 "The evacuation aims to ensure that leaders and key members of the Korean Provisional Government can safely withdraw into China to continue leading the anti-Japanese struggle."
 
-################################################### CCP If Path ####################################################
- KOR_communism_army_to_prc:5 "Yan’an Faction"
- KOR_PRC_korean_corridor:5 "Establish a Sino‑Korean Trade Corridor"
- KOR_PRC_korean_corridor_desc:5 "The main tasks of the CCP Northeast Bureau Pyongyang Office were defined as: handling the withdrawal, resettlement, and transfer of strategic materials for wounded personnel from the Northeast фронт; using the Korean corridor to link Southern and Northern Manchuria, Dalian, and other base areas for material exchange; transporting人员 across the border; seeking援助 and purchasing war matériel from Korea; developing friendly cooperation between the two parties and the two peoples to促进 economic trade; and assisting the Korean Workers’ Party with overseas Chinese work."
- KOR_ethnic_korean_division:5 "PLA Korean Ethnic Division"
- KOR_ethnic_korean_division_desc:5 "PLA Korean Ethnic Division"
+KOR_CHI_political_reform:5 "Provisional Government of the Republic of Korea"
+KOR_CHI_political_reform_desc:5 "Dispatch a delegation to China to establish diplomatic relations with the Republic of China in pursuit of international recognition and support."
 
-#################################################### Soviet If Path ##################################################
- KOR_communism_army_to_sov:5 "Moscow Faction"
- KOR_sov_korean_corridor:5 "Establish a Far Eastern Military Corridor"
- KOR_sov_expand_bilateral_trade:5 "Expand Far Eastern Bilateral Trade"
- KOR_sov_military_aid_program:5 "Soviet Military Aid Program"
- KOR_sov_air_force_volunteer:5 "Soviet Air Support"
- KOR_sov_army_adviser:5 "Soviet Military Advisory Group in Korea"
- KOR_sov_pyongyang_military_academy:5 "Pyongyang Military Academy"
- KOR_sov_deep_operations_theory:5 "Deep Operations Doctrine"
- KOR_motorized_AC_division_DESC:5 "A well‑trained unit has appeared in [ROOT.GetAdjective] territory: §H1st Independent Tank Regiment of the Korean People’s Army§!."
- KOR_sov_cavalry_tank_division:5 "Fast Tank Forces"
- KOR_sov_cavalry_tank_division_DESC:5 "A well‑trained unit has appeared in [ROOT.GetAdjective] territory: §H1st Cavalry Tank Division of the Korean People’s Army§!."
- KOR_soviet_tanks:5 "Purchase Soviet Tanks"
- KOR_soviet_product_tanks:5 "License Domestic Tank Production Lines"
- KOR_joint_soviet_tank:5 "£tech_mod Joint Tank Development"
- KOR_sov_special_operations_training:5 "Special Operations Training"
- KOR_equipment_effort:5 "Prioritize Infantry Equipment"
- KOR_motorization_effort:5 "Prioritize Motorization"
- KOR_mechanization_effort:5 "Prioritize Mechanization"
+KOR_CHI_Secret_Military_Academy:5 "Special Class for the Korean Independence Army"
+KOR_CHI_Secret_Military_Academy_desc:5 "A special training class established for the Korean Independence Army."
 
- KOR_expand_pyeongchang_military_hospital:5 "Pyongyang Soviet Army General Hospital"
- KOR_sov_land_development:5 "Land Resource Development"
- KOR_sov_land_development:5 "Mineral Resource Prospecting"
+KOR_CHI_Secret_Army:5 "Korean Special Service Independence Army"
+KOR_CHI_Secret_Army_desc:5 "Korean Special Service Independence Army"
+KOR_CHI_Secret_Army_completed:5 "A well-trained unit has appeared in [ROOT.GetNameDefCap]: §HKorean Special Service Independence Army§!"
 
-################################################## Sino‑Soviet Convergence ####################################################
- KOR_air_focus:5 "Prioritize the Air Force"
- KOR_air_research:5 "Air Force Research"
- KOR_naval_effort:5 "Prioritize the Navy"
- KOR_flexible_navy:5 "Flexible Fleet"
- KOR_large_navy:5 "Large‑Scale Navy"
- KOR_naval_research:5 "Naval Research"
+Korean_Liberation_Army:5 "Establish the Korean Liberation Army"
+Korean_Liberation_Army_desc:5 "The Korean Liberation Army was formed on September 17, 1940, in Chongqing by the Provisional Government of the Republic of Korea as an armed force against Japan. Initially numbering around 300 members, its first Commander-in-Chief was Ji Cheong-cheon. Under the direct command of the Military Affairs Commission of the Republic of China, it undertook intelligence gathering, propaganda behind enemy lines, and subversion of Japanese forces. After merging with the Korean Volunteer Corps in 1942, it expanded into a six-tier military structure. By 1945, it had grown to nearly 2,000 personnel, many of whom later became the backbone of the Republic of Korea’s government and armed forces."
 
-################################################## General Military Path ####################################################
- KOR_army_effort:5 "National Spirit General Mobilization"
- KOR_army_effort_desc:5 "In April 1938, the Imperial Japanese government promulgated the National Mobilization Law, stipulating that for the needs of national mobilization, it could monopolize, control, and requisition materials, energy, transport, and labor by imperial decree without approval of the Imperial Diet; it also provided that “to effectively exert all national力量, the use of human and material resources must be controlled,” making people and things alike “consumables.”\nDuring the Second Sino‑Japanese War and the Pacific War, national spirit mobilization also applied to Korea, and the Japanese army conscripted Koreans into Japanese forces. Japan promoted the “Greater East Asia Co‑Prosperity Sphere,” calling on Koreans to devote themselves to the “Greater East Asia Holy War,” intensifying assimilation propaganda."
- KOR_jap_garrison_army_01:5 "Raise Troops in the Hyesan Area"
- KOR_jap_garrison_army_02:5 "Raise Troops in the Pochonbo Area"
- KOR_jap_garrison_army_03:5 "Raise Troops in the Wonsan Area"
- KOR_jap_garrison_army_04:5 "Raise Troops in the Hungnam Area"
- KOR_jap_garrison_army_05:5 "Raise Troops in the Nampo Area"
- KOR_jap_military_police_army_01:5 "Form Local Korean Gendarmerie Units"
- KOR_jap_military_police_army_02:5 "Form Local Korean Gendarmerie Units"
- KOR_jap_military_police_army_03:5 "Form Local Korean Gendarmerie Units"
- KOR_jap_military_police_army_04:5 "Form Local Korean Gendarmerie Units"
+KOR_CHI_help_Korea_amry:5 "Sino-Korean Mutual Military Assistance Pact"
+KOR_CHI_help_Korea_amry_desc:5 "Sino-Korean Mutual Military Assistance Pact"
 
-################################################## General Construction Path ####################################################
- KOR_JAP_office_governor:5 "Governor‑General of Korea"
- KOR_JAP_office_governor_desc:5 "With the annexation of Korea in August 1910, Japan created an administrative body to govern Korea. It was established in Keijō and based on the “Governor‑General of Korea” ordinance promulgated in September 1910, which consolidated and reformed the various departments of the Korean government. The Governor‑General was supported by an inspector‑general’s office under a political inspector‑assistant and five departments: General Affairs, Internal Affairs, Finance, Agriculture, Commerce and Industry, and Justice, as well as subordinate bodies including police and courts.\nMajor revisions occurred in August 1919 and December 1943. In 1919, influenced by the March 1st Independence Movement, the limits of autocratic rule became clear, and the policy shifted toward “cultural politics.” The appointment scope of the Governor‑General expanded to include civilians, and the command authority of the Army and Navy was abolished, though civilians never actually became Governors‑General. The organization was also reorganized, abolishing the Police Inspector‑General and provincial police bureaus; the constitutional police system was abolished, but the number of police bureaus and stations increased.\nIn the 1943 reform, the Interior Minister could provide the Governor‑General with “unified necessary support” and adjusted with changes in the central government, such as the establishment of a Munitions Ministry. Despite these reforms, the system’s nature as military‑backed colonial rule did not change."
- KOR_national_bank:5 "Bank of Korea"
- KOR_national_bank_desc:5 "After the Japan‑Korea annexation, in 1911 the bank was renamed the “Bank of Korea” under the Bank of Korea Act (Japanese law: Meiji 44, March 29, Law No. 48, promulgated March 29 and effective August 15), becoming a special bank. It issued Bank of Korea notes from 1910 to 1945, and from 1945 to 1950 issued the Korean won for the Republic of Korea, before being dissolved in 1950. It was replaced by the Bank of Korea in the Republic of Korea and the Central Bank in the DPRK."
- KOR_bank_note:5 "Bank of Korea Notes"
- KOR_bank_note_desc:5 "The official currency name of the Bank of Korea notes was the Korean yen, used during Japanese rule in Korea and also circulating in Manchukuo and the Kwantung Leased Territory. “Bank of Korea notes” refers to the legal banknotes printed by the Bank of Korea for use in colonial Korea. The design featured Jurojin, one of Japan’s Seven Lucky Gods, modeled on Kim Yun‑sik, and was nicknamed “old‑man notes” in Northeast China.\nThe notes were equivalent in value to the Japanese yen and Taiwan Bank notes, and were a currency issued by the Japanese government specifically for the Korean Peninsula. The basic unit was the yen, with 1 yen equal to 100 sen. These notes replaced the Korean Empire won in 1910 and were finally replaced in 1945 by the old Korean won and the Korean yen respectively."
- KOR_xin_nan_farm_factory:5 "Hungnam Fertilizer Combine"
- KOR_xin_nan_farm_factory_desc:5 "The Hungnam Fertilizer Combine was built in the 1920s during Japanese colonial rule. After Japan’s surrender in 1945, the plant was destroyed. It resumed production after reconstruction in 1947. During the Korean War in 1950 it was bombed and completely destroyed. After post‑war reconstruction it restarted production in 1956. As Korea’s largest fertilizer plant, it produced more than 800,000 tons at its peak and was a comprehensive fertilizer base."
- KOR_generic_land_development:5 "Develop New Territories"
- KOR_infrastructure_effort:5 "Prioritize Infrastructure"
- KOR_infrastructure_effort_2:5 "Prioritize Infrastructure II"
+KOR_CHI_National_Reunification_Movement:5 "Guidelines for Assisting Korea"
+KOR_CHI_National_Reunification_Movement_desc:5 "To strengthen support for Korea, in July 1942 the Kuomintang Central Executive Committee formed a special group to comprehensively study assistance to Korea and drafted the “Guidelines for Assisting Korean Revolutionary Forces in China.” Beyond moral support, China provided substantial financial aid to Korean independence activists and the Provisional Government, often fulfilling requests without strict auditing to preserve their dignity."
+
+KOR_Qijiang_Unification_Conference:5 "Qijiang Unification Conference"
+KOR_Three_Party_Unity_Conference:5 "Three-Party Unity Conference"
+
+KOR_call_for_roosevelt:5 "Contact President Roosevelt"
+KOR_American_admit_korea_gov:5 "Request U.S. Recognition of the Provisional Government"
+KOR_American_admit_korea_gov_desc:5 "Request the United States to recognize the Provisional Government."
+
+KOR_American_Eagle_Project:5 "Operation Eagle"
+KOR_American_Eagle_Project_desc:5 "The Provisional Government of the Republic of Korea cooperated with the U.S. Office of Strategic Services (OSS) on an infiltration plan for the Korean Peninsula known as 'Operation Eagle.' Training facilities were established near Xi'an. From 1942 onward, selected elite soldiers received special training in marksmanship, explosives, and river crossings. In May 1945, expanded OSS training took place in Xi'an and Anhui. The first training cycle was completed on August 4, 1945."
+
+################################################### Korean Historical Branch ##################################################
+
+KOR_restore_society:5 "Establish the Association for the Restoration of the Fatherland"
+KOR_restore_society_desc:5 "The Association for the Restoration of the Fatherland was the first permanent anti-Japanese united front organization on the Korean Peninsula, founded and led by Kim Il-sung. Operating across Korea and Northeast China, it conducted sustained underground revolutionary and armed resistance activities."
+
+KOR_front_against_Japan:5 "Korean National Front Alliance"
+KOR_front_against_Japan_desc:5 "In October 1937, various nationalist, communist, Marxist, and anarchist groups united in China to form the Korean National Front Alliance to defeat Japanese imperialism. As Japan intensified conscription policies in 1938, resentment among Koreans deepened, leading to the gradual formation of the Korean Volunteer Corps."
+
+KOR_SOV_northeast_anti_japanese_guerrillas:5 "Northeast Anti-Japanese United Army Training Brigade"
+KOR_Northeast_Anti_Japanese_Army:5 "A well-trained unit has appeared in [ROOT.GetAdjective] territory: §HSoviet Far Eastern 88th Independent Infantry Brigade§!"
+KOR_SOV_northeast_anti_japanese_guerrillas_desc:5 "In 1942, retreating anti-Japanese forces reorganized in the Soviet Union as the Northeast Anti-Japanese United Army Training Brigade (the Soviet 88th Independent Infantry Brigade). Kim Il-sung served as a battalion commander. The brigade conducted infiltration and sabotage missions into Manchuria and participated in the Soviet offensive against the Kwantung Army in August 1945."
+
+KOR_communism_army_where_to_go:5 "Where Shall Our Army Go?"
+KOR_communism_army_where_to_go_desc:5 "It is time to determine who our true red allies shall be."
+
+KOR_plan_strike_jap:5 "Return from the Soviet Union to Manchuria"
+KOR_plan_strike_jap_desc:5 "We must coordinate with the Soviets and secure their support for our return."
+
+KOR_solid_front_line:5 "Hold the Front Line"
+KOR_solid_front_line_desc:5 "We shall remain on our own land and resist the enemy to the end."
+
+KOR_controlled_north_front_line:5 "Secure Northern Territories"
+KOR_controlled_north_front_line_desc:5 "We will firmly control the northern front of Korea."
+
+KOR_north_communism:5 "North Korean Workers' Party"
+KOR_south_communism:5 "South Korean Workers' Party"
+
+################################################### Chinese Communist Branch ###################################################
+
+KOR_PRC_political_reform:5 "Northeast Bureau of the CPC Central Committee – Pyongyang Office"
+KOR_PRC_political_reform_desc:5 "Considering the existence of the Soviet–American Joint Commission and the constraints of the Yalta Agreement, the Pyongyang Office adopted two names: internally it was called the 'Northeast Bureau Office in Korea' (also known as the 'Pyongyang Office'), while externally it operated under the name 'Pyongyang Limmin Company.'"
+
+KOR_PRC_support_northeast_democratic_army:5 "Support the Northeast Democratic United Army"
+KOR_PRC_support_northeast_democratic_army_desc:5 "In the early stages of the Chinese Civil War, the forces often lacked weapons and ammunition. During visits to Korea, Chen Yun and Xiao Jinguang requested military assistance. Kim Il-sung provided 100,000 rifles and large quantities of explosives produced at the Hungnam fertilizer plant. Despite Korea’s weak economy at the time, he also supplied cloth sufficient for nearly 10,000 uniforms and a shipment of medical supplies, demonstrating considerable sincerity."
+
+KOR_communism_army_to_prc:5 "Lean Toward Yan'an"
+
+KOR_PRC_korean_corridor:5 "Establish a Sino-Korean Trade Corridor"
+KOR_PRC_korean_corridor_desc:5 "The Pyongyang Office’s primary tasks included evacuating wounded personnel from the Northeast front, transferring strategic materials, facilitating logistics between southern and northern Manchuria and Dalian, procuring military supplies from Korea, promoting friendly relations between the two parties and peoples, expanding trade exchanges, and assisting the Korean Workers' Party with overseas Chinese affairs."
+
+KOR_PRC_General_Federation_of_Korean_Chinese:5 "General Federation of Korean Chinese"
+KOR_PRC_General_Federation_of_Korean_Chinese_desc:5 "After the war, approximately 50,000–60,000 overseas Chinese resided on the Korean Peninsula. In November 1946, the General Federation of Korean Chinese was established in Pyongyang under joint leadership of the Korean and Chinese communist authorities. It supervised regional associations, bookstores, and the newspaper 'Democratic Overseas Chinese.' Its tasks included promoting internationalism and patriotism, supporting the Chinese Civil War effort, strengthening Sino-Korean friendship, protecting overseas Chinese interests, and cultivating local cadres."
+
+KOR_PRC_trade_effort:5 "Sino-Korean Trade Assistance"
+KOR_PRC_trade_effort_desc:5 "During the Chinese Civil War, Korea not only provided material assistance free of charge but also actively engaged in trade. Kim Il-sung instructed all levels of Korean authorities to cooperate with the Northeast Democratic United Army in a spirit of friendship."
+
+KOR_Yalu_River_water_power_station:5 "Yalu River Sup'ung Hydroelectric Company"
+KOR_Yalu_River_water_power_station_desc:5 "Yalu River Sup'ung Hydroelectric Company"
+
+KOR_ethnic_korean_division:5 "PLA Korean Ethnic Division"
+KOR_ethnic_korean_division_desc:5 "People’s Liberation Army Korean Ethnic Division"
+KOR_ethnic_korean_division_completed:5 "Three well-trained units have appeared in [ROOT.GetAdjective] territory: §HPLA Korean Ethnic Divisions§!"
+
+#################################################### Soviet-Aligned Branch ##################################################
+
+KOR_communism_army_to_sov:5 "Lean Toward the Soviet Union"
+KOR_sov_korean_corridor:5 "Establish a Far Eastern Military Corridor"
+KOR_sov_expand_bilateral_trade:5 "Expand Far Eastern Bilateral Trade"
+KOR_sov_military_aid_program:5 "Soviet Military Assistance Program"
+KOR_sov_air_force_volunteer:5 "Soviet Air Support"
+KOR_sov_army_adviser:5 "Soviet Military Advisory Mission"
+KOR_sov_pyongyang_military_academy:5 "Pyongyang Military Academy"
+KOR_sov_deep_operations_theory:5 "Deep Operations Doctrine"
+
+KOR_motorized_AC_division_DESC:5 "A well-trained unit has appeared in [ROOT.GetAdjective] territory: §HKorean People's Army 1st Independent Tank Regiment§!."
+
+KOR_sov_cavalry_tank_division:5 "Fast Tank Forces"
+KOR_sov_cavalry_tank_division_DESC:5 "A well-trained unit has appeared in [ROOT.GetAdjective] territory: §HKorean People's Army 1st Cavalry Tank Division§!."
+
+KOR_soviet_tanks:5 "Purchase Soviet Tanks"
+KOR_soviet_product_tanks:5 "License Domestic Tank Production"
+KOR_joint_soviet_tank:5 "£tech_mod Joint Tank Development"
+KOR_sov_special_operations_training:5 "Special Operations Training"
+KOR_equipment_effort:5 "Emphasize Infantry Equipment"
+KOR_motorization_effort:5 "Emphasize Motorization"
+KOR_mechanization_effort:5 "Emphasize Mechanization"
+
+KOR_expand_pyeongchang_military_hospital:5 "Pyongyang Soviet Military Hospital"
+KOR_sov_land_development:5 "Land Resource Development"
+KOR_sov_land_development:5 "Mineral Resource Exploration"
+
+################################################## Joint Sino-Soviet Branch ##################################################
+
+KOR_air_focus:5 "Emphasize the Air Force"
+KOR_air_research:5 "Air Research"
+KOR_naval_effort:5 "Emphasize the Navy"
+KOR_flexible_navy:5 "Flexible Fleet"
+KOR_large_navy:5 "Large-Scale Navy"
+KOR_naval_research:5 "Naval Research"
+
+################################################## Generic Military Branch ##################################################
+
+KOR_army_effort:5 "National Spiritual Mobilization"
+KOR_army_effort_desc:5 "In April 1938, the Empire of Japan enacted the National Mobilization Law, granting the Emperor authority to control materials, energy, transportation, and labor without Diet approval. During the Sino-Japanese War and the Pacific War, mobilization extended to Korea, conscripting Koreans into the Japanese military and promoting the 'Greater East Asia Co-Prosperity Sphere' to intensify assimilation propaganda."
+
+KOR_jap_garrison_army_01:5 "Raise Forces in Hyesan"
+KOR_jap_garrison_army_02:5 "Raise Forces in Pochonbo"
+KOR_jap_garrison_army_03:5 "Raise Forces in Wonsan"
+KOR_jap_garrison_army_04:5 "Raise Forces in Hungnam"
+KOR_jap_garrison_army_05:5 "Raise Forces in Nampo"
+
+KOR_jap_military_police_army_01:5 "Form Kempeitai Unit in Pyongyang"
+KOR_jap_military_police_army_02:5 "Form Kempeitai Unit in Keijo"
+KOR_jap_military_police_army_03:5 "Form Kempeitai Unit in Incheon"
+KOR_jap_military_police_army_04:5 "Form Kempeitai Unit in Busan"
+
+################################################## Generic Industrial Branch ##################################################
+
+KOR_JAP_office_governor:5 "Government-General of Korea"
+KOR_JAP_office_governor_desc:5 "Following the annexation of Korea in 1910, Japan established the Government-General of Korea in Keijo (Seoul) as the supreme governing authority. The Governor-General exercised legislative, judicial, and executive power. Although reforms in 1919 and 1943 altered administrative structures, the fundamentally militarized nature of colonial governance remained unchanged."
+
+KOR_national_bank:5 "Bank of Chosen"
+KOR_national_bank_desc:5 "Established under the 1911 Bank of Chosen Act, it issued banknotes in Korea from 1910 to 1945 and later issued the Korean won until 1950, when it was dissolved and replaced by the Bank of Korea and the Central Bank of the DPRK."
+
+KOR_bank_note:5 "Bank of Chosen Notes"
+KOR_bank_note_desc:5 "The official currency was the Korean yen, used during Japanese rule and circulated in Manchukuo and Kwantung. The notes, featuring the deity Jurōjin, were colloquially known in Northeast China as 'Old Man Notes.' One won equaled 100 sen."
+
+KOR_xin_nan_farm_factory:5 "Hungnam Fertilizer Complex"
+KOR_xin_nan_farm_factory_desc:5 "Built during Japanese colonial rule in the 1920s, destroyed in 1945, rebuilt in 1947, destroyed again during the Korean War, and restored in 1956. At its peak, it produced over 800,000 tons of fertilizer annually, serving as Korea’s largest chemical fertilizer base."
+
+KOR_generic_land_development:5 "Develop New Territories"
+KOR_infrastructure_effort:5 "Emphasize Infrastructure"
+KOR_infrastructure_effort_2:5 "Emphasize Infrastructure II"
 
 #################################################################################################
 
+KOR_production_effort:5 "Armament Effort I"
+KOR_production_effort_2:5 "Armament Effort II"
+KOR_production_effort_3:5 "Armament Effort III"
 
- KOR_production_effort:5 "Prioritize Armaments I"
- KOR_production_effort_2:5 "Prioritize Armaments II"
- KOR_production_effort_3:5 "Prioritize Armaments III"
+KOR_extra_planes:5 "Domestic Aircraft Production"
+KOR_industrial_effort:5 "Emphasize Industry"
+KOR_construction_effort:5 "Construction Effort I"
+KOR_construction_effort_2:5 "Construction Effort II"
+KOR_construction_effort_3:5 "Construction Effort III"
 
- KOR_extra_planes:5 "Domestic Aircraft Production"
- KOR_industrial_effort:5 "Prioritize Industry"
- KOR_construction_effort:5 "Prioritize Construction I"
- KOR_construction_effort_2:5 "Prioritize Construction II"
- KOR_construction_effort_3:5 "Prioritize Construction III"
-
- KOR_extra_steel_refinery:5 "Build Steel Mills"
- KOR_extra_alu_refinery:5 "Build Aluminum Smelters"
- KOR_power_plant_focus:5 "More Power Plants"
- KOR_generic_fuel_stores:5 "Stockpile Fuel"
- KOR_extra_synthetic_refinery:5 "Build Oil Refineries"
- KOR_extra_synthetic_rubber_refinery:5 "Build Synthetic Rubber Plants"
- KOR_renew_capital:5 "Renovate the Capital"
+KOR_extra_steel_refinery:5 "Build Steel Mills"
+KOR_extra_alu_refinery:5 "Build Aluminum Plants"
+KOR_power_plant_focus:5 "Expand Power Plants"
+KOR_generic_fuel_stores:5 "Stockpile Fuel"
+KOR_extra_synthetic_refinery:5 "Construct Oil Refineries"
+KOR_extra_synthetic_rubber_refinery:5 "Construct Synthetic Rubber Plants"
+KOR_renew_capital:5 "Renovate the Capital"

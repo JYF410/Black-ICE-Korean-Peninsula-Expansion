@@ -40,7 +40,7 @@ KOR_CHI_Korea_Reconquista = {
 			factor = 500
 		}
 	}
-	#金九请求在杭州建立临时政府(CHI划分领土给KOR)
+	#请求蒋介石允许在杭州建立大韩民国临时政府(CHI将划分领土给KOR)
 	KOR_host_country_decision_01 = {
 		icon = generic_break_treaty
 		on_map_mode = decision_view_only
@@ -65,7 +65,7 @@ KOR_CHI_Korea_Reconquista = {
 			CHI = {
 				exists = yes
 				has_capitulated = no
-				has_opinion = { target = KOR value > 29 }
+				has_opinion = { target = KOR value > 59 }
 				has_full_control_of_state = 596 #杭州
 			}
 		}

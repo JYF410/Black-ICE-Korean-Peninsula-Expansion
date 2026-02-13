@@ -238,19 +238,19 @@ KOR_ethnic_korean_division_div = {
 	}	
 	random_owned_controlled_state = {
 		create_unit = {
-			division = "name = \"朝鲜人民军第2军团第5步兵师（原164师）\" division_template = \"中国人民解放军朝鲜族师\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
+			division = "name = \"朝鲜人民军第2军团第5步兵师（原164师）\" division_template = \"中国人民解放军朝鲜族师\" start_experience_factor = 1.0 start_equipment_factor = 1.0 force_equipment_variants = { artillery_equipment_1 = { owner = \"CHI\" } }"
 			owner = KOR
 		}
 	}
 	random_owned_controlled_state = {
 		create_unit = {
-			division = "name = \"朝鲜人民军第6步兵师（原166师）\" division_template = \"中国人民解放军朝鲜族师\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
+			division = "name = \"朝鲜人民军第6步兵师（原166师）\" division_template = \"中国人民解放军朝鲜族师\" start_experience_factor = 1.0 start_equipment_factor = 1.0 force_equipment_variants = { artillery_equipment_1 = { owner = \"CHI\" } }"
 			owner = KOR
 		}
 	}
 	random_owned_controlled_state = {
 		create_unit = {
-			division = "name = \"朝鲜人民军第1军团第12步兵师（原156师）\" division_template = \"中国人民解放军朝鲜族师\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
+			division = "name = \"朝鲜人民军第1军团第12步兵师（原156师）\" division_template = \"中国人民解放军朝鲜族师\" start_experience_factor = 1.0 start_equipment_factor = 1.0 force_equipment_variants = { artillery_equipment_1 = { owner = \"CHI\" } }"
 			owner = KOR
 		}
 	}
@@ -342,7 +342,7 @@ KOR_create_Korean_Secret_Army_div = {
 	}	
 	random_owned_controlled_state = {
 		create_unit = {
-			division = "name = \"韩国特务队独立军\" division_template = \"韩国特务队独立军\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+			division = "name = \"韩国特务队独立军\" division_template = \"韩国特务队独立军\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
 			owner = KOR
 		}
 	}

@@ -50,67 +50,11 @@ characters = {
 				set_temp_variable = { character = token:KOR_Kim_Koo}
 				set_temp_variable = { slot = token:interior_minister}
 				interior_minister_on_remove_effect = yes
-			} 
-			traits = { backroom_backstabber }	
-		}
-	}
-	KOR_Syngman_Rhee = {  #李承晚
-		name = KOR_Syngman_Rhee
-		allowed_civil_war = {
-			has_government = neutrality
-		}
-		portraits = {
-			civilian = {
-				large = "gfx/leaders/KOR/Portrait_KOR_Syngman_Rhee.dds"
-			}
-			army = {
-				small = GFX_idea_generic_political_advisor_asia_6
-			}
-		}
-		country_leader = {
-			desc = "POLITICS_Syngman_Rhee_DESC"
-			ideology = despotism
-			expire = "1956.12.5"
-			id = 202619561205
-			traits = { ideological_crusader }
-		}
-		advisor = {
-			slot = head_of_state
-			idea_token = KOR_Syngman_Rhee_head_of_state
-			on_add = {
-				set_temp_variable = { character = token:KOR_Syngman_Rhee}
-				set_temp_variable = { slot = token:head_of_state}
-				head_of_state_on_add_effect = yes
-			} 
-			on_remove = {
-				set_temp_variable = { character = token:KOR_Syngman_Rhee}
-				set_temp_variable = { slot = token:head_of_state}
-				head_of_state_on_remove_effect = yes
-			} 
-			available = {
-				has_government = neutrality
-			}
-			traits = { popular_figurehead }
-		}
-		advisor = {
-			slot = foreign_minister
-			idea_token = KOR_Syngman_Rhee_foreign_minister
-			on_add = {
-				set_temp_variable = { character = token:KOR_Syngman_Rhee}
-				set_temp_variable = { slot = token:foreign_minister}
-				foreign_minister_on_add_effect = yes
-			} 
-			on_remove = {
-				set_temp_variable = { character = token:KOR_Syngman_Rhee}
-				set_temp_variable = { slot = token:foreign_minister}
-				foreign_minister_on_remove_effect = yes
 			}
 			available = {
 				has_government = neutrality
 			}
-			traits = {
-				smooth_talking_charmer
-			}
+			traits = { head_of_intelligence }	
 		}
 	}
 	KOR_Kim_Il_sung = {  #金日成
@@ -120,6 +64,9 @@ characters = {
 		}
 		portraits = {
 			civilian = {
+				large = "gfx/leaders/KOR/Portrait_KOR_Kim_Il_sung.dds"
+			}
+			army = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Kim_Il_sung.dds"
 			}
 			army = {
@@ -239,12 +186,97 @@ characters = {
 		portraits={
 			civilian={
 				large="gfx/leaders/KOR/Portrait_KOR_Park_Heon_young.dds"
+			}
+			army = {
+				small = GFX_idea_generic_political_advisor_asia_7
 			}	
 		}
 		country_leader={
 			desc = "POLITICS_Park_Heon_young_DESC"
-			ideology = social_democracy
+			ideology = communism
 			expire = "1956.12.5"
+			id = -1
+			traits = {
+				dealbroker
+			}
+		}
+	}
+	KOR_Syngman_Rhee = {  #李承晚
+		name = KOR_Syngman_Rhee
+		allowed_civil_war = {
+			has_government = liberalism
+		}
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KOR/Portrait_KOR_Syngman_Rhee.dds"
+			}
+			army = {
+				small = GFX_idea_generic_political_advisor_asia_6
+			}
+		}
+		country_leader = {
+			desc = "POLITICS_Syngman_Rhee_DESC"
+			ideology = liberalism
+			expire = "1956.12.5"
+			id = 202619561205
+			traits = { ideological_crusader }
+		}
+		advisor = {
+			slot = head_of_state
+			idea_token = KOR_Syngman_Rhee_head_of_state
+			on_add = {
+				set_temp_variable = { character = token:KOR_Syngman_Rhee}
+				set_temp_variable = { slot = token:head_of_state}
+				head_of_state_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Syngman_Rhee}
+				set_temp_variable = { slot = token:head_of_state}
+				head_of_state_on_remove_effect = yes
+			} 
+			available = {
+				has_government = liberalism
+			}
+			traits = { popular_figurehead }
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = KOR_Syngman_Rhee_foreign_minister
+			on_add = {
+				set_temp_variable = { character = token:KOR_Syngman_Rhee}
+				set_temp_variable = { slot = token:foreign_minister}
+				foreign_minister_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Syngman_Rhee}
+				set_temp_variable = { slot = token:foreign_minister}
+				foreign_minister_on_remove_effect = yes
+			}
+			available = {
+				has_government = liberalism
+			}
+			traits = {
+				smooth_talking_charmer
+			}
+		}
+	}
+	Portrait_KOR_Kim_Wonbong={  #金元凤
+		name = Portrait_KOR_Kim_Wonbong
+		portraits={
+			civilian={
+				large="gfx/leaders/KOR/Portrait_KOR_Kim_Wonbong.dds"
+			}
+			army={
+				large="gfx/leaders/KOR/Portrait_KOR_Kim_Wonbong_army.dds"
+			}
+			army = {
+				small = GFX_idea_generic_political_advisor_asia_15
+			}
+		}
+		country_leader={
+			desc = "POLITICS_Kim_Wonbong_DESC"
+			ideology = socialism
+			expire = "1958.11.1"
 			id = -1
 			traits = {
 				dealbroker
@@ -676,13 +708,13 @@ characters = {
 		}
 	}
 	KOR_William_Joseph_Donovan = {  #威廉·约瑟夫·多诺万
-		name = William_Joseph_Donovan
+		name = KOR_William_Joseph_Donovan
 		allowed_civil_war = {
 			has_government = neutrality
 		}
 		portraits = {
-			army={
-				large = "gfx/leaders/USA/Portrait_USA_Generic_land_4.dds"
+			civilian={
+				large = "gfx/leaders/KOR/Portrait_KOR_William_Joseph_Donovan.dds"
 			}
 			army={
 				small = "gfx/interface/ideas/idea_USA_generic_land_4.dds"

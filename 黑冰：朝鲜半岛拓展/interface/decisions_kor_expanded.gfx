@@ -5,4 +5,9 @@ spriteTypes = {
 		texturefile = "gfx/interface/decisions/decision_cat_korea_china_meeting.dds"
 	}
 
+	spriteType = {
+		name = "GFX_KOR_William_Joseph_Donovan"
+		texturefile = "gfx/leaders/KOR/Portrait_KOR_William_Joseph_Donovan.dds"
+	}
+
 }
