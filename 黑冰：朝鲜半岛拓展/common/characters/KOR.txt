@@ -67,7 +67,7 @@ characters = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Kim_Il_sung.dds"
 			}
 			army = {
-				large = "gfx/leaders/KOR/Portrait_KOR_Kim_Il_sung.dds"
+				large = "gfx/leaders/KOR/Portrait_KOR_Kim_Il_sung_army.dds"
 			}
 			army = {
 				small = GFX_idea_generic_political_advisor_asia_1
@@ -122,6 +122,9 @@ characters = {
 		}
 		portraits = {
 			civilian = {
+				large = "gfx/leaders/KOR/Portrait_KOR_Minami_Jiro.dds"
+			}
+			army = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Minami_Jiro.dds"
 			}
 			army = {
@@ -181,7 +184,7 @@ characters = {
 			traits = { supreme_com_favors_army }
 		}
 	}
-	KOR_Park_Heon_young={  #朴宪永
+	KOR_Park_Heon_young = {  #朴宪永
 		name = KOR_Park_Heon_young
 		portraits={
 			civilian={
@@ -193,11 +196,11 @@ characters = {
 		}
 		country_leader={
 			desc = "POLITICS_Park_Heon_young_DESC"
-			ideology = communism
+			ideology = leninism
 			expire = "1956.12.5"
 			id = -1
 			traits = {
-				dealbroker
+				communist_theorist
 			}
 		}
 	}
@@ -216,10 +219,10 @@ characters = {
 		}
 		country_leader = {
 			desc = "POLITICS_Syngman_Rhee_DESC"
-			ideology = liberalism
+			ideology = social_liberalism
 			expire = "1956.12.5"
 			id = 202619561205
-			traits = { ideological_crusader }
+			traits = { demagogue }
 		}
 		advisor = {
 			slot = head_of_state
@@ -260,8 +263,12 @@ characters = {
 			}
 		}
 	}
-	Portrait_KOR_Kim_Wonbong={  #金元凤
-		name = Portrait_KOR_Kim_Wonbong
+	KOR_Kim_Wonbong = {  #金元凤
+		name = KOR_Kim_Wonbong
+		allowed_civil_war = {
+			has_government = socialism
+			has_government = neutrality
+		}
 		portraits={
 			civilian={
 				large="gfx/leaders/KOR/Portrait_KOR_Kim_Wonbong.dds"
@@ -275,11 +282,11 @@ characters = {
 		}
 		country_leader={
 			desc = "POLITICS_Kim_Wonbong_DESC"
-			ideology = socialism
+			ideology = social_democracy
 			expire = "1958.11.1"
 			id = -1
 			traits = {
-				dealbroker
+				ambitious anti_fascist
 			}
 		}
 	}
@@ -290,7 +297,7 @@ characters = {
 			has_government = communism
 		}
 		portraits = {
-			civilian = {
+			army = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Choe_Yong_gon.dds"
 			}
 			army = {
@@ -327,7 +334,7 @@ characters = {
 			has_government = communism
 		}
 		portraits={
-			civilian = {
+			army = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Kim_Chaek.dds"
 			}
 			army = {
@@ -388,7 +395,7 @@ characters = {
 			has_government = communism
 		}
 		portraits={
-			civilian = {
+			army = {
 				large = "gfx/leaders/Asia/Portrait_Asia_Generic_land_4.dds"
 			}
 			army = {
@@ -446,7 +453,7 @@ characters = {
 			has_government = communism
 		}
 		portraits = {
-			civilian = {
+			army = {
 				large = "gfx/leaders/Asia/Portrait_Asia_Generic_land_5.dds"
 			}
 			army = {
@@ -481,7 +488,7 @@ characters = {
 			has_government = communism
 		}
 		portraits = {
-			civilian = {
+			army = {
 				large = "gfx/leaders/Asia/Portrait_Asia_Generic_land_2.dds"
 			}
 			army = {
@@ -541,6 +548,9 @@ characters = {
 		}
 		portraits = {
 			civilian = {
+				large = "gfx/leaders/KOR/Portrait_KOR_Abe_Nobuyuki.dds"
+			}
+			army = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Abe_Nobuyuki.dds"
 			}
 			army = {
@@ -618,7 +628,7 @@ characters = {
 			has_government = neutrality
 		}
 		portraits={
-			civilian = {
+			army = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Ji_Cheong_cheon.dds"
 			}
 			army = {
@@ -676,11 +686,11 @@ characters = {
 			has_government = neutrality
 		}
 		portraits={
-			civilian = {
+			army = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Lee_Beom_seok.dds"
 			}
 			army = {
-				small = GFX_idea_generic_army_asia_8
+				small = GFX_idea_generic_political_advisor_asia_12
 			}	
 		}
 		advisor={
@@ -713,10 +723,13 @@ characters = {
 			has_government = neutrality
 		}
 		portraits = {
-			civilian={
+			civilian = {
 				large = "gfx/leaders/KOR/Portrait_KOR_William_Joseph_Donovan.dds"
 			}
-			army={
+			army = {
+				large = "gfx/leaders/KOR/Portrait_KOR_William_Joseph_Donovan.dds"
+			}
+			army = {
 				small = "gfx/interface/ideas/idea_USA_generic_land_4.dds"
 			}
 		}

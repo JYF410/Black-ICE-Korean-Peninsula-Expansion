@@ -30,6 +30,10 @@
  KOR_American_admit_korea_gov_desc:5 "要求美国承认临时政府"
  KOR_American_Eagle_Project:5 "飞鹰计划"
  KOR_American_Eagle_Project_desc:5 "大韩民国临时政府曾和美国的战略情报部队(OSS)共同推进韩半岛渗透计划——飞鹰计划(Eagle-Project)，并在西安市的杜曲镇和终南山弥陀寺一带建立了的光复军-OSS训练场地。\n从1942年开始，驻扎在杜曲镇的光复军第二支队是靑山里战斗英雄李范奭将军指挥的光复军主力部队。李将军在麾下挑选了50名精锐士兵在附近村庄-太乙宮从美军战略情报局(OSS)教官那里接受射击、爆炸和渡江等特殊训练。\n从1945年5月起，OSS对光复军的训练在两个地方展开，其除了第二支队西安，第三支队在安徽立煌，进行为期三个月的训练。1945年8月4日，第一期学员训练完成。"
+ KOR_naval_effort:5 "重视海军"
+ KOR_flexible_navy:5 "灵活舰队"
+ KOR_large_navy:5 "大规模的海军"
+ KOR_naval_research:5 "海军研究"
 
 ###################################################朝鲜历史线##################################################
  KOR_restore_society:5 "成立祖国光复会"
@@ -48,7 +52,7 @@
  KOR_controlled_north_front_line:5 "控制北方领土"
  KOR_controlled_north_front_line_desc:5 "我们决定将朝鲜北部的前线牢牢控制在自己手中。"
 
- KOR_north_communism:5 "北方朝鲜劳动党"
+ KOR_north_communism:5 "巩固金日成政权"
  KOR_south_communism:5 "南方朝鲜劳动党"
 ###################################################延安派线###################################################
 
@@ -71,12 +75,13 @@
  KOR_ethnic_korean_division_desc:5 "中国人民解放军朝鲜族师"
  KOR_ethnic_korean_division_completed:5 "三支训练有素的部队出现在[ROOT.GetAdjective]境内：§H中国人民解放军朝鲜族师§!"
 
-####################################################苏联if线##################################################
+####################################################苏联线##################################################
  KOR_communism_army_to_sov:5 "倾向苏联"
  KOR_sov_korean_corridor:5 "建立远东军事走廊"
+ KOR_expand_pyeongchang_military_hospital:5 "平壤苏军总医院"
  KOR_sov_expand_bilateral_trade:5 "扩大远东双边贸易"
  KOR_sov_military_aid_program:5 "苏联军事援助计划"
- KOR_sov_air_force_volunteer:5 "苏联航空支援"
+
  KOR_sov_army_adviser:5 "苏联驻朝军事顾问团"
  KOR_sov_pyongyang_military_academy:5 "平壤军事学院"
  KOR_sov_deep_operations_theory:5 "纵深作战理论"
@@ -84,24 +89,36 @@
  KOR_sov_cavalry_tank_division:5 "快速坦克部队"
  KOR_sov_cavalry_tank_division_DESC:5 "一支训练有素的部队出现在[ROOT.GetAdjective]境内:§H朝鲜人民军第一骑兵坦克师§!。"
  KOR_soviet_tanks:5 "购买苏联坦克"
- KOR_soviet_product_tanks:5 "授权国内坦克生产线"
+ KOR_engine_production:5 "建设发动机工厂"
+ KOR_soviet_product_tanks:5 "国内坦克生产线"
  KOR_joint_soviet_tank:5 "£tech_mod 联合开发坦克"
+
  KOR_sov_special_operations_training:5 "特种作战训练"
  KOR_equipment_effort:5 "重视步兵装备"
  KOR_motorization_effort:5 "重视摩托化"
  KOR_mechanization_effort:5 "重视机械化"
 
- KOR_expand_pyeongchang_military_hospital:5 "平壤苏军总医院"
- KOR_sov_land_development:5 "土地资源开发"
- KOR_sov_land_development:5 "矿产资源探勘"
+ KOR_sov_air_force_volunteer:5 "苏联航空支援"
+ KOR_air_focus:5 "重视空军"
+ KOR_extra_planes:5 "国内飞机生产"
+ KOR_air_research:5 "空军研究"
 
 ##################################################中苏合流线####################################################
- KOR_air_focus:5 "重视空军"
- KOR_air_research:5 "空军研究"
- KOR_naval_effort:5 "重视海军"
- KOR_flexible_navy:5 "灵活舰队"
- KOR_large_navy:5 "大规模的海军"
- KOR_naval_research:5 "海军研究"
+ KOR_sov_land_development:5 "土地资源开发"
+ KOR_generic_land_development:5 "开发新领土"
+ KOR_infrastructure_effort:5 "重视基建"
+ KOR_infrastructure_effort_2:5 "重视基建II"
+ KOR_construction_effort:5 "重视建设I"
+ KOR_construction_effort_2:5 "重视建设II"
+ KOR_construction_effort_3:5 "重视建设III"
+
+ KOR_sov_land_development:5 "矿产资源探勘"
+ KOR_extra_steel_refinery:5 "建造炼钢厂"
+ KOR_extra_alu_refinery:5 "建造炼铝厂"
+ KOR_power_plant_focus:5 "更多发电厂"
+ KOR_generic_fuel_stores:5 "储备燃料"
+ KOR_extra_synthetic_refinery:5 "建造炼油厂"
+ KOR_extra_synthetic_rubber_refinery:5 "建造合成橡胶厂"
 
 ##################################################通用军事线####################################################
  KOR_army_effort:5 "国民精神总动员"
@@ -125,27 +142,3 @@
  KOR_bank_note_desc:5 "朝鲜银行券正式货币名称为朝鲜圆，是朝鲜日治时期所使用的货币，并同时在满洲国和关东州中流通使用。朝鲜银行券是特指由朝鲜银行印制并成为朝鲜日治所使用的法定钞票名称。银行券上的图样为日本七福神之一的寿老人，形象取自金允植，故在中国东北被俗称为“老头票”。\n朝鲜银行券和日圆及台湾银行券等值，是日本政府专门在朝鲜半岛上发行的货币。朝鲜银行券的基本单位是圆，1圆等于100钱。朝鲜银行券于1910年取代了大韩帝国圆，最终在1945年又分别被旧韩圆和朝鲜圆替代。"
  KOR_xin_nan_farm_factory:5 "兴南化肥联合企业"
  KOR_xin_nan_farm_factory_desc:5 "兴南化肥联合企业建于日本殖民统治时期的上世纪20年代，1945年日本投降后将工厂毁掉。经过重建后1947年恢复生产。1950年朝鲜战争爆发后工厂遭轰炸被完全破坏。经过战后重建又于1956年投产。作为朝鲜最大的化肥厂，在鼎盛时期年产化肥80万吨以上，是朝鲜综合化肥生产基地。"
- KOR_generic_land_development:5 "开发新领土"
- KOR_infrastructure_effort:5 "重视基建"
- KOR_infrastructure_effort_2:5 "重视基建II"
-
-#################################################################################################
-
-
- KOR_production_effort:5 "重视军备I"
- KOR_production_effort_2:5 "重视军备II"
- KOR_production_effort_3:5 "重视军备III"
-
- KOR_extra_planes:5 "国内飞机生产"
- KOR_industrial_effort:5 "重视工业"
- KOR_construction_effort:5 "重视建设I"
- KOR_construction_effort_2:5 "重视建设II"
- KOR_construction_effort_3:5 "重视建设III"
-
- KOR_extra_steel_refinery:5 "建造炼钢厂"
- KOR_extra_alu_refinery:5 "建造炼铝厂"
- KOR_power_plant_focus:5 "更多发电厂"
- KOR_generic_fuel_stores:5 "储备燃料"
- KOR_extra_synthetic_refinery:5 "建造炼油厂"
- KOR_extra_synthetic_rubber_refinery:5 "建造合成橡胶厂"
- KOR_renew_capital:5 "翻新首都"
