@@ -26,10 +26,10 @@ apply_cosmetic_tags = {
 	}
 }
 
-#朝鲜地方警备营
+#朝鲜地方警防团
 KOR_create_JAP_partisan_army_div = {
 	division_template = {
-		name = "朝鲜地方警备营"
+		name = "朝鲜地方警防团"
 		division_names_group = KOR_GAR_01
 		template_counter = 89
 		is_locked = no
@@ -46,7 +46,7 @@ KOR_create_JAP_partisan_army_div = {
 	}
 	random_owned_controlled_state = {
 		create_unit = {
-			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜地方警备营\" start_experience_factor = 0.2 start_equipment_factor = 0.7 force_equipment_variants = { garrison_equipment_0 = { owner = JAP } }"
+			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜地方警防团\" start_experience_factor = 0.2 start_equipment_factor = 0.7 force_equipment_variants = { garrison_equipment_0 = { owner = JAP } }"
 			owner = KOR
 		}
 	}
@@ -124,7 +124,6 @@ KOR_create_militia_army_div = {
 			militia = { x = 1 y = 0 }
 			militia = { x = 1 y = 1 }
 			militia = { x = 2 y = 0 }
-			militia = { x = 2 y = 1 }
 		}
 		support = {
 			DIV_HQ = { x = 0 y = 0 }
@@ -261,6 +260,7 @@ KOR_motorized_AC_division_div = {
 	division_template = {
 		name = "朝鲜装甲车独立团"
 		is_locked = no
+		division_names_group = KOR_MOT_02
 		template_counter = @C_MOTORIZED
 		regiments = {
 			armored_car = { x = 0 y = 0 }
@@ -278,7 +278,7 @@ KOR_motorized_AC_division_div = {
 	}
 	random_owned_controlled_state = {
 		create_unit = {
-			division = "name = \"朝鲜人民军第一装甲车团\" division_template = \"朝鲜装甲车独立团\" start_experience_factor = 0.4 start_equipment_factor = 1.0 force_equipment_variants = { trm_tankette_tank_chassis_sov_t27_1 = { owner = \"SOV\" } }"
+			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜装甲车独立团\" start_experience_factor = 0.4 start_equipment_factor = 1.0 force_equipment_variants = { trm_tankette_tank_chassis_sov_t27_1 = { owner = \"SOV\" } }"
 			owner = KOR
 		}
 	}
@@ -286,8 +286,9 @@ KOR_motorized_AC_division_div = {
 #快速坦克部队
 KOR_cavalry_armor_division_div = {
 	division_template = {
-		name = "朝鲜骑兵坦克师"
+		name = "朝鲜人民军骑兵坦克师"
 		is_locked = no
+		division_names_group = KOR_ARM_01
 		template_counter = @C_LIGHT_ARMOR_ALT
 		regiments = {
 			cavalry = { x = 0 y = 0 }
@@ -314,7 +315,7 @@ KOR_cavalry_armor_division_div = {
 	}
 	random_owned_controlled_state = {
 		create_unit = {
-			division = "name = \"朝鲜人民军第一骑兵坦克师\" division_template = \"朝鲜骑兵坦克师\" start_experience_factor = 0.6 start_equipment_factor = 1.0 force_equipment_variants = { trm_cavalry_tank_chassis_sov_bt5_1 = { owner = \"SOV\" } }"
+			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜人民军骑兵坦克师\" start_experience_factor = 0.6 start_equipment_factor = 1.0 force_equipment_variants = { trm_cavalry_tank_chassis_sov_bt5_1 = { owner = \"SOV\" } }"
 			owner = KOR
 		}
 	}

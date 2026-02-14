@@ -1,7 +1,7 @@
 add_namespace = KOR_communism
 
+#成立祖国光复会
 news_event = {
-	#成立祖国光复会
 	id = KOR_communism.1
 	title = KOR_communism.1.t
 	desc = KOR_communism.1.d
@@ -17,8 +17,8 @@ news_event = {
 	}
 }
 
+#对日本殖民据点发动突袭！
 country_event = {
-	#对日本殖民据点发动突袭！
 	id = KOR_communism.2
 	title = KOR_communism.2.t
 	desc = KOR_communism.2.d
@@ -125,5 +125,82 @@ country_event = {
 			tag = KOR
 		}
 		ai_chance = { factor = 0 }
+	}
+}
+
+#在苏联建立临时政府（由SOV触发）
+country_event = {
+	id = KOR_communism.3
+	title = KOR_communism.3.t
+	desc = KOR_communism.3.d
+	picture = GFX_report_event_chinese_soldiers_02
+	fire_only_once = yes
+	is_triggered_only = yes
+	#SOV同意
+	option = {
+		name = KOR_communism.3.a
+		trigger = { tag = SOV }
+		SOV = {
+			add_stability = 0.05 #稳定度+5%
+			add_war_support = 0.05 #战争支持度+5%
+		}
+		KOR = {
+			country_event = { id = KOR_communism.4 } #斯大林接受了金日成的请求
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	#SOV拒绝
+	option = {
+		name = KOR_communism.3.b
+		trigger = { tag = SOV }
+		KOR = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = small_decrease
+			}
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+#斯大林接受了金日成的请求（由KOR触发）
+country_event = {
+	id = KOR_communism.4
+	title = KOR_communism.4.t
+	desc = KOR_communism.4.d
+	picture = GFX_report_event_stalin_02
+	fire_only_once = yes #只能触发一次
+	is_triggered_only = yes
+	#KOR
+	option = {
+		name = KOR_communism.4.a
+		trigger = { tag = KOR }
+		KOR = {
+			set_variable = { KOR.host_nation = SOV } #标记CHI是寄主国
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
+		hidden_effect = {
+			play_song = "GF_122"
+		}
+		ai_chance = {
+			base = 500
+		}
+	}
+	#JAP
+	option = {
+		name = KOR_communism.4.b
+		trigger = { tag = JAP }
+		JAP = {
+			add_stability = -0.02 #稳定度-2%
+			add_war_support = -0.02 #战争支持度-2%
+		}
+		ai_chance = {
+			base = 100
+		}
 	}
 }

@@ -207,6 +207,41 @@ KOR_Japan_Korea_Reconquista = {
 			factor = 100
 		}
 	}
+	#开始流亡
+	KOR_SOV_become_exiled = {
+		icon = generic_operation
+		on_map_mode = decision_view_only
+		allowed = {
+			tag = KOR
+		}
+		visible = {
+			NOT = { has_government = fascism }
+			surrender_progress > 0.3 #投降进度低于30%
+		}
+		available = {
+			OR = {
+				has_civil_war = yes
+				has_war_with = JAP
+			}
+		}
+		modifier = {
+			#
+		}
+		cost = 10
+		fire_only_once = yes
+		days_remove = 7
+		remove_effect = {
+			SOV = {
+				country_event = {
+					id = KOR_communism.3 #KOR请求在SOV建立流亡政府
+					hours = 8
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
 }
 #中朝贸易援助
 KOR_PRC_trade_effort = {

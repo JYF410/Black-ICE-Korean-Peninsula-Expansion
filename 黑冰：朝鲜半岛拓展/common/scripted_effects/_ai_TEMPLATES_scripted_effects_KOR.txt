@@ -1,4 +1,4 @@
-#一旦在该文件夹中编写了模板，并且该国家处于“ai_update_country_logic”状态，进入游戏后加载30天，就可以访问AI外交界面UI。
+#一旦在该文件夹中编写了模板，并且该国家处于“ai_update_country_logic”状态，进入游戏后加载30天，就可以从AI外交界面访问交互UI。
 
 ai_militia_templates/KOR = {
 	ai_militia_templates = yes #开头和结尾都要有
@@ -11,8 +11,14 @@ ai_militia_templates/KOR = {
 	#朝鲜义勇军
 	if = {
 		limit = {
-			NOT = { has_country_flag = ai_militia_template }
-			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+			NOT = {
+				has_country_flag = ai_militia_template
+				has_government = fascism
+			}
+			if = {
+				limit = { check_variable = { ai_template_skip = 1 } }
+				template_bypass = yes
+			}
 			else = {
 				has_war = no #这些触发器使ai增加解锁单位所需的技术的研究分数。如果ai没有在启动时解锁设备，应该经常检查它们。
 			}
@@ -41,8 +47,13 @@ ai_militia_templates/KOR = {
 	#二阶民兵师
 	else_if = {
 		limit = {
-			has_country_flag = { flag = ai_militia_template value = 1 }
-			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes } #一次性效果，检查ai_template_skip是否为0
+			has_country_flag = {
+				flag = ai_militia_template value = 1
+			}
+			if = {
+				limit = { check_variable = { ai_template_skip = 1 } }  #一次性效果，检查ai_template_skip是否为0
+				template_bypass = yes
+			}
 			else = {
 				ai_has_engineer = yes  #必须先解锁工兵连科技，这将检查前一个模板中的所有either_support或either_regiment步骤是否已经完成
 			}
@@ -76,17 +87,20 @@ ai_militia_templates/KOR = {
 			}
 		}
 	}
-	ai_militia_templates = yes
+	ai_militia_templates = yes #开头和结尾都要有
 }
 
 ai_infantry_templates/KOR = {
-	ai_infantry_templates = yes
+	ai_infantry_templates = yes #开头和结尾都要有
 	clear_temp_array = num_valid_templates
 	add_to_temp_array = { num_valid_templates = 1 }
 	#一阶步兵师
 	if = {
 		limit = {
-			NOT = { has_country_flag = ai_infantry_template }
+			NOT = {
+				has_country_flag = ai_infantry_template
+				has_government = fascism
+			}
 			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
 		}
 		set_temp_variable = { ai_has_added_template = 1 }
@@ -115,7 +129,10 @@ ai_infantry_templates/KOR = {
 	else_if = {
 		limit = {
 			has_country_flag = { flag = ai_infantry_template value = 1 }
-			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+			if = {
+				limit = { check_variable = { ai_template_skip = 1 } }
+				template_bypass = yes
+			}
 			else = {
 				ai_has_artillery_brigade_med = yes  #必须先解锁科技
 			}
@@ -148,17 +165,20 @@ ai_infantry_templates/KOR = {
 			}
 		}
 	}
-	ai_infantry_templates = yes
+	ai_infantry_templates = yes #开头和结尾都要有
 }
 
 ai_motorized_templates/KOR = {
-	ai_motorized_templates = yes
+	ai_motorized_templates = yes #开头和结尾都要有
 	clear_temp_array = num_valid_templates
 	add_to_temp_array = { num_valid_templates = 1 } 
 	#装甲车部队
 	if = {
 		limit = {
-			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+			if = {
+				limit = { check_variable = { ai_template_skip = 1 } }
+				template_bypass = yes
+			}
 			else = {	
 				NOT = { has_country_flag = { flag = ai_motorized_templates } }
 				has_completed_focus = KOR_sov_deep_operations_theory #纵深作战理论
@@ -184,17 +204,20 @@ ai_motorized_templates/KOR = {
 			}
 		}
 	}
-	ai_motorized_templates = yes
+	ai_motorized_templates = yes #开头和结尾都要有
 }
 
 ai_light_armor_templates/KOR = {
-	ai_light_armor_templates = yes
+	ai_light_armor_templates = yes #开头和结尾都要有
 	clear_temp_array = num_valid_templates
 	add_to_temp_array = { num_valid_templates = 1 }
 	#骑兵坦克部队
 	if = {
 		limit = {
-			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+			if = {
+				limit = { check_variable = { ai_template_skip = 1 } }
+				template_bypass = yes
+			}
 			else = {	
 				NOT = { has_country_flag = { flag = ai_light_armor_template } }
 				has_completed_focus = KOR_sov_cavalry_tank_division #快速坦克部队

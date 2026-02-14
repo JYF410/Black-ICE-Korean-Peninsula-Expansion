@@ -1,4 +1,4 @@
-#设定大韩民国在内战失败后也能建立流亡政府
+#设定朝鲜民主主义共和国在内战失败后也能建立流亡政府
 on_actions = {
 	# ROOT是流亡国, FROM是战胜国
 	on_capitulation = { #当KOR被判定为投降时
@@ -8,14 +8,14 @@ on_actions = {
 					#失败方
 					ROOT = {
 						original_tag = KOR
-						has_government = neutrality
+						has_government = communism
+						has_war_with = FROM
 					}
 					#胜利方
 					FROM = {
 						original_tag = KOR
 						has_government = fascism
 					}
-					ROOT = { has_war_with = FROM }
 				}
 				#先保存失败方国家实体(防止被吞并导致游戏结束)
 				set_variable = { FROM.KOR_korea_country = ROOT }
@@ -25,7 +25,7 @@ on_actions = {
 						limit = { NOT = { is_government_in_exile = yes } }
 						#把失败方转为流亡政府
 						become_exiled_in = {
-							target = CHI
+							target = SOV
 							legitimacy = 5
 						}
 					}

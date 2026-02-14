@@ -78,7 +78,7 @@ country_event = {
 	desc = KOR_neutrality.3.d
 	picture = GFX_report_event_generic_battle
 	fire_only_once = yes
-	is_triggered_only = yes #本事件由KOR丧失全部核心领土后触发，对应文件common\on_actions\zzz_kor_exile_patch.txt
+	is_triggered_only = yes
 	#CHI同意
 	option = {
 		name = KOR_neutrality.3.a

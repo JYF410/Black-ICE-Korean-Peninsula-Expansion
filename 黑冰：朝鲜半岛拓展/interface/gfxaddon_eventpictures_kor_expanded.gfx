@@ -32,5 +32,15 @@ spriteTypes = {
 		name = "GFX_KOR_American_Eagle_Project_event"
 		texturefile = "gfx/event_pictures/KOR_American_Eagle_Project_event.tga"
 	}
+	#斯大林1
+	spriteType = {
+		name = "GFX_KOR_report_event_stalin_01"
+		texturefile = "gfx/event_pictures/KOR_report_event_stalin_01.tga"
+	}
+	#斯大林2
+	spriteType = {
+		name = "GFX_KOR_report_event_stalin_02"
+		texturefile = "gfx/event_pictures/KOR_report_event_stalin_02.tga"
+	}
 }
 #EOF#
