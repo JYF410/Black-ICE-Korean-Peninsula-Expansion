@@ -128,6 +128,14 @@ news_event = {
 			}
 		}
 		add_ideas = KOR_CHI_political_reform_hangzhou #大韩民国临时政府驻杭州领事馆
+		hidden_effect = {
+			CHI = {
+				remove_opinion_modifier = {
+					target = KOR
+					modifier = holds_our_cores #移除：他们有我们的核心省份
+				}
+			}
+		}
 		ai_chance = {
 			base = 500
 		}

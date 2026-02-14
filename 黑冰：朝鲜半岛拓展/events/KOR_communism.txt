@@ -73,7 +73,7 @@ country_event = {
 				}
 				add_field_marshal_role = {
 					Character = KOR_Choe_Yong_gon
-					traits = { Order_of_Red_Banner skilled_staffer }
+					traits = { skilled_staffer }
 					skill = 2
 					attack_skill = 2
 					defense_skill = 1

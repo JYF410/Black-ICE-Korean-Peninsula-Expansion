@@ -24,4 +24,9 @@ spriteTypes = {
 		name = "GFX_Korean_Liberation_Army"
 		texturefile = "gfx/interface/goals/Korean_Liberation_Army.dds"			
 	}
+	#扶持亲苏政权
+	SpriteType = {
+		name = "GFX_KOR_sov_puppet"
+		texturefile = "gfx/interface/goals/KOR_sov_puppet.dds"			
+	}
 }

@@ -121,14 +121,6 @@ KOR_CHI_Korea_Reconquista = {
 					modifier = { compliance_gain = 1.0 } #每日顺从度增长
 				}
 			}
-			hidden_effect = {
-				CHI = {
-					remove_opinion_modifier = {
-						target = KOR
-						modifier = holds_our_cores #移除：他们有我们的核心省份
-					}
-				}
-			}
 		}
 		ai_will_do = {
 			factor = 100
