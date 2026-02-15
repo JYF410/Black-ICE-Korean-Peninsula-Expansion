@@ -1,0 +1,74 @@
+#决议栏：朝鲜民族复国运动
+#####################################
+KOR_Japan_Korea_Reconquista = {
+	#对日本殖民据点发动的突袭战役
+	KOR_communist_civil_war = {
+		icon = generic_ignite_civil_war
+		on_map_mode = decision_view_only #决议不会在地图模式下显示任何特殊标记或按钮，只会在决议界面（决议栏）中显示
+		#state_target = yes #决议会对所有满足条件的 state（省份/地区）生成一个实例，state_target必须删除
+		allowed = {
+			tag = KOR
+		}
+		visible = {
+			NOT = { has_government = communism }
+			has_completed_focus = KOR_front_against_Japan #完成国策：朝鲜民族战线联盟
+		}
+		available = {
+			date > 1937.6.4
+			OR = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
+		cost = 100
+		fire_only_once = yes #决议仅能使用一次
+		days_remove = 7 #决议持续7天
+		remove_effect = {
+			country_event = {
+				id = KOR_communism.2 #弹窗事件
+				days = 3
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	#迁都平壤
+	KOR_move_capital_to_pyeongchang = {
+		icon = generic_operation
+		on_map_mode = decision_view_only
+		allowed = {
+			tag = KOR
+		}
+		visible = {
+			NOT = { has_government = fascism }
+			has_completed_focus = KOR_controlled_north_front_line
+		}
+		available = {
+			527 = { is_fully_controlled_by = ROOT }
+			NOT = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
+			}
+		}
+		modifier = {
+			civilian_factory_use = 2 #民用工厂运作
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 30
+		remove_effect = {
+			set_country_flag = KOR_has_moved_capital_to_pyeongchang
+			add_stability = 0.05 #稳定度+5%
+			set_capital = { state = 527 } #设置首都:平壤
+			hidden_effect = {
+				set_victory_points = { province = 6944 value = 10 } #恩德
+				set_victory_points = { province = 4052 value = 50 } #平壤
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+}

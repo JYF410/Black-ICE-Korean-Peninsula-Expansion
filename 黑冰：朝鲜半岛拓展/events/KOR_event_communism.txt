@@ -1,6 +1,6 @@
 add_namespace = KOR_communism
 
-#成立祖国光复会
+#成立祖国光复会（由KOR触发）
 news_event = {
 	id = KOR_communism.1
 	title = KOR_communism.1.t
@@ -17,7 +17,7 @@ news_event = {
 	}
 }
 
-#对日本殖民据点发动突袭！
+#对日本殖民据点发动突袭（由KOR触发）
 country_event = {
 	id = KOR_communism.2
 	title = KOR_communism.2.t
@@ -63,7 +63,7 @@ country_event = {
 				KOR_create_militia_army_div = yes #部署6个朝鲜义勇军
 				add_field_marshal_role = {
 					Character = KOR_Kim_Il_sung
-					traits = { Order_of_Red_Banner war_hero ranger winter_specialist }
+					traits = { Order_of_Red_Banner ranger }
 					skill = 3
 					attack_skill = 3
 					defense_skill = 4
@@ -116,7 +116,7 @@ country_event = {
 		}
 		ai_chance = { factor = 100 }
 		hidden_effect = {
-			play_song = "GF_24"
+			play_song = "GF_24" #播放bgm：你从丹东来
 		}
 	}
 	option = {
@@ -128,7 +128,7 @@ country_event = {
 	}
 }
 
-#在苏联建立临时政府（由SOV触发）
+#请求在苏联建立流亡政府（由SOV触发）
 country_event = {
 	id = KOR_communism.3
 	title = KOR_communism.3.t
@@ -145,7 +145,7 @@ country_event = {
 			add_war_support = 0.05 #战争支持度+5%
 		}
 		KOR = {
-			country_event = { id = KOR_communism.4 } #斯大林接受了金日成的请求
+			country_event = { id = KOR_communism.4 } #斯大林接受了我们的流亡请求
 		}
 		ai_chance = {
 			base = 100
@@ -160,14 +160,14 @@ country_event = {
 				target = SOV
 				modifier = small_decrease
 			}
+			country_event = { id = KOR_communism.5 } #斯大林拒绝了我们的流亡请求
 		}
 		ai_chance = {
 			base = 0
 		}
 	}
 }
-
-#斯大林接受了金日成的请求（由KOR触发）
+#斯大林接受了我们的流亡请求（由KOR触发）
 country_event = {
 	id = KOR_communism.4
 	title = KOR_communism.4.t
@@ -180,15 +180,10 @@ country_event = {
 		name = KOR_communism.4.a
 		trigger = { tag = KOR }
 		KOR = {
-			set_variable = { KOR.host_nation = SOV } #标记CHI是寄主国
-			add_stability = 0.05
-			add_war_support = 0.05
+			set_country_flag = KOR_sov_allow_us_exiled #斯大林允许朝鲜军队撤回外东北
 		}
 		hidden_effect = {
-			play_song = "GF_122"
-		}
-		ai_chance = {
-			base = 500
+			play_song = "GF_122" #播放bgm：大东北是我的家乡
 		}
 	}
 	#JAP
@@ -199,8 +194,133 @@ country_event = {
 			add_stability = -0.02 #稳定度-2%
 			add_war_support = -0.02 #战争支持度-2%
 		}
+	}
+}
+#斯大林拒绝了我们的流亡请求（由KOR触发）
+country_event = {
+	id = KOR_communism.5
+	title = KOR_communism.5.t
+	desc = KOR_communism.5.d
+	picture = GFX_report_event_stalin_02
+	fire_only_once = yes #只能触发一次
+	is_triggered_only = yes
+	#KOR
+	option = {
+		name = KOR_communism.5.a
+		trigger = { tag = KOR }
+		KOR = {
+			add_war_support = -0.02 #战争支持度-2%
+		}
+		hidden_effect = {
+			play_song = "GF_78" #播放bgm：大明不妙曲
+		}
+	}
+	#JAP
+	option = {
+		name = KOR_communism.5.b
+		trigger = { tag = JAP }
+		JAP = {
+			add_war_support = 0.02 #战争支持度+2%
+		}
+	}
+}
+
+#请求在北库页岛建立军事根据地（由SOV触发）
+country_event = {
+	id = KOR_communism.6
+	title = KOR_communism.6.t
+	desc = KOR_communism.6.d
+	picture = GFX_report_event_chinese_soldiers_02
+	fire_only_once = yes
+	is_triggered_only = yes
+	#SOV同意
+	option = {
+		name = KOR_communism.6.a
+		trigger = { tag = SOV }
+		SOV = {
+			add_stability = 0.05 #稳定度+5%
+			add_war_support = 0.05 #战争支持度+5%
+		}
+		KOR = {
+			country_event = { id = KOR_communism.7 }
+		}
 		ai_chance = {
 			base = 100
 		}
+	}
+	#SOV拒绝
+	option = {
+		name = KOR_communism.6.b
+		trigger = { tag = SOV }
+		KOR = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = small_decrease
+			}
+			country_event = { id = KOR_communism.8 }
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+#斯大林接受了我们的北库页岛请求（由KOR触发）
+country_event = {
+	id = KOR_communism.7
+	title = KOR_communism.7.t
+	desc = KOR_communism.7.d
+	picture = GFX_report_event_stalin_02
+	is_triggered_only = yes
+	option = {
+		name = KOR_communism.7.a
+		trigger = { tag = KOR }
+		KOR = {
+			transfer_state = 655
+			if = {
+				limit = {
+					537 = {
+						is_owned_by = SOV
+					}
+				}
+				transfer_state = 537
+			}
+			hidden_effect = {
+				set_capital = { state = 655 } #北萨哈林
+				set_victory_points = { province = 1742 value = 50 }
+				set_victory_points = { province = 1755 value = 10 }
+				set_victory_points = { province = 855 value = 5 }
+				655 = {
+					add_core_of = KOR
+					remove_core_of = SOV
+				}
+			}
+			diplomatic_relation = {
+				country = SOV
+				relation = non_aggression_pact #签订互不侵犯条约
+				active = yes
+			}
+			set_rule = {
+				can_join_factions = no #规则：禁止加入阵营
+			}
+			add_ideas = KOR_ai_always_NOT_join_ally #AI修正：不会主动加入盟友战争
+			add_ideas = KOR_ai_always_NOT_call_ally #AI修正：不会主动请求盟友加入目前的战争
+		}
+		hidden_effect = {
+			play_song = "GF_122" #播放bgm：大东北是我的家乡
+		}
+	}
+}
+#斯大林拒绝了我们的北库页岛请求（由KOR触发）
+country_event = {
+	id = KOR_communism.8
+	title = KOR_communism.8.t
+	desc = KOR_communism.8.d
+	picture = GFX_report_event_stalin_02
+	is_triggered_only = yes
+	option = {
+		name = KOR_communism.8.a
+		trigger = { tag = KOR }
+		add_stability = -0.01 #稳定度-1%
+		add_war_support = -0.02 #战争支持度-2%
 	}
 }

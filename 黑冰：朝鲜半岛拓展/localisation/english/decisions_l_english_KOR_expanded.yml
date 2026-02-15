@@ -1,11 +1,11 @@
 ﻿l_english:
 
-###################################### Republic of Korea (ROK) #####################################
+ ###################################### Republic of Korea #####################################
  KOR_CHI_Korea_Reconquista:0 "Korean National Restoration Movement"
- KOR_CHI_Korea_Reconquista_desc:0 "In the early stages of the Korean independence movement, numerous factions formed and dissolved. Eventually, two main groups emerged: the Korea National Party, led by Kim Ku, and the Korean National Revolutionary Party, led by Kim Won-bong. Early friction between these two factions hindered the movement's progress. In 1938, Chiang Kai-shek met with both leaders, urging them to cooperate sincerely against Japan. In May 1939, Kim Ku and Kim Won-bong published an 'Open Letter to Comrades and Compatriots,' calling for all Korean parties to set aside past grievances and work together for the common goal of independence."
+ KOR_CHI_Korea_Reconquista_desc:0 "On April 29, 1932, Yun Bong-gil of the Korea Independence Party detonated a bomb at a Japanese celebration of the Emperor's birthday in Shanghai's Hongkew Park. The blast killed and wounded several high-ranking Japanese military and political officials, including Shirakawa Yoshinori and Shigemitsu Mamoru, shocking the world. This act served as a major turning point in Sino-Korean relations, instantly dissolving the emotional rift caused by the earlier Wanbaoshan Incident. Consequently, the Korean independence movement’s strategic importance within the KMT's anti-Japanese plans rose sharply, leading the highest levels of the Chinese government to take a direct interest in the Korean cause."
 
  KOR_neutrality_civil_war:0 "Evacuation of Korean Officials"
- KOR_neutrality_civil_war_desc:0 "The evacuation of the Provisional Government of the Republic of Korea refers to the strategic relocation of its leaders and key members to China during WWII to avoid arrest and persecution by the Japanese Empire. This operation was designed to preserve the core leadership of the independence movement, allowing them to continue their struggle and seek international recognition from abroad. These evacuations involved complex, clandestine logistics to ensure the safety of officials while maintaining the continuity of government operations."
+ KOR_neutrality_civil_war_desc:0 "The evacuation of the Provisional Government of the Republic of Korea refers to the relocation of its leaders and key members to China during World War II to escape arrest and persecution by the Japanese Empire. This operation aimed to protect the core members of the Provisional Government, ensuring they could continue leading the independence movement and lobby for international support on the world stage. These evacuations involved clandestine planning and organization to ensure member safety and maintain governmental continuity while in exile."
 
  KOR_host_country_decision_01:0 "Request Permission from [CHI.Getleader] to Establish [KOR.GetNameDefCap] in §YHangzhou§!"
  KOR_host_country_decision_01_desc:0 "With our homeland under occupation, we require an overseas base to continue our resistance. We must approach [CHI.Getleader] immediately to request permission to establish a provisional government within [CHI.GetNameDefCap] territory."
@@ -13,21 +13,19 @@
  KOR_neutrality_host_country_decision_completed:0 "[CHI.Getleader] has granted our request."
  KOR_CHI_move_to_hangzhou:0 "Relocate Provisional Government to Hangzhou"
 
-################################# Democratic People's Republic of Korea (DPRK) #################################
- KOR_Japan_Korea_Reconquista:0 "Korean National Liberation Movement"
- KOR_Japan_Korea_Reconquista_desc:0 "The organized effort to liberate the Korean people and restore national sovereignty."
+ ################################# Democratic People's Republic of Korea #################################
+ KOR_Japan_Korea_Reconquista:0 "Korean National Restoration Movement"
+ KOR_Japan_Korea_Reconquista_desc:0 "Following the Mukden Incident in China, a surge of anti-Japanese national salvation movements emerged, revitalizing the Korean independence movement in China. In the Northeast, various Korean anti-Japanese factions—long persistent in their struggle—seized the opportunity to rebuild their strength. Forces such as the anti-Japanese guerrillas founded by Kim Il-sung and the Korean Revolutionary Army led by Ji Cheong-cheon fought side-by-side with Chinese anti-Japanese volunteer armies to strike back against the Japanese invaders."
 
  KOR_communist_civil_war:0 "Launch Raids on Colonial Outposts!"
- KOR_communist_civil_war_desc:0 "Following the establishment of the Association for the Restoration of the Fatherland in May 1936 and the proclamation of the Ten-Point Program, the armed struggle grew rapidly. Within months, ARF organizations spread across Korea with hundreds of thousands of members. In March 1937, Kim Il-sung convened a meeting in Shigang, Jilin, outlining a strategic policy for operations within the Korean interior, which included the famous plan to strike Pochonbo."
+ KOR_communist_civil_war_desc:0 "In May 1936, the Association for the Restoration of the Fatherland (ARF) was established in Northeast China, proclaiming a famous Ten-Point Program for national salvation. Subsequently, the revolutionary armed struggle of the Korean people developed rapidly. Within months, ARF organizations spread across Korea, with membership reaching into the hundreds of thousands. In March 1937, Kim Il-sung convened a meeting in Shigang, Jilin, to outline the strategic policy for entering Korea and formulated the operational plan to attack Pochonbo."
 
  KOR_move_capital_to_pyeongchang:0 "Relocate Capital to Pyongyang"
  KOR_move_capital_to_pyeongchang_desc:0 "To better coordinate and manage our national affairs, we have decided to move the capital from Seoul to Pyongyang."
-
- KOR_SOV_become_exiled:0 "Request Government-in-Exile Status from the USSR"
- KOR_SOV_become_exiled_desc:0 "Petition the Soviet Union for permission to establish a revolutionary government-in-exile on their soil."
+ KOR_has_moved_capital_to_pyeongchang:0 "Capital relocated to §HPyongyang§!"
 
  KOR_PRC_food_support:0 "Korean Food Assistance"
- KOR_PRC_food_support_desc:0 "During the Northeast Liberation War, the Korean government and people provided vital support to the Northeast Democratic United Army. Beyond providing weapons, uniforms, and medicine, Korea facilitated the supply of grain and daily necessities through trade channels. This assistance was crucial in alleviating shortages and maintaining the combat effectiveness of the front-line troops, embodying the deep friendship and solidarity between the two nations."
+ KOR_PRC_food_support_desc:0 "During the Northeast Liberation War, the Korean government and people provided significant support to the Chinese Northeast Democratic United Army, particularly in material supplies. Korea not only provided weapons, ammunition, uniforms, and medicine free of charge, but also supplied large quantities of grain and daily necessities through trade channels. This aid was vital in alleviating material shortages and maintaining the combat effectiveness of the front-line troops. This support reflects the deep friendship and solidarity between the two peoples, contributing significantly to the victory in Northeast China."
 
  KOR_economic_aid:0 "Territorial Development"
  KOR_sov_support_construction:0 "Land Resource Development"

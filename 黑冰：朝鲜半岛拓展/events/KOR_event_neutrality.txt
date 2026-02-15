@@ -60,7 +60,7 @@ country_event = {
 		}
 		ai_chance = { factor = 100 }
 		hidden_effect = {
-			play_song = "GF_06"
+			play_song = "GF_06" #播放bgm：牵丝戏
 		}
 	}
 	#选择不爆发内战
@@ -132,7 +132,8 @@ news_event = {
 			CHI = {
 				remove_opinion_modifier = {
 					target = KOR
-					modifier = holds_our_cores #移除：他们有我们的核心省份
+					modifier = holds_our_cores #他们有我们的核心省份
+					modifier = claims_on_us #他们对我们的土地有宣称权！
 				}
 			}
 		}

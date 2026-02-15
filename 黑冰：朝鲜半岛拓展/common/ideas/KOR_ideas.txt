@@ -14,6 +14,35 @@
 #MODIFIER_AI_BADASS_FACTOR: "AI修正：威胁度敏感度"
 
 ideas = {
+	#AI修正
+	hidden_ideas = { 
+		KOR_ai_always_join_ally = { 
+			name = "AI修正：会主动加入盟友战争" 
+			allowed = { always = no } 
+			modifier = { ai_join_ally_desire_factor = 1000 } 
+		}
+		KOR_ai_always_call_ally = { 
+			name = "AI修正：会主动请求盟友加入战争" 
+			allowed = { always = no } 
+			modifier = { ai_call_ally_desire_factor = 1000 } 
+		}
+		KOR_ai_always_NOT_join_ally = { 
+			name = "AI修正：不会主动加入盟友战争" 
+			allowed = { always = no } 
+			modifier = { ai_join_ally_desire_factor = -1000 } 
+		}
+		KOR_ai_always_NOT_call_ally = { 
+			name = "AI修正：不会主动请求盟友加入目前的战争" 
+			allowed = { always = no } 
+			modifier = { ai_call_ally_desire_factor = -1000 } 
+		}
+		KOR_ai_dont_join_faction = { 
+			name = "AI修正：不会主动加入任何阵营" 
+			allowed = { always = no } 
+			modifier = { ai_get_ally_desire_factor = -1000 } 
+		}
+	}
+	#国家精神
 	country = {
 		#朝鲜鸦片种植地
 		KOR_opium_plantation = {
@@ -79,7 +108,7 @@ ideas = {
 				army_core_attack_factor = 0.10 #核心领土进攻+10%
 				army_core_defence_factor = 0.10 #核心领土防御+10%
 				army_org_factor = 0.5 #陆军组织度+50%
-				surrender_limit = 0.5 #投降界限+50%
+				surrender_limit = 0.1 #投降界限+10%
 			}
 			targeted_modifier = {
 				tag = JAP

@@ -19,13 +19,13 @@ d_ai_logic/KOR = {
 		}
 		# disable_build  #禁用建立
 		# production_ratio  #生产权重
-		set_temp_variable = { BASE@role_infantry 				= 20  }
+		set_temp_variable = { BASE@role_infantry 				= 30  }
 		set_temp_variable = { BASE@role_light_infantry 			= 0  }
 		set_temp_variable = { BASE@role_heavy_infantry 			= 0  }
 		set_temp_variable = { BASE@role_militia		 			= 15  }
 		set_temp_variable = { BASE@role_garrison 				= 0  }
 		set_temp_variable = { BASE@role_cavalry 				= 0  }
-		set_temp_variable = { BASE@role_motorized 				= 15  }
+		set_temp_variable = { BASE@role_motorized 				= 5  }
 		set_temp_variable = { BASE@role_light_armor 			= 5  }
 		set_temp_variable = { BASE@role_light_armor_alt 		= 5  }
 		set_temp_variable = { BASE@role_medium_armor 			= 0  }
@@ -39,21 +39,25 @@ d_ai_logic/KOR = {
 				has_war_with = JAP
 			}
 			add_to_temp_variable = {
-				BASE@role_militia = 50
-				BASE@role_infantry = 30
-				BASE@role_motorized = 12
-				BASE@role_light_armor = 8
+				BASE@role_infantry = 60
+				BASE@role_militia = 30
+				BASE@role_motorized = 15
+				BASE@role_light_armor = 10
 			}
 		}
 		if = {
 			limit = {
-				has_war_with = ENG
+				OR = {
+					has_war_with = USA
+					has_war_with = ENG
+					has_war_with = GER
+				}	
 			}
 			add_to_temp_variable = {
-				BASE@role_militia = 50
-				BASE@role_infantry = 50
-				BASE@role_motorized = 20
-				BASE@role_light_armor = 10
+				BASE@role_infantry = 120
+				BASE@role_militia = 60
+				BASE@role_motorized = 30
+				BASE@role_light_armor = 15
 			}
 		}
 	}

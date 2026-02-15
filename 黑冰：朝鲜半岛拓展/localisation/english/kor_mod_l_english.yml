@@ -1,6 +1,6 @@
 ﻿l_english:
 
-###################################### Republic of Korea (Neutrality) #####################################
+ ###################################### Republic of Korea (Neutrality) #####################################
  KOR_neutrality.1.t:0 "Formation of the United Restoration Front"
  KOR_neutrality.1.d:0 "Led by Kim Ku, nine right-wing organizations—including the Korea National Party, the Korea Independence Party, the Korean Revolutionary Party, and the Korean Comrade Association—have established the 'Federation of Korean Restoration Movement Organizations' in Nanjing, commonly known as the Restoration Front. A few months later, left-wing groups led by Kim Won-bong, such as the Korean National Revolutionary Party and the League of Korean Revolutionaries, formed the 'Korean National United Front' in Wuhan. Intelligence gathering and propaganda within Korean expatriate communities remain the primary tasks of the Provisional Government. However, the formation of a standing army to take the fight directly to the battlefield has now been placed on the agenda."
  KOR_neutrality.1.a:0 "We shall fight to the end!"
@@ -31,7 +31,7 @@
  KOR_neutrality.7.a:0 "We shall cooperate with the [USA.GetNameDefCap]."
  KOR_neutrality.7.b:0 "We shall cooperate with the [KOR.GetNameDefCap]."
 
-################################# DPRK (Communism) #################################
+ ################################# DPRK (Communism) #################################
  KOR_communism.1.t:0 "Formal Establishment of the ARF"
  KOR_communism.1.d:0 "The Association for the Restoration of the Fatherland (ARF), led by General Kim Il-sung, represents the interests of the entire people. It has gathered revolutionary fighters like Kim Chaek and Choe Yong-gon alongside various patriots who, despite differing ideologies, stand united to overthrow Japanese imperialism. \n\nThe ARF serves as the mass organizational foundation for Kim Il-sung's guerrilla forces. Despite brutal Japanese suppression campaigns that saw tens of thousands arrested or martyred, the ARF continues its work. Through secret publications like the 'March 1st' monthly and 'Hwajeonmin,' they tirelessly spread the word of resistance and national independence."
  KOR_communism.1.a:0 "Long live General Kim Il-sung!"
@@ -41,12 +41,30 @@
  KOR_communism.2.a:0 "General, let us march south!"
  KOR_communism.2.b:0 "Forget it."
 
- KOR_communism.3.t:0 "Kim Il-sung Requests Exile in the USSR"
+ KOR_communism.3.t:0 "[KOR.Getleader] Requests Exile in the USSR"
  KOR_communism.3.d:0 "Our allies have requested permission to retreat into Soviet territory and establish a government-in-exile, allowing them to reorganize for the future struggle against Japan."
  KOR_communism.3.a:0 "We shall make good use of their strength."
- KOR_communism.3.b:0 "Refuse."
+ KOR_communism.3.b:0 "Let them fend for themselves."
 
- KOR_communism.4.t:0 "Stalin Grants Kim Il-sung's Request"
+ KOR_communism.4.t:0 "The USSR Accepts [KOR.Getleader]'s Request"
  KOR_communism.4.d:0 "Our forces can now safely withdraw to the Soviet Far East to regroup."
- KOR_communism.4.a:0 "Long live Comrade Stalin!"
+ KOR_communism.4.a:0 "Long live Comrade [SOV.Getleader]!"
  KOR_communism.4.b:0 "They are nothing but rats with nowhere else to run."
+
+ KOR_communism.5.t:0 "The USSR Refuses [KOR.Getleader]'s Request"
+ KOR_communism.5.d:0 "[SOV.Getleader] has heartlessly denied our request. We have been cornered with no way out."
+ KOR_communism.5.a:0 "This is not good..."
+ KOR_communism.5.b:0 "Like a turtle in a jar."
+
+ KOR_communism.6.t:0 "[KOR.Getleader] Requests a Base in North Sakhalin"
+ KOR_communism.6.d:0 "The [KOR.GetNameDefCap] has been lingering in our Far Eastern territories for too long. While their numbers are small, they pose a potential security risk. If we grant them a military base along the Far Eastern border, they might at least cause some trouble for the Japanese."
+ KOR_communism.6.a:0 "Agree"
+ KOR_communism.6.b:0 "Refuse"
+
+ KOR_communism.7.t:0 "The USSR Agrees to [KOR.Getleader]'s Request"
+ KOR_communism.7.d:0 "The Soviet leadership has granted us land in the Far East. We finally have a place to reorganize."
+ KOR_communism.7.a:0 "We will rebuild our strength in the Far East."
+
+ KOR_communism.8.t:0 "The USSR Refuses [KOR.Getleader]'s Request"
+ KOR_communism.8.d:0 "Our request for a base has been denied. Without a home, we are forced to wander as nomads."
+ KOR_communism.8.b:0 "We are homeless and wandering."
