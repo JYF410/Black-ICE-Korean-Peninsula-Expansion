@@ -2,22 +2,20 @@
 
 oob = "KOR_1936"
 
-set_war_support = 0.85
+set_war_support = 0.3
 
 set_research_slots = 2
 
-set_country_flag = JAP_armor
-set_country_flag = JAP_air
-
+set_country_flag = SOV_armor #开局加载苏联坦克科研
+set_country_flag = SOV_air #开局加载苏联飞机科研
 set_country_flag = ai_country_logic #启用AI调度，加载d_ai_logic/KOR
 set_country_flag = ai_has_air_production #启用AI飞机生产，加载位置common\ai_strategy\_ai_AIR_PRODUCTION_strategies.txt
-set_country_flag = ai_production/fighter_equipment
+set_country_flag = ai_production/fighter_equipment #启用AI飞机生产标记
 
-JAP = {
-	puppet = KOR
-}
+JAP = { puppet = KOR } #开局作为JAP的傀儡国
 
 set_convoys = 20
+
 if = {
 	limit = {
 		not = { has_dlc = "Man the Guns" }
@@ -50,7 +48,7 @@ set_technology = {
 	tech_recon = 1
 	tech_support = 1
 	subtech_recon_cav_1 = 1
-	infantry_at = 1 #uhm ok, weird flex
+	infantry_at = 1
 	handheld_at_equipment_infantry_group_tech = 1
 	handheld_at_equipment_mobile_group_tech = 1
 	handheld_at_equipment_special_forces_group_tech = 1
@@ -59,9 +57,6 @@ set_technology = {
 	################## artillery ##############
 	gw_artillery = 1 #一战火炮
 	interwar_artillery = 1 #驮马牵引车
-	############### aircraft ##############
-	tech_kawasaki_t92_equipment_1 = 1 #川崎 九二式战斗机
-	tech_nakajima_ki_4_equipment_1 = 1 #中岛 Ki-4 九四式侦察机(CAS)
 	################# ships ################
 	generic_naval_tech = 1
 	generic_naval = 1
@@ -79,6 +74,7 @@ set_technology = {
 	mass_assault = 1 #人海突击学说
 }
 add_ideas = { 	#初始民族精神
+	kantogun_administration #关东军司令部
 	KOR_opium_plantation #朝鲜鸦片种植地
 
 	export_focus
@@ -111,10 +107,9 @@ set_politics = {
 	elections_allowed = no
 }
 set_popularities = {
-	neutrality = 2
-	communism = 2
-	fascism = 95
-	socialism = 1
+	neutrality = 5
+	communism = 5
+	fascism = 90
 }
 #############################################################
 recruit_character = KOR_Kim_Koo  #金九

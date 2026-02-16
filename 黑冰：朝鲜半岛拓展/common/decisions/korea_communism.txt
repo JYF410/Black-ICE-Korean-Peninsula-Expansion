@@ -34,7 +34,7 @@ KOR_Japan_Korea_Reconquista = {
 		}
 	}
 	#迁都平壤
-	KOR_move_capital_to_pyeongchang = {
+	KOR_will_move_capital_to_pyeongchang = {
 		icon = generic_operation
 		on_map_mode = decision_view_only
 		allowed = {
@@ -59,11 +59,24 @@ KOR_Japan_Korea_Reconquista = {
 		days_remove = 30
 		remove_effect = {
 			set_country_flag = KOR_has_moved_capital_to_pyeongchang
-			add_stability = 0.05 #稳定度+5%
 			set_capital = { state = 527 } #设置首都:平壤
+			527 = {
+				set_building_level = {
+					type = bunker
+					level = 1
+					province = 4052 #平壤
+					instant_build = yes
+				}
+				set_building_level = {
+					type = coastal_bunker
+					level = 1
+					province = 4052 #平壤
+					instant_build = yes
+				}
+			}
 			hidden_effect = {
-				set_victory_points = { province = 6944 value = 10 } #恩德
-				set_victory_points = { province = 4052 value = 50 } #平壤
+				set_victory_points = { province = 6944 value = 20 } #恩德
+				set_victory_points = { province = 4052 value = 40 } #平壤
 			}
 		}
 		ai_will_do = {

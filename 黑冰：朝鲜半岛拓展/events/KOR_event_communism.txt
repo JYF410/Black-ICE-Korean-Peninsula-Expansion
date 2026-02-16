@@ -37,79 +37,85 @@ country_event = {
 				size = civil_war_size_var #叛乱规模修正（0–1 的比例值），影响装备库存（stockpile）、陆军、空军、海军
 				army_ratio = 1.0 #叛军能够保留的陆军规模
 				navy_ratio = 0.5 #叛军能够保留的海军规模
-				air_ratio = 0.5 #叛军能够保留的空军规模  
-				keep_unit_leaders = { 202619940708 } #指定指挥官ID，这些指挥官将留在原国家，不会加入叛军
-				set_capital = { state = 525 } #设置首都:京城
+				air_ratio = 0.5 #叛军能够保留的空军规模
 				states = { 525 751 816 819 820 } #划归给叛军的州
-				set_victory_points = { province = 4126 value = 10 } #光州
-				set_victory_points = { province = 11977 value = 20 } #忠清
-				set_victory_points = { province = 4056 value = 50 } #釜山
-				add_ideas = KOR_opium_plantation #朝鲜鸦片种植地
-				add_ideas = KOR_bank #朝鲜银行
+				hidden_effect = {
+					set_capital = { state = 525 } #设置首都:京城
+					set_victory_points = { province = 4126 value = 10 } #光州
+					set_victory_points = { province = 11977 value = 20 } #忠清
+					set_victory_points = { province = 4056 value = 50 } #釜山
+					add_ideas = kantogun_administration #关东军司令部
+					add_ideas = KOR_opium_plantation #朝鲜鸦片种植地
+					add_ideas = KOR_bank #朝鲜银行
+				}
 			#}
 			KOR = {
 				set_cosmetic_tag = KMTKOR_communism #更名为“朝鲜民主主义人民共和国”
-				set_capital = { state = 815 } #设置首都:咸镜
-				set_victory_points = { province = 6944 value = 40 } #恩德
-				set_victory_points = { province = 959 value = 10 } #渔郎
-				set_victory_points = { province = 3981 value = 20 } #咸兴
-				set_victory_points = { province = 6928 value = 10 } #定平
-				set_victory_points = { province = 4052 value = 20 } #平壤
-				set_country_flag = SOV_armor #加载苏联坦克科研
-				set_country_flag = SOV_air #加载苏联飞机科研
-				remove_ideas = KOR_opium_plantation #移除：朝鲜鸦片种植地
-				remove_ideas = KOR_bank #移除：朝鲜银行
-				KOR_create_partisan_army_div = yes #部署24个朝鲜游击队
-				KOR_create_militia_army_div = yes #部署6个朝鲜义勇军
 				add_field_marshal_role = {
 					Character = KOR_Kim_Il_sung
 					traits = { Order_of_Red_Banner ranger }
 					skill = 3
 					attack_skill = 3
-					defense_skill = 4
+					defense_skill = 2
 					planning_skill = 1
 					logistics_skill = 1
-					legacy_id = 202619940708
+					legacy_id = 2026021601
 				}
 				add_field_marshal_role = {
 					Character = KOR_Choe_Yong_gon
 					traits = { skilled_staffer }
 					skill = 2
-					attack_skill = 2
-					defense_skill = 1
-					planning_skill = 2
-					logistics_skill = 1
-					legacy_id = -1
+					attack_skill = 1
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 2
+					legacy_id = 2026021602
 				}
-				#keep_unit_leaders = {  } #指定指挥官ID，这些指挥官将留在原国家，不会加入叛军
-				#add_ideas = KOR_ai_dont_join_faction #朝鲜AI不会主动加入阵营
-				#add_ideas = KOR_ai_always_join_ally #朝鲜AI会主动加入盟友战争
-				#add_ideas = KOR_ai_always_call_ally #朝鲜AI会主动请求盟友加入战争
-				#set_rule = { can_join_opposite_factions = no } #不可以加入由不同意识形态领导的阵营
+				hidden_effect = {
+					set_capital = { state = 815 } #设置首都:咸镜
+					set_victory_points = { province = 6944 value = 40 } #恩德
+					set_victory_points = { province = 959 value = 10 } #渔郎
+					set_victory_points = { province = 3981 value = 5 } #咸兴
+					set_victory_points = { province = 6928 value = 5 } #定平
+					set_victory_points = { province = 4052 value = 20 } #平壤
+					set_victory_points = { province = 11835 value = 5 } #平安
+					set_victory_points = { province = 9795 value = 5 } #雩时
+					set_victory_points = { province = 3803 value = 5 } #惠山
+					set_victory_points = { province = 848 value = 5 } #通川
+					add_ideas = mountainous_country #山地国家
+					remove_ideas = kantogun_administration #关东军司令部
+					remove_ideas = KOR_opium_plantation #朝鲜鸦片种植地
+					remove_ideas = KOR_bank #朝鲜银行
+					KOR_create_partisan_army_div = yes #部署朝鲜游击队
+					KOR_create_militia_army_div = yes #部署朝鲜义勇军
+					#set_rule = { can_join_opposite_factions = no } #不可以加入由不同意识形态领导的阵营
+				}
 			}
-			756 = {
-				add_province_modifier = {
-					static_modifiers = { unplanned_offensive }
-					province = {
-						id = 3944
-						id = 9897
-						id = 944
-						id = 3929
+			hidden_effect = {
+				756 = {
+					add_province_modifier = {
+						static_modifiers = { unplanned_offensive }
+						province = {
+							id = 3944
+							id = 9897
+							id = 944
+							id = 3929
+						}
 					}
 				}
-			}
-			811 = {
-				add_province_modifier = {
-					static_modifiers = { unplanned_offensive }
-					province = {
-						id = 861
-						id = 800
-						id = 11781
-						id = 9803
-						id = 3949
-						id = 9848
-						id = 6860
-						id = 6981
+				811 = {
+					add_province_modifier = {
+						static_modifiers = { unplanned_offensive }
+						province = {
+							id = 861
+							id = 800
+							id = 11781
+							id = 9803
+							id = 3949
+							id = 9848
+							id = 6860
+							id = 6981
+						}
 					}
 				}
 			}
@@ -128,7 +134,7 @@ country_event = {
 	}
 }
 
-#请求在苏联建立流亡政府（由SOV触发）
+#请求撤退至苏联（由SOV触发）
 country_event = {
 	id = KOR_communism.3
 	title = KOR_communism.3.t
@@ -167,7 +173,7 @@ country_event = {
 		}
 	}
 }
-#斯大林接受了我们的流亡请求（由KOR触发）
+#斯大林接受了我们的撤退请求（由KOR触发）
 country_event = {
 	id = KOR_communism.4
 	title = KOR_communism.4.t
@@ -180,10 +186,15 @@ country_event = {
 		name = KOR_communism.4.a
 		trigger = { tag = KOR }
 		KOR = {
-			set_country_flag = KOR_sov_allow_us_exiled #斯大林允许朝鲜军队撤回外东北
+			set_country_flag = KOR_sov_allow_us_exiled_flag #斯大林允许朝鲜军队撤回外东北
 		}
-		hidden_effect = {
-			play_song = "GF_122" #播放bgm：大东北是我的家乡
+		SOV = {
+			give_military_access = KOR #给与KOR军事通行权
+			diplomatic_relation = {
+				country = KOR
+				relation = docking_rights #给与KOR港口停靠权
+				active = yes
+			}
 		}
 	}
 	#JAP
@@ -196,7 +207,7 @@ country_event = {
 		}
 	}
 }
-#斯大林拒绝了我们的流亡请求（由KOR触发）
+#斯大林拒绝了我们的撤退请求（由KOR触发）
 country_event = {
 	id = KOR_communism.5
 	title = KOR_communism.5.t
@@ -225,7 +236,7 @@ country_event = {
 	}
 }
 
-#请求在北库页岛建立军事根据地（由SOV触发）
+#请求在北萨哈林建立军事根据地（由SOV触发）
 country_event = {
 	id = KOR_communism.6
 	title = KOR_communism.6.t
@@ -264,7 +275,7 @@ country_event = {
 		}
 	}
 }
-#斯大林接受了我们的北库页岛请求（由KOR触发）
+#斯大林接受了我们的北萨哈林请求（由KOR触发）
 country_event = {
 	id = KOR_communism.7
 	title = KOR_communism.7.t
@@ -275,6 +286,7 @@ country_event = {
 		name = KOR_communism.7.a
 		trigger = { tag = KOR }
 		KOR = {
+			set_country_flag = KOR_sov_allow_us_get_Sakhalin_flag #斯大林允许朝鲜军队驻扎在北萨哈林
 			transfer_state = 655
 			if = {
 				limit = {
@@ -320,7 +332,11 @@ country_event = {
 	option = {
 		name = KOR_communism.8.a
 		trigger = { tag = KOR }
-		add_stability = -0.01 #稳定度-1%
-		add_war_support = -0.02 #战争支持度-2%
+		KOR = {
+			add_war_support = -0.02 #战争支持度-2%
+		}
+		hidden_effect = {
+			play_song = "GF_78" #播放bgm：大明不妙曲
+		}
 	}
 }

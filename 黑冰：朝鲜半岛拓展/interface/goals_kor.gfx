@@ -4,12 +4,12 @@ spriteTypes = {
 		name = "GFX_KOR_CHI_political_reform"
 		texturefile = "gfx/interface/goals/KOR_CHI_political_reform.dds"			
 	}	
-	#北方朝鲜共产党
+	#巩固北朝鲜政权
 	SpriteType = {
 		name = "GFX_KOR_north_communism"
 		texturefile = "gfx/interface/goals/KOR_north_communism.dds"			
 	}
-	#南方朝鲜共产党
+	#南朝鲜政权
 	SpriteType = {
 		name = "GFX_KOR_south_communism"
 		texturefile = "gfx/interface/goals/KOR_south_communism.dds"			
@@ -28,5 +28,25 @@ spriteTypes = {
 	SpriteType = {
 		name = "GFX_KOR_sov_puppet"
 		texturefile = "gfx/interface/goals/KOR_sov_puppet.dds"			
+	}
+	#动员地方民众
+	SpriteType = {
+		name = "GFX_KOR_people_support"
+		texturefile = "gfx/interface/goals/KOR_people_support.dds"			
+	}
+	#迁都平壤
+	SpriteType = {
+		name = "GFX_KOR_preparations_for_war"
+		texturefile = "gfx/interface/goals/KOR_preparations_for_war.dds"			
+	}
+	#极地作战部队
+	SpriteType = {
+		name = "GFX_KOR_sov_arctic_support_companies"
+		texturefile = "gfx/interface/goals/KOR_sov_arctic_support_companies.dds"			
+	}
+	#订购苏联潜艇
+	SpriteType = {
+		name = "GFX_KOR_sov_order_submarines"
+		texturefile = "gfx/interface/goals/KOR_sov_order_submarines.dds"			
 	}
 }

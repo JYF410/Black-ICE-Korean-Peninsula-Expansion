@@ -56,15 +56,15 @@ KOR_communism.5.d: "[SOV.Getleader]残忍的拒绝了我们的请求，这下我
 KOR_communism.5.a: "这下不妙了"
 KOR_communism.5.b: "瓮中捉鳖"
 
-KOR_communism.6.t: "[KOR.Getleader]请求在北库页岛建立军事根据地"
-KOR_communism.6.d: "[KOR.GetNameDefCap]在我们的远东领土上徘徊太久了，虽然他们的部队人数不多，但是难免会徒增隐患。如果我们同意让给他们在远东地区的边境建立军事基地，还可以给日本人制造一些麻烦。"
+KOR_communism.6.t: "[KOR.Getleader]请求在北萨哈林建立军事根据地"
+KOR_communism.6.d: "[KOR.GetNameDefCap]在我们的远东领土上徘徊太久了，虽然他们的部队人数不多，但是难免会徒增隐患。如果我们同意让给他们在远东地区的边境建立军事基地，可以给日本人制造一些麻烦。"
 KOR_communism.6.a: "同意"
 KOR_communism.6.b: "拒绝"
 
 KOR_communism.7.t: "苏联同意了[KOR.Getleader]的请求"
-KOR_communism.7.d: ""
-KOR_communism.7.a: "我们将在远东重振旗鼓"
+KOR_communism.7.d: "现在我们在北萨哈林有了自己的根据地"
+KOR_communism.7.a: "我们将重振旗鼓"
 
 KOR_communism.8.t: "苏联拒绝了[KOR.Getleader]的请求"
-KOR_communism.8.d: ""
-KOR_communism.8.b: "我们无家可归只能流浪"
+KOR_communism.8.d: "斯大林不同意我们拥有北萨哈林"
+KOR_communism.8.b: "我们无家可归"

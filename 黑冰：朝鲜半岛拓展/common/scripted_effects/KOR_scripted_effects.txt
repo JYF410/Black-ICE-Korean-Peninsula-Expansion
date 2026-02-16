@@ -26,10 +26,10 @@ apply_cosmetic_tags = {
 	}
 }
 
-#朝鲜地方警防团
+#朝鲜殖民地警防团
 KOR_create_JAP_partisan_army_div = {
 	division_template = {
-		name = "朝鲜地方警防团"
+		name = "朝鲜殖民地警防团"
 		division_names_group = KOR_GAR_01
 		template_counter = 89
 		is_locked = no
@@ -46,15 +46,15 @@ KOR_create_JAP_partisan_army_div = {
 	}
 	random_owned_controlled_state = {
 		create_unit = {
-			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜地方警防团\" start_experience_factor = 0.2 start_equipment_factor = 0.7 force_equipment_variants = { garrison_equipment_0 = { owner = JAP } }"
+			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜殖民地警防团\" start_experience_factor = 0.2 start_equipment_factor = 0.7 force_equipment_variants = { garrison_equipment_0 = { owner = JAP } }"
 			owner = KOR
 		}
 	}
 }
-#朝鲜地方宪兵队
+#朝鲜殖民地宪兵队
 KOR_create_JAP_MP_army_div = {
 	division_template = {
-		name = "朝鲜地方宪兵队"
+		name = "朝鲜殖民地宪兵队"
 		division_names_group = KOR_CAV_01
 		template_counter = 210
 		is_locked = no
@@ -74,7 +74,46 @@ KOR_create_JAP_MP_army_div = {
 	}
 	random_owned_controlled_state = {
 		create_unit = {
-			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜地方宪兵队\" start_experience_factor = 0.5 start_equipment_factor = 0.9 force_equipment_variants = { motorized_AC_equipment_06 = { owner = JAP } }"
+			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜殖民地宪兵队\" start_experience_factor = 0.5 start_equipment_factor = 0.9 force_equipment_variants = { motorized_AC_equipment_06 = { owner = JAP } }"
+			owner = KOR
+		}
+	}
+}
+
+#朝鲜远东极地部队
+KOR_create_arctic_support_companies_div = {
+	division_template = {
+		name = "朝鲜远东极地部队"
+		division_names_group = KOR_CAV_01
+		template_counter = 210
+		is_locked = yes
+		regiments = {
+			light_infantry = { x = 0 y = 0 }
+			light_infantry = { x = 0 y = 1 }
+			light_infantry = { x = 0 y = 2 }
+			light_infantry = { x = 1 y = 0 }
+			light_infantry = { x = 1 y = 1 }
+			light_infantry = { x = 1 y = 2 }
+			light_infantry = { x = 2 y = 0 }
+			light_infantry = { x = 2 y = 1 }
+			light_infantry = { x = 2 y = 2 }
+			mountain_artillery_brigade = { x = 3 y = 0 }		
+			armored_car = { x = 2 y = 0 }
+		}
+		support = {
+			DIV_HQ_car = { x = 0 y = 0 }
+			recon_ac = { x = 0 y = 1}
+			engineer_mot = { x = 0 y = 2 }
+			field_hospital = { x = 0 y = 3 }
+			logistics_company_car = { x = 0 y = 4 }
+			arctic_support = { x = 1 y = 0 }
+		}
+	}
+	655 = {
+		create_unit = {
+			division = "name = \"朝鲜远东极地部队第1师\" division_template = \"朝鲜远东极地部队\" start_experience_factor = 0.2 start_equipment_factor = 1.0 force_equipment_variants = { arctic_equipment_0 = { owner = SOV } }"
+			prioritize_location = 1742 #诺格利基
+			count = 1
 			owner = KOR
 		}
 	}
@@ -105,7 +144,7 @@ KOR_create_partisan_army_div = {
 	527 = {
 		create_unit = {
 			division = "name = \"朝鲜游击队\" division_template = \"朝鲜游击队\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
-			count = 12
+			count = 8
 			owner = KOR
 		}
 	}
@@ -114,7 +153,7 @@ KOR_create_partisan_army_div = {
 KOR_create_militia_army_div = {
 	division_template = {
 		name = "朝鲜义勇军"
-		is_locked = yes
+		is_locked = no
 		#division_names_group = KOR_INF_01
 		regiments = {
 			militia = { x = 0 y = 0 }
@@ -138,14 +177,20 @@ KOR_create_militia_army_div = {
 			owner = KOR
 		}	
 		create_unit = {
-			division = "name = \"咸兴义勇军\" division_template = \"朝鲜义勇军\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
-			prioritize_location = 3981 #咸兴
+			division = "name = \"惠山义勇军\" division_template = \"朝鲜义勇军\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+			prioritize_location = 3803 #惠山
 			count = 1
 			owner = KOR
 		}
 		create_unit = {
 			division = "name = \"渔郎义勇军\" division_template = \"朝鲜义勇军\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 			prioritize_location = 959 #渔郎
+			count = 1
+			owner = KOR
+		}
+		create_unit = {
+			division = "name = \"咸兴义勇军\" division_template = \"朝鲜义勇军\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+			prioritize_location = 3981 #咸兴
 			count = 1
 			owner = KOR
 		}
@@ -158,14 +203,8 @@ KOR_create_militia_army_div = {
 			owner = KOR
 		}
 		create_unit = {
-			division = "name = \"定平义勇军\" division_template = \"朝鲜义勇军\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
-			prioritize_location = 6928 #定平
-			count = 1
-			owner = KOR
-		}
-		create_unit = {
-			division = "name = \"平安义勇军\" division_template = \"朝鲜义勇军\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
-			prioritize_location = 11770 #平安
+			division = "name = \"通川义勇军\" division_template = \"朝鲜义勇军\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+			prioritize_location = 848 #通川
 			count = 1
 			owner = KOR
 		}

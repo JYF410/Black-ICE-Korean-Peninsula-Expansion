@@ -36,10 +36,10 @@ country_event = {
 				army_ratio = 1.0 #朝鲜殖民地能够保留的陆军规模
 				navy_ratio = 0 #朝鲜殖民地能够保留的海军规模
 				air_ratio = 0 #朝鲜殖民地能够保留的空军规模
-				keep_unit_leaders = { 202619940708 } #指定指挥官ID，这些指挥官将留在大韩民国临时政府，不会加入朝鲜殖民地
 				set_capital = { state = 527 } #设置首都:平壤
 				states = { 527 815 816 751 819 820 } #划归给朝鲜殖民地的州
 				hidden_effect = {
+					add_ideas = kantogun_administration #关东军司令部
 					add_ideas = KOR_opium_plantation #朝鲜鸦片种植地
 					add_ideas = KOR_bank #朝鲜银行
 				}
@@ -53,6 +53,7 @@ country_event = {
 					set_country_flag = USA_air #加载美国飞机科研
 					add_ideas = foreign_cooperative #合作主义
 					add_ideas = labor_allowed #允许女性工作
+					remove_ideas = kantogun_administration #关东军司令部
 					remove_ideas = KOR_opium_plantation #移除：朝鲜鸦片种植地
 					remove_ideas = KOR_bank #移除：朝鲜银行
 				}

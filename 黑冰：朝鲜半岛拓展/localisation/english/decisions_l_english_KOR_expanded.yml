@@ -20,9 +20,9 @@
  KOR_communist_civil_war:0 "Launch Raids on Colonial Outposts!"
  KOR_communist_civil_war_desc:0 "In May 1936, the Association for the Restoration of the Fatherland (ARF) was established in Northeast China, proclaiming a famous Ten-Point Program for national salvation. Subsequently, the revolutionary armed struggle of the Korean people developed rapidly. Within months, ARF organizations spread across Korea, with membership reaching into the hundreds of thousands. In March 1937, Kim Il-sung convened a meeting in Shigang, Jilin, to outline the strategic policy for entering Korea and formulated the operational plan to attack Pochonbo."
 
- KOR_move_capital_to_pyeongchang:0 "Relocate Capital to Pyongyang"
- KOR_move_capital_to_pyeongchang_desc:0 "To better coordinate and manage our national affairs, we have decided to move the capital from Seoul to Pyongyang."
- KOR_has_moved_capital_to_pyeongchang:0 "Capital relocated to §HPyongyang§!"
+ KOR_will_move_capital_to_pyeongchang:0 "Relocate Capital to Pyongyang"
+ KOR_will_move_capital_to_pyeongchang_desc:0 "To better coordinate and manage our national affairs, we have decided to move the capital from Seoul to Pyongyang."
+ KOR_has_moved_capital_to_pyeongchang:0 "§HPyongyang§! now is capital of KOR"
 
  KOR_PRC_food_support:0 "Korean Food Assistance"
  KOR_PRC_food_support_desc:0 "During the Northeast Liberation War, the Korean government and people provided significant support to the Chinese Northeast Democratic United Army, particularly in material supplies. Korea not only provided weapons, ammunition, uniforms, and medicine free of charge, but also supplied large quantities of grain and daily necessities through trade channels. This aid was vital in alleviating material shortages and maintaining the combat effectiveness of the front-line troops. This support reflects the deep friendship and solidarity between the two peoples, contributing significantly to the victory in Northeast China."

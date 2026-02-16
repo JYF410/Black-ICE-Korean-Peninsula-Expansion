@@ -19,27 +19,27 @@ ideas = {
 		KOR_ai_always_join_ally = { 
 			name = "AI修正：会主动加入盟友战争" 
 			allowed = { always = no } 
-			modifier = { ai_join_ally_desire_factor = 1000 } 
+			modifier = { ai_join_ally_desire_factor = 2000 } 
 		}
 		KOR_ai_always_call_ally = { 
 			name = "AI修正：会主动请求盟友加入战争" 
 			allowed = { always = no } 
-			modifier = { ai_call_ally_desire_factor = 1000 } 
+			modifier = { ai_call_ally_desire_factor = 2000 } 
 		}
 		KOR_ai_always_NOT_join_ally = { 
 			name = "AI修正：不会主动加入盟友战争" 
 			allowed = { always = no } 
-			modifier = { ai_join_ally_desire_factor = -1000 } 
+			modifier = { ai_join_ally_desire_factor = -2000 } 
 		}
 		KOR_ai_always_NOT_call_ally = { 
 			name = "AI修正：不会主动请求盟友加入目前的战争" 
 			allowed = { always = no } 
-			modifier = { ai_call_ally_desire_factor = -1000 } 
+			modifier = { ai_call_ally_desire_factor = -2000 } 
 		}
 		KOR_ai_dont_join_faction = { 
 			name = "AI修正：不会主动加入任何阵营" 
 			allowed = { always = no } 
-			modifier = { ai_get_ally_desire_factor = -1000 } 
+			modifier = { ai_get_ally_desire_factor = -2000 } 
 		}
 	}
 	#国家精神
