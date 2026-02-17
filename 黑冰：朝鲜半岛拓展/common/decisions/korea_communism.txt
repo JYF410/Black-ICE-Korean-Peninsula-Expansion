@@ -42,7 +42,6 @@ KOR_Japan_Korea_Reconquista = {
 		}
 		visible = {
 			NOT = { has_government = fascism }
-			has_completed_focus = KOR_controlled_north_front_line
 		}
 		available = {
 			527 = { is_fully_controlled_by = ROOT }
@@ -52,18 +51,18 @@ KOR_Japan_Korea_Reconquista = {
 			}
 		}
 		modifier = {
-			civilian_factory_use = 2 #民用工厂运作
+			civilian_factory_use = 3 #民用工厂运作
 		}
-		cost = 50
+		cost = 75
 		fire_only_once = yes
-		days_remove = 30
+		days_remove = 60
 		remove_effect = {
 			set_country_flag = KOR_has_moved_capital_to_pyeongchang
 			set_capital = { state = 527 } #设置首都:平壤
 			527 = {
 				set_building_level = {
 					type = bunker
-					level = 1
+					level = 2
 					province = 4052 #平壤
 					instant_build = yes
 				}

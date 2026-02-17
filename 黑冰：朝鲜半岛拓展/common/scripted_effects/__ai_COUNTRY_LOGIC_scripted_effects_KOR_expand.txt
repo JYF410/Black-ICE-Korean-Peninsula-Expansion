@@ -12,6 +12,7 @@ d_ai_logic/KOR = {
 		ai_infantry_templates/KOR = yes
 		ai_motorized_templates/KOR = yes
 		ai_light_armor_templates/KOR = yes
+		ai_mountaineer_templates/KOR = yes
 	}
 	if = {
 		limit = {
@@ -33,7 +34,7 @@ d_ai_logic/KOR = {
 		set_temp_variable = { BASE@role_heavy_armor 			= 0  }
 		set_temp_variable = { BASE@role_heavy_armor_alt 		= 0  }
 		set_temp_variable = { BASE@role_marines 				= 0  }
-		set_temp_variable = { BASE@role_mountaineers 			= 0  }
+		set_temp_variable = { BASE@role_mountaineers 			= 3  }
 		if = {
 			limit = {
 				has_war_with = JAP
@@ -43,6 +44,7 @@ d_ai_logic/KOR = {
 				BASE@role_militia = 30
 				BASE@role_motorized = 15
 				BASE@role_light_armor = 10
+				BASE@role_mountaineers = 5
 			}
 		}
 		if = {
@@ -58,6 +60,7 @@ d_ai_logic/KOR = {
 				BASE@role_militia = 60
 				BASE@role_motorized = 30
 				BASE@role_light_armor = 15
+				BASE@role_mountaineers = 10
 			}
 		}
 	}

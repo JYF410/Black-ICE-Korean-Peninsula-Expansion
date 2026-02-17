@@ -770,8 +770,8 @@ focus_tree = {
 			#
 		}
 		completion_reward = {
-			army_experience = 75
-			remove_ideas = neutrality_idea #AI修正：移除外交中立
+			remove_ideas = neutrality_idea #移除外交中立
+			add_ideas = foreign_cooperative_name #合作主义
 			hidden_effect = {
 				SOV = {
 					add_opinion_modifier = {
@@ -801,7 +801,7 @@ focus_tree = {
 						modifier = pact_against_us 
 					}
 				}
-				add_ideas = KOR_ai_always_NOT_call_ally #AI修正：请求盟友加入战争的意愿-1000
+				add_ideas = KOR_ai_always_NOT_call_ally #请求盟友加入战争的意愿-1000
 			}
 		}
 		ai_will_do = {
@@ -889,8 +889,9 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_political_power = 100 #政治点数+100
-			add_ideas = KOR_PRC_General_Federation_of_Korean_Chinese		
+			add_political_power = 50 #政治点数
+			add_ideas = KOR_PRC_General_Federation_of_Korean_Chinese
+			add_ideas = labor_allowed_name #允许女性工作
 		}
 		ai_will_do = {
 			factor = 15
@@ -1223,7 +1224,6 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_country_leader_trait = soviet_thaw #领袖特质：亲苏维埃
 			diplomatic_relation = {
 				country = SOV
 				relation = non_aggression_pact #签订互不侵犯条约
@@ -1981,31 +1981,58 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_FORTIFICATION }
 		x = 1
 		y = 1
-		cost = 30
+		cost = 60
 		available = {
 			has_country_flag = KOR_sov_allow_us_get_Sakhalin_flag
 		}
 		completion_reward = {
 			655 = {
 				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
 					type = supply_node
 					level = 1
 					instant_build = yes
 					province = 1742
 				}
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
 			}
 			build_railway = { 
-				level = 2
+				level = 1
 				path = { 1742 1755 1820 }
 			}
 			unlock_decision_tooltip = {
 				decision = Arab_Mining
 				show_effect_tooltip = yes
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	#地下石油探勘
+	focus = {
+		id = KOR_sov_development_Sakhalin_oil
+		icon = GFX_goal_alfold_oil_fields
+		prerequisite = { focus = KOR_sov_development_Sakhalin_region }
+		relative_position_id = KOR_sov_development_Sakhalin_region
+		search_filters = { FOCUS_FILTER_FORTIFICATION }
+		x = 0
+		y = 2
+		cost = 90
+		available = {
+			has_country_flag = KOR_sov_allow_us_get_Sakhalin_flag
+		}
+		completion_reward = {
+			655 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
 			}
 			unlock_decision_tooltip = {
 				decision = Arab_Search_For_Oil
@@ -2198,8 +2225,6 @@ focus_tree = {
 			create_ship = { type = nrm_ship_hull_submarine_small_2 equipment_variant = "Pyongyang-class" creator = SOV }
 			create_ship = { type = nrm_ship_hull_submarine_small_2 equipment_variant = "Pyongyang-class" creator = SOV }
 			create_ship = { type = nrm_ship_hull_submarine_small_2 equipment_variant = "Pyongyang-class" creator = SOV }
-			create_ship = { type = nrm_ship_hull_submarine_small_2 equipment_variant = "Pyongyang-class" creator = SOV }
-			create_ship = { type = nrm_ship_hull_submarine_small_2 equipment_variant = "Pyongyang-class" creator = SOV }
 		}
 		ai_will_do = {
 			factor = 100
@@ -2364,17 +2389,17 @@ focus_tree = {
 						damage = 1
 					}
 				}
-				KOR = {
-					add_equipment_to_stockpile = { type = infantry_uniforms amount = 500 producer = JAP }
-					add_equipment_to_stockpile = { type = infantry_equipment amount = 500 producer = JAP }
-					add_equipment_to_stockpile = { type = HMG_equipment amount = 30 producer = JAP }
-					add_equipment_to_stockpile = { type = mortar_equipment amount = 10 producer = JAP }
-				}
 				JAP = {
 					add_equipment_to_stockpile = { type = infantry_uniforms amount = -500 }
 					add_equipment_to_stockpile = { type = infantry_equipment amount = -500 }
 					add_equipment_to_stockpile = { type = HMG_equipment amount = -30 }
 					add_equipment_to_stockpile = { type = mortar_equipment amount = -10 }
+				}
+				KOR = {
+					add_equipment_to_stockpile = { type = infantry_uniforms_1 amount = 500 producer = JAP }
+					add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 500 producer = JAP }
+					add_equipment_to_stockpile = { type = HMG_equipment_0 amount = 30 producer = JAP }
+					add_equipment_to_stockpile = { type = mortar_equipment_0 amount = 10 producer = JAP }
 				}
 			}
 			else_if = {
@@ -2387,19 +2412,19 @@ focus_tree = {
 						damage = 2
 					}
 				}
-				KOR = {
-				add_equipment_to_stockpile = { type = infantry_uniforms amount = 1000 producer = JAP }
-				add_equipment_to_stockpile = { type = infantry_equipment amount = 1000 producer = JAP }
-				add_equipment_to_stockpile = { type = HMG_equipment amount = 100 producer = JAP }
-				add_equipment_to_stockpile = { type = mortar_equipment amount = 50 producer = JAP }
-				add_equipment_to_stockpile = { type = mountain_artillery_equipment amount = 20 producer = JAP }
-				}
 				JAP = {
 					add_equipment_to_stockpile = { type = infantry_uniforms amount = -1000 }
 					add_equipment_to_stockpile = { type = infantry_equipment amount = -1000 }
 					add_equipment_to_stockpile = { type = HMG_equipment amount = -100 }
 					add_equipment_to_stockpile = { type = mortar_equipment amount = -50 }
 					add_equipment_to_stockpile = { type = mountain_artillery_equipment amount = -20 }
+				}
+				KOR = {
+				add_equipment_to_stockpile = { type = infantry_uniforms_1 amount = 1000 producer = JAP }
+				add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 1000 producer = JAP }
+				add_equipment_to_stockpile = { type = HMG_equipment_0 amount = 100 producer = JAP }
+				add_equipment_to_stockpile = { type = mortar_equipment_0 amount = 50 producer = JAP }
+				add_equipment_to_stockpile = { type = mountain_artillery_equipment_0 amount = 20 producer = JAP }
 				}
 			}
 		}
@@ -2502,13 +2527,11 @@ focus_tree = {
 						damage = 1
 					}
 				}
-				KOR = {
-					add_equipment_to_stockpile = { type = motorized_equipment amount = 20 producer = MAN }
-					add_equipment_to_stockpile = { type = train_equipment_1 amount = 5 producer = JAP }
-				}
 				MAN = {
 					add_equipment_to_stockpile = { type = motorized_equipment amount = -20 }
-					add_equipment_to_stockpile = { type = train_equipment amount = -5 }
+				}
+				KOR = {
+					add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 20 producer = JAP }
 				}
 			}
 			if = {
@@ -2527,13 +2550,13 @@ focus_tree = {
 						damage = 2
 					}
 				}
-				KOR = {
-					add_equipment_to_stockpile = { type = motorized_equipment amount = 50 producer = JAP }
-					add_equipment_to_stockpile = { type = train_equipment_1 amount = 10 producer = JAP }
-				}
 				MAN = {
 					add_equipment_to_stockpile = { type = motorized_equipment amount = -50 }
-					add_equipment_to_stockpile = { type = train_equipment amount = -10 }
+					add_equipment_to_stockpile = { type = train_equipment amount = -5 }
+				}
+				KOR = {
+					add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 50 producer = JAP }
+					add_equipment_to_stockpile = { type = train_equipment_1 amount = 5 producer = JAP }
 				}
 			}
 		}
@@ -2553,16 +2576,15 @@ focus_tree = {
 		cost = 30
 		available = {
 			has_war_with = JAP
-			
 		}
 		completion_reward = {
 			add_war_support = 0.10
-			add_manpower = 10000
-			add_ideas = low_economic_mobilisation_name #前期动员
+			add_ideas = partial_economic_mobilisation_name #部分动员
+			add_ideas = mob_limited_name #局部动员
 			set_country_flag = KOR_wartime_conscription
 		}
 		ai_will_do = {
-			factor = 80
+			factor = 85
 		}
 	}
 
@@ -2611,7 +2633,32 @@ focus_tree = {
 			has_country_flag = KOR_has_moved_capital_to_pyeongchang
 		}
 		completion_reward = {
-			
+			527 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = police_station
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = recruitment_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			815 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = police_station
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = recruitment_building
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 100
@@ -2694,7 +2741,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = CHI_free_mountain_template_tt
 			division_template = {
-				name = "Korea Mountain Division"
+				name = "朝鲜人民军山地师"
 				division_names_group = KOR_MNT_01
 				regiments = {
 					mountaineers = { x = 0 y = 0 }
@@ -2704,14 +2751,18 @@ focus_tree = {
 					mountaineers = { x = 1 y = 1 }
 					mountaineers = { x = 1 y = 2 }
 					mountaineers = { x = 2 y = 0 }
-					mountain_artillery_brigade = { x = 2 y = 1 }
-					mountain_artillery_brigade = { x = 2 y = 2 }
+					mountaineers = { x = 2 y = 1 }
+					mountaineers = { x = 2 y = 2 }
+					mountain_artillery_brigade = { x = 3 y = 0 }
+					mountain_artillery_brigade = { x = 3 y = 1 }
+					mountain_artillery_brigade = { x = 3 y = 2 }
+					anti_tank_brigade = { x = 3 y = 3 }
 				}
 				support = {
 					DIV_HQ = { x = 0 y = 0 }
-					recon_cav = { x = 0 y = 1}
+					recon_ac = { x = 0 y = 1}
 					engineer = { x = 0 y = 2 }
-					mountain_support = { x = 1 y = 0 }
+					mount_support = { x = 1 y = 0 }
 					anti_air = { x = 1 y = 1 }
 				}
 			}

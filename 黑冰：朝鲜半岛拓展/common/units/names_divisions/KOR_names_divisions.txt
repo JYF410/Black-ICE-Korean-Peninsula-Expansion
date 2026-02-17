@@ -98,7 +98,7 @@ KOR_ARM_01 = {
 }
 
 KOR_INF_01 = {
-	name = "韩国光复军"
+	name = "Infantry Division"
 	for_countries = { KOR }
 	division_types = { "infantry" "light_infantry" "militia" }
 	fallback_name = "韩国光复军第%d步兵师"

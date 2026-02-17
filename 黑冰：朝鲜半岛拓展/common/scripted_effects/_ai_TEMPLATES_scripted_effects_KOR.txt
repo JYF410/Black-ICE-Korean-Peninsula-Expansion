@@ -27,6 +27,7 @@ ai_militia_templates/KOR = {
 		set_country_flag = { flag = ai_militia_template value = 1 }
 		division_template = {
 			name = "KOR Militia Division I"	 #所有模板都应该使用角色特定的名称，而不是国家特定的名称
+			template_counter = @C_INFANTRY
 			priority = @INFANTRY_PRIO
 			regiments = {
 				militia = { x = 0 y = 0 }
@@ -61,7 +62,8 @@ ai_militia_templates/KOR = {
 		set_temp_variable = { ai_has_added_template = 1 }
 		set_country_flag = { flag = ai_militia_template value = 2 }
 		division_template = {
-			name = "KOR Militia Division II"	
+			name = "KOR Militia Division II"
+			template_counter = @C_INFANTRY
 			priority = @MILITIA_PRIO
 			regiments = {
 				militia = { x = 0 y = 0 }
@@ -106,7 +108,8 @@ ai_infantry_templates/KOR = {
 		set_temp_variable = { ai_has_added_template = 1 }
 		set_country_flag = { flag = ai_infantry_template value = 1 }
 		division_template = {
-			name = "KOR Infantry Division I"	
+			name = "KOR Infantry Division I"
+			template_counter = @C_INFANTRY
 			priority = @HEAVY_INFANTRY_PRIO
 			regiments = {
 				infantry = { x = 0 y = 0 }
@@ -140,7 +143,8 @@ ai_infantry_templates/KOR = {
 		set_temp_variable = { ai_has_added_template = 1 }
 		modify_country_flag = { flag = ai_infantry_template value = 2 }	
 		division_template = {
-			name = "KOR Infantry Division II"	
+			name = "KOR Infantry Division II"
+			template_counter = @C_INFANTRY
 			priority = @INFANTRY_PRIO
 			regiments = {
 				infantry = { x = 0 y = 0 }
@@ -188,6 +192,7 @@ ai_motorized_templates/KOR = {
 		set_country_flag = { flag = ai_motorized_templates value = 1 }
 		division_template = {
 			name = "KOR Armor Division I"
+			template_counter = @C_CAVALRY
 			priority = @LIGHT_ARMOR_PRIO
 			regiments = {
 				armored_car = { x = 0 y = 0 }
@@ -227,6 +232,7 @@ ai_light_armor_templates/KOR = {
 		set_country_flag = { flag = ai_light_armor_template value = 1 }
 		division_template = {
 			name = "KOR Armor Division II"
+			template_counter = @C_LIGHT_ARMOR
 			priority = @LIGHT_ARMOR_PRIO
 			regiments = {
 				cavalry = { x = 0 y = 0 }
@@ -266,6 +272,7 @@ ai_light_armor_templates/KOR = {
 		set_country_flag = { flag = ai_light_armor_template value = 2 }
 		division_template = {
 			name = "KOR Armor Division III"
+			template_counter = @C_LIGHT_ARMOR
 			priority = @LIGHT_ARMOR_PRIO
 			regiments = {
 				mechanized = { x = 0 y = 0 }
@@ -300,4 +307,71 @@ ai_light_armor_templates/KOR = {
 		}
 	}
 	ai_light_armor_templates = yes #开头和结尾都要有
+}
+
+ai_mountaineer_templates/KOR = {
+	ai_mountaineer_templates = yes
+	clear_temp_array = num_valid_templates
+	add_to_temp_array = { num_valid_templates = 1 } #1
+	#山地师
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = ai_mountaineers_template
+				has_government = fascism
+			}
+			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+			else = {	
+				#CONDITIONS
+				ai_has_signal_company = yes
+				ai_has_combat_engineer = yes
+			}
+		}
+		set_temp_variable = { ai_has_added_template = 1 } 
+		set_country_flag = { flag = ai_mountaineers_template value = 1 }
+		add_to_temp_array = { either_support = token:signal_company }
+		add_to_temp_array = { either_support = token:combat_engineer }
+		division_template = {
+			name = "Mountaineers Division"
+			template_counter = @C_MOUNTAINEER
+			priority = @MOUNTAINEERS_PRIO
+			regiments = {
+				mountaineers = { x = 0 y = 0 }
+				mountaineers = { x = 0 y = 1 }
+				mountaineers = { x = 0 y = 2 }
+
+				mountaineers = { x = 1 y = 0 }
+				mountaineers = { x = 1 y = 1 }
+				mountaineers = { x = 1 y = 2 }
+
+				mountaineers = { x = 2 y = 0 }
+				mountaineers = { x = 2 y = 1 }
+				mountaineers = { x = 2 y = 2 }
+
+				mountain_artillery_brigade = { x = 3 y = 0 }
+				mountain_artillery_brigade = { x = 3 y = 1 }
+			}
+			support = {
+				DIV_HQ = { x = 0 y = 0 }
+				recon_cav = { x = 0 y = 1 }
+				engineer = { x = 0 y = 2 }
+				mount_support = { x = 1 y = 0 }
+				anti_air = { x = 1 y = 1 }
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { ai_template_skip = 0 }
+			}
+			every_country_division = {
+				limit = {
+					division_has_battalion_in_template = mountaineers
+				}
+				change_division_template = {
+					division_template = "Mountaineers Division" 
+				}
+			}
+		}
+	}
+	ai_mountaineer_templates = yes
 }

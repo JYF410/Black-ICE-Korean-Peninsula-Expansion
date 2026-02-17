@@ -32,7 +32,7 @@ KOR_create_JAP_partisan_army_div = {
 		name = "朝鲜殖民地警防团"
 		division_names_group = KOR_GAR_01
 		template_counter = 89
-		is_locked = no
+		is_locked = yes
 		regiments = {
 			garrison = { x = 0 y = 0 }
 			garrison = { x = 0 y = 1 }
@@ -57,7 +57,7 @@ KOR_create_JAP_MP_army_div = {
 		name = "朝鲜殖民地宪兵队"
 		division_names_group = KOR_CAV_01
 		template_counter = 210
-		is_locked = no
+		is_locked = yes
 		regiments = {
 			cavalry = { x = 0 y = 0 }
 			cavalry = { x = 0 y = 1 }
@@ -86,7 +86,7 @@ KOR_create_arctic_support_companies_div = {
 		name = "朝鲜远东极地部队"
 		division_names_group = KOR_CAV_01
 		template_counter = 210
-		is_locked = yes
+		is_locked = no
 		regiments = {
 			light_infantry = { x = 0 y = 0 }
 			light_infantry = { x = 0 y = 1 }
@@ -228,9 +228,9 @@ KOR_create_Northeast_Anti_Japanese_Army_div = {
 			DIV_HQ = { x = 0 y = 0 }
 			recon_cav = { x = 0 y = 1}
 			engineer = { x = 0 y = 2 }
-			combat_engineer = { x = 0 y = 3 }
-			field_hospital_cav = { x = 0 y = 4 }
+			field_hospital_cav = { x = 0 y = 3 }
 			mount_support = { x = 1 y = 0 }
+			combat_engineer = { x = 1 y = 1 }
 		}
 	}	
 	815 = {
