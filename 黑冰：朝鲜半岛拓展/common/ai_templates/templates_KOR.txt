@@ -14,11 +14,38 @@
 @heavy_armor_prio = 13
 @marines_prio = 14
 @militia_prio = 15
- 
+
+JAP_garrison_role = {
+    available_for = { KOR }
+    role = garrison
+    match_to_count = 0.6
+    #朝鲜警察部队
+    KOR_garrison_role_1 = {
+        upgrade_prio = {
+            base = 0
+            modifier = { add = 10 has_country_flag = { flag = ai_garrison_template value = 1 } }
+        }
+        reinforce_prio = @garrison_prio
+        target_template = {
+            weight = 0.8
+            match_value = 1000
+            regiments = {
+                garrison = 2
+                militia = 2
+            }
+            support = {
+                DIV_HQ = 1
+                recon = 1
+                military_police = 1
+            }
+        }
+    }
+}
+
 KOR_militia_role = {
     available_for = { KOR }  #该规则可用国家
     role = militia  #定义此编制的类型（这里定义的是militia民兵师编制）
-    match_to_count = 0.4  #其他属于该类型的已存在编制，如果你不想让AI拉太多这种低级编制那就调低此参数（数值太低会导致前期AI没改到对应编制前一点兵也不出）
+    match_to_count = 0.5  #其他属于该类型的已存在编制，如果你不想让AI拉太多这种低级编制那就调低此参数（数值太低会导致前期AI没改到对应编制前一点兵也不出）
     #朝鲜义勇军
     KOR_militia_role_1 = {
         upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
@@ -30,7 +57,7 @@ KOR_militia_role = {
             ai_has_mountain_artillery_brigade = yes  #是一个触发块，决定AI何时尝试对已部署的部队升级编制。
         }
         target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
-            weight = 0.9  #是AI应该多大程度上去靠近这个编制。
+            weight = 0.8  #是AI应该多大程度上去靠近这个编制。
             match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
             regiments = {  #目标编制内常规营的列表
                 militia = 7  #7个民兵营
@@ -214,12 +241,12 @@ KOR_light_armor_role = {
     }
 }
 
-KOR_mountaineer_role = {
+KOR_mountaineers_role = {
     available_for = { KOR }
     role = mountaineers
     match_to_count = 0.6
     #山地师
-    KOR_mountaineer_role_1 = {  
+    KOR_mountaineers_role_1 = {  
         upgrade_prio = {
             base = 0
             modifier = { add = 10 has_country_flag = { flag = ai_mountaineers_template value = 1 } }
@@ -237,6 +264,37 @@ KOR_mountaineer_role = {
 				recon_cav = 1
 				engineer = 1
 				mount_support = 1
+				anti_air = 1
+            }
+        }
+    }
+}
+
+KOR_marines_role = {
+    available_for = { KOR }
+    role = marines
+    match_to_count = 0.7
+    #海军陆战队
+    KOR_marines_role_1 = {  
+        upgrade_prio = {
+            base = 0
+            modifier = { add = 10 has_country_flag = { flag = ai_marines_template value = 1 } }
+        }
+        reinforce_prio = @marines_prio #单位补充优先级
+        target_template = {
+            weight = 0.7
+            match_value = 1000
+            regiments = {
+                marines = 9
+                mountain_artillery_brigade = 3
+                anti_tank_brigade = 1
+            }
+            support = {
+                DIV_HQ = 1
+				recon_cav = 1
+				engineer = 1
+				logistics_company = 1
+				amph_support = 1
 				anti_air = 1
             }
         }

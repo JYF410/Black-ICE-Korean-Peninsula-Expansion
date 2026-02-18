@@ -4,16 +4,20 @@
 ##韩国##
 d_ai_logic/KOR = {
 	#set_temp_variable = { ai_template_skip = 1 }
+	#激活部队编制策略：common\scripted_effects\_ai_TEMPLATES_scripted_effects_KOR.txt
 	if = {
-		limit = {
-			check_variable = { ai_ignore_templates = 0 }
-		}
+		limit = { check_variable = { ai_ignore_templates = 0 } }
+		ai_garrison_templates/KOR = yes
 		ai_militia_templates/KOR = yes
 		ai_infantry_templates/KOR = yes
+		ai_light_infantry_templates/KOR = yes
+		ai_heavy_infantry_templates/KOR = yes 
 		ai_motorized_templates/KOR = yes
 		ai_light_armor_templates/KOR = yes
 		ai_mountaineer_templates/KOR = yes
+		ai_marine_templates/KOR = yes
 	}
+	#陆军生产策略
 	if = {
 		limit = {
 			check_variable = { ai_ignore_deployment = 0 }
@@ -21,10 +25,10 @@ d_ai_logic/KOR = {
 		# disable_build  #禁用建立
 		# production_ratio  #生产权重
 		set_temp_variable = { BASE@role_infantry 				= 30  }
-		set_temp_variable = { BASE@role_light_infantry 			= 0  }
+		set_temp_variable = { BASE@role_light_infantry 			= 10  }
 		set_temp_variable = { BASE@role_heavy_infantry 			= 0  }
-		set_temp_variable = { BASE@role_militia		 			= 15  }
-		set_temp_variable = { BASE@role_garrison 				= 0  }
+		set_temp_variable = { BASE@role_militia		 			= 10  }
+		set_temp_variable = { BASE@role_garrison 				= 10  }
 		set_temp_variable = { BASE@role_cavalry 				= 0  }
 		set_temp_variable = { BASE@role_motorized 				= 5  }
 		set_temp_variable = { BASE@role_light_armor 			= 5  }
@@ -33,18 +37,28 @@ d_ai_logic/KOR = {
 		set_temp_variable = { BASE@role_medium_armor_alt 		= 0  }
 		set_temp_variable = { BASE@role_heavy_armor 			= 0  }
 		set_temp_variable = { BASE@role_heavy_armor_alt 		= 0  }
-		set_temp_variable = { BASE@role_marines 				= 0  }
-		set_temp_variable = { BASE@role_mountaineers 			= 3  }
+		set_temp_variable = { BASE@role_marines 				= 5  }
+		set_temp_variable = { BASE@role_mountaineers 			= 5  }
 		if = {
 			limit = {
-				has_war_with = JAP
+				has_government = fascism
 			}
 			add_to_temp_variable = {
-				BASE@role_infantry = 60
-				BASE@role_militia = 30
-				BASE@role_motorized = 15
-				BASE@role_light_armor = 10
-				BASE@role_mountaineers = 5
+				BASE@role_garrison = 10
+			}
+		}
+		if = {
+			limit = {
+				is_in_faction_with = CHI
+			}
+			add_to_temp_variable = {
+				BASE@role_infantry = 40
+				BASE@role_militia = 10
+				BASE@role_motorized = 10
+				BASE@role_light_armor = 5
+				BASE@role_light_armor_alt = 5
+				BASE@role_mountaineers = 20
+				BASE@role_marines = 20
 			}
 		}
 		if = {
@@ -56,15 +70,17 @@ d_ai_logic/KOR = {
 				}	
 			}
 			add_to_temp_variable = {
-				BASE@role_infantry = 120
-				BASE@role_militia = 60
+				BASE@role_infantry = 50
+				BASE@role_militia = 10
 				BASE@role_motorized = 30
-				BASE@role_light_armor = 15
-				BASE@role_mountaineers = 10
+				BASE@role_light_armor = 20
+				BASE@role_light_armor_alt = 20
+				BASE@role_mountaineers = 30
+				BASE@role_marines = 30
 			}
 		}
 	}
-	##海军生产策略
+	#海军生产策略
 	if = {
 		limit = {
 			check_variable = { ai_ignore_naval_production = 0 }
@@ -113,15 +129,15 @@ d_ai_logic/KOR = {
 		}
 		ai_update_ship_production = yes
 	}
-	##空军生产策略
+	#空军生产策略
 	if = {
 		limit = {
 			check_variable = { ai_ignore_air_production = 0 }
 		}
 		############################## BUILD PLANE STRATEGIES #############################
 		################# 只有当AI拥有航空装备和必要的标志时，这些才会被应用 ##################
-		set_temp_variable = { RATIO@fighter_equipment 				=  50 } #战斗机
-		set_temp_variable = { RATIO@fighter_alt_equipment 			= 100 } #轻型战斗机
+		set_temp_variable = { RATIO@fighter_equipment 				= 500 } #战斗机
+		set_temp_variable = { RATIO@fighter_alt_equipment 			= 200 } #轻型战斗机
 		set_temp_variable = { RATIO@interceptor_equipment 			=   0 } #截击机
 		set_temp_variable = { RATIO@mr_fighter_equipment 			=   0 } #多用途战斗机
 		set_temp_variable = { RATIO@heavy_fighter_equipment 		=   0 } #重型战斗机
@@ -166,8 +182,23 @@ d_ai_logic/KOR = {
 		add_to_temp_array = { MAX_EXTRA_FIGHTER_RATIO_MULT = 0.00 } 	#-- heavy_fighter_equipment
 		add_to_temp_array = { MAX_EXTRA_FIGHTER_RATIO_MULT = 2.00 } 	#-- fighter_alt_equipment
 		add_to_temp_array = { MAX_EXTRA_FIGHTER_RATIO_MULT = 0.00 } 	#-- jet_fighter_equipment
-		##--- MISC 
+		##--- MISC
+		if = {
+			limit = {
+				NOT = { has_country_flag = ai_tech/fighter_alt_equipment } #Yak-1 coincides with Lagg-1
+			}
+			add_to_temp_variable = { RATIO@fighter_equipment = -50 }
+		}
 		ai_update_air_production = yes
+	}
+	#学说研究策略
+	if = {
+		limit = {
+			check_variable = { ai_ignore_research = 0 }
+		}
+		set_temp_variable = { MULT:land_doctrine = 1.0 } 
+		set_temp_variable = { MULT:air_doctrine = 1.0 } 
+		set_temp_variable = { MULT:navy_doctrine = 0.05 } 
 	}
 	##################################################################################################	
 	ai_templates_on_end_effect = yes

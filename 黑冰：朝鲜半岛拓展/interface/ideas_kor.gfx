@@ -9,4 +9,9 @@ spriteTypes = {
 		name = "GFX_idea_KOR_political_reform"
 		texturefile = "gfx/interface/ideas/idea_KOR_political_reform.dds"
 	}
+	#海军付款
+	SpriteType = {
+		name = "GFX_idea_KOR_payment"
+		texturefile = "gfx/interface/ideas/idea_KOR_payment.dds"
+	}
 }

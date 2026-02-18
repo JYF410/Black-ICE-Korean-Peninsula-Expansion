@@ -44,9 +44,12 @@ country_event = {
 					set_victory_points = { province = 4126 value = 10 } #光州
 					set_victory_points = { province = 11977 value = 20 } #忠清
 					set_victory_points = { province = 4056 value = 50 } #釜山
+
 					add_ideas = kantogun_administration #关东军司令部
 					add_ideas = KOR_opium_plantation #朝鲜鸦片种植地
 					add_ideas = KOR_bank #朝鲜银行
+
+					KOR_create_JAP_Koban_officer_div = yes #部署朝鲜殖民地驻在所警察
 				}
 			#}
 			KOR = {
@@ -56,9 +59,9 @@ country_event = {
 					traits = { Order_of_Red_Banner ranger }
 					skill = 3
 					attack_skill = 3
-					defense_skill = 2
+					defense_skill = 1
 					planning_skill = 1
-					logistics_skill = 1
+					logistics_skill = 2
 					legacy_id = 2026021601
 				}
 				add_field_marshal_role = {
@@ -67,8 +70,8 @@ country_event = {
 					skill = 2
 					attack_skill = 1
 					defense_skill = 2
-					planning_skill = 1
-					logistics_skill = 2
+					planning_skill = 2
+					logistics_skill = 1
 					legacy_id = 2026021602
 				}
 				hidden_effect = {
@@ -82,10 +85,12 @@ country_event = {
 					set_victory_points = { province = 9795 value = 5 } #雩时
 					set_victory_points = { province = 3803 value = 5 } #惠山
 					set_victory_points = { province = 848 value = 5 } #通川
+
 					add_ideas = mountainous_country #山地国家
 					remove_ideas = kantogun_administration #关东军司令部
 					remove_ideas = KOR_opium_plantation #朝鲜鸦片种植地
 					remove_ideas = KOR_bank #朝鲜银行
+
 					KOR_create_partisan_army_div = yes #部署朝鲜游击队
 					KOR_create_militia_army_div = yes #部署朝鲜义勇军
 					#set_rule = { can_join_opposite_factions = no } #不可以加入由不同意识形态领导的阵营

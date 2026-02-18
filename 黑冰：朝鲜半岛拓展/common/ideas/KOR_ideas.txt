@@ -41,19 +41,23 @@ ideas = {
 			allowed = { always = no } 
 			modifier = { ai_get_ally_desire_factor = -2000 } 
 		}
+		
 	}
 	#国家精神
 	country = {
+		#海军付款中
+		KOR_naval_payments = {
+			removal_cost = -1
+			picture = KOR_payment
+			allowed = { always = no }
+			modifier = { civilian_factory_use = 3 }
+		}
 		#朝鲜鸦片种植地
 		KOR_opium_plantation = {
 			removal_cost = -1
-			picture = prc_permit_opium_trade #generic_agrarian_society
-			allowed = {
-				always = no
-			}
-			allowed_civil_war = {
-				always = yes
-			}
+			picture = prc_permit_opium_trade
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
 			modifier = {
 				consumer_goods_expected_value = -0.03 #用于生产生活消费品的期望工厂数量: -3.0%
 				stability_weekly = 0.001 #每周稳定度: +0.1%
@@ -65,9 +69,7 @@ ideas = {
 		#朝鲜半岛独立运动
 		kor_quit_jap_movement = {
 			picture = chi_war_of_resistance2
-			allowed = {
-				always = no
-			}
+			allowed = { always = no }
 			allowed_civil_war = { #允许保留buff的政体
 				OR = {
 					has_government = communism
@@ -87,9 +89,7 @@ ideas = {
 		#中共中央东北局平壤办事处
 		KOR_PRC_political_reform = {
 			picture = chi_chinese_unity
-			allowed = {
-				always = no
-			}
+			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
 				communism_drift = 0.07 #共产主义理念每日新增+7%
@@ -100,9 +100,7 @@ ideas = {
 		#朝鲜民族战线联盟
 		KOR_front_against_Japan = {
 			picture = hol_expand_the_colonial_army
-			allowed = {
-				always = no
-			}
+			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
 				army_core_attack_factor = 0.10 #核心领土进攻+10%
@@ -137,9 +135,7 @@ ideas = {
 		#朝鲜华侨总联合会
 		KOR_PRC_General_Federation_of_Korean_Chinese = {
 			picture = harsh_quotas
-			allowed = {
-				always = no
-			}
+			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
 				consumer_goods_expected_value = -0.01 #用于生产生活消费品的期望工厂数量:-1.0%
@@ -149,9 +145,7 @@ ideas = {
 		#平壤苏军总医院
 		KOR_sov_hospital = {
 			picture = generic_angel
-			allowed = {
-				always = no
-			}
+			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
 				monthly_population = 0.15 #月度人力+15%
@@ -161,13 +155,8 @@ ideas = {
 		#朝鲜银行
 		KOR_bank = { 
 			picture = KOR_bank
-			allowed = {
-				original_tag = KOR
-			}
-			available = {
-				has_completed_focus = KOR_national_bank
-			}
-			removal_cost = 50
+			allowed = { always = no }
+			removal_cost = -1
 			modifier = {
 				global_building_slots_factor = 0.10 #地区最大工厂数: +10.0%
 				consumer_goods_expected_value = -0.02 #用于生产生活消费品的期望工厂数量:-2.0%
@@ -176,9 +165,7 @@ ideas = {
 		#大韩民国临时政府驻杭州领事馆
 		KOR_CHI_political_reform_hangzhou = {
 			picture = KOR_political_reform
-			allowed = {
-				always = no
-			}
+			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
 				political_power_factor = 0.05 #政治点数获取
@@ -201,8 +188,6 @@ ideas = {
 				}
 			}
 		}
-		#大韩民国临时政府驻柳州领事馆
-		#KOR_CHI_political_reform_liuzhou = {
 		#大韩民国临时政府驻重庆领事馆
 		#KOR_CHI_political_reform_chongqing = {
 	}

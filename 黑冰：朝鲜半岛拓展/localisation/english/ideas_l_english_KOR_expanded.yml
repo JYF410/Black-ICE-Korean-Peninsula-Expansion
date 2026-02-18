@@ -8,3 +8,4 @@
  KOR_sov_hospital:5 "Pyongyang Soviet Military General Hospital"
  KOR_sov_hospital_desc:5 "Pyongyang Soviet Military General Hospital"
  KOR_bank:5 "Bank of [KOR.GetNameDefCap]"
+ KOR_naval_payments: "naval payments"

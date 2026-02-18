@@ -560,7 +560,7 @@ characters = {
 			}
 			traits = {
 				navy_chief_maneuver_3
-				navy_chief_commerce_raiding_3
+				
 			}
 			ai_will_do = {
 				factor = 5
@@ -700,6 +700,68 @@ characters = {
 			ai_will_do = {
 				factor = 90
 			}
+		}
+	}
+	KOR_Son_Wonil = {  #孙元一
+		name = KOR_Son_Wonil
+		allowed_civil_war = {
+			has_government = neutrality
+		}
+		portraits = {
+			army = {
+				large = "gfx/leaders/KOR/Portrait_KOR_Son_Wonil.dds"
+			}
+			army = {
+				small = "gfx/interface/ideas/idea_generic_navy_asia_3.dds"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = KOR_Son_Wonil_navy_chief
+			on_add = {
+				set_temp_variable = { character = token:KOR_Son_Wonil}
+				set_temp_variable = { slot = token:navy_chief}
+				navy_chief_on_add_effect = yes
+			}
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Son_Wonil}
+				set_temp_variable = { slot = token:navy_chief}
+				navy_chief_on_remove_effect = yes
+			}
+			available = {
+				has_government = neutrality
+				#has_completed_focus = KOR_American_Eagle_Project
+			}
+			traits = {
+				navy_chief_submarine_raider_doctrine
+				navy_chief_commerce_raiding_3
+			}
+			ledger = navy
+		}
+		advisor = {
+			slot = theorist
+			idea_token = KOR_Son_Wonil_theorist
+			on_add = {
+				set_temp_variable = { character = token:KOR_Son_Wonil}
+				set_temp_variable = { slot = token:theorist}
+				theorist_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Son_Wonil}
+				set_temp_variable = { slot = token:theorist}
+				theorist_on_remove_effect = yes
+			} 
+			available = {
+				has_government = neutrality
+				#has_completed_focus = KOR_American_Eagle_Project
+			}
+			research_bonus = {
+				naval_doctrine = 0.07
+			}
+			traits = {
+				naval_theorist
+			}
+			ledger = navy
 		}
 	}
 ###################黑色将领#################

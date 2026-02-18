@@ -26,12 +26,45 @@ apply_cosmetic_tags = {
 	}
 }
 
+#朝鲜殖民地驻在所警察
+KOR_create_JAP_Koban_officer_div = {
+	division_template = {
+		name = "朝鲜殖民地驻在所警察"
+		division_names_group = KOR_GAR_03
+		template_counter = @C_GARRISON
+		priority = @GARRISON_PRIO
+		is_locked = no
+		regiments = {
+			garrison = { x = 0 y = 0 }
+			garrison = { x = 0 y = 1 }
+		}
+		support = {
+			DIV_HQ = { x = 0 y = 0 }
+			recon = { x = 0 y = 1 }
+		}
+	}
+	816 = {
+		create_unit = {
+			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜殖民地驻在所警察\" start_experience_factor = 0.2 start_equipment_factor = 0.6 force_equipment_variants = { garrison_equipment_0 = { owner = JAP } }"
+			count = 6
+			owner = KOR
+		}
+	}
+	751 = {
+		create_unit = {
+			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜殖民地驻在所警察\" start_experience_factor = 0.2 start_equipment_factor = 0.6 force_equipment_variants = { garrison_equipment_0 = { owner = JAP } }"
+			count = 6
+			owner = KOR
+		}
+	}
+}
 #朝鲜殖民地警防团
 KOR_create_JAP_partisan_army_div = {
 	division_template = {
 		name = "朝鲜殖民地警防团"
-		division_names_group = KOR_GAR_01
-		template_counter = 89
+		division_names_group = KOR_GAR_03
+		template_counter = @C_GARRISON
+		priority = @GARRISON_PRIO
 		is_locked = yes
 		regiments = {
 			garrison = { x = 0 y = 0 }
@@ -41,22 +74,24 @@ KOR_create_JAP_partisan_army_div = {
 		}
 		support = {
 			DIV_HQ = { x = 0 y = 0 }
+			recon_cav = { x = 0 y = 1 }
 			military_police = { x = 1 y = 0 }
 		}
 	}
 	random_owned_controlled_state = {
 		create_unit = {
-			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜殖民地警防团\" start_experience_factor = 0.2 start_equipment_factor = 0.7 force_equipment_variants = { garrison_equipment_0 = { owner = JAP } }"
+			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜殖民地警防团\" start_experience_factor = 0.3 start_equipment_factor = 0.8 force_equipment_variants = { garrison_equipment_0 = { owner = JAP } }"
 			owner = KOR
 		}
 	}
 }
-#朝鲜殖民地宪兵队
+#朝鲜殖民地宪兵部队
 KOR_create_JAP_MP_army_div = {
 	division_template = {
-		name = "朝鲜殖民地宪兵队"
-		division_names_group = KOR_CAV_01
-		template_counter = 210
+		name = "朝鲜殖民地宪兵部队"
+		division_names_group = KOR_CAV_03
+		template_counter = @C_CAVALRY
+		priority = @LIGHT_ARMOR_PRIO
 		is_locked = yes
 		regiments = {
 			cavalry = { x = 0 y = 0 }
@@ -74,46 +109,7 @@ KOR_create_JAP_MP_army_div = {
 	}
 	random_owned_controlled_state = {
 		create_unit = {
-			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜殖民地宪兵队\" start_experience_factor = 0.5 start_equipment_factor = 0.9 force_equipment_variants = { motorized_AC_equipment_06 = { owner = JAP } }"
-			owner = KOR
-		}
-	}
-}
-
-#朝鲜远东极地部队
-KOR_create_arctic_support_companies_div = {
-	division_template = {
-		name = "朝鲜远东极地部队"
-		division_names_group = KOR_CAV_01
-		template_counter = 210
-		is_locked = no
-		regiments = {
-			light_infantry = { x = 0 y = 0 }
-			light_infantry = { x = 0 y = 1 }
-			light_infantry = { x = 0 y = 2 }
-			light_infantry = { x = 1 y = 0 }
-			light_infantry = { x = 1 y = 1 }
-			light_infantry = { x = 1 y = 2 }
-			light_infantry = { x = 2 y = 0 }
-			light_infantry = { x = 2 y = 1 }
-			light_infantry = { x = 2 y = 2 }
-			mountain_artillery_brigade = { x = 3 y = 0 }		
-			armored_car = { x = 2 y = 0 }
-		}
-		support = {
-			DIV_HQ_car = { x = 0 y = 0 }
-			recon_ac = { x = 0 y = 1}
-			engineer_mot = { x = 0 y = 2 }
-			field_hospital = { x = 0 y = 3 }
-			logistics_company_car = { x = 0 y = 4 }
-			arctic_support = { x = 1 y = 0 }
-		}
-	}
-	655 = {
-		create_unit = {
-			division = "name = \"朝鲜远东极地部队第1师\" division_template = \"朝鲜远东极地部队\" start_experience_factor = 0.2 start_equipment_factor = 1.0 force_equipment_variants = { arctic_equipment_0 = { owner = SOV } }"
-			prioritize_location = 1742 #诺格利基
-			count = 1
+			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜殖民地宪兵部队\" start_experience_factor = 0.5 start_equipment_factor = 1.0 force_equipment_variants = { motorized_AC_equipment_06 = { owner = JAP } }"
 			owner = KOR
 		}
 	}
@@ -154,7 +150,7 @@ KOR_create_militia_army_div = {
 	division_template = {
 		name = "朝鲜义勇军"
 		is_locked = no
-		#division_names_group = KOR_INF_01
+		division_names_group = KOR_INF_01
 		regiments = {
 			militia = { x = 0 y = 0 }
 			militia = { x = 0 y = 1 }
@@ -210,13 +206,11 @@ KOR_create_militia_army_div = {
 		}
 	}
 }
-
 #东北抗日联军教导旅
 KOR_create_Northeast_Anti_Japanese_Army_div = {
 	division_template = {
 		name = "东北抗日联军教导旅"
 		is_locked = yes
-		template_counter = 3008	# Mountaineer Division
 		regiments = {
 			mountaineers = { x = 0 y = 0 }
 			mountaineers = { x = 0 y = 1 }
@@ -241,13 +235,53 @@ KOR_create_Northeast_Anti_Japanese_Army_div = {
 		}
 	}
 }
+#朝鲜远东极地部队
+KOR_create_arctic_support_companies_div = {
+	division_template = {
+		name = "朝鲜远东极地部队"
+		division_names_group = KOR_INF_01
+		is_locked = no
+		regiments = {
+			light_infantry = { x = 0 y = 0 }
+			light_infantry = { x = 0 y = 1 }
+			light_infantry = { x = 0 y = 2 }
+			light_infantry = { x = 1 y = 0 }
+			light_infantry = { x = 1 y = 1 }
+			light_infantry = { x = 1 y = 2 }
+			light_infantry = { x = 2 y = 0 }
+			light_infantry = { x = 2 y = 1 }
+			light_infantry = { x = 2 y = 2 }
+			mountain_artillery_brigade = { x = 3 y = 0 }
+			mountain_artillery_brigade = { x = 3 y = 1 }
+			mountain_artillery_brigade = { x = 3 y = 2 }
+			anti_tank_brigade = { x = 3 y = 3 }
+		}
+		support = {
+			DIV_HQ = { x = 0 y = 0 }
+			recon_cav = { x = 0 y = 1}
+			engineer = { x = 0 y = 2 }
+			logistics_company = { x = 0 y = 3 }
+			arctic_support = { x = 1 y = 0 }
+			combat_engineer = { x = 1 y = 1 }
+		}
+	}
+	655 = {
+		create_unit = {
+			division = "name = \"朝鲜远东极地部队第1师\" division_template = \"朝鲜远东极地部队\" start_experience_factor = 0.6 start_equipment_factor = 1.0 force_equipment_variants = { anti_tank_equipment_1 = { owner = SOV } }"
+			prioritize_location = 1742 #诺格利基
+			count = 1
+			owner = KOR
+		}
+	}
+}
+
 #中国人民解放军朝鲜族师
 KOR_ethnic_korean_division_div = {
 	division_template = {
 		name = "中国人民解放军朝鲜族师"
 		is_locked = no
 		template_counter = 114
-		#division_names_group = KOR_INF_01
+		division_names_group = KOR_INF_01
 		regiments = {
 			infantry = { x = 0 y = 0 }
 			infantry = { x = 0 y = 1 }
@@ -298,7 +332,7 @@ KOR_motorized_AC_division_div = {
 	division_template = {
 		name = "朝鲜装甲车独立团"
 		is_locked = no
-		division_names_group = KOR_MOT_02
+		division_names_group = KOR_MOT_01
 		template_counter = @C_MOTORIZED
 		regiments = {
 			armored_car = { x = 0 y = 0 }
@@ -389,7 +423,7 @@ KOR_create_Korean_Secret_Army_div = {
 KOR_create_Korean_Liberation_Army_div = {
 	division_template = {
 		name = "韩国光复军"
-		division_names_group = KOR_INF_01
+		division_names_group = KOR_INF_02
 		template_counter = @C_LIGHT_INFANTRY
 		is_locked = no
 		regiments = {
