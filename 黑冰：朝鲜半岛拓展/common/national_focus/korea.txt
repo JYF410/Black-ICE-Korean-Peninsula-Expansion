@@ -121,6 +121,10 @@ focus_tree = {
 					decision = KOR_CHI_move_to_hangzhou #解锁决议：大韩民国临时政府迁至杭州
 					show_effect_tooltip = no
 				}
+				unlock_decision_tooltip = {
+					decision = KOR_CHI_move_to_chongqing #解锁决议：大韩民国临时政府迁至重庆
+					show_effect_tooltip = no
+				}
 			}
 			hidden_effect = {
 				CHI = {
@@ -158,12 +162,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			army_experience = 50
-			KOR = {
-				add_opinion_modifier = {
-					target = CHI
-					modifier = medium_increase
-				}
-			}
 			CHI = {
 				add_opinion_modifier = {
 					target = ROOT
@@ -179,6 +177,19 @@ focus_tree = {
 					id = ROOT
 					value = 1000
 				}
+				add_relation_rule_override = {
+					target = KOR
+					usage_desc = KMT_closer_tie_with_eng
+					can_access_market = yes
+				}
+				give_market_access = KOR
+			}
+			KOR = {
+				add_opinion_modifier = {
+					target = CHI
+					modifier = medium_increase
+				}
+				give_market_access = CHI
 			}
 		}
 		ai_will_do = {
@@ -216,6 +227,8 @@ focus_tree = {
 			custom_effect_tooltip = Korean_Liberation_Army_completed
 			hidden_effect = {
 				KOR_create_Korean_Liberation_Army_div = yes
+				KOR_create_Korean_Liberation_Army_div = yes
+				KOR_create_Korean_Liberation_Army_div = yes
 			}
 		}
 		ai_will_do = {
@@ -242,7 +255,36 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_political_power = 75
+			add_equipment_subsidy = {
+				cic = 1000
+				equipment_type = infantry_equipment
+				seller_tags = { CHI }
+			}
+			add_equipment_subsidy = {
+				cic = 1000
+				equipment_type = infantry_uniforms
+				seller_tags = { CHI }
+			}
+			add_equipment_subsidy = {
+				cic = 700
+				equipment_type = HMG_equipment
+				seller_tags = { CHI }
+			}
+			add_equipment_subsidy = {
+				cic = 500
+				equipment_type = mortar_equipment
+				seller_tags = { CHI }
+			}
+			add_equipment_subsidy = {
+				cic = 500
+				equipment_type = infantrygun_equipment
+				seller_tags = { CHI }
+			}
+			add_equipment_subsidy = {
+				cic = 500
+				equipment_type = anti_air_equipment
+				seller_tags = { CHI }
+			}
 			add_popularity = {
 				ideology = neutrality
 				popularity = 0.2
@@ -257,7 +299,7 @@ focus_tree = {
 	#韩国独立军特别班
 	focus = {
 		id = KOR_CHI_Secret_Military_Academy
-		icon = GFX_goal_compromise_with_the_nationalities
+		icon = GFX_focus_chi_army_reform
 		prerequisite = { focus = KOR_CHI_political_reform }
 		relative_position_id = KOR_CHI_political_reform
 		available_if_capitulated = yes #投降后能点该国策
@@ -281,6 +323,7 @@ focus_tree = {
 			add_command_power = 10 #指挥点数
 			army_experience = 10 #陆军经验
 			add_research_slot = 1
+			SLOT:infantry_folder = yes
 			SLOT:ww1_land_doctrine_folder = yes
 			SLOT:land_doctrine_folder = yes
 		}
@@ -467,7 +510,142 @@ focus_tree = {
 			#
 		}
 		completion_reward = {
+			KOR = {
+				add_opinion_modifier = {
+				modifier = KMT_offered_assistance
+					target = USA
+				}
+				diplomatic_relation = {
+					country = USA
+					relation = non_aggression_pact
+					active = yes
+				}
+				give_market_access = USA
+			}
+			USA = {
+				add_opinion_modifier = {
+					modifier = KMT_offered_assistance
+					target = KOR
+				}
+				diplomatic_relation = {
+					country = KOR
+					relation = non_aggression_pact
+					active = yes
+				}
+				give_market_access = KOR
+			}
+			add_ai_strategy = {
+				type = equipment_market_trade_desire
+				id = USA
+				value = 2000  
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#国防司令部
+	focus = {
+		id = KOR_American_defense_command
+		icon = GFX_focus_USA_national_guard
+		prerequisite = { focus = KOR_American_admit_korea_gov }
+		relative_position_id = KOR_American_admit_korea_gov
+		available_if_capitulated = yes #投降后能点该国策
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		x = 0
+		y = 1
+		cost = 30
+		available = {
 			#
+		}
+		completion_reward = {
+			army_experience = 50
+			navy_experience = 30
+			air_experience = 20
+			add_ideas = KMT_ministry_of_national_defense_idea
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#美韩军事扶持计划
+	focus = {
+		id = KOR_American_defense_guard
+		icon = GFX_focus_generic_befriend_usa
+		prerequisite = { focus = KOR_American_defense_command }
+		relative_position_id = KOR_American_defense_command
+		available_if_capitulated = yes #投降后能点该国策
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		x = 0
+		y = 1
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			add_offsite_building = { 
+				type = arms_factory
+				level = 5 
+			}
+			add_offsite_building = { 
+				type = industrial_complex
+				level = 5 
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#陆军机械化部队
+	focus = {
+		id = KOR_American_armor_division
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = KOR_American_defense_guard }
+		relative_position_id = KOR_American_defense_guard
+		available_if_capitulated = yes #投降后能点该国策
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		x = 0
+		y = 2
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			custom_effect_tooltip = KOR_create_korea_armor_corps_tt
+			division_template = {
+				name = "韩国机械化步兵师"
+				division_names_group = KOR_ARM_02
+				priority = @MEDIUM_ARMOR_PRIO
+				regiments = {
+					mechanized_assault = { x = 0 y = 0 }
+					motorized = { x = 0 y = 1 }
+					motorized = { x = 0 y = 2 }
+
+					mechanized_assault = { x = 1 y = 0 }
+					motorized = { x = 1 y = 1 }
+					motorized = { x = 1 y = 2 }
+
+					trm_medium_armor = { x = 2 y = 0 }
+					trm_light_armor = { x = 2 y = 1 }
+					trm_light_armor = { x = 2 y = 2 }
+
+					artillery_brigade_mot_med = { x = 3 y = 0 }
+					mountain_artillery_brigade_mot = { x = 3 y = 1 }
+					mountain_artillery_brigade_mot = { x = 3 y = 2 }
+					anti_tank_brigade_mot = { x = 3 y = 3 }
+				}
+				support = {
+					DIV_HQ_mech = { x = 0 y = 0 }
+					trm_light_armor_recon = { x = 0 y = 1 }
+					engineer_mot = { x = 0 y = 2 }
+					logistics_company_mot = { x = 0 y = 3 }
+					maintenance_company = { x = 0 y = 4 }
+
+					combat_engineer_mot = { x = 1 y = 0 }
+					anti_air_car = { x = 1 y = 1 }
+					signal_company_mot = { x = 1 y = 2 }
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 50
@@ -502,7 +680,7 @@ focus_tree = {
 	focus = {
 		id = KOR_create_korea_marine_corps
 		icon = GFX_focus_generic_naval_invasion
-		prerequisite = { focus = KOR_create_shipowners_association }
+		prerequisite = { focus = KOR_American_admit_korea_gov }
 		relative_position_id = KOR_create_shipowners_association
 		available_if_capitulated = yes #投降后能点该国策
 		search_filters = { FOCUS_FILTER_NAVY }
@@ -548,7 +726,7 @@ focus_tree = {
 				}
 				support = {
 					DIV_HQ = { x = 0 y = 0 }
-					recon_cav = { x = 0 y = 2 }
+					trm_tankette_amphibious_armor_recon = { x = 0 y = 2 }
 					engineer = { x = 0 y = 1 }
 					logistics_company = { x = 0 y = 3 }
 					amph_support = { x = 1 y = 0 }
@@ -603,11 +781,11 @@ focus_tree = {
 								role_icon_index = 21
 								modules = {
 									custom_slot_1 = empty
-									custom_slot_2 = nrm_support_destroyer_ASW_1
-									custom_slot_3 = nrm_support_destroyer_ASW_1
+									custom_slot_2 = nrm_support_destroyer_ASW_2
+									custom_slot_3 = nrm_support_destroyer_ASW_2
 									custom_slot_5 = nrm_support_destroyer_AA_2
 									custom_slot_6 = nrm_support_destroyer_ASWP_1
-									fixed_ship_battery_slot = nrm_destroyer_battery_3_2_x3
+									fixed_ship_battery_slot = nrm_destroyer_battery_3_2_x1 #76mm(战间)\n1门主炮
 									fixed_ship_damagecontrol_slot = nrm_damagecontrol_2
 									fixed_ship_engine_slot = nrm_destroyer_engine_D2_006
 									fixed_ship_fire_control_system_slot = nrm_fire_control_1
@@ -615,18 +793,13 @@ focus_tree = {
 									fixed_ship_range_slot = nrm_range_light_1
 									fixed_ship_sonar_slot = nrm_sonar_2
 									fixed_ship_subdivision_slot = nrm_subdivision_2
-									custom_slot_1 = nrm_support_destroyer_ASW_1
+									custom_slot_1 = nrm_support_destroyer_ASW_2
 								}
 								[AI_OBSOLETE]
 							}
 						}
 						AI_OBSOLETE = "[GetAIObsolete]"
 					}
-				}
-				add_cic = 1000
-				add_opinion_modifier = {
-					target = KOR
-					modifier = POR_bought_ships #购买船只
 				}
 			}
 			KOR = {
@@ -636,7 +809,7 @@ focus_tree = {
 						popup = no
 					}
 					create_equipment_variant = {
-						name = "PC-461级猎潜艇"				
+						name = "PC-461-class"				
 						type = nrm_ship_hull_light_2
 						name_group = KOR_DD_HISTORICAL
 						parent_version = 0
@@ -649,7 +822,7 @@ focus_tree = {
 							custom_slot_3 = nrm_support_destroyer_ASW_2
 							custom_slot_5 = nrm_support_destroyer_AA_2
 							custom_slot_6 = nrm_support_destroyer_ASWP_1
-							fixed_ship_battery_slot = nrm_destroyer_battery_3_2_x3
+							fixed_ship_battery_slot = nrm_destroyer_battery_3_2_x1 #76mm(战间)\n1门主炮
 							fixed_ship_damagecontrol_slot = nrm_damagecontrol_2
 							fixed_ship_engine_slot = nrm_destroyer_engine_D2_006
 							fixed_ship_fire_control_system_slot = nrm_fire_control_1
@@ -661,12 +834,35 @@ focus_tree = {
 						}
 					}
 				}
-				add_opinion_modifier = {
-					target = USA
-					modifier = POR_sold_ships  #出售船只
+				country_event = {
+					id = KOR_neutrality.8 #订购猎潜艇到货（由KOR触发）
+					days = 3
 				}
 			}
-			create_ship = { type = nrm_ship_hull_light_2 equipment_variant = "PC-461-class" creator = USA name = "ROKS PakTuSan" }
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	#继续订购美国猎潜艇
+	focus = {
+		id = KOR_order_usa_frigate_next
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = KOR_order_usa_frigate }
+		relative_position_id = KOR_order_usa_frigate
+		available_if_capitulated = yes #投降后能点该国策
+		search_filters = { FOCUS_FILTER_FORTIFICATION }
+		x = 0
+		y = 2
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			unlock_decision_tooltip = {
+				decision = KOR_buy_USS_PC461 #继续向美国订购猎潜艇
+				show_effect_tooltip = yes
+			}
 		}
 		ai_will_do = {
 			factor = 100
@@ -800,7 +996,6 @@ focus_tree = {
 			}
 		}
 	}
-	
 	#飞鹰计划
 	focus = {
 		id = KOR_American_Eagle_Project
@@ -1101,7 +1296,10 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_political_power = 50 #政治点数
+			add_offsite_building = { 
+				type = industrial_complex
+				level = 2 
+			}
 			add_ideas = KOR_PRC_General_Federation_of_Korean_Chinese
 			add_ideas = labor_allowed_name #允许女性工作
 		}

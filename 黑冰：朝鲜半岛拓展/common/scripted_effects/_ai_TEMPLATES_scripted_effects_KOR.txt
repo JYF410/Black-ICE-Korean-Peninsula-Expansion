@@ -1,44 +1,5 @@
 #一旦在该文件夹中编写了模板，并且该国家处于“ai_update_country_logic”状态，进入游戏后加载30天，就可以从AI外交界面访问交互UI。
 
-ai_garrison_templates/KOR = {
-	ai_garrison_templates = yes
-	#朝鲜警察部队
-	if = {
-		limit = {
-			NOT = {
-				has_country_flag = ai_garrison_template
-			}
-			if = {
-				limit = { check_variable = { ai_template_skip = 1 } } 
-				template_bypass = yes 
-			}
-			else = {
-				has_government = fascism
-			}
-		}
-		set_temp_variable = { ai_has_added_template = 1 }
-		set_country_flag = ai_garrison_template
-		division_template = {
-			name = "Garrison Division"
-			division_names_group = KOR_GAR_03
-			template_counter = @C_GARRISON
-			priority = @GARRISON_PRIO
-			regiments = {
-				garrison = { x = 0 y = 0 }
-				garrison = { x = 0 y = 1 }
-				militia = { x = 1 y = 0 }
-				militia = { x = 2 y = 0 }
-			}
-			support = {
-				DIV_HQ = { x = 0 y = 0 }
-				recon = { x = 0 y = 1 }
-				military_police = { x = 1 y = 0 }
-			}
-		}
-	}
-	ai_garrison_templates = yes
-}
-
 ai_militia_templates/KOR = {
 	ai_militia_templates = yes #开头和结尾都要有
 	clear_temp_array = num_valid_templates
@@ -219,7 +180,7 @@ ai_motorized_templates/KOR = {
 	ai_motorized_templates = yes #开头和结尾都要有
 	clear_temp_array = num_valid_templates
 	add_to_temp_array = { num_valid_templates = 1 } 
-	#装甲车部队
+	#朝鲜装甲车部队
 	if = {
 		limit = {
 			if = {
@@ -262,7 +223,7 @@ ai_light_armor_templates/KOR = {
 	ai_light_armor_templates = yes #开头和结尾都要有
 	clear_temp_array = num_valid_templates
 	add_to_temp_array = { num_valid_templates = 1 }
-	#骑兵坦克部队
+	#朝鲜骑兵坦克部队
 	if = {
 		limit = {
 			if = {
@@ -279,7 +240,7 @@ ai_light_armor_templates/KOR = {
 		set_temp_variable = { ai_has_added_template = 1 } 
 		set_country_flag = { flag = ai_light_armor_template value = 1 }
 		division_template = {
-			name = "KOR Armor Division II"
+			name = "NK Armor Division I"
 			division_names_group = KOR_ARM_01
 			template_counter = @C_LIGHT_ARMOR
 			priority = @LIGHT_ARMOR_PRIO
@@ -307,7 +268,7 @@ ai_light_armor_templates/KOR = {
 			}
 		}
 	}
-	#机械化坦克师
+	#朝鲜机械化坦克师
 	else_if = {
 	    limit = {
 			has_country_flag = { flag = ai_light_armor_template value = 1 }
@@ -322,7 +283,7 @@ ai_light_armor_templates/KOR = {
 		set_temp_variable = { ai_has_added_template = 1 } 
 		set_country_flag = { flag = ai_light_armor_template value = 2 }
 		division_template = {
-			name = "KOR Armor Division III"
+			name = "NK Armor Division II"
 			division_names_group = KOR_ARM_01
 			template_counter = @C_LIGHT_ARMOR
 			priority = @LIGHT_ARMOR_PRIO
@@ -359,6 +320,65 @@ ai_light_armor_templates/KOR = {
 		}
 	}
 	ai_light_armor_templates = yes #开头和结尾都要有
+}
+
+ai_medium_armor_templates/KOR = {
+	ai_medium_armor_templates = yes #开头和结尾都要有
+	clear_temp_array = num_valid_templates
+	add_to_temp_array = { num_valid_templates = 1 }
+	#韩国陆军机械化部队
+	if = {
+		limit = {
+			if = {
+				limit = { check_variable = { ai_template_skip = 1 } }
+				template_bypass = yes
+			}
+			else = {	
+				NOT = { has_country_flag = { flag = ai_medium_armor_template } }
+				OR = {
+					has_completed_focus = KOR_American_armor_division #陆军机械化部队
+				}
+			}
+		}
+		set_temp_variable = { ai_has_added_template = 1 } 
+		set_country_flag = { flag = ai_medium_armor_template value = 1 }
+		division_template = {
+			name = "SK Armor Division"
+			division_names_group = KOR_ARM_02
+			template_counter = @C_MEDIUM_ARMOR
+			priority = @MEDIUM_ARMOR_PRIO
+			regiments = {
+				mechanized_assault = { x = 0 y = 0 }
+				motorized = { x = 0 y = 1 }
+				motorized = { x = 0 y = 2 }
+
+				mechanized_assault = { x = 1 y = 0 }
+				motorized = { x = 1 y = 1 }
+				motorized = { x = 1 y = 2 }
+
+				trm_medium_armor = { x = 2 y = 0 }
+				trm_light_armor = { x = 2 y = 1 }
+				trm_light_armor = { x = 2 y = 2 }
+
+				artillery_brigade_mot_med = { x = 3 y = 0 }
+				mountain_artillery_brigade_mot = { x = 3 y = 1 }
+				mountain_artillery_brigade_mot = { x = 3 y = 2 }
+				anti_tank_brigade_mot = { x = 3 y = 3 }
+			}
+			support = {
+				DIV_HQ_mech = { x = 0 y = 0 }
+				trm_light_armor_recon = { x = 0 y = 1 }
+				engineer_mot = { x = 0 y = 2 }
+				logistics_company_mot = { x = 0 y = 3 }
+				maintenance_company = { x = 0 y = 4 }
+
+				combat_engineer_mot = { x = 1 y = 0 }
+				anti_air_car = { x = 1 y = 1 }
+				signal_company_mot = { x = 1 y = 2 }
+			}
+		}
+	}
+	ai_medium_armor_templates = yes #开头和结尾都要有
 }
 
 ai_mountaineer_templates/KOR = {
@@ -461,12 +481,15 @@ ai_marine_templates/KOR = {
 				marine = { x = 0 y = 0 }
 				marine = { x = 0 y = 1 }
 				marine = { x = 0 y = 2 }
+
 				marine = { x = 1 y = 0 }
 				marine = { x = 1 y = 1 }
 				marine = { x = 1 y = 2 }
+
 				marine = { x = 2 y = 0 }
 				marine = { x = 2 y = 1 }
 				marine = { x = 2 y = 2 }
+
 				mountain_artillery_brigade = { x = 3 y = 0 }
 				mountain_artillery_brigade = { x = 3 y = 1 }
 				mountain_artillery_brigade = { x = 3 y = 2 }
@@ -474,9 +497,10 @@ ai_marine_templates/KOR = {
 			}
 			support = {
 				DIV_HQ = { x = 0 y = 0 }
-				recon_cav = { x = 0 y = 1 }
+				trm_tankette_amphibious_armor_recon = { x = 0 y = 1 }
 				engineer = { x = 0 y = 2 }
 				logistics_company = { x = 0 y = 3 }
+				
 				amph_support = { x = 1 y = 0 }
 				anti_air = { x = 1 y = 1 }
 			}

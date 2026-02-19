@@ -15,37 +15,10 @@
 @marines_prio = 14
 @militia_prio = 15
 
-JAP_garrison_role = {
-    available_for = { KOR }
-    role = garrison
-    match_to_count = 0.6
-    #朝鲜警察部队
-    KOR_garrison_role_1 = {
-        upgrade_prio = {
-            base = 0
-            modifier = { add = 10 has_country_flag = { flag = ai_garrison_template value = 1 } }
-        }
-        reinforce_prio = @garrison_prio
-        target_template = {
-            weight = 0.8
-            match_value = 1000
-            regiments = {
-                garrison = 2
-                militia = 2
-            }
-            support = {
-                DIV_HQ = 1
-                recon = 1
-                military_police = 1
-            }
-        }
-    }
-}
-
 KOR_militia_role = {
     available_for = { KOR }  #该规则可用国家
     role = militia  #定义此编制的类型（这里定义的是militia民兵师编制）
-    match_to_count = 0.5  #其他属于该类型的已存在编制，如果你不想让AI拉太多这种低级编制那就调低此参数（数值太低会导致前期AI没改到对应编制前一点兵也不出）
+    match_to_count = 0.3  #其他属于该类型的已存在编制，如果你不想让AI拉太多这种低级编制那就调低此参数（数值太低会导致前期AI没改到对应编制前一点兵也不出）
     #朝鲜义勇军
     KOR_militia_role_1 = {
         upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
@@ -58,7 +31,7 @@ KOR_militia_role = {
         }
         target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
             weight = 0.8  #是AI应该多大程度上去靠近这个编制。
-            match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
+            match_value = 500  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
             regiments = {  #目标编制内常规营的列表
                 militia = 7  #7个民兵营
             }
@@ -78,8 +51,8 @@ KOR_militia_role = {
         reinforce_prio = @militia_prio
         #can_upgrade_in_field = { }
         target_template = {
-            weight = 0.5
-            match_value = 1000
+            weight = 0.6
+            match_value = 800
             regiments = {
                 militia = 9
                 mountain_artillery_brigade = 2
@@ -96,7 +69,7 @@ KOR_militia_role = {
 KOR_infantry_role = {
     available_for = { KOR }
     role = infantry
-    match_to_count = 0.5
+    match_to_count = 0.6
     #一阶步兵师
     KOR_infantry_role_1 = {  
         upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
@@ -109,7 +82,7 @@ KOR_infantry_role = {
         }
         target_template = {
             weight = 0.5
-            match_value = 1000
+            match_value = 900
             regiments = {
                 infantry = 7
             }
@@ -129,7 +102,7 @@ KOR_infantry_role = {
         }
         reinforce_prio = @infantry_prio
         target_template = {
-            weight = 0.5
+            weight = 0.8
             match_value = 1000
             regiments = {
                 infantry = 9
@@ -192,8 +165,8 @@ KOR_light_armor_role = {
             ai_has_mechanized = yes   
         }
         target_template = {
-            weight = 0.5
-            match_value = 1000
+            weight = 0.8
+            match_value = 1200
             regiments = {
                 cavalry = 6
                 trm_cavalry_armor = 2
@@ -219,7 +192,7 @@ KOR_light_armor_role = {
         }
         reinforce_prio = @light_armor_prio
         target_template = {
-            weight = 0.2
+            weight = 1.2
             match_value = 1000
             regiments = {
                 mechanized = 8
@@ -241,10 +214,51 @@ KOR_light_armor_role = {
     }
 }
 
+KOR_medium_armor_role = {
+    available_for = { KOR }
+    role = medium_armor
+    match_to_count = 0.7
+    #韩国陆军机械化部队
+    KOR_medium_armor_role_1 = {
+        upgrade_prio = {
+            base = 20
+            modifier = { add = 10 has_country_flag = { flag = ai_medium_armor_template value = 1 } }
+        }
+        reinforce_prio = @medium_armor_alt_prio
+        can_upgrade_in_field = {
+            ai_has_mechanized = yes   
+        }
+        reinforce_prio = @medium_armor_prio
+        target_template = {
+            weight = 1.5
+            match_value = 3000
+            regiments = {
+                mechanized_assault = 2
+                motorized = 4
+                trm_medium_armor = 1
+				trm_light_armor = 2
+                artillery_brigade_mot_med = 1
+                mountain_artillery_brigade_mot = 2
+                anti_tank_brigade_mot = 1
+            }
+            support = {
+				DIV_HQ_mech = 1
+				trm_light_armor_recon = 1
+				engineer_mot = 1
+				logistics_company_mot = 1
+				maintenance_company = 1
+				combat_engineer_mot = 1
+				anti_air_car = 1
+				signal_company_mot = 1
+            }
+        }
+    }
+}
+
 KOR_mountaineers_role = {
     available_for = { KOR }
     role = mountaineers
-    match_to_count = 0.6
+    match_to_count = 0.8
     #山地师
     KOR_mountaineers_role_1 = {  
         upgrade_prio = {
@@ -254,7 +268,7 @@ KOR_mountaineers_role = {
         reinforce_prio = @mountaineers_prio #单位补充优先级
         target_template = {
             weight = 0.6
-            match_value = 1000
+            match_value = 2000
             regiments = {
                 mountaineers = 9
                 mountain_artillery_brigade = 2
@@ -273,7 +287,7 @@ KOR_mountaineers_role = {
 KOR_marines_role = {
     available_for = { KOR }
     role = marines
-    match_to_count = 0.7
+    match_to_count = 0.9
     #海军陆战队
     KOR_marines_role_1 = {  
         upgrade_prio = {
@@ -282,8 +296,8 @@ KOR_marines_role = {
         }
         reinforce_prio = @marines_prio #单位补充优先级
         target_template = {
-            weight = 0.7
-            match_value = 1000
+            weight = 0.6
+            match_value = 2000
             regiments = {
                 marines = 9
                 mountain_artillery_brigade = 3
@@ -291,7 +305,7 @@ KOR_marines_role = {
             }
             support = {
                 DIV_HQ = 1
-				recon_cav = 1
+				trm_tankette_amphibious_armor_recon = 1
 				engineer = 1
 				logistics_company = 1
 				amph_support = 1

@@ -6,6 +6,11 @@ spriteTypes = {
 	}
 
 	spriteType = {
+		name = "GFX_decision_cat_korea_order_usa_ship"
+		texturefile = "gfx/interface/decisions/decision_cat_korea_order_usa_ship.dds"
+	}
+
+	spriteType = {
 		name = "GFX_KOR_William_Joseph_Donovan"
 		texturefile = "gfx/leaders/KOR/Portrait_KOR_William_Joseph_Donovan.dds"
 	}

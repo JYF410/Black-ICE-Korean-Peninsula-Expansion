@@ -33,7 +33,7 @@ KOR_create_JAP_Koban_officer_div = {
 		division_names_group = KOR_GAR_03
 		template_counter = @C_GARRISON
 		priority = @GARRISON_PRIO
-		is_locked = no
+		is_locked = yes
 		regiments = {
 			garrison = { x = 0 y = 0 }
 			garrison = { x = 0 y = 1 }

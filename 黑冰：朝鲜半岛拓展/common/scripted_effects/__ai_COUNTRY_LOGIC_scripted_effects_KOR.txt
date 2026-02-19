@@ -7,46 +7,38 @@ d_ai_logic/KOR = {
 	#激活部队编制策略：common\scripted_effects\_ai_TEMPLATES_scripted_effects_KOR.txt
 	if = {
 		limit = { check_variable = { ai_ignore_templates = 0 } }
-		ai_garrison_templates/KOR = yes
 		ai_militia_templates/KOR = yes
 		ai_infantry_templates/KOR = yes
 		ai_light_infantry_templates/KOR = yes
 		ai_heavy_infantry_templates/KOR = yes 
 		ai_motorized_templates/KOR = yes
 		ai_light_armor_templates/KOR = yes
+		ai_medium_armor_templates/KOR = yes
 		ai_mountaineer_templates/KOR = yes
 		ai_marine_templates/KOR = yes
 	}
-	#陆军生产策略
+	#陆军生产策略(已生效)
 	if = {
 		limit = {
 			check_variable = { ai_ignore_deployment = 0 }
 		}
 		# disable_build  #禁用建立
 		# production_ratio  #生产权重
-		set_temp_variable = { BASE@role_infantry 				= 30  }
-		set_temp_variable = { BASE@role_light_infantry 			= 10  }
+		set_temp_variable = { BASE@role_infantry 				= 30 }
+		set_temp_variable = { BASE@role_light_infantry 			= 0  }
 		set_temp_variable = { BASE@role_heavy_infantry 			= 0  }
-		set_temp_variable = { BASE@role_militia		 			= 10  }
-		set_temp_variable = { BASE@role_garrison 				= 10  }
+		set_temp_variable = { BASE@role_militia		 			= 10 }
+		set_temp_variable = { BASE@role_garrison 				= 0  }
 		set_temp_variable = { BASE@role_cavalry 				= 0  }
-		set_temp_variable = { BASE@role_motorized 				= 5  }
-		set_temp_variable = { BASE@role_light_armor 			= 5  }
-		set_temp_variable = { BASE@role_light_armor_alt 		= 5  }
-		set_temp_variable = { BASE@role_medium_armor 			= 0  }
+		set_temp_variable = { BASE@role_motorized 				= 3  }
+		set_temp_variable = { BASE@role_light_armor 			= 3  }
+		set_temp_variable = { BASE@role_light_armor_alt 		= 3  }
+		set_temp_variable = { BASE@role_medium_armor 			= 3  }
 		set_temp_variable = { BASE@role_medium_armor_alt 		= 0  }
 		set_temp_variable = { BASE@role_heavy_armor 			= 0  }
 		set_temp_variable = { BASE@role_heavy_armor_alt 		= 0  }
 		set_temp_variable = { BASE@role_marines 				= 5  }
 		set_temp_variable = { BASE@role_mountaineers 			= 5  }
-		if = {
-			limit = {
-				has_government = fascism
-			}
-			add_to_temp_variable = {
-				BASE@role_garrison = 10
-			}
-		}
 		if = {
 			limit = {
 				is_in_faction_with = CHI
@@ -57,6 +49,7 @@ d_ai_logic/KOR = {
 				BASE@role_motorized = 10
 				BASE@role_light_armor = 5
 				BASE@role_light_armor_alt = 5
+				BASE@role_medium_armor = 10
 				BASE@role_mountaineers = 20
 				BASE@role_marines = 20
 			}
@@ -75,16 +68,18 @@ d_ai_logic/KOR = {
 				BASE@role_motorized = 30
 				BASE@role_light_armor = 20
 				BASE@role_light_armor_alt = 20
+				BASE@role_medium_armor = 20
 				BASE@role_mountaineers = 30
 				BASE@role_marines = 30
 			}
 		}
 	}
-	#海军生产策略
+	#海军生产策略(调试中)
 	if = {
 		limit = {
 			check_variable = { ai_ignore_naval_production = 0 }
 		}
+		ai_naval_CV/KOR = yes
 		ai_naval_BC/KOR = yes
 		ai_naval_CA/KOR = yes
 		ai_naval_CL/KOR = yes
@@ -92,44 +87,55 @@ d_ai_logic/KOR = {
 		ai_naval_SS/KOR = yes
 		ai_switch_escort_to_destroyer = yes
 		set_temp_variable = { ai_target_convoys                    = 300 }
-		set_temp_variable = { RATIO@naval_capital_bc                =  1 }
-		set_temp_variable = { RATIO@naval_cruiser_heavy             =  1 }
-		set_temp_variable = { RATIO@naval_cruiser_light             =  1 }
-		set_temp_variable = { RATIO@naval_screen                    =  4 }
-		set_temp_variable = { RATIO@naval_submarine                 = 20 }
-		#战列巡洋舰生产队列
+		set_temp_variable = { RATIO@naval_carrier 				     = 0 }
+		set_temp_variable = { RATIO@naval_capital_bc                =  0 }
+		set_temp_variable = { RATIO@naval_cruiser_heavy             =  0 }
+		set_temp_variable = { RATIO@naval_cruiser_light             =  0 }
+		set_temp_variable = { RATIO@naval_screen                    =  0 }
+		set_temp_variable = { RATIO@naval_submarine                 =  9 }
+		set_temp_variable = { min_dockyard@convoys                   = 1 }
+		#与日本为敌
 		if = {
-			limit = { num_of_naval_factories > 10 }
-			set_temp_variable = { RATIO@naval_capital_bc             = 1 } #生产数调整
-			set_temp_variable = { min_dockyard@nrm_ship_hull_capital < 3 } #至少分配X个造船厂
+			limit = {
+				has_war_with = JAP
+			}
+			set_temp_variable = { RATIO@naval_carrier 				 = 0 }
+			set_temp_variable = { RATIO@naval_capital_bc 			 = 1 }
+			set_temp_variable = { RATIO@naval_cruiser_heavy 		 = 4 }
+			set_temp_variable = { RATIO@naval_cruiser_light 		 = 8 }
+			set_temp_variable = { RATIO@naval_screen 				 = 20 }
+			set_temp_variable = { RATIO@naval_submarine 			 = 500 }
+
+			set_temp_variable = { min_dockyard@convoys               = 1 }
+			set_temp_variable = { min_dockyard@naval_submarine       = 3 }
+			set_temp_variable = { min_dockyard@naval_screen          = 1 }
 		}
-		#重型巡洋舰生产队列
+		#与同盟国为敌
 		if = {
-			limit = { num_of_naval_factories > 8 }
-			set_temp_variable = { RATIO@naval_cruiser_heavy          = 2 } #生产数调整
-			set_temp_variable = { min_dockyard@naval_cruiser_heavy   < 3 } #至少分配X个造船厂
-		}
-		#轻型巡洋舰生产队列
-		if = {
-			limit = { num_of_naval_factories > 8 }
-			set_temp_variable = { RATIO@naval_cruiser_light          = 4 } #生产数调整
-			set_temp_variable = { min_dockyard@naval_cruiser_light   < 3 } #至少分配X个造船厂
-		}
-		#驱逐舰生产队列
-		if = {
-			limit = { num_of_naval_factories > 5 }
-			set_temp_variable = { RATIO@naval_screen                = 10 } #生产数调整
-			set_temp_variable = { min_dockyard@naval_screen          < 1 } #m至少分配X个造船厂
-		}
-		#潜艇生产队列
-		if = {
-			limit = { num_of_naval_factories > 2 }
-			set_temp_variable = { RATIO@naval_submarine             = 20 } #生产数调整
-			set_temp_variable = { min_dockyard@naval_submarine       < 1 } #至少分配X个造船厂
+			limit = {
+				OR = {
+					has_war_with = ENG
+					has_war_with = USA
+					has_war_with = SOV
+				}
+			}
+			set_temp_variable = { RATIO@naval_carrier 				 = 4 }
+			set_temp_variable = { RATIO@naval_capital_bc 			 = 4 }
+			set_temp_variable = { RATIO@naval_cruiser_heavy 		 = 8 }
+			set_temp_variable = { RATIO@naval_cruiser_light 		 = 16 }
+			set_temp_variable = { RATIO@naval_screen 				 = 40 }
+			set_temp_variable = { RATIO@naval_submarine 			 = 800 }
+
+			set_temp_variable = { min_dockyard@convoys               = 2 }
+			set_temp_variable = { min_dockyard@naval_submarine       = 3 }
+			set_temp_variable = { min_dockyard@naval_screen          = 2 }
+			set_temp_variable = { min_dockyard@naval_cruiser_light   = 2 }
+			set_temp_variable = { min_dockyard@naval_cruiser_heavy   = 2 }
+			set_temp_variable = { min_dockyard@nrm_ship_hull_capital = 3 }
 		}
 		ai_update_ship_production = yes
 	}
-	#空军生产策略
+	#空军生产策略(未生效)
 	if = {
 		limit = {
 			check_variable = { ai_ignore_air_production = 0 }
@@ -197,8 +203,8 @@ d_ai_logic/KOR = {
 			check_variable = { ai_ignore_research = 0 }
 		}
 		set_temp_variable = { MULT:land_doctrine = 1.0 } 
-		set_temp_variable = { MULT:air_doctrine = 1.0 } 
-		set_temp_variable = { MULT:navy_doctrine = 0.05 } 
+		set_temp_variable = { MULT:air_doctrine = 0.5 } 
+		set_temp_variable = { MULT:navy_doctrine = 0.25 } 
 	}
 	##################################################################################################	
 	ai_templates_on_end_effect = yes

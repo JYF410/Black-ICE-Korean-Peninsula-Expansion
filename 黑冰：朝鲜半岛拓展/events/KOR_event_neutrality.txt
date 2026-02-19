@@ -209,3 +209,41 @@ news_event = {
 		}
 	}
 }
+
+#订购猎潜艇到货（由KOR触发）
+news_event = {
+	id = KOR_neutrality.8
+	title = KOR_neutrality.8.t
+	desc = KOR_neutrality.8.d
+	picture = GFX_KOR_usa_ship_arrived
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = KOR_neutrality.8.a
+		trigger = { tag = KOR }
+		create_ship = { type = nrm_ship_hull_light_2 equipment_variant = "PC-461-class" creator = USA }
+		KOR = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = POR_sold_ships  #出售船只
+			}
+		}
+		ai_chance = {
+			base = 500
+		}
+	}
+	option = {
+		name = KOR_neutrality.8.b
+		trigger = { tag = USA }
+		USA = {
+			add_cic = 900
+			add_opinion_modifier = {
+				target = KOR
+				modifier = POR_bought_ships #购买船只
+			}
+		}
+		ai_chance = {
+			base = 500
+		}
+	}
+}

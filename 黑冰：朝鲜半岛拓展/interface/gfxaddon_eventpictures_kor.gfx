@@ -42,5 +42,11 @@ spriteTypes = {
 		name = "GFX_KOR_report_event_stalin_02"
 		texturefile = "gfx/event_pictures/KOR_report_event_stalin_02.tga"
 	}
+	#舰船达到
+	spriteType = {
+		name = "GFX_KOR_usa_ship_arrived"
+		texturefile = "gfx/event_pictures/KOR_usa_ship_arrived.tga"
+	}
+
 }
 #EOF#

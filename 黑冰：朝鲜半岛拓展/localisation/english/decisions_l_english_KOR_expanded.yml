@@ -12,6 +12,11 @@
 
  KOR_neutrality_host_country_decision_completed:0 "[CHI.Getleader] has granted our request."
  KOR_CHI_move_to_hangzhou:0 "Relocate Provisional Government to Hangzhou"
+ KOR_CHI_move_to_chongqing:5 "Relocate Provisional Government to ChongQing"
+
+ KOR_USA_Order_frigate:0 "Order American Submarine Chasers"
+ KOR_USA_Order_frigate_desc:0 "The PC-461-class submarine chaser was a class of naval vessels developed by the United States Navy during World War II. Between 1941 and 1944, a total of 343 PC-461-class ships were produced. Under the Lend-Lease Act, 46 of these vessels were transferred to allied nations, while another 59 were converted into other types of patrol craft. Eight of these ships were lost in combat, including one after its conversion to a PGM-9 motor gunboat. Notably, PC-566, under the command of Lieutenant Commander Herbert G. Claudius, was the only one of its class credited with sinking a German U-boat (U-166). Following the war, the United States transferred a significant number of these surplus chasers to the Republic of Korea and the Republic of China to bolster their fledgling navies."
+ KOR_buy_USS_PC461:0 "Expand PC-461 Procurement"
 
  ################################# Democratic People's Republic of Korea #################################
  KOR_Japan_Korea_Reconquista:0 "Korean National Restoration Movement"

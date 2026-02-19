@@ -7,6 +7,14 @@ KOR_CHI_Korea_Reconquista = {
 		original_tag = KOR
 	}
 }
+#决议栏：订购美国猎潜艇
+KOR_USA_Order_frigate = {
+	icon = generic_naval
+	picture = GFX_decision_cat_korea_order_usa_ship
+	allowed = {
+		original_tag = KOR
+	}
+}
 
 #################################朝鲜民主主义共和国#################################
 #决议栏：朝鲜民族复国运动

@@ -41,7 +41,7 @@ KOR_Japan_Korea_Reconquista = {
 			tag = KOR
 		}
 		visible = {
-			NOT = { has_government = fascism }
+			has_government = communism
 		}
 		available = {
 			527 = { is_fully_controlled_by = ROOT }

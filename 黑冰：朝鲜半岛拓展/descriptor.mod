@@ -1,4 +1,4 @@
-version="0.45"
+version="0.74"
 tags={
 	"Historical"
 	"Gameplay"
@@ -11,5 +11,5 @@ dependencies={
 }
 name="黑冰：朝鲜半岛拓展"
 picture="thumbnail.png"
-supported_version="1.16.9"
+supported_version="1.16.10"
 remote_file_id="3642796707"

@@ -31,6 +31,11 @@ KOR_neutrality.7.d: "The 'Eagle Project,' a joint infiltration plan for the Kore
 KOR_neutrality.7.a: "We shall cooperate with the [USA.GetNameDefCap]."
 KOR_neutrality.7.b: "We shall cooperate with the [KOR.GetNameDefCap]."
 
+KOR_neutrality.8.t: "Ship Order Delivered"
+KOR_neutrality.8.d: "The PC-461-class submarine chasers by [KOR.GetNameDefCap] ordered have arrived at the port. Their technical specifications are as follows:\nDisplacement: 280 tons\nLength: 52.93 m\nBeam: 7.01 m\nTop Speed: 20 knots\nPrimary Armament: 1x 3-inch/50 caliber gun\nSecondary Armament: 6x .50 caliber machine guns\nASW Equipment: 4x Depth Charge projectors\nSpecial Equipment: 2x Rocket Launchers (Mousetrap)"
+KOR_neutrality.8.a: "Excellent."
+KOR_neutrality.8.b: "A pleasure doing business."
+
 ################################# DPRK (Communism) #################################
 KOR_communism.1.t: "Formal Establishment of the ARF"
 KOR_communism.1.d: "The Association for the Restoration of the Fatherland (ARF), led by General Kim Il-sung, represents the interests of the entire people. It has gathered revolutionary fighters like Kim Chaek and Choe Yong-gon alongside various patriots who, despite differing ideologies, stand united to overthrow Japanese imperialism. \nThe ARF serves as the mass organizational foundation for Kim Il-sung's guerrilla forces. Despite brutal Japanese suppression campaigns that saw tens of thousands arrested or martyred, the ARF continues its work. Through secret publications like the 'March 1st' monthly and 'Hwajeonmin,' they tirelessly spread the word of resistance and national independence."

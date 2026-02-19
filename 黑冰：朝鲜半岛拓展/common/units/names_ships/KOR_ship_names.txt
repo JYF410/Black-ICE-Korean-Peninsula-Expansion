@@ -1,0 +1,16 @@
+﻿KOR_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+	for_countries = { KOR }
+	type = ship
+	ship_types = { ship_hull_light destroyer }			
+	fallback_name = "KoreaDD-%d号驱逐舰"	
+}
+
+
+KOR_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+	for_countries = { KOR }
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+	fallback_name = "KoreaSS-%d号潜水艇"
+}
