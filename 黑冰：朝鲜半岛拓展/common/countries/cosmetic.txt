@@ -18,6 +18,11 @@ KMTKOR_neutrality = {
 	color = rgb { 25 116 210 } #155 101 107 
 	color_ui = rgb { 25 116 210 } #202 131 139 
 }
+#大韩民国
+KOR_neutrality = {
+	color = rgb { 25 116 210 } #155 101 107 
+	color_ui = rgb { 25 116 210 } #202 131 139 
+}
 #朝鲜民主主义人民共和国
 KMTKOR_communism = {
 	color = rgb { 178 34 34 }
