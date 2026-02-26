@@ -32,7 +32,6 @@ KOR_create_JAP_Koban_officer_div = {
 		name = "朝鲜殖民地驻在所警察"
 		division_names_group = KOR_GAR_03
 		template_counter = @C_GARRISON
-		priority = @GARRISON_PRIO
 		is_locked = yes
 		regiments = {
 			garrison = { x = 0 y = 0 }
@@ -64,7 +63,6 @@ KOR_create_JAP_partisan_army_div = {
 		name = "朝鲜殖民地警防团"
 		division_names_group = KOR_GAR_03
 		template_counter = @C_GARRISON
-		priority = @GARRISON_PRIO
 		is_locked = yes
 		regiments = {
 			garrison = { x = 0 y = 0 }
@@ -91,7 +89,6 @@ KOR_create_JAP_MP_army_div = {
 		name = "朝鲜殖民地宪兵部队"
 		division_names_group = KOR_CAV_03
 		template_counter = @C_CAVALRY
-		priority = @LIGHT_ARMOR_PRIO
 		is_locked = yes
 		regiments = {
 			cavalry = { x = 0 y = 0 }

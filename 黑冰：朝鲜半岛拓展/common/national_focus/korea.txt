@@ -133,6 +133,10 @@ focus_tree = {
 						modifier = different_government #移除：不同的意识形态
 					}
 				}
+				unlock_decision_tooltip = {
+					decision = KOR_CHI_move_to_dongbeijing #解锁决议：大韩民国临时政府迁至东北京
+					show_effect_tooltip = no
+				}
 			}
 		}
 		ai_will_do = {
@@ -189,6 +193,7 @@ focus_tree = {
 					target = CHI
 					modifier = medium_increase
 				}
+				set_rule = { can_access_market = yes }
 				give_market_access = CHI
 			}
 		}
@@ -210,9 +215,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ARMY }
 		x = 0
 		y = 1
-		cost = 14
+		cost = 30
 		available = {
-			date > 1940.9.17
 			KOR = {
 				has_government = neutrality
 				is_government_in_exile = yes
@@ -245,9 +249,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		x = 0
 		y = 1
-		cost = 30
+		cost = 60
 		available = {
-			date > 1942.7.20
 			CHI = {
 				exists = yes
 				has_capitulated = no
@@ -295,7 +298,45 @@ focus_tree = {
 			factor = 50
 		}
 	}
-	
+	#中韩联合装备研究所
+	focus = {
+		id = KOR_CHI_Scientific_Research
+		icon = GFX_goal_research_blue_cogs
+		prerequisite = { focus = KOR_CHI_National_Reunification_Movement }
+		relative_position_id = KOR_CHI_National_Reunification_Movement
+		available_if_capitulated = yes #投降后能点该国策
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		x = 0
+		y = 1
+		cost = 60
+		available = {
+			KOR = {
+				has_government = neutrality
+				is_government_in_exile = yes
+				is_in_faction_with = CHI
+			}
+			CHI = {
+				exists = yes
+				has_capitulated = no
+			}
+		}
+		completion_reward = {
+			add_research_slot = 1
+			SLOT:support_folder = yes
+			SLOT:artillery_folder = yes
+			SLOT:tank_techs_folder = yes
+			SLOT:armor_folder = yes
+			SLOT:air_techs_folder = yes
+			SLOT:naval_folder = yes
+			SLOT:naval_techs_folder = yes
+			SLOT:raw_materials_folder = yes
+			SLOT:industry_folder = yes
+			SLOT:electronics_folder = yes
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
 	#韩国独立军特别班
 	focus = {
 		id = KOR_CHI_Secret_Military_Academy
@@ -306,7 +347,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		x = -4
 		y = 1
-		cost = 30
+		cost = 60
 		available = {
 			has_country_flag = KOR_neutrality_host_country_decision_completed #蒋介石同意了我们的请求
 			KOR = {
@@ -341,7 +382,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		x = 0
 		y = 1
-		cost = 30
+		cost = 60
 		available = {
 			has_country_flag = KOR_neutrality_host_country_decision_completed #蒋介石同意了我们的请求
 			KOR = {
@@ -520,6 +561,7 @@ focus_tree = {
 					relation = non_aggression_pact
 					active = yes
 				}
+				set_rule = { can_access_market = yes }
 				give_market_access = USA
 			}
 			USA = {
@@ -615,7 +657,6 @@ focus_tree = {
 			division_template = {
 				name = "韩国机械化步兵师"
 				division_names_group = KOR_ARM_02
-				priority = @MEDIUM_ARMOR_PRIO
 				regiments = {
 					mechanized_assault = { x = 0 y = 0 }
 					motorized = { x = 0 y = 1 }
@@ -705,7 +746,6 @@ focus_tree = {
 			division_template = {
 				name = "韩国海军陆战师"
 				division_names_group = KOR_MAR_02
-				priority = @MARINES_PRIO
 				regiments = {
 					marine = { x = 0 y = 0 }
 					marine = { x = 0 y = 1 }

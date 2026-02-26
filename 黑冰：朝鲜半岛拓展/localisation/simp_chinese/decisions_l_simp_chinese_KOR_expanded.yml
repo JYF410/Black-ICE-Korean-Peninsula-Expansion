@@ -11,8 +11,10 @@
  KOR_host_country_decision_01_desc: "现在国家沦陷，我们需要一个海外基地以便于继续抵抗。我们应当尽快接触[CHI.Getleader]，请求他允许在[CHI.GetNameDefCap]领地上建立临时政权。"
 
  KOR_neutrality_host_country_decision_completed: "[CHI.Getleader]同意了我们的请求"
+ KOR_neutrality_host_country_decision_refuse_us: "[CHI.Getleader]拒绝了我们的请求"
  KOR_CHI_move_to_hangzhou: "大韩民国临时政府迁至杭州"
  KOR_CHI_move_to_chongqing: "大韩民国临时政府迁至重庆"
+ KOR_CHI_move_to_dongbeijing: "大韩民国临时政府迁至东北京"
 
  KOR_USA_Order_frigate: "订购美国猎潜艇"
  KOR_USA_Order_frigate_desc: "PC-461级驱潜艇是美国海军于第二次世界大战中开发的一款猎潜舰，在1941~1944年间，美国共生产343艘PC-461级驱潜舰。其中有46艘按《租借法案》移交给他国，另有59艘PC-461级改为其他类型的巡逻艇。一共有8艘该型驱潜舰战损。其中，1艘是在改为PGM-9高速护卫艇后损失。该型驱潜舰只有PC-566在赫伯特·G·克劳迪乌斯指挥官指挥下取得了击沉潜艇U-166号潜艇的战绩。二战后，美国曾将大量的PC-461级驱潜舰赠送给大韩民国和中华民国。"

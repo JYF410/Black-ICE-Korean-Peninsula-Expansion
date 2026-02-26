@@ -99,6 +99,13 @@ country_event = {
 	option = {
 		name = KOR_neutrality.3.b
 		trigger = { tag = CHI }
+		KOR = {
+			set_country_flag = KOR_neutrality_host_country_decision_refuse_us
+		}
+		CHI = {
+			add_stability = -0.05 #稳定度-5%
+			add_war_support = -0.05 #战争支持度-5%
+		}
 		ai_chance = {
 			base = 0
 		}
@@ -122,10 +129,10 @@ news_event = {
 		KOR = {
 			set_country_flag = KOR_neutrality_host_country_decision_completed #对应文件：common\decisions\korea.txt，去除杭州抵抗度
 			set_variable = { KOR.host_nation = CHI } #标记CHI是寄主国
+			set_rule = { can_access_market = yes }
 			hidden_effect = {
 				set_capital = { state = 596 } #迁都杭州
 				set_victory_points = { province = 7191 value = 50 } #杭州
-				set_victory_points = { province = 4042 value = 15 } #钱塘
 			}
 		}
 		add_ideas = KOR_CHI_political_reform_hangzhou #大韩民国临时政府驻杭州领事馆
