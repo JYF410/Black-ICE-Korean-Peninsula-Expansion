@@ -31,7 +31,7 @@ focus_tree = {
 		}
 	}
 ##################################################中华民国线################################################
-	#组建联合光复阵线
+	#联合光复阵线
 	focus = {
 		id = KOR_CHI_Restoration_Front
 		icon = GFX_focus_generic_infiltration
@@ -48,7 +48,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_ideas = KOR_front_against_Japan #朝鲜民族战线联盟
+			add_ideas = KOR_CHI_Restoration_Front #朝鲜民族战线联盟
 			news_event = { id = KOR_neutrality.1 }
 		}
 		ai_will_do = {
@@ -87,7 +87,6 @@ focus_tree = {
 			factor = 10
 		}
 	}
-	
 	#大韩民国临时政府
 	focus = {
 		id = KOR_CHI_political_reform
@@ -143,6 +142,7 @@ focus_tree = {
 			factor = 50
 		}
 	}
+
 	#韩中互助军事协定
 	focus = {
 		id = KOR_CHI_help_Korea_amry
@@ -165,7 +165,6 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			army_experience = 50
 			CHI = {
 				add_opinion_modifier = {
 					target = ROOT
@@ -189,6 +188,8 @@ focus_tree = {
 				give_market_access = KOR
 			}
 			KOR = {
+				army_experience = 10
+				add_ideas = tax_average_name #平均税收
 				add_opinion_modifier = {
 					target = CHI
 					modifier = medium_increase
@@ -215,7 +216,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ARMY }
 		x = 0
 		y = 1
-		cost = 30
+		cost = 60
 		available = {
 			KOR = {
 				has_government = neutrality
@@ -228,6 +229,8 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_ideas = train_high_name #高训练标准
+			add_ideas = foreign_encouraged_name #鼓励对外征募
 			custom_effect_tooltip = Korean_Liberation_Army_completed
 			hidden_effect = {
 				KOR_create_Korean_Liberation_Army_div = yes
@@ -307,7 +310,7 @@ focus_tree = {
 		available_if_capitulated = yes #投降后能点该国策
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		x = 0
-		y = 1
+		y = 2
 		cost = 60
 		available = {
 			KOR = {
@@ -337,6 +340,7 @@ focus_tree = {
 			factor = 50
 		}
 	}
+
 	#韩国独立军特别班
 	focus = {
 		id = KOR_CHI_Secret_Military_Academy
@@ -363,6 +367,7 @@ focus_tree = {
 		completion_reward = {
 			add_command_power = 10 #指挥点数
 			army_experience = 10 #陆军经验
+			add_ideas = officer_train_low_name #基本军官培训
 			add_research_slot = 1
 			SLOT:infantry_folder = yes
 			SLOT:ww1_land_doctrine_folder = yes
@@ -426,15 +431,42 @@ focus_tree = {
 		}
 	}
 
-	#綦江统一会议
+	#朝鲜义勇队
 	focus = {
-		id = KOR_Qijiang_Unification_Conference
-		icon = GFX_focus_ARG_keep_it_in_the_party
+		id = KOR_CHI_yiyongdui
+		icon = GFX_focus_CHI_military_mission
 		prerequisite = { focus = KOR_CHI_political_reform }
 		relative_position_id = KOR_CHI_political_reform
 		available_if_capitulated = yes #投降后能点该国策
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		x = -2
+		y = 1
+		cost = 30
+		available = {
+			KOR = {
+				has_government = neutrality
+				is_government_in_exile = yes #是流亡政府
+				has_capitulated = yes #停止抵抗
+			}
+		}
+		completion_reward = {
+			add_manpower = 30000
+			add_ideas = partial_economic_mobilisation_name #部分动员
+			add_ideas = train_medium_name #一般训练标准
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#綦江统一会议
+	focus = {
+		id = KOR_Qijiang_Unification_Conference
+		icon = GFX_focus_ARG_keep_it_in_the_party
+		prerequisite = { focus = KOR_CHI_yiyongdui }
+		relative_position_id = KOR_CHI_yiyongdui
+		available_if_capitulated = yes #投降后能点该国策
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		x = 0
 		y = 1
 		cost = 30
 		available = {

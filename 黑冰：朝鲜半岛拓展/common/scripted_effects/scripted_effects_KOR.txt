@@ -31,7 +31,6 @@ KOR_create_JAP_Koban_officer_div = {
 	division_template = {
 		name = "朝鲜殖民地驻在所警察"
 		division_names_group = KOR_GAR_03
-		template_counter = @C_GARRISON
 		is_locked = yes
 		regiments = {
 			garrison = { x = 0 y = 0 }
@@ -62,7 +61,6 @@ KOR_create_JAP_partisan_army_div = {
 	division_template = {
 		name = "朝鲜殖民地警防团"
 		division_names_group = KOR_GAR_03
-		template_counter = @C_GARRISON
 		is_locked = yes
 		regiments = {
 			garrison = { x = 0 y = 0 }
@@ -88,7 +86,6 @@ KOR_create_JAP_MP_army_div = {
 	division_template = {
 		name = "朝鲜殖民地宪兵部队"
 		division_names_group = KOR_CAV_03
-		template_counter = @C_CAVALRY
 		is_locked = yes
 		regiments = {
 			cavalry = { x = 0 y = 0 }
@@ -130,7 +127,7 @@ KOR_create_partisan_army_div = {
 	815 = {
 		create_unit = {
 			division = "name = \"朝鲜游击队\" division_template = \"朝鲜游击队\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
-			count = 12
+			count = 10
 			owner = KOR
 		}
 	}
@@ -330,7 +327,6 @@ KOR_motorized_AC_division_div = {
 		name = "朝鲜装甲车独立团"
 		is_locked = no
 		division_names_group = KOR_MOT_01
-		template_counter = @C_MOTORIZED
 		regiments = {
 			armored_car = { x = 0 y = 0 }
 			trm_tankette_armor = { x = 1 y = 0 }
@@ -358,7 +354,6 @@ KOR_cavalry_armor_division_div = {
 		name = "朝鲜人民军骑兵坦克师"
 		is_locked = no
 		division_names_group = KOR_ARM_01
-		template_counter = @C_LIGHT_ARMOR_ALT
 		regiments = {
 			cavalry = { x = 0 y = 0 }
 			cavalry = { x = 0 y = 1 }
@@ -394,7 +389,7 @@ KOR_cavalry_armor_division_div = {
 KOR_create_Korean_Secret_Army_div = {
 	division_template = {
 		name = "韩国特务队独立军"
-		is_locked = yes
+		is_locked = no
 		regiments = {
 			light_infantry = { x = 0 y = 0 }
 			militia = { x = 0 y = 1 }
@@ -421,7 +416,6 @@ KOR_create_Korean_Liberation_Army_div = {
 	division_template = {
 		name = "韩国光复军"
 		division_names_group = KOR_INF_02
-		template_counter = @C_LIGHT_INFANTRY
 		is_locked = no
 		regiments = {
 			infantry = { x = 0 y = 0 }

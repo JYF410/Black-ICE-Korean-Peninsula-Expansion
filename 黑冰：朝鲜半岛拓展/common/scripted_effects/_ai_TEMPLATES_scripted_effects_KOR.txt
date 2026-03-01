@@ -28,7 +28,6 @@ ai_militia_templates/KOR = {
 		division_template = {
 			name = "KOR Militia Division I"	 #所有模板都应该使用角色特定的名称，而不是国家特定的名称
 			division_names_group = KOR_INF_05
-			template_counter = @C_INFANTRY
 			regiments = {
 				militia = { x = 0 y = 0 }
 				militia = { x = 0 y = 1 }
@@ -64,7 +63,6 @@ ai_militia_templates/KOR = {
 		division_template = {
 			name = "KOR Militia Division II"
 			division_names_group = KOR_INF_05
-			template_counter = @C_INFANTRY
 			regiments = {
 				militia = { x = 0 y = 0 }
 				militia = { x = 0 y = 1 }
@@ -110,7 +108,6 @@ ai_infantry_templates/KOR = {
 		division_template = {
 			name = "KOR Infantry Division I"
 			division_names_group = KOR_INF_04
-			template_counter = @C_INFANTRY
 			regiments = {
 				infantry = { x = 0 y = 0 }
 				infantry = { x = 0 y = 1 }
@@ -145,7 +142,6 @@ ai_infantry_templates/KOR = {
 		division_template = {
 			name = "KOR Infantry Division II"
 			division_names_group = KOR_INF_04
-			template_counter = @C_INFANTRY
 			regiments = {
 				infantry = { x = 0 y = 0 }
 				infantry = { x = 0 y = 1 }
@@ -195,7 +191,6 @@ ai_motorized_templates/KOR = {
 		division_template = {
 			name = "KOR Armor Division I"
 			division_names_group = KOR_MOT_01
-			template_counter = @C_CAVALRY
 			regiments = {
 				armored_car = { x = 0 y = 0 }
 				trm_tankette_armor = { x = 1 y = 0 }
@@ -237,7 +232,6 @@ ai_light_armor_templates/KOR = {
 		division_template = {
 			name = "NK Armor Division I"
 			division_names_group = KOR_ARM_01
-			template_counter = @C_LIGHT_ARMOR
 			regiments = {
 				cavalry = { x = 0 y = 0 }
 				cavalry = { x = 0 y = 1 }
@@ -279,7 +273,6 @@ ai_light_armor_templates/KOR = {
 		division_template = {
 			name = "NK Armor Division II"
 			division_names_group = KOR_ARM_01
-			template_counter = @C_LIGHT_ARMOR
 			regiments = {
 				mechanized = { x = 0 y = 0 }
 				mechanized = { x = 0 y = 1 }
@@ -338,7 +331,6 @@ ai_medium_armor_templates/KOR = {
 		division_template = {
 			name = "SK Armor Division"
 			division_names_group = KOR_ARM_02
-			template_counter = @C_MEDIUM_ARMOR
 			regiments = {
 				mechanized_assault = { x = 0 y = 0 }
 				motorized = { x = 0 y = 1 }
@@ -400,7 +392,6 @@ ai_mountaineer_templates/KOR = {
 		division_template = {
 			name = "Mountaineers Division"
 			division_names_group = KOR_MNT_01
-			template_counter = @C_MOUNTAINEER
 			regiments = {
 				mountaineers = { x = 0 y = 0 }
 				mountaineers = { x = 0 y = 1 }

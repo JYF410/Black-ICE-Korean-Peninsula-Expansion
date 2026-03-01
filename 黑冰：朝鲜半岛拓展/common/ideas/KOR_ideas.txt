@@ -97,6 +97,37 @@ ideas = {
 				foreign_minister_cost_factor = -0.5 #外交部长行动力消耗-50%
 			}	
 		}
+		#联合光复阵线
+		KOR_CHI_Restoration_Front = {
+			picture = MEX_revolutionary_army
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_core_attack_factor = 0.05 #核心领土进攻+5%
+				army_core_defence_factor = 0.05 #核心领土防御+5%
+				army_org_factor = 0.2 #陆军组织度+20%
+			}
+			targeted_modifier = {
+				tag = JAP
+				defense_bonus_against = 1.0 #我国对该国防御加成+100%
+			}
+			allowed_civil_war = {
+				NOT ={
+					has_government = fascism #设定内战爆发时不允许拥有民族精神的一方
+				}
+			}
+			cancel = {
+				KOR = {
+					NOT = { has_war_with = JAP }
+					has_civil_war = no
+					controls_state = 751
+					controls_state = 463
+					controls_state = 525
+					controls_state = 819
+					controls_state = 820
+				}
+			}
+		}
 		#朝鲜民族战线联盟
 		KOR_front_against_Japan = {
 			picture = hol_expand_the_colonial_army

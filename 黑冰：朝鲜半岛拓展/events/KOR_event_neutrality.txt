@@ -100,7 +100,7 @@ country_event = {
 		name = KOR_neutrality.3.b
 		trigger = { tag = CHI }
 		KOR = {
-			set_country_flag = KOR_neutrality_host_country_decision_refuse_us
+			set_country_flag = KOR_neutrality_host_country_decision_refuse_us #蒋介石拒绝了我们
 		}
 		CHI = {
 			add_stability = -0.05 #稳定度-5%
@@ -127,7 +127,7 @@ news_event = {
 			596 = { transfer_state_to = KOR } #移交领土杭州给KOR
 		}
 		KOR = {
-			set_country_flag = KOR_neutrality_host_country_decision_completed #对应文件：common\decisions\korea.txt，去除杭州抵抗度
+			set_country_flag = KOR_neutrality_host_country_decision_completed
 			set_variable = { KOR.host_nation = CHI } #标记CHI是寄主国
 			set_rule = { can_access_market = yes }
 			hidden_effect = {
